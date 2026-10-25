@@ -1,0 +1,168 @@
+"""Trích xuất SigLIP embedding cho keyframe (CLAUDE.md Mục 2.1, Phase 2).
+
+VÌ SAO CÓ SigLIP BÊN CẠNH CLIP: Mục 2.1 quyết định dùng ENSEMBLE 2 encoder độc lập
+(CLIP có sẵn + SigLIP tự trích xuất). SigLIP zero-shot tốt hơn CLIP ở benchmark
+retrieval; dùng 2 encoder giảm rủi ro "cùng sai" (correlated errors) -> tăng accuracy.
+
+KHÁC embed_clip.py: CLIP feature BTC cấp sẵn nên chỉ NẠP; còn SigLIP phải TỰ TRÍCH
+XUẤT từ ảnh keyframe (cần model + GPU). Vì mock-first (chưa có GPU/data), bản thật
+`SiglipEncoder` LAZY-IMPORT torch/transformers — import module này KHÔNG kéo theo
+torch, chỉ khi gọi mới nạp -> pipeline mock chạy được ngay.
+"""
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+
+import numpy as np
+
+from . import model_cache  # noqa: F401 -- đặt HF_HOME (ổ D) trước khi nạp transformers
+from .embed_clip import deterministic_unit_vector
+from .schemas import RawKeyframe
+
+# Chiều embedding SigLIP-large (khớp configs/settings.yaml -> embedding.siglip.dim).
+SIGLIP_DIM = 1024
+
+
+class SiglipEmbeddingProvider(ABC):
+    """Interface: trả SigLIP embedding cho một RawKeyframe."""
+
+    @abstractmethod
+    def embed(self, raw: RawKeyframe) -> np.ndarray:
+        ...
+
+
+class MockSiglipEmbeddingProvider(SiglipEmbeddingProvider):
+    """Mock: embedding tất định theo id, KHÁC không gian với CLIP (salt='siglip').
+
+    Dùng salt khác để mock CLIP và mock SigLIP không trùng nhau — phản ánh việc 2
+    encoder thật cho ra 2 biểu diễn độc lập (đúng tinh thần ensemble Mục 2.1).
+    """
+
+    def __init__(self, dim: int = SIGLIP_DIM):
+        self.dim = dim
+
+    def embed(self, raw: RawKeyframe) -> np.ndarray:
+        return deterministic_unit_vector(raw.id, self.dim, salt="siglip")
+
+
+class SiglipEncoder(SiglipEmbeddingProvider):
+    """Bản THẬT: trích xuất SigLIP embedding từ ảnh keyframe.
+
+    torch/transformers được LAZY-IMPORT trong __init__ để module này import được
+    kể cả khi chưa cài (mock-first). Khi có GPU + data thật, tạo instance này thay
+    cho MockSiglipEmbeddingProvider là chạy — không đổi phần còn lại của pipeline.
+
+    Tối ưu theo Mục 5.2 (áp dụng khi chạy batch thật ở build_records): fp16 +
+    batch lớn để tăng throughput ~40%. Ở đây để đơn giản, embed từng ảnh; phần
+    batch hoá sẽ thêm khi cắm dữ liệu thật và đo được throughput.
+    """
+
+    def __init__(
+        self,
+        # Mặc định = encoder thật engine dùng (siglip2-base, đa ngôn ngữ, 768-dim).
+        # Đổi sang "google/siglip2-large-patch16-384" nếu cần chính xác hơn (nặng hơn).
+        model_name: str = "google/siglip2-base-patch16-256",
+        device: str | None = None,
+        precision: str = "fp16",
+    ):
+        try:
+            import torch  # noqa: F401
+            from transformers import AutoModel, AutoProcessor
+        except ImportError as e:  # pragma: no cover - chỉ chạy khi dùng bản thật
+            raise ImportError(
+                "SiglipEncoder cần 'torch' và 'transformers'. Cài: "
+                "pip install torch transformers. (Đang mock-first nên chưa cài — "
+                "dùng MockSiglipEmbeddingProvider để test offline.)"
+            ) from e
+        import torch
+
+        self.model_name = model_name
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+        self._torch = torch
+        self._processor = AutoProcessor.from_pretrained(model_name)
+        self._model = AutoModel.from_pretrained(model_name).to(self.device)
+        if precision == "fp16" and self.device == "cuda":
+            self._model = self._model.half()
+        self._model.eval()
+
+    def embed(self, raw: RawKeyframe) -> np.ndarray:  # pragma: no cover - bản thật
+        from .schemas import load_pil_image
+
+        torch = self._torch
+        image = load_pil_image(raw)  # ưu tiên ảnh trong RAM (image_bytes), fallback đĩa
+        inputs = self._processor(images=image, return_tensors="pt").to(self.device)
+        with torch.no_grad():
+            feats = self._model.get_image_features(**inputs)
+        return self._to_unit(self._pool(feats)[0])
+
+    def embed_batch(
+        self, raws: list[RawKeyframe], batch_size: int = 256,
+    ) -> list[np.ndarray]:  # pragma: no cover - bản thật (cần GPU/model)
+        """Embed NHIỀU keyframe theo LÔ — mấu chốt để GPU chạy hết công suất.
+
+        VÌ SAO QUAN TRỌNG: `embed()` xử lý 1 ảnh/lần khiến GPU chỉ dùng ~2-5% năng
+        lực (nạp/tính lẻ, overhead mỗi lần gọi lớn hơn phép tính). Gom `batch_size`
+        ảnh thành MỘT tensor rồi một lượt `get_image_features` cho phép GPU song song
+        hoá — throughput tăng hàng chục lần trên cùng phần cứng (blueprint Mục 5.2).
+        Chia theo lô để không tràn VRAM với dataset lớn; fp16 (đã bật) giảm nửa bộ nhớ.
+
+        Trả về danh sách vector đơn vị ĐÚNG THỨ TỰ `raws` (khớp 1-1 để ráp record).
+        """
+        from concurrent.futures import ThreadPoolExecutor
+
+        from .schemas import load_pil_image
+
+        # Load ảnh SONG SONG bằng thread: JPEG decode (libjpeg) nhả GIL nên nhiều
+        # thread giải mã thật sự chồng nhau. Đây là nút thắt thực đo được (tiền xử lý
+        # CPU lớn hơn phần GPU). Dùng thread thay process để KHÔNG phải pickle ảnh.
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            images = list(pool.map(load_pil_image, raws))
+        return self.embed_pil_batch(images, batch_size)
+
+    def embed_pil_batch(
+        self, images: list, batch_size: int = 256,
+    ) -> list[np.ndarray]:  # pragma: no cover - bản thật (cần GPU/model)
+        """Embed các ảnh PIL ĐÃ LOAD SẴN (bỏ bước giải mã). Cho phép ENSEMBLE giải mã
+        JPEG 1 LẦN rồi dùng chung cho CẢ 2 encoder — trước đây mỗi encoder tự load lại
+        nên giải mã 2 lần (lãng phí đúng phần tiền xử lý là nút thắt)."""
+        torch = self._torch
+        out: list[np.ndarray] = []
+        for start in range(0, len(images), batch_size):
+            chunk = images[start:start + batch_size]
+            inputs = self._processor(images=chunk, return_tensors="pt").to(self.device)
+            with torch.no_grad():
+                feats = self._model.get_image_features(**inputs)
+            mat = self._pool(feats).float().cpu().numpy().astype(np.float32)
+            norms = np.linalg.norm(mat, axis=1, keepdims=True)
+            norms[norms == 0] = 1.0  # tránh chia 0 với vector suy biến
+            out.extend(mat / norms)
+        return out
+
+    def encode_text(self, text: str) -> np.ndarray:  # pragma: no cover - bản thật
+        """Mã hoá QUERY TEXT vào CÙNG không gian với embedding ảnh.
+
+        Nhờ SigLIP là mô hình đa phương tiện (image-text), vector text và vector ảnh
+        cùng không gian -> tìm kiếm cross-modal: cosine(text_query, ảnh_keyframe). Đây
+        là mắt xích cho phép SEARCH BẰNG CHỮ trên video thật (không cần caption/API).
+        SigLIP yêu cầu padding='max_length' cho nhánh text."""
+        torch = self._torch
+        # max_length=64: SigLIP/SigLIP2 huấn luyện text tối đa 64 token; truyền tường
+        # minh để nhất quán giữa các đời model (SigLIP2 dùng tokenizer Gemma cần rõ).
+        inputs = self._processor(
+            text=[text], padding="max_length", max_length=64, truncation=True,
+            return_tensors="pt",
+        ).to(self.device)
+        with torch.no_grad():
+            feats = self._model.get_text_features(**inputs)
+        return self._to_unit(self._pool(feats)[0])
+
+    @staticmethod
+    def _pool(out):
+        """Lấy vector pooled. transformers 5.x trả BaseModelOutputWithPooling (dùng
+        pooler_output); bản cũ trả thẳng tensor -> dùng nguyên."""
+        return out.pooler_output if hasattr(out, "pooler_output") else out
+
+    def _to_unit(self, tensor) -> np.ndarray:
+        vec = tensor.float().cpu().numpy().astype(np.float32)
+        norm = np.linalg.norm(vec)
+        return vec / norm if norm > 0 else vec

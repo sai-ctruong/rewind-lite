@@ -1,0 +1,17 @@
+# Cấu hình package và pytest cho Rewind Lite.
+
+[project]
+name = "rewind-lite"
+version = "0.1.0"
+description = "Định vị khoảnh khắc trong video bằng truy vấn ngôn ngữ tự nhiên tiếng Việt"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+# Cho phép import package từ project root khi chạy test.
+pythonpath = ["."]
+testpaths = ["tests"]
+# -ra tóm tắt skip/xfail; -q rút gọn kết quả.
+addopts = "-ra -q"
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

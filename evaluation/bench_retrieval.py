@@ -1,0 +1,399 @@
+"""Benchmark truy xuất video (CLAUDE.md Mục 11.3 — ĐO THẬT, không đoán tham số).
+
+Gồm 2 phần, tách thành các HÀM THUẦN để test offline bằng mock (mock-first):
+
+  1. THROUGHPUT EMBEDDING (`measure_embed_throughput`) — lượng hoá lợi ích của A1
+     (batch embedding): đo frame/giây khi embed LẺ (`.embed`) vs THEO LÔ (`.embed_batch`)
+     trên cùng encoder, in tỉ lệ tăng tốc. Đây là con số blueprint yêu cầu đo sau A1.
+
+  2. ĐỘ CHÍNH XÁC TRÊN BỘ NHÃN (`evaluate_labeled`) — với mỗi (query → cửa sổ thời
+     gian đúng), chạy engine.search rồi tính Recall@K / MRR bằng evaluation.metrics.
+     Bộ nhãn có thể là VIDEO TỔNG HỢP (tự sinh, có ground-truth) hoặc NHÃN THẬT nạp
+     từ JSON trỏ vào video trong data/videos/ — cùng một harness, cắm dữ liệu thật là chạy.
+
+Vì sao tách hàm thuần khỏi `main()`: `main()` nạp model SigLIP thật (nặng, cần GPU)
+nên KHÔNG test tự động; còn logic đo/chấm phải kiểm được offline bằng encoder mock.
+
+Chạy thật:  python -m evaluation.bench_retrieval
+            python -m evaluation.bench_retrieval --labels evaluation/labels.json
+"""
+from __future__ import annotations
+
+import json
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from statistics import mean
+from typing import Optional, Sequence
+
+from evaluation.metrics import hit_at_k, recall_at_k, reciprocal_rank
+
+BENCH_DIR = Path("evaluation/benchmarks")
+
+
+# ============================ 1. THROUGHPUT EMBEDDING =========================
+def measure_embed_throughput(
+    encoder, raws: list, batch_size: int = 256, repeat: int = 1,
+) -> dict:
+    """Đo frame/giây khi embed LẺ vs THEO LÔ trên cùng encoder → tỉ lệ tăng tốc (A1).
+
+    `encoder` chỉ cần có `.embed(raw)`; nếu có thêm `.embed_batch(raws, batch_size)`
+    thì đo luôn nhánh lô và tính speedup. Trả dict số liệu (lưu JSON để tham chiếu).
+    """
+    n = len(raws) * repeat
+    if n == 0:
+        return {"n_frames": 0}
+
+    t0 = time.perf_counter()
+    for _ in range(repeat):
+        for r in raws:
+            encoder.embed(r)
+    seq_s = time.perf_counter() - t0
+    seq_fps = n / seq_s if seq_s > 0 else float("inf")
+    out = {"n_frames": len(raws), "repeat": repeat,
+           "sequential_fps": round(seq_fps, 2)}
+
+    batch_fn = getattr(encoder, "embed_batch", None)
+    if callable(batch_fn):
+        t0 = time.perf_counter()
+        for _ in range(repeat):
+            batch_fn(raws, batch_size)
+        bat_s = time.perf_counter() - t0
+        bat_fps = n / bat_s if bat_s > 0 else float("inf")
+        out["batched_fps"] = round(bat_fps, 2)
+        out["batch_size"] = batch_size
+        out["speedup"] = (round(bat_fps / seq_fps, 2)
+                          if 0 < seq_fps < float("inf") else None)
+    return out
+
+
+# ========================= 2. ĐỘ CHÍNH XÁC TRÊN NHÃN =========================
+@dataclass
+class Label:
+    """Một mẫu đánh giá: câu query + cửa sổ thời gian ĐÚNG trong 1 video.
+
+    Dùng cửa sổ thời gian (thay vì liệt kê từng frame id) vì keyframe id phụ thuộc
+    tham số lấy mẫu/dedup — nhãn theo THỜI GIAN ổn định qua mọi cấu hình, đúng tinh
+    thần so cấu hình ở Mục 11.3.
+    """
+
+    query: str
+    video_id: str
+    time_window: tuple[float, float]   # [t_start, t_end) giây — vùng chứa đáp án
+
+
+def relevant_ids(entry, label: Label) -> set[str]:
+    """Tập keyframe id 'đúng' = các frame của đúng video rơi vào cửa sổ thời gian."""
+    lo, hi = label.time_window
+    return {
+        rid for rid, r in entry.raws.items()
+        if r.video_id == label.video_id and lo <= r.timestamp < hi
+    }
+
+
+def evaluate_labeled(
+    engine, entry, labels: Sequence[Label], ks: Sequence[int] = (1, 5),
+    top_k: int = 10, rerank: bool = False,
+) -> dict:
+    """Chấm Recall@K / hit@K / MRR trên bộ nhãn. Trả per-query + tổng hợp.
+
+    hit@k = KIS Top-k accuracy (có ít nhất 1 frame đúng trong top-k). recall@k hữu
+    ích cho AVS (nhiều frame đúng). MRR thưởng việc đẩy frame đúng lên cao."""
+    per_query = []
+    for lab in labels:
+        rel = relevant_ids(entry, lab)
+        results = engine.search(entry, lab.query, top_k=top_k, rerank=rerank)
+        retrieved = [c.keyframe_id for c in results]
+        row = {"query": lab.query, "video_id": lab.video_id,
+               "n_relevant": len(rel), "mrr": round(reciprocal_rank(retrieved, rel), 4)}
+        for k in ks:
+            row[f"hit@{k}"] = hit_at_k(retrieved, rel, k)
+            row[f"recall@{k}"] = round(recall_at_k(retrieved, rel, k), 4)
+        per_query.append(row)
+
+    agg: dict = {"n_queries": len(per_query)}
+    if per_query:
+        agg["mrr"] = round(mean(r["mrr"] for r in per_query), 4)
+        for k in ks:
+            agg[f"hit@{k}"] = round(mean(r[f"hit@{k}"] for r in per_query), 4)
+            agg[f"recall@{k}"] = round(mean(r[f"recall@{k}"] for r in per_query), 4)
+    return {"aggregate": agg, "per_query": per_query}
+
+
+def load_labels(path: str | Path) -> list[Label]:
+    """Nạp nhãn thật từ JSON: [{"query","video_id","time_window":[lo,hi]}, ...]."""
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    return [Label(query=d["query"], video_id=d["video_id"],
+                  time_window=tuple(d["time_window"])) for d in data]
+
+
+# =============================== quét cấu hình ===============================
+def sweep_configs(
+    config_factories: dict, video_paths: Sequence, labels: Sequence[Label],
+    out_dir: str | Path, ks: Sequence[int] = (1, 5), top_k: int = 10,
+) -> list[dict]:
+    """Index + chấm NHIỀU cấu hình engine trên CÙNG bộ nhãn → so recall/latency.
+
+    Mục đích (blueprint Mục 11.3): quét tham số [PROVISIONAL] (sample_every_s, efSearch,
+    embed_batch_size…) rồi vẽ đường cong recall–latency, chọn điểm "khuỷu tay" — nơi
+    tăng thêm chi phí không còn đáng tăng recall. KHÔNG chốt tham số bằng cảm tính.
+
+    `config_factories`: dict[tên -> hàm() trả về VideoSearchEngine đã set encoder].
+    Mỗi cấu hình được index LẠI (vì lấy mẫu/encoder khác nhau đổi cả index). Trả 1
+    dòng số liệu / cấu hình: thời gian index, số keyframe, và các metric tổng hợp."""
+    results: list[dict] = []
+    for name, factory in config_factories.items():
+        engine = factory()
+        t0 = time.perf_counter()
+        entry = engine.index_dataset(list(video_paths), out_dir)
+        t_index = time.perf_counter() - t0
+        acc = evaluate_labeled(engine, entry, labels, ks=ks, top_k=top_k)
+        results.append({
+            "config": name, "index_seconds": round(t_index, 2),
+            "num_indexed": entry.num_indexed, **acc["aggregate"],
+        })
+    return results
+
+
+# ============================ synthetic ground-truth =========================
+def make_labeled_video(path: Path, video_id: str = "gt_scenes"):
+    """Sinh video 3 cảnh có nhãn chữ + trả (video_path, [Label]) — dùng khi CHƯA có
+    nhãn thật, để harness chạy được ngay end-to-end (mock-first)."""
+    import cv2
+    import numpy as np
+
+    fps, spc = 10, 2.0
+    scenes = [("CAT", ["a photo of a cat", "một con mèo"], (30, 30, 30)),
+              ("DOG", ["a photo of a dog", "một con chó"], (200, 200, 200)),
+              ("CAR", ["a photo of a car", "một chiếc xe hơi"], (60, 20, 120))]
+    vw = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*"mp4v"), fps, (224, 224))
+    assert vw.isOpened()
+    labels: list[Label] = []
+    t = 0.0
+    for label, queries, bg in scenes:
+        frame = np.zeros((224, 224, 3), np.uint8)
+        frame[:] = bg
+        cv2.putText(frame, label, (30, 130), cv2.FONT_HERSHEY_SIMPLEX, 2.2,
+                    (0, 255, 255), 6)
+        for _ in range(int(fps * spc)):
+            vw.write(frame)
+        for q in queries:
+            labels.append(Label(query=q, video_id=video_id, time_window=(t, t + spc)))
+        t += spc
+    vw.release()
+    return path, labels
+
+
+def fusion_depth_sweep(  # pragma: no cover - model thật
+    labels_path: str,
+    out_name: str = "fusion_depth_bench.json",
+    depths: Sequence[int] = (5, 10, 20, 50, 100, 300, 1000),
+) -> list[dict]:
+    """Chốt `fusion_depth` bằng SỐ ĐO, không đoán (Mục 11.3).
+
+    BỐI CẢNH: `top_k` từng kiêm luôn vai trò độ sâu fusion, nên số đo cũ lẫn lộn hai
+    thứ — "xin 5 kết quả" thật ra cũng có nghĩa "fusion sâu 5". Nay đã tách, quét được
+    độ sâu một cách sạch sẽ.
+
+    Index MỘT LẦN rồi chỉ đổi `engine.fusion_depth` — độ sâu không đụng tới index, nên
+    index lại cho mỗi giá trị là phí thời gian (khác encoder_sweep: đổi encoder thì
+    buộc phải index lại).
+
+    ĐO VỚI top_k=5, KHÔNG PHẢI 100 — bài học từ lần chạy hỏng đầu tiên: fusion sâu d
+    trên n nguồn chỉ sinh tối đa d·n ứng viên, nên hit@100 ở depth=5 là VÔ NGHĨA. Muốn
+    so công bằng thì mọi độ sâu phải trả đủ số kết quả được chấm -> top_k=5 (và hit@1/
+    hit@5 mới đúng là thứ quan trọng với KIS).
+
+    rerank=False: cô lập ẢNH HƯỞNG CỦA FUSION. Bật VLM rerank sẽ trộn thêm một biến
+    số nữa (và tốn ~4s/query × 51 nhãn × 7 độ sâu).
+
+    So sánh bằng McNemar THEO CẶP, không nhìn bảng bằng mắt (đã có tiền sự đọc chênh
+    lệch 2 query thành kết luận — xem TASKS Mục 6c).
+    """
+    from evaluation.metrics import mcnemar_paired, wilson_interval
+    from retrieval.video_engine import VideoSearchEngine
+
+    BENCH_DIR.mkdir(parents=True, exist_ok=True)
+    labels = load_labels(labels_path)
+    vids = sorted({lab.video_id for lab in labels})
+    video_paths = [Path("data/videos") / f"{v}.mp4" for v in vids]
+
+    engine = VideoSearchEngine()
+    t0 = time.perf_counter()
+    entry = engine.index_dataset(video_paths, BENCH_DIR / "fusion_depth_idx")
+    print(f"[depth] index {entry.num_indexed} kf trong {time.perf_counter()-t0:.1f}s",
+          flush=True)
+
+    rows: list[dict] = []
+    hits_by_depth: dict[int, list[float]] = {}
+    for d in depths:
+        engine.fusion_depth = d
+        t0 = time.perf_counter()
+        acc = evaluate_labeled(engine, entry, labels, ks=(1, 5), top_k=5)
+        elapsed = time.perf_counter() - t0
+        hits_by_depth[d] = [r["hit@1"] for r in acc["per_query"]]
+        # Số kết quả trả về trung bình: canh chừng depth bị kẹp (bug đã sập một lần).
+        n_ret = mean(len(engine.search(entry, lab.query, top_k=5)) for lab in labels)
+        lo, hi = wilson_interval(int(sum(hits_by_depth[d])), len(labels))
+        row = {"fusion_depth": d,
+               "seconds_per_query": round(elapsed / max(1, len(labels)), 4),
+               "avg_results_returned": round(n_ret, 2),
+               "hit@1_ci95": [round(lo, 4), round(hi, 4)],
+               **acc["aggregate"]}
+        rows.append(row)
+        print(f"[depth] {d:>5}: hit@1={row.get('hit@1')} KTC95={row['hit@1_ci95']} "
+              f"hit@5={row.get('hit@5')} mrr={row.get('mrr')} | "
+              f"trả {row['avg_results_returned']} kq | {row['seconds_per_query']}s/q",
+              flush=True)
+
+    # So từng độ sâu với độ sâu LỚN NHẤT (mặc định hiện tại) — theo cặp.
+    base = max(depths)
+    comparisons = []
+    for d in depths:
+        if d == base:
+            continue
+        r = mcnemar_paired(hits_by_depth[base], hits_by_depth[d])
+        comparisons.append({"depth": d, "vs": base, **r})
+        verdict = "CÓ Ý NGHĨA" if r["significant_at_05"] else "chưa phân biệt được"
+        print(f"[so cặp] depth {d} vs {base}: {r['n_discordant']} cặp bất đồng, "
+              f"p={r['p_value']} -> {verdict}", flush=True)
+
+    out = BENCH_DIR / out_name
+    out.write_text(
+        json.dumps({"n_labels": len(labels), "num_indexed": entry.num_indexed,
+                    "rerank": False, "top_k": 5, "depths": rows,
+                    "paired_tests": comparisons}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    print(f"[Đã lưu] {out}")
+    return rows
+
+
+# ================================== main =====================================
+def encoder_sweep(labels_path: str, out_name: str = "encoder_bench.json",
+                  batch_size: int = 64) -> list[dict]:  # pragma: no cover - model thật
+    """Q5: encoder MẠNH hơn có phá được trần recall không? Đo trên CÙNG bộ nhãn thật.
+
+    Trần hit@5 ~0.65 giữ nguyên qua mọi cấu hình fusion/rerank -> nghi là trần của
+    ENCODER (base). Cách duy nhất để biết chắc: đổi encoder rồi đo lại, chứ không suy
+    diễn. So 3 cấu hình:
+      - base_ensemble : mặc định hiện tại (2 encoder base)
+      - hq_ensemble   : siglip2-LARGE-384 + base-multilingual (nặng VRAM)
+      - hq_single     : CHỈ siglip2-large-384 — dự phòng khi ensemble không vừa 6GB VRAM
+
+    `batch_size` nhỏ hơn mặc định (256) vì ảnh 384x384 của model large ngốn VRAM gấp
+    nhiều lần 256x256.
+    """
+    from retrieval.video_engine import DEFAULT_ENCODERS, HQ_ENCODERS, VideoSearchEngine
+
+    BENCH_DIR.mkdir(parents=True, exist_ok=True)
+    labels = load_labels(labels_path)
+    vids = sorted({l.video_id for l in labels})
+    video_paths = [Path("data/videos") / f"{v}.mp4" for v in vids]
+
+    factories = {
+        "base_ensemble": lambda: VideoSearchEngine(enable_ocr=False),
+        "hq_ensemble": lambda: VideoSearchEngine(
+            encoder_names=HQ_ENCODERS, enable_ocr=False, embed_batch_size=batch_size),
+        "hq_single": lambda: VideoSearchEngine(
+            encoder_names=(HQ_ENCODERS[0],), enable_ocr=False,
+            embed_batch_size=batch_size),
+    }
+    rows: list[dict] = []
+    for name, factory in factories.items():
+        print(f"[encoder] === {name} ===", flush=True)
+        try:
+            rows.extend(sweep_configs({name: factory}, video_paths, labels,
+                                      BENCH_DIR / f"enc_{name}"))
+            r = rows[-1]
+            print(f"[encoder] {name}: hit@1={r.get('hit@1')} hit@5={r.get('hit@5')} "
+                  f"mrr={r.get('mrr')} | index {r['index_seconds']}s | "
+                  f"{r['num_indexed']} kf", flush=True)
+        except Exception as e:      # OOM / thiếu model -> ghi lại, KHÔNG bỏ cả lượt chạy
+            print(f"[encoder] {name} THẤT BẠI: {type(e).__name__}: {str(e)[:200]}",
+                  flush=True)
+            rows.append({"config": name, "error": f"{type(e).__name__}: {str(e)[:300]}"})
+        finally:
+            import gc
+            import torch
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()   # trả VRAM trước khi nạp encoder kế
+
+    out = BENCH_DIR / out_name
+    out.write_text(json.dumps({"n_labels": len(labels), "configs": rows},
+                              ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[Đã lưu] {out}")
+    return rows
+
+
+def main(  # pragma: no cover - model thật
+    labels_path: Optional[str] = None, sweep: bool = False,
+) -> None:
+    """Chạy benchmark thật (nạp SigLIP). Đo throughput A1 + Recall/MRR, lưu JSON."""
+    from retrieval.video_engine import VideoSearchEngine
+
+    BENCH_DIR.mkdir(parents=True, exist_ok=True)
+    video_dir = Path("data/videos")
+    engine = VideoSearchEngine(enable_ocr=False)
+
+    if labels_path:
+        labels = load_labels(labels_path)
+        vids = sorted({l.video_id for l in labels})
+        video_paths = [video_dir / f"{v}.mp4" for v in vids]
+        entry = engine.index_dataset(video_paths, BENCH_DIR / "frames")
+    else:
+        video, labels = make_labeled_video(BENCH_DIR / "gt_scenes.mp4")
+        video_paths = [video]
+        entry = engine.index_video(video, BENCH_DIR / "frames")
+
+    # 1) Throughput: đo trên chính encoder đầu của engine, dùng raws đã cắt.
+    raws = list(entry.raws.values())
+    thr = measure_embed_throughput(engine._load_encoders()[0], raws)
+    print(f"[throughput] tuần tự {thr.get('sequential_fps')} fps | "
+          f"lô {thr.get('batched_fps')} fps | tăng tốc ×{thr.get('speedup')}")
+
+    # 2) Độ chính xác.
+    acc = evaluate_labeled(engine, entry, labels)
+    print(f"[accuracy] {acc['aggregate']}")
+
+    report = {"throughput": thr, "accuracy": acc}
+
+    # 3) (tuỳ chọn) Quét sample_every_s để chọn điểm "khuỷu tay" (Mục 11.3).
+    if sweep:
+        factories = {
+            f"every_{s}s": (lambda s=s: VideoSearchEngine(sample_every_s=s, enable_ocr=False))
+            for s in (0.5, 1.0, 2.0)
+        }
+        rows = sweep_configs(factories, video_paths, labels, BENCH_DIR / "sweep_frames")
+        for r in rows:
+            print(f"[sweep] {r['config']}: hit@1={r.get('hit@1')} hit@5={r.get('hit@5')} "
+                  f"mrr={r.get('mrr')} | index {r['index_seconds']}s | {r['num_indexed']} kf")
+        report["sweep_sample_every_s"] = rows
+
+    out = BENCH_DIR / "retrieval_benchmark.json"
+    out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[Đã lưu] {out}")
+
+
+if __name__ == "__main__":
+    import argparse
+
+    p = argparse.ArgumentParser(description="Benchmark truy xuất video (throughput + accuracy).")
+    p.add_argument("--labels", default=None, help="JSON nhãn thật (mặc định: video tổng hợp).")
+    p.add_argument("--sweep", action="store_true", help="Quét sample_every_s (0.5/1/2s).")
+    p.add_argument("--encoders", action="store_true",
+                   help="Q5: so encoder base vs LARGE trên cùng nhãn (cần --labels).")
+    p.add_argument("--batch", type=int, default=64, help="embed_batch_size cho encoder large.")
+    p.add_argument("--fusion-depth", action="store_true",
+                   help="Quét độ sâu RRF để chốt fusion_depth (cần --labels).")
+    args = p.parse_args()
+    if args.encoders:
+        if not args.labels:
+            p.error("--encoders cần --labels (so encoder phải trên nhãn THẬT).")
+        encoder_sweep(args.labels, batch_size=args.batch)
+    elif args.fusion_depth:
+        if not args.labels:
+            p.error("--fusion-depth cần --labels (chốt tham số phải trên nhãn THẬT).")
+        fusion_depth_sweep(args.labels)
+    else:
+        main(args.labels, sweep=args.sweep)
