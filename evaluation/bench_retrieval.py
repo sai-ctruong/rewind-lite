@@ -26,6 +26,7 @@ from pathlib import Path
 from statistics import mean
 from typing import Optional, Sequence
 
+from evaluation.dataset import validate_labels
 from evaluation.metrics import hit_at_k, recall_at_k, reciprocal_rank
 
 BENCH_DIR = Path("evaluation/benchmarks")
@@ -80,15 +81,26 @@ class Label:
     query: str
     video_id: str
     time_window: tuple[float, float]   # [t_start, t_end) giây — vùng chứa đáp án
+    time_windows: tuple[tuple[float, float], ...] = ()  # additional disjoint windows
+    id: str | None = None
+
+    @property
+    def windows(self) -> tuple[tuple[float, float], ...]:
+        return (self.time_window, *self.time_windows)
+
+
+def _matching_ids(entry, label: Label, ids) -> set[str]:
+    return {
+        rid for rid in ids if rid in entry.raws
+        for r in (entry.raws[rid],)
+        if r.video_id == label.video_id
+        and any(lo <= r.timestamp < hi for lo, hi in label.windows)
+    }
 
 
 def relevant_ids(entry, label: Label) -> set[str]:
-    """Tập keyframe id 'đúng' = các frame của đúng video rơi vào cửa sổ thời gian."""
-    lo, hi = label.time_window
-    return {
-        rid for rid, r in entry.raws.items()
-        if r.video_id == label.video_id and lo <= r.timestamp < hi
-    }
+    """Relevant IDs actually searchable after dedup, using [start, end)."""
+    return _matching_ids(entry, label, entry.index.ids)
 
 
 def evaluate_labeled(
@@ -101,30 +113,74 @@ def evaluate_labeled(
     ích cho AVS (nhiều frame đúng). MRR thưởng việc đẩy frame đúng lên cao."""
     per_query = []
     for lab in labels:
+        data = {"id": lab.id, "query": lab.query, "video_id": lab.video_id,
+                "time_windows": lab.windows}
+        issues = validate_labels([data])
+        row = {"id": lab.id, "query": lab.query, "video_id": lab.video_id,
+               "annotation_validity": "invalid" if issues else "valid",
+               "validation_issues": [issue.code for issue in issues]}
+        if issues:
+            row.update(index_coverage="not_evaluated", retrieval_hit=None,
+                       outcome="invalid_annotation", n_sampled_relevant=0,
+                       n_relevant=0, mrr=None)
+            for k in ks:
+                row[f"hit@{k}"] = None
+                row[f"recall@{k}"] = None
+            per_query.append(row)
+            continue
+        sampled = _matching_ids(entry, lab, entry.raws)
         rel = relevant_ids(entry, lab)
+        if not sampled:
+            coverage = "no_sampled_positive"
+        elif not rel:
+            coverage = "dedup_removed_positive"
+        else:
+            coverage = "covered"
         results = engine.search(entry, lab.query, top_k=top_k, rerank=rerank)
         retrieved = [c.keyframe_id for c in results]
-        row = {"query": lab.query, "video_id": lab.video_id,
-               "n_relevant": len(rel), "mrr": round(reciprocal_rank(retrieved, rel), 4)}
+        hit = bool(set(retrieved) & rel)
+        outcome = ("retrieval_hit" if hit else "retrieval_rank_miss"
+                   if coverage == "covered" else coverage)
+        row.update(index_coverage=coverage, retrieval_hit=hit, outcome=outcome,
+                   n_sampled_relevant=len(sampled), n_relevant=len(rel),
+                   mrr=round(reciprocal_rank(retrieved, rel), 4))
         for k in ks:
             row[f"hit@{k}"] = hit_at_k(retrieved, rel, k)
             row[f"recall@{k}"] = round(recall_at_k(retrieved, rel, k), 4)
         per_query.append(row)
 
-    agg: dict = {"n_queries": len(per_query)}
-    if per_query:
-        agg["mrr"] = round(mean(r["mrr"] for r in per_query), 4)
+    valid = [r for r in per_query if r["annotation_validity"] == "valid"]
+    covered = [r for r in valid if r["index_coverage"] == "covered"]
+    agg: dict = {"n_queries": len(per_query), "n_valid": len(valid),
+                 "n_invalid": len(per_query) - len(valid), "n_covered": len(covered),
+                 "coverage": round(len(covered) / len(valid), 4) if valid else 0.0}
+    if valid:
+        agg["mrr"] = round(mean(r["mrr"] for r in valid), 4)
+        agg["mrr_covered"] = round(mean(r["mrr"] for r in covered), 4) if covered else None
         for k in ks:
-            agg[f"hit@{k}"] = round(mean(r[f"hit@{k}"] for r in per_query), 4)
-            agg[f"recall@{k}"] = round(mean(r[f"recall@{k}"] for r in per_query), 4)
+            agg[f"hit@{k}"] = round(mean(r[f"hit@{k}"] for r in valid), 4)
+            agg[f"recall@{k}"] = round(mean(r[f"recall@{k}"] for r in valid), 4)
+            agg[f"hit@{k}_covered"] = (
+                round(mean(r[f"hit@{k}"] for r in covered), 4) if covered else None)
     return {"aggregate": agg, "per_query": per_query}
 
 
 def load_labels(path: str | Path) -> list[Label]:
-    """Nạp nhãn thật từ JSON: [{"query","video_id","time_window":[lo,hi]}, ...]."""
+    """Load validated single- or multi-window labels; video existence is separate."""
     data = json.loads(Path(path).read_text(encoding="utf-8"))
-    return [Label(query=d["query"], video_id=d["video_id"],
-                  time_window=tuple(d["time_window"])) for d in data]
+    if not isinstance(data, list):
+        raise ValueError("Labels must be a JSON array")
+    issues = validate_labels(data)
+    if issues:
+        raise ValueError(f"Invalid labels: {issues}")
+    labels = []
+    for d in data:
+        windows = [d["time_window"]] if "time_window" in d else d["time_windows"]
+        labels.append(Label(query=d["query"], video_id=d["video_id"],
+                            time_window=tuple(windows[0]),
+                            time_windows=tuple(tuple(w) for w in windows[1:]),
+                            id=d.get("id")))
+    return labels
 
 
 # =============================== quét cấu hình ===============================

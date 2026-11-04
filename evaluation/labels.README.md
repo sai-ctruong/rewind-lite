@@ -1,20 +1,22 @@
 # evaluation/labels.json — bộ nhãn đánh giá truy xuất video (B1)
 
-51 cặp **(query → cửa sổ thời gian đúng)** trên 3 video thật trong `data/videos/`,
-dùng cho `evaluation/bench_retrieval.py` để đo **Recall@K / hit@K / MRR** thật.
+Hiện có **78** mục trong `labels.json` và **51** mục trong `labels_en.json`.
+`labels.json` có cả truy vấn tiếng Anh. Xem [audit và protocol T02](../docs/rewind-lite-task-02-protocol.md)
+trước khi dùng để đo Recall@K / hit@K / MRR. Video nguồn chưa có trong checkout này.
 
 ## Cách tạo bộ nhãn này (để tin được số đo)
 
-Nhãn KHÔNG bịa: mỗi cửa sổ thời gian được xác định bằng cách **trích frame thật ra
-xem**. Video được lấy mẫu theo mốc thời gian, ghép thành "contact sheet" có dán
-timestamp, rồi đối chiếu nội dung nhìn thấy với câu query. Các mục tiêu THOÁNG QUA
-(xe buýt vàng, Starbucks, ô đỏ) còn được xác minh ±5s để chốt cửa sổ hẹp, chính xác.
+Tài liệu cũ mô tả việc xác định cửa sổ bằng contact sheet và xem frame lân cận.
+T02 chưa thể kiểm chứng quá trình đó hay nội dung nhãn vì không có video nguồn.
+Trước khi công bố số đo, đối chiếu từng mục theo quy trình thủ công trong audit T02.
 
 Định dạng mỗi mục (khớp `bench_retrieval.load_labels`):
 ```json
 {"query": "...", "video_id": "<tên file không đuôi>", "time_window": [t_start, t_end]}
 ```
 `time_window` là **giây**; keyframe rơi vào [t_start, t_end) được coi là ĐÚNG.
+Nhãn mới có thể dùng `time_windows` cho nhiều khoảng rời nhau và `id` ổn định;
+xem `labels.schema.json` và `evaluation.dataset.validate_labels`.
 
 ## Nội dung 3 video (tham chiếu nhanh)
 
@@ -34,7 +36,8 @@ python -m evaluation.bench_retrieval --labels evaluation/labels.json
 Lệnh này (trên GPU) sẽ:
 1. Index 3 video (ensemble SigLIP, batch embedding A1, pipeline A4).
 2. Đo **throughput embedding** (frame/giây LẺ vs THEO LÔ → lượng hoá A1).
-3. Chấm **Recall@K / hit@K / MRR** trên 51 nhãn.
+3. Chấm **Recall@K / hit@K / MRR** trên các nhãn của file được chọn, sau khi
+   xác minh video nguồn và manifest.
 4. Lưu `evaluation/benchmarks/retrieval_benchmark.json`.
 
 ## Lưu ý & cách mở rộng
