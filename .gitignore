@@ -20,6 +20,7 @@ evaluation/benchmarks/bench_frames/
 
 # --- Dữ liệu BTC cấp (nặng, không commit) ---
 data/
+/video-test.mp4
 
 # Blueprint noi bo — khong push len GitHub
 CLAUDE.md

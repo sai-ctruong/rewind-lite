@@ -23,11 +23,10 @@ easyocr>=1.7                  # OCR tiếng Việt+Anh, tự chạy GPU qua torc
 qwen-vl-utils>=0.0.8          # tiện ích xử lý ảnh cho Qwen2-VL
 accelerate>=0.30              # tải/chạy model hiệu quả (Qwen2-VL-2B rerank)
 
-# --- GPU (tuỳ chọn, tăng tốc 8-30x) -----------------------------------------
-# Mặc định `pip install torch` -> bản CPU-only. Có GPU NVIDIA thì cài bản CUDA:
-#   pip install "torch==2.13.0+cu126" --index-url https://download.pytorch.org/whl/cu126
-# (cu126 chạy trên driver hỗ trợ CUDA 12.x nhờ minor-version compatibility, r525+).
-# SiglipEncoder + Qwen2VLReranker TỰ dùng GPU (fp16) khi torch.cuda.is_available().
+# --- GPU baseline Lite --------------------------------------------------------
+# Đường chạy T03 tối giản có file riêng requirements-gpu.txt (Python 3.11,
+# PyTorch 2.5.1 CUDA 12.1 từ index chính thức). File này dành cho các tính năng
+# đầy đủ gồm OCR/VLM, không cần cài tất cả để chạy single-encoder baseline.
 
 # --- Tuỳ chọn thêm (cài khi cần tính năng tương ứng) ---
 # openai-whisper   # ASR: tìm theo LỜI NÓI trong video (enable_asr=True)
