@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import pickle
 import re
+import math
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal, Optional
@@ -58,6 +59,20 @@ def l2_normalize(matrix: np.ndarray) -> np.ndarray:
     norms = np.linalg.norm(matrix, axis=1, keepdims=True)
     norms[norms == 0] = 1.0
     return matrix / norms
+
+
+def _embedding_matrix(records: list[KeyframeRecord], attr: str) -> np.ndarray:
+    """Validate one encoder's vectors before adding them to Faiss."""
+    vectors = [np.asarray(getattr(record, attr), dtype=np.float32) for record in records]
+    dimensions = {vector.shape[0] for vector in vectors if vector.ndim == 1}
+    if (len(dimensions) != 1 or any(vector.ndim != 1 for vector in vectors)
+            or next(iter(dimensions), 0) == 0):
+        raise ValueError(f"{attr} dimension must be one nonzero value")
+    matrix = np.stack(vectors)
+    norms = np.linalg.norm(matrix, axis=1)
+    if not np.isfinite(matrix).all() or not np.isfinite(norms).all() or np.any(norms == 0):
+        raise ValueError(f"{attr} embedding must be finite and nonzero")
+    return matrix
 
 
 @dataclass
@@ -91,8 +106,19 @@ class KeyframeIndex:
     timestamps: list[float]
     objects: list[list[str]]
     config: IndexConfig = field(default_factory=IndexConfig)
+    encoder_metadata: dict[str, dict[str, str]] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
+        if not (len(self.ids) == len(self.video_ids) == len(self.timestamps)
+                == len(self.objects)):
+            raise ValueError("Index metadata row counts differ")
+        if len(set(self.ids)) != len(self.ids):
+            raise ValueError("Index has duplicate frame IDs")
+        if any(not frame_id or not video_id
+               for frame_id, video_id in zip(self.ids, self.video_ids)):
+            raise ValueError("Index frame ID and video ID must be nonempty")
+        if any(not math.isfinite(ts) or ts < 0 for ts in self.timestamps):
+            raise ValueError("Index timestamp must be finite and nonnegative")
         self._clip_index = None
         self._siglip_index = None
         self._bm25 = None
@@ -115,12 +141,12 @@ class KeyframeIndex:
         )
         # DENSE: dựng HNSW cho từng encoder có mặt. Ma trận float chỉ là biến TẠM để
         # nạp vào Faiss — không giữ lại (A9): HNSWFlat đã lưu nguyên vector bên trong.
-        clip_mat = np.stack([r.clip_embedding for r in records]).astype(np.float32)
+        clip_mat = _embedding_matrix(records, "clip_embedding")
         idx._clip_index = idx._build_hnsw(l2_normalize(clip_mat))
         del clip_mat
 
         if all(r.siglip_embedding is not None for r in records):
-            sig_mat = np.stack([r.siglip_embedding for r in records]).astype(np.float32)
+            sig_mat = _embedding_matrix(records, "siglip_embedding")
             idx._siglip_index = idx._build_hnsw(l2_normalize(sig_mat))
             del sig_mat
 
@@ -158,10 +184,21 @@ class KeyframeIndex:
         return index.reconstruct_batch(np.asarray(rows, dtype=np.int64))
 
     def _index(self, encoder: EncoderName):
+        if encoder not in ("clip", "siglip"):
+            raise ValueError(f"Unknown encoder slot: {encoder}")
         return self._clip_index if encoder == "clip" else self._siglip_index
 
     def has_encoder(self, encoder: EncoderName) -> bool:
         return self._index(encoder) is not None
+
+    def dimension(self, encoder: EncoderName) -> int:
+        """Dimension of a persisted encoder slot, with an explicit missing-slot error."""
+        if encoder not in ("clip", "siglip"):
+            raise ValueError(f"Unknown encoder slot: {encoder}")
+        index = self._index(encoder)
+        if index is None:
+            raise ValueError(f"Index has no encoder slot: {encoder}")
+        return int(index.d)
 
     def mean_embedding(
         self, ids: "Sequence[str]", encoder: EncoderName
@@ -236,11 +273,13 @@ class KeyframeIndex:
         if self._siglip_index is not None:
             faiss.write_index(self._siglip_index, str(directory / "siglip.hnsw"))
         payload = {
+            "schema_version": 1,
             "ids": self.ids,
             "video_ids": self.video_ids,
             "timestamps": self.timestamps,
             "objects": self.objects,
             "config": self.config,
+            "encoder_metadata": self.encoder_metadata,
             # A9: KHÔNG lưu ma trận float nữa — vector đã nằm trong *.hnsw. Trước đây
             # pickle cả hai nên meta.pkl phình gấp đôi một cách vô ích.
             "bm25": self._bm25,
@@ -249,18 +288,31 @@ class KeyframeIndex:
             pickle.dump(payload, fh)
 
     @classmethod
-    def load(cls, directory: str | Path) -> "KeyframeIndex":
+    def load(
+        cls, directory: str | Path, *,
+        expected_encoder_metadata: Optional[dict[str, dict[str, str]]] = None,
+        expected_dimensions: Optional[dict[str, int]] = None,
+    ) -> "KeyframeIndex":
         import faiss
 
         directory = Path(directory)
         with (directory / "meta.pkl").open("rb") as fh:
             payload = pickle.load(fh)
+        version = payload.get("schema_version", 0)
+        if version not in (0, 1):
+            raise ValueError(f"Unsupported index version: {version}")
+        saved_models = payload.get("encoder_metadata", {})
+        if expected_encoder_metadata is not None:
+            for slot, expected in expected_encoder_metadata.items():
+                if saved_models.get(slot) != expected:
+                    raise ValueError(f"Index model mismatch for {slot}; rebuild index")
         idx = cls(
             ids=payload["ids"],
             video_ids=payload["video_ids"],
             timestamps=payload["timestamps"],
             objects=payload["objects"],
             config=payload["config"],
+            encoder_metadata=saved_models,
         )
         # A9: index CŨ trên đĩa còn field clip_matrix/siglip_matrix — cố ý BỎ QUA
         # (vector lấy từ *.hnsw). Dùng .get() để file cũ vẫn nạp được, không phải
@@ -272,4 +324,12 @@ class KeyframeIndex:
             idx._clip_index = faiss.read_index(str(clip_path))
         if sig_path.exists():
             idx._siglip_index = faiss.read_index(str(sig_path))
+        if expected_dimensions is not None:
+            for slot, expected in expected_dimensions.items():
+                stored = idx._index(slot)
+                if stored is None or stored.d != expected:
+                    got = None if stored is None else stored.d
+                    raise ValueError(
+                        f"Index dimension mismatch for {slot}: expected {expected}, got {got}"
+                    )
         return idx

@@ -22,7 +22,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional, Sequence
+from typing import TYPE_CHECKING, Optional, Sequence
 
 import numpy as np
 
@@ -35,8 +35,9 @@ from retrieval.coarse_retriever import (
     Candidate,
     CoarseRetriever,
 )
-from retrieval.fine_rerank import FineReranker, RerankConfig, Reranker
-from retrieval.temporal_check import TemporalMatch, temporal_consistency_filter
+if TYPE_CHECKING:
+    from retrieval.fine_rerank import FineReranker, Reranker
+    from retrieval.temporal_check import TemporalMatch
 
 # Cặp encoder mặc định cho ensemble (Mục 2.1). Cả hai đều đa ngôn ngữ:
 #   - SigLIP2: bản kế nhiệm, retrieval tốt hơn SigLIP1 trên benchmark.
@@ -132,6 +133,7 @@ class VideoIndexEntry:
             for rid, r in self.raws.items()
         }
         payload = {
+            "schema_version": 1,
             "video_id": self.video_id, "num_sampled": self.num_sampled,
             "num_indexed": self.num_indexed, "ocr_by_id": self.ocr_by_id,
             "asr_by_id": self.asr_by_id, "caption_by_id": self.caption_by_id,
@@ -149,6 +151,9 @@ class VideoIndexEntry:
         index = KeyframeIndex.load(directory / "index")
         with (directory / "entry.pkl").open("rb") as fh:
             payload = pickle.load(fh)
+        version = payload.get("schema_version", 0)
+        if version not in (0, 1):
+            raise ValueError(f"Unsupported video entry version: {version}")
         return cls(
             video_id=payload["video_id"], index=index, raws=payload["raws"],
             num_sampled=payload["num_sampled"], num_indexed=payload["num_indexed"],
@@ -294,6 +299,7 @@ class VideoSearchEngine:
     # ------------------------------------------------------------- reranker
     def _get_reranker(self) -> FineReranker:
         if self._reranker is None:
+            from retrieval.fine_rerank import FineReranker, RerankConfig
             from retrieval.vlm_rerank import Qwen2VLReranker
 
             self._reranker = FineReranker(
@@ -306,6 +312,7 @@ class VideoSearchEngine:
 
     def set_reranker(self, reranker: Reranker) -> None:
         """Bơm reranker ngoài (mock trong test). Bọc trong FineReranker."""
+        from retrieval.fine_rerank import FineReranker, RerankConfig
         self._reranker = FineReranker(
             reranker, RerankConfig(max_candidates=self.rerank_pool,
                                    early_stop=False, time_budget_s=3600.0))
@@ -997,6 +1004,7 @@ class VideoSearchEngine:
         """
         if len(events) < 2:
             raise ValueError("search_temporal cần >= 2 cảnh để kiểm thứ tự thời gian.")
+        from retrieval.temporal_check import temporal_consistency_filter
         # Khoá theo CHỈ SỐ để không đụng nhau khi 2 cảnh mô tả trùng chữ.
         temporal_order = [{"event": f"{i}:{e}", "order": i} for i, e in enumerate(events)]
         candidates_by_event = {

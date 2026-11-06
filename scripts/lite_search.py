@@ -135,6 +135,7 @@ def run_baseline(
         encoder = _real_encoder(model_id, revision, device)
     actual_device = str(getattr(encoder, "device", "test"))
 
+    from retrieval.lite_core import EncoderSpec, LiteRetriever
     from retrieval.video_engine import VideoIndexEntry, VideoSearchEngine
 
     if existing:
@@ -152,6 +153,8 @@ def run_baseline(
         started = time.perf_counter()
         entry = engine.index_video(video, index_dir / "frames")
         index_seconds = round(time.perf_counter() - started, 3)
+        entry.index.encoder_metadata = {
+            "clip": {"id": model_id, "revision": revision}}
         entry.save(index_dir)
         manifest = {
             "schema_version": 1,
@@ -175,8 +178,9 @@ def run_baseline(
                                  encoding="utf-8")
 
     started = time.perf_counter()
-    query_vector = encoder.encode_text(query.strip())
-    results = dense_results(entry, query_vector, top_k)
+    retriever = LiteRetriever(entry, {"clip": EncoderSpec(model_id, revision)})
+    results = [hit.to_dict() for hit in retriever.search_text(
+        query, {"clip": encoder}, top_k)]
     query_seconds = round(time.perf_counter() - started, 3)
     report = {
         "video_id": entry.video_id, "query": query.strip(),
