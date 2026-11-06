@@ -13,7 +13,7 @@ from dataclasses import replace
 from io import BytesIO
 from pathlib import Path
 
-from flask import Flask, jsonify, request, send_file, url_for
+from flask import Flask, jsonify, request, send_file, send_from_directory, url_for
 from werkzeug.exceptions import RequestEntityTooLarge
 
 from scripts.lite_search import (DEFAULT_MODEL, DEFAULT_REVISION, _real_encoder,
@@ -21,6 +21,7 @@ from scripts.lite_search import (DEFAULT_MODEL, DEFAULT_REVISION, _real_encoder,
 
 
 _ROOT = Path(__file__).resolve().parents[1]
+_UI_DIR = Path(__file__).resolve().parent
 _VIDEO_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}\Z")
 
 
@@ -272,15 +273,16 @@ class LiteService:
             raw = entry.raws[frame_id]
             # Never follow image/source paths stored inside an index through HTTP.
             safe_raw = replace(raw, image_path=None, source_video=str(path))
-            try:
-                data = frame_jpeg_bytes(safe_raw)
-            except (OSError, ValueError) as exc:
-                raise ApiError(404, "frame_unavailable", "Frame image unavailable") from exc
-            if not data:
-                raise ApiError(404, "frame_unavailable", "Frame image unavailable")
-            return data
         finally:
             self.index_lock.release()
+        # Decode after releasing the lock so result thumbnails can load together.
+        try:
+            data = frame_jpeg_bytes(safe_raw)
+        except (OSError, ValueError) as exc:
+            raise ApiError(404, "frame_unavailable", "Frame image unavailable") from exc
+        if not data:
+            raise ApiError(404, "frame_unavailable", "Frame image unavailable")
+        return data
 
 
 def create_lite_app(*, video_dir: str | Path | None = None,
@@ -297,6 +299,18 @@ def create_lite_app(*, video_dir: str | Path | None = None,
         encoder_factory=encoder_factory, model_id=model_id, revision=revision,
         device=device, sample_every_s=sample_every_s, max_frames=max_frames)
     app.extensions["lite_service"] = service
+
+    @app.get("/")
+    def home():
+        return send_from_directory(_UI_DIR, "lite_index.html")
+
+    @app.get("/lite.css")
+    def stylesheet():
+        return send_from_directory(_UI_DIR, "lite.css")
+
+    @app.get("/lite.js")
+    def script():
+        return send_from_directory(_UI_DIR, "lite.js")
 
     @app.errorhandler(ApiError)
     def api_error(exc: ApiError):
@@ -341,7 +355,11 @@ def create_lite_app(*, video_dir: str | Path | None = None,
         rebuild = data.get("rebuild", False)
         if not isinstance(rebuild, bool):
             raise ApiError(400, "invalid_rebuild", "rebuild must be a boolean")
-        return jsonify(service.index(video_id, rebuild=rebuild))
+        result = service.index(video_id, rebuild=rebuild)
+        ids = service.entries[video_id].index.ids
+        result["poster_url"] = (url_for("frame", video_id=video_id, frame_id=ids[0])
+                                if ids else None)
+        return jsonify(result)
 
     @app.get("/api/lite/progress")
     def progress():

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Rewind Lite — Tìm khoảnh khắc trong video</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/lite.css">
+  <script src="/lite.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Kho video">
+      <div class="brand" aria-label="Rewind Lite">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 7 5 16l11 9V7Zm11 0L16 16l11 9V7Z" fill="currentColor"/></svg>
+        <span>Rewind <strong>Lite</strong></span>
+      </div>
+      <div class="sidebar-head">
+        <h2>Video của bạn</h2>
+        <span id="video-count" class="count">0</span>
+      </div>
+      <p class="sidebar-copy">Chọn một video để tìm lại khoảnh khắc bằng câu mô tả tiếng Việt.</p>
+      <div class="video-list-wrap">
+        <div id="video-list-status" class="sidebar-state" role="status">Đang tải danh sách video…</div>
+        <ul id="video-list" class="video-list" aria-label="Danh sách video"></ul>
+      </div>
+      <div class="sidebar-bottom">
+        <label class="upload-action" for="video-upload">Tải video MP4 lên</label>
+        <input id="video-upload" type="file" accept="video/mp4,.mp4" aria-label="Chọn video MP4 để tải lên">
+        <p id="upload-status" class="upload-status" role="status">Tối đa 512 MB</p>
+      </div>
+    </aside>
+
+    <div id="menu-scrim" class="menu-scrim" hidden></div>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Mở danh sách video" aria-controls="sidebar" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <span class="topbar-title">Rewind Lite</span>
+        <span class="topbar-context">Tìm kiếm trong video</span>
+      </header>
+
+      <main class="workspace">
+        <div class="workspace-heading">
+          <div>
+            <h1>Tìm khoảnh khắc trong video</h1>
+            <p>Mô tả điều bạn nhớ. Rewind Lite sẽ đưa bạn tới khung hình gần nhất.</p>
+          </div>
+        </div>
+
+        <form id="search-form" class="search-form" autocomplete="off">
+          <label for="search-query">Tìm bằng tiếng Việt</label>
+          <div class="search-row">
+            <input id="search-query" name="query" type="search" maxlength="512" placeholder="Ví dụ: một người đang đi bộ ngoài đường" disabled required>
+            <button id="search-button" class="primary-button" type="submit" disabled>Tìm kiếm</button>
+          </div>
+          <p id="search-help" class="field-help">Chọn video và chờ lập chỉ mục để bắt đầu.</p>
+        </form>
+
+        <section id="index-panel" class="index-panel" aria-live="polite" aria-labelledby="index-heading">
+          <div class="index-mark" aria-hidden="true"></div>
+          <div>
+            <h2 id="index-heading">Trạng thái video</h2>
+            <p id="index-status">Chưa chọn video.</p>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <section class="viewer-panel" aria-labelledby="viewer-heading">
+            <div class="panel-heading viewer-heading">
+              <div>
+                <h2 id="viewer-heading">Video đang xem</h2>
+                <p id="video-title" class="video-title">Chưa chọn video</p>
+              </div>
+              <button id="index-button" class="secondary-button" type="button" disabled>Lập chỉ mục</button>
+            </div>
+            <div class="video-stage">
+              <video id="video-player" controls playsinline preload="metadata" aria-label="Video đã chọn" hidden></video>
+              <div id="video-empty" class="video-empty">
+                <div class="empty-frame" aria-hidden="true"><span></span><span></span></div>
+                <p>Chọn một video trong thư viện để bắt đầu.</p>
+              </div>
+            </div>
+            <div class="timeline-area">
+              <div class="timeline-heading">
+                <span>Các mốc tìm thấy</span>
+                <span id="timeline-duration">—</span>
+              </div>
+              <div id="moment-track" class="moment-track" aria-label="Các mốc kết quả trên thanh thời gian"></div>
+              <p id="timeline-hint" class="timeline-hint">Các mốc sẽ xuất hiện sau khi tìm kiếm.</p>
+            </div>
+          </section>
+
+          <section class="results-panel" aria-labelledby="results-heading">
+            <div class="panel-heading results-heading">
+              <div>
+                <h2 id="results-heading">Khoảnh khắc phù hợp</h2>
+                <p>Chọn kết quả để tua video tới đúng thời điểm.</p>
+              </div>
+              <span id="results-count" class="count" aria-label="Số kết quả">0</span>
+            </div>
+            <div id="results-status" class="results-status" role="status" aria-live="polite">Kết quả sẽ hiện ở đây sau khi bạn tìm kiếm.</div>
+            <ol id="results" class="results-list" aria-label="Kết quả tìm kiếm"></ol>
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>

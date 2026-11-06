@@ -25,6 +25,7 @@ data/annotations/*
 !data/annotations/*.json
 !data/annotations/*.md
 /video-test.mp4
+/.taste-skill/
 
 # Blueprint noi bo — khong push len GitHub
 CLAUDE.md

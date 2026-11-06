@@ -82,8 +82,11 @@ def test_upload_index_search_frame_and_range_stream(setup):
     assert client.post("/api/lite/select", json={"video_id": video_id}).status_code == 200
     indexed = client.post("/api/lite/index", json={})
     assert indexed.status_code == 200 and indexed.get_json()["cached"] is False
+    poster_url = indexed.get_json()["poster_url"]
+    assert client.get(poster_url).status_code == 200
     assert client.get("/api/lite/progress").get_json()["status"] == "ready"
-    assert client.post("/api/lite/index", json={}).get_json()["cached"] is True
+    cached = client.post("/api/lite/index", json={}).get_json()
+    assert cached["cached"] is True and cached["poster_url"] == poster_url
     assert len(calls) == 1
     assert client.post("/api/lite/search", json={"query": " "}).status_code == 400
     assert client.post("/api/lite/search", json={"query": "đi bộ", "top_k": 0}).status_code == 400
@@ -163,6 +166,38 @@ def test_frame_decode_failure_is_a_clean_http_error(setup, monkeypatch):
     assert response.status_code == 404
     assert response.get_json()["error"]["code"] == "frame_unavailable"
     assert "secret" not in response.get_data(as_text=True)
+
+
+def test_two_frame_requests_can_decode_concurrently(setup, monkeypatch):
+    from ingestion.schemas import frame_jpeg_bytes
+
+    app, _, _, _, _ = setup
+    client = app.test_client()
+    client.post("/api/lite/select", json={"video_id": "walk"})
+    client.post("/api/lite/index", json={})
+    hit = client.post("/api/lite/search", json={"query": "đi bộ"}).get_json()["results"][0]
+    entered, release = Event(), Event()
+    first_response = {}
+
+    def slow_frame(raw):
+        if not entered.is_set():
+            entered.set()
+            assert release.wait(5)
+        return frame_jpeg_bytes(raw)
+
+    monkeypatch.setattr("ingestion.schemas.frame_jpeg_bytes", slow_frame)
+
+    def request_first():
+        first_response["value"] = app.test_client().get(hit["image_url"])
+
+    thread = Thread(target=request_first)
+    thread.start()
+    assert entered.wait(5)
+    second = client.get(hit["image_url"])
+    release.set()
+    thread.join(5)
+    assert second.status_code == 200
+    assert first_response["value"].status_code == 200
 
 
 def test_upload_size_limit_returns_json(tmp_path):

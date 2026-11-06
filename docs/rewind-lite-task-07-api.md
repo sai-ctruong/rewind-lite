@@ -14,7 +14,7 @@ The Lite app registers only the following routes. JSON errors have the form `{"e
 | GET | `/api/lite/videos` | none | `{"videos":["walk"],"selected_video":null}` |
 | POST | `/api/lite/upload` | multipart field `video`, decodable `.mp4` | 201 `{"video_id":"<generated-id>","selected":true}` |
 | POST | `/api/lite/select` | `{"video_id":"walk"}` | `{"video_id":"walk","selected":true}` |
-| POST | `/api/lite/index` | `{"video_id":"walk","rebuild":false}`; `video_id` may be omitted after select | `{"video_id":"walk","cached":false,"frames":2,"sampled":2}` |
+| POST | `/api/lite/index` | `{"video_id":"walk","rebuild":false}`; `video_id` may be omitted after select | `{"video_id":"walk","cached":false,"frames":2,"sampled":2,"poster_url":"/api/lite/frames/walk/walk/0"}` |
 | GET | `/api/lite/progress` | none | `{"status":"ready","video_id":"walk","count":2,"elapsed_s":1.2,"error_code":null}` |
 | POST | `/api/lite/search` | `{"video_id":"walk","query":"người đi bộ","top_k":5}` | ranked results, example below |
 | GET | `/api/lite/frames/<video_id>/<frame_id>` | frame ID returned by search | JPEG bytes |
@@ -43,6 +43,8 @@ Example search response (scores and timestamps are illustrative):
 Uploads require a `.mp4` name and a decodable video, with a generated server-side ID. Unsupported or undecodable files return 415 `unsupported_video`; over-limit requests return 413 `upload_too_large`; write failure returns 500 `upload_failed`. Empty or oversized queries return 400 `invalid_query`; `top_k` outside 1–50 returns 400 `invalid_top_k`. Invalid, unknown, or unselected IDs return `invalid_video_id` (400), `video_not_found` (404), or `video_not_selected` (409). Missing, incomplete, or expired indexes return 409 with `index_missing`, `index_incomplete`, or `index_expired`. Frame IDs absent from the index return 404 `frame_not_found`; decode failures return 404 `frame_unavailable`. Model memory exhaustion returns 503 `model_oom`; other indexing/search failures return 500 `index_failed` or `search_failed`. These responses do not include source or index filesystem paths.
 
 Saved indexes use the T03 manifest. On restart, matching video checksum, pinned model revision, and sampling settings permit reuse without reembedding. A changed source video is rejected. Index files are trusted local artifacts because the existing entry format uses Python pickle; do not import index directories from untrusted sources.
+
+T08 adds `poster_url` to the index response so the UI can show a real saved frame before playback. The existing frame route serves it. Frame decoding now releases the index lock after validating the frame, allowing multiple result thumbnails to load concurrently while index/search operations still return `index_busy`.
 
 ## Acceptance review
 
