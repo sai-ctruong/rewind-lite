@@ -19,7 +19,11 @@ evaluation/benchmarks/*.mp4
 evaluation/benchmarks/bench_frames/
 
 # --- Dữ liệu BTC cấp (nặng, không commit) ---
-data/
+data/*
+!data/annotations/
+data/annotations/*
+!data/annotations/*.json
+!data/annotations/*.md
 /video-test.mp4
 
 # Blueprint noi bo — khong push len GitHub

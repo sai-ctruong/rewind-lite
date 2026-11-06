@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "videos": [
+    {
+      "video_id": "video-test",
+      "path": "video-test.mp4",
+      "sha256": "8410556fea9c755db18ebd29316405065e4330af52aa21530604bb72abdc448c",
+      "duration_s": 23.86,
+      "fps": 50.0,
+      "frame_count": 1193,
+      "source": "Local video supplied by the repository owner for T03/T05",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner confirmed permission to use video-test.mp4 for evaluation on 2026-11-06"
+      },
+      "split": "dev",
+      "group_id": "video-test"
+    }
+  ]
+}
