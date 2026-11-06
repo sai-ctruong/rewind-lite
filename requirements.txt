@@ -1,17 +1,16 @@
-# requirements.txt — LÕI NHẸ: đủ để `pytest` xanh và mở web UI.
+# requirements.txt — LÕI NHẸ: đủ để chạy unit tests và mở web UI.
 #
-# TRIẾT LÝ (Mock-first): mọi thành phần cần GPU/API đều có bản Mock chạy offline, còn
-# bản thật được *lazy-import* (chỉ nạp khi thực dùng). Nhờ vậy file này KHÔNG chứa
-# torch/transformers/easyocr — cài lõi này là chạy được TOÀN BỘ test.
+# Thành phần cần GPU được lazy-import khi dùng. File này không cài
+# torch/transformers/easyocr; các test offline dùng fixture/mock riêng.
 #
 #     pip install -r requirements.txt && pytest
 #
-# ĐO THẬT (2026-07-16, venv sạch Python 3.14): **273 passed trong ~7 giây, ~280 MB**
-# — KHÔNG cần torch. Trước đây file này ép cài torch/easyocr (~5 GB) ngay từ đầu,
-# trái với chính lời hứa "chạy test offline, không cần GPU".
+# Số test thay đổi theo task; chạy pytest trong môi trường hiện tại để biết
+# kết quả. Bản GPU đã kiểm thử cho Lite nằm trong requirements-gpu.txt.
 #
-# Muốn XỬ LÝ VIDEO THẬT (SigLIP/OCR/VLM rerank):
-#     pip install -r requirements-full.txt
+# Xử lý video thật cho Lite: uv pip install --python .venv/Scripts/python.exe
+#                              -r requirements-gpu.txt
+# requirements-full.txt chỉ dành cho các tính năng legacy mở rộng.
 #
 # NGUYÊN TẮC (Mục 10.2): chỉ thêm thư viện KHI thực sự cần, không cài trước hàng loạt.
 

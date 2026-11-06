@@ -1,7 +1,7 @@
-# requirements-full.txt — XỬ LÝ VIDEO THẬT (SigLIP / OCR / VLM rerank).
+# requirements-full.txt — MỞ RỘNG LEGACY (SigLIP / OCR / VLM rerank).
 #
-# Chỉ cần khi bạn muốn index video thật và tìm kiếm bằng model thật. KHÔNG cần để
-# chạy test: `pip install -r requirements.txt && pytest` -> 273 passed (~7s, ~280 MB).
+# Lite single-encoder dùng requirements-gpu.txt. File này dành cho pipeline
+# Rewind gốc có OCR/VLM; test Lite offline chỉ cần requirements.txt.
 #
 #     pip install -r requirements-full.txt      # đã bao gồm lõi nhẹ bên dưới
 #

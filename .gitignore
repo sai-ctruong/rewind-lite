@@ -10,6 +10,12 @@ venv/
 
 # --- Bí mật: KHÔNG commit khóa API (Mục 2.3 — đọc từ biến môi trường) ---
 .env
+.env.*
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
 
 # --- Artifact sinh ra lúc build/benchmark, không đưa vào git ---
 artifacts/
@@ -25,6 +31,15 @@ data/annotations/*
 !data/annotations/*.json
 !data/annotations/*.md
 /video-test.mp4
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
 /.taste-skill/
 
 # Blueprint noi bo — khong push len GitHub
