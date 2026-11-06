@@ -691,15 +691,23 @@ class VideoSearchEngine:
         sample_every_s: Optional[float] = None, max_frames: Optional[int] = -1,
         enable_ocr: Optional[bool] = None, enable_asr: Optional[bool] = None,
         enable_caption: Optional[bool] = None, progress_cb=None,
+        video_ids: Optional[Sequence[str]] = None,
     ) -> VideoIndexEntry:
         """Index NHIỀU video vào MỘT index chung -> tìm xuyên suốt cả dataset.
 
         Mỗi keyframe giữ video_id thật nên kết quả biết rõ 'ở video nào, giây mấy'.
         Đây là hướng scale của blueprint (Mục 5): một index cho cả kho, có thể shard
         về sau. Keyframe id dạng '{video_id}/{n}' đã toàn cục duy nhất."""
+        if video_ids is not None:
+            if len(video_ids) != len(video_paths) or any(
+                    not isinstance(vid, str) or not vid.strip() for vid in video_ids):
+                raise ValueError("video_ids must match video_paths with nonempty IDs")
+            if len(set(video_ids)) != len(video_ids):
+                raise ValueError("video_ids must be unique")
         mf = self.max_frames if max_frames == -1 else max_frames
         raws, records = self._collect_records(
-            [(vp, None) for vp in video_paths], out_dir,
+            [(vp, video_ids[i] if video_ids is not None else None)
+             for i, vp in enumerate(video_paths)], out_dir,
             sample_every_s=sample_every_s, max_frames=mf, enable_ocr=enable_ocr,
             progress_cb=progress_cb)
         if not raws:
