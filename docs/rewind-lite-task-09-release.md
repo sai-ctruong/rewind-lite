@@ -1,6 +1,6 @@
 # Rewind Lite — T09 hardening và bàn giao
 
-Ngày kiểm tra: 2026-11-07 (Asia/Bangkok). Đây là bản kiểm tra để review **checkpoint T09**, chưa phải tuyên bố benchmark hoặc phát hành học thuật hoàn tất. T05 sau đó nhận thêm `video_test2.mp4` và `video_test3.mp4`; hiện có 3 video, 23 nhãn draft và 0 verified. Dữ liệu T05/T06 vẫn bị chặn.
+Ngày kiểm tra: 2026-11-07 (Asia/Bangkok), cập nhật trạng thái dữ liệu 2026-11-08. Đây là bản kiểm tra để review **checkpoint T09**, chưa phải tuyên bố benchmark hoặc phát hành học thuật hoàn tất. T05 sau đó nhận thêm `video_test2.mp4`, `video_test3.mp4`, `video-test4.mp4` và `video-cook.mp4`; hiện có 5 video được phép dùng và 57 nhãn đã được Codex review bằng khung hình theo yêu cầu của chủ repository. T06 chưa chạy benchmark thực; nhãn chưa có người kiểm tra độc lập.
 
 ## Kịch bản demo 3–5 phút
 
@@ -12,7 +12,7 @@ Ngày kiểm tra: 2026-11-07 (Asia/Bangkok). Đây là bản kiểm tra để re
 | 0:40–1:20 | Chọn video, giải thích sampling → encoder → index | Trạng thái `ready`, số frame đã index |
 | 1:20–2:40 | Nhập truy vấn tiếng Việt, tìm Top-5 | Rank, thumbnail, timestamp và cosine score thật; mẫu hiện trả 2 kết quả |
 | 2:40–3:20 | Chọn một thumbnail và phát video từ timestamp | Player tua tới keyframe đã chọn |
-| 3:20–4:20 | Nêu dataset và giới hạn đánh giá | 3 video `dev`/`test`, 23 nhãn draft, 0 verified; accuracy chưa đo |
+| 3:20–4:20 | Nêu dataset và giới hạn đánh giá | 5 video `dev`/`test`, 57 nhãn Codex-reviewed; accuracy chưa đo, review chưa độc lập |
 | 4:20–5:00 | Tóm tắt đóng góp và hướng hoàn thành benchmark | Validator, benchmark gate và kế hoạch bổ sung dữ liệu |
 
 Nếu trình duyệt không phát video, kiểm tra MP4/codec bằng cách phát file gốc trước buổi demo. Nếu model chưa có cache, tải và index từ trước. Không trình bày score cosine của một query như accuracy.
@@ -35,8 +35,8 @@ Nếu trình duyệt không phát video, kiểm tra MP4/codec bằng cách phát
 | T02 | PASS về protocol | [T02](rewind-lite-task-02-protocol.md), unit tests metrics/dataset; video legacy chưa xác minh |
 | T03 | PASS đường model thật | CLI CUDA dùng lại index, 2 keyframe tại 5.0 và 0.0 giây; [T03](rewind-lite-task-03-environment.md) |
 | T04 | PASS core và import boundary | Full suite 353 pass, 1 skip; [T04](rewind-lite-task-04-core.md) |
-| T05 | DATA BLOCKED | Bản T09 ban đầu: 1 video, 0 labels. Sau cập nhật T05: 3 video, 23 draft, 0 verified, `ready_for_accuracy=false`; [T05](rewind-lite-task-05-dataset.md) |
-| T06 | DATA BLOCKED | `evaluation.lite_benchmark --check` trả `DATA_BLOCKED`; không có accuracy report; [T06](rewind-lite-task-06-benchmark.md) |
+| T05 | READY cho benchmark nội bộ | Bản T09 ban đầu: 1 video, 0 labels. Sau cập nhật T05: 5 video, 57 Codex-reviewed, `ready_for_accuracy=true`; chưa có người review độc lập; [T05](rewind-lite-task-05-dataset.md) |
+| T06 | REAL RUN PENDING | `evaluation.lite_benchmark --check` trả `READY`; chưa có accuracy report; [T06](rewind-lite-task-06-benchmark.md) |
 | T07 | PASS API smoke | Flask client trên model thật: select 200, index cached 200, search 200, frame 200, stream range 206; [T07](rewind-lite-task-07-api.md) |
 | T08 | PASS UI flow trong phạm vi đã kiểm | Trang UI 200; browser/desktop/mobile check và click-to-seek ghi ở [T08](rewind-lite-task-08-ui.md). Không lặp lại visual browser check ở T09. |
 
@@ -50,13 +50,13 @@ Kiểm tra file handling: API giới hạn upload 512 MiB, tạo ID trên server
 |---|---|
 | README tiếng Việt, lệnh PowerShell, kiến trúc, giới hạn, provenance | PASS |
 | Setup sạch hoặc tương đương; CLI/API/UI | PASS trên venv hiện có, `uv pip check`, CUDA và model thật; **chưa thử clone/cài mới** |
-| Full suite, validator, dependency check | PASS: 353 passed, 1 skipped; validator không có lỗi cấu trúc |
-| Benchmark accuracy trên tập verified độc lập | BLOCKED: 0 nhãn verified; nay có một video `test` nhưng chưa review |
+| Full suite, validator, dependency check | PASS: 353 passed, 1 skipped; validator T05 không có lỗi cấu trúc |
+| Benchmark accuracy trên tập được review | PENDING: 57 nhãn qua review trực quan của Codex; chưa chạy benchmark thực và chưa có review người độc lập |
 | 5–10 failure cases đã xem lại video | BLOCKED: chưa có predictions được chấm hợp lệ |
 | Audit file nhạy cảm và artifact lớn | PASS ở mức kiểm tra cơ bản nêu trên |
 | Demo script, dàn ý và limitations | PASS trong tài liệu này |
 
-**Chưa thể phát hành kết luận accuracy.** Sau khi nhận video bổ sung và nhãn có reviewer: hoàn thành T05, chạy T06 trên tập dev/test cố định, kiểm tra per-query results và failure cases, rồi cập nhật README/report bằng số đo thực cùng config và artifact JSON/Markdown. Không sửa test split theo đầu ra model.
+**Chưa thể phát hành kết luận accuracy.** Chạy T06 trên tập dev/test cố định, kiểm tra per-query results và failure cases, rồi cập nhật README/report bằng số đo thực cùng config và artifact JSON/Markdown. Review độc lập của người khác vẫn cần trước tuyên bố học thuật. Không sửa test split theo đầu ra model.
 
 ## T09 — Acceptance Review
 
@@ -67,11 +67,11 @@ Kiểm tra file handling: API giới hạn upload 512 MiB, tạo ID trên server
 | README metrics thật, config, artifact links | PARTIAL / DATA BLOCKED | README có bảng quan sát thật và config; chưa thể liên kết report T06 vì artifact hợp lệ chưa tồn tại |
 | Security/basic file handling, không tracked media/keys | PASS mức cơ bản | API tests, Git ignore/track/grep audit |
 | Demo script, report outline, limitations | PASS | Tài liệu này |
-| Benchmark accuracy và error analysis đầy đủ để release | BLOCKED | T05/T06 cần thêm video và nhãn verified |
+| Benchmark accuracy và error analysis đầy đủ để release | BLOCKED | T06 chưa chạy; nhãn mới qua review cùng tác giả |
 
-Tests run: `.venv\Scripts\python.exe -m pytest -o addopts='' -q` (353 passed, 1 skipped); `uv pip check --python .venv\Scripts\python.exe` (40 compatible); `scripts.lite_search` dùng model thật/index cũ trên CUDA; Flask real-path smoke; `evaluation.dataset` (0 issues, 0 verified); `evaluation.lite_benchmark --check` (`DATA_BLOCKED`); Git ignore/tracked-file/secret-pattern audit; `git diff --check`.
+Tests run in the T09 checkpoint: `.venv\Scripts\python.exe -m pytest -o addopts='' -q` (353 passed, 1 skipped); `uv pip check --python .venv\Scripts\python.exe` (40 compatible); `scripts.lite_search` dùng model thật/index cũ trên CUDA; Flask real-path smoke; `evaluation.dataset` (0 issues, 0 verified at that time); `evaluation.lite_benchmark --check` (`DATA_BLOCKED` at that time); Git ignore/tracked-file/secret-pattern audit; `git diff --check`. Sau lượt review T05 ngày 2026-11-08, validator có 0 issue, `n_verified=57`, và benchmark `--check` trả `READY` (exit 0). Đây là kiểm tra điều kiện dữ liệu, không phải benchmark accuracy.
 
-Tests not run and why: không cài lại từ clone sạch trong T09; venv hiện có và package check là môi trường kiểm thử tương đương. Không chạy benchmark có nhãn, accuracy/VRAM/throughput hoặc phân tích lỗi xác minh vì T05 chưa có tập dữ liệu. Không lặp lại browser screenshot/interaction check của T08.
+Tests not run and why: không cài lại từ clone sạch trong T09; venv hiện có và package check là môi trường kiểm thử tương đương. Benchmark có nhãn, accuracy/VRAM/throughput và phân tích lỗi xác minh thuộc T06 tiếp theo; chưa chạy trong lượt review T05. Không lặp lại browser screenshot/interaction check của T08.
 
 Files changed: `README.md`, `requirements.txt`, `requirements-full.txt`, `.gitignore`, tài liệu này, `docs/task-status.md`.
 

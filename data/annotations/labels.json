@@ -4,183 +4,455 @@
     "query": "Lối đi có nhiều người đi bộ dưới hàng cây",
     "time_windows": [[0.0, 23.86]], "category": "context", "split": "dev",
     "language": "vi", "paraphrase_group": "dev-walkway-crowd",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-002", "video_id": "video-test",
     "query": "Các cột đèn có bóng tròn màu trắng dọc con đường",
     "time_windows": [[0.0, 23.86]], "category": "object", "split": "dev",
     "language": "vi", "paraphrase_group": "dev-globe-lamps",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-003", "video_id": "video-test",
     "query": "Người mặc áo sẫm có vạch trắng đạp xe về phía máy quay bên trái lối đi",
     "time_windows": [[0.0, 14.0]], "category": "action", "split": "dev",
     "language": "vi", "paraphrase_group": "dev-left-cyclist",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-004", "video_id": "video-test",
     "query": "Người mặc áo khoác xanh dương đi về phía máy quay",
     "time_windows": [[0.0, 23.86]], "category": "color", "split": "dev",
     "language": "vi", "paraphrase_group": "dev-blue-jacket",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-005", "video_id": "video-test",
     "query": "Một con chim bồ câu đi trên mặt đường",
     "time_windows": [[0.0, 21.0]], "category": "object", "split": "dev",
     "language": "vi", "paraphrase_group": "dev-pigeon",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-006", "video_id": "video-test",
     "query": "Biển báo hình xe đạp màu xanh ở cạnh lối đi",
     "time_windows": [[0.0, 23.86]], "category": "object", "split": "dev",
     "language": "vi", "paraphrase_group": "dev-bicycle-sign",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-007", "video_id": "video-test",
     "query": "Một nhóm người đi cùng nhau và quay lưng về phía máy quay",
     "time_windows": [[0.0, 23.86]], "category": "action", "split": "dev",
     "language": "vi", "paraphrase_group": "dev-group-walking-away",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-008", "video_id": "video_test3",
     "query": "Một người mặc áo thun trắng ngồi trước máy tính",
     "time_windows": [[0.0, 18.72]], "category": "context", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-white-shirt-computer",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-009", "video_id": "video_test3",
     "query": "Biểu tượng màu hồng phát sáng trên máy tính ở tiền cảnh",
     "time_windows": [[0.0, 18.72]], "category": "color", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-pink-computer-logo",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-010", "video_id": "video_test3",
     "query": "Người mặc áo trắng đeo dây chuyền màu bạc",
-    "time_windows": [[2.5, 16.0]], "category": "object", "split": "dev",
+    "time_windows": [[2.5, 15.5]], "category": "object", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-silver-necklace",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-011", "video_id": "video_test3",
     "query": "Các thanh gỗ lớn bắt chéo phía sau người ngồi",
     "time_windows": [[0.0, 18.72]], "category": "object", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-wooden-beams",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-012", "video_id": "video_test3",
     "query": "Người cầm chai thủy tinh trong suốt",
     "time_windows": [[3.25, 14.0]], "category": "object", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-clear-glass-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-013", "video_id": "video_test3",
     "query": "Người đưa chai thủy tinh lên miệng",
-    "time_windows": [[5.75, 6.25]], "category": "short_event", "split": "dev",
+    "time_windows": [[5.25, 6.25]], "category": "short_event", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-raise-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-014", "video_id": "video_test3",
     "query": "Người uống từ chai thủy tinh",
     "time_windows": [[6.0, 9.0]], "category": "action", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-drink-from-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-015", "video_id": "video_test3",
     "query": "Người hạ chai thủy tinh xuống sau khi uống",
     "time_windows": [[8.75, 9.75]], "category": "short_event", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-lower-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-dev-016", "video_id": "video_test3",
     "query": "Chỉ có một người xuất hiện trong khung hình",
     "time_windows": [[0.0, 18.72]], "category": "count", "split": "dev",
     "language": "vi", "paraphrase_group": "dev3-one-person",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-017", "video_id": "video-cook",
+    "query": "Khoai tây, cà rốt, rau xanh và các hộp nguyên liệu bày trên bàn bếp",
+    "time_windows": [[4.0, 30.0]], "category": "context", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-ingredients-counter",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-018", "video_id": "video-cook",
+    "query": "Người cầm hai hộp nghêu đóng lon trước máy quay",
+    "time_windows": [[13.0, 15.0]], "category": "count", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-clam-cans",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-019", "video_id": "video-cook",
+    "query": "Một gói thịt xông khói được giơ lên trước bàn nguyên liệu",
+    "time_windows": [[17.5, 18.5]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-bacon-package",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-020", "video_id": "video-cook",
+    "query": "Thịt xông khói cắt miếng được đổ từ đĩa đen vào nồi",
+    "time_windows": [[34.0, 39.5]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-bacon-into-pot",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-021", "video_id": "video-cook",
+    "query": "Thịt xông khói đã rán được vớt ra đặt trên giấy thấm",
+    "time_windows": [[47.5, 54.0]], "category": "short_event", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-bacon-out-to-towel",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-022", "video_id": "video-cook",
+    "query": "Cà rốt thái hạt lựu màu cam được đổ vào nồi",
+    "time_windows": [[56.0, 61.0]], "category": "color", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-carrot-into-pot",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-023", "video_id": "video-cook",
+    "query": "Cần tây cắt nhỏ màu xanh được đổ vào nồi",
+    "time_windows": [[63.0, 66.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-celery-into-pot",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-024", "video_id": "video-cook",
+    "query": "Hành tây thái nhỏ được đổ vào nồi rau củ",
+    "time_windows": [[70.0, 76.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-onion-into-pot",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-025", "video_id": "video-cook",
+    "query": "Cà rốt, cần tây và hành được đảo bằng muỗng gỗ trong nồi",
+    "time_windows": [[76.0, 82.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-vegetables-stirred",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-026", "video_id": "video-cook",
+    "query": "Bột trắng được đổ vào nồi rau củ đang nấu",
+    "time_windows": [[82.0, 85.0]], "category": "short_event", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-white-powder-into-pot",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-027", "video_id": "video-cook",
+    "query": "Chất lỏng đục được rót từ bát xanh vào nồi rau củ",
+    "time_windows": [[101.0, 105.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-liquid-green-bowl",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-028", "video_id": "video-cook",
+    "query": "Chất lỏng được rót từ cốc đong trong suốt vào nồi",
+    "time_windows": [[112.0, 114.5]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-liquid-measuring-cup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-029", "video_id": "video-cook",
+    "query": "Chất lỏng màu trắng được rót vào nồi súp",
+    "time_windows": [[120.0, 122.5]], "category": "color", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-white-liquid-into-pot",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-030", "video_id": "video-cook",
+    "query": "Khoai tây cắt khối được đổ vào nồi súp màu trắng",
+    "time_windows": [[128.0, 133.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-potato-into-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-031", "video_id": "video-cook",
+    "query": "Một chiếc lá gia vị nổi trên mặt nồi súp kem",
+    "time_windows": [[146.0, 154.0]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-leaf-in-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-032", "video_id": "video-cook",
+    "query": "Thịt nghêu từ rây được cho vào nồi súp",
+    "time_windows": [[202.0, 208.5]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-clams-into-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-033", "video_id": "video-cook",
+    "query": "Một miếng bơ tan trong chảo kim loại",
+    "time_windows": [[218.0, 226.0]], "category": "short_event", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-butter-melts-pan",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-034", "video_id": "video-cook",
+    "query": "Các miếng bánh mì cắt khối được đổ từ bát cam vào chảo",
+    "time_windows": [[227.0, 231.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-bread-into-pan",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-035", "video_id": "video-cook",
+    "query": "Các miếng bánh mì nhỏ được đảo cho vàng trong chảo",
+    "time_windows": [[233.0, 249.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-bread-stirred-pan",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-036", "video_id": "video-cook",
+    "query": "Dầu được rót từ chai xanh đậm vào chảo bánh mì",
+    "time_windows": [[250.0, 254.5]], "category": "short_event", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-oil-into-bread-pan",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-037", "video_id": "video-cook",
+    "query": "Rau thơm thái nhỏ màu xanh được rắc lên bánh mì trong chảo",
+    "time_windows": [[277.0, 282.0]], "category": "color", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-herbs-onto-bread",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-038", "video_id": "video-cook",
+    "query": "Súp được múc bằng vá vào bát trắng có hoa văn ở viền",
+    "time_windows": [[292.5, 294.5], [300.0, 302.5]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-soup-ladled-bowl",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-039", "video_id": "video-cook",
+    "query": "Bánh mì nướng cắt khối được đặt lên bát súp",
+    "time_windows": [[313.0, 325.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-croutons-on-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-040", "video_id": "video-cook",
+    "query": "Thịt xông khói đã rán được rắc lên bát súp",
+    "time_windows": [[327.0, 331.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-bacon-on-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-041", "video_id": "video-cook",
+    "query": "Rau thơm màu xanh được rắc lên bát súp đã bày món",
+    "time_windows": [[334.0, 339.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-herbs-on-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-042", "video_id": "video-cook",
+    "query": "Bát súp kem hoàn thiện có bánh mì nướng, thịt xông khói và rau xanh ở trên",
+    "time_windows": [[0.0, 3.75], [340.0, 377.0]], "category": "context", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-plated-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-dev-043", "video_id": "video-cook",
+    "query": "Muỗng múc một miếng từ bát súp đã hoàn thiện",
+    "time_windows": [[345.0, 349.0], [365.5, 369.5]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "cook-spoon-plated-soup",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-test-001", "video_id": "video_test2",
     "query": "Chai thủy tinh màu xanh nằm trên nền đá",
     "time_windows": [[0.0, 6.5]], "category": "color", "split": "test",
     "language": "vi", "paraphrase_group": "test-green-bottle-ground",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-test-002", "video_id": "video_test2",
     "query": "Người mặc áo khoác màu be cúi xuống bên đống đá",
     "time_windows": [[2.5, 7.5]], "category": "action", "split": "test",
     "language": "vi", "paraphrase_group": "test-bend-rocks",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-test-003", "video_id": "video_test2",
     "query": "Bàn tay nhặt chai thủy tinh xanh lên khỏi đống đá",
     "time_windows": [[6.0, 7.25]], "category": "short_event", "split": "test",
     "language": "vi", "paraphrase_group": "test-pick-up-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-test-004", "video_id": "video_test2",
     "query": "Người cầm một chai nhựa trong suốt đã bị bóp méo",
     "time_windows": [[8.75, 22.122]], "category": "object", "split": "test",
     "language": "vi", "paraphrase_group": "test-crushed-plastic-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-test-005", "video_id": "video_test2",
     "query": "Túi giấy màu nâu được dùng để đựng những chiếc chai",
     "time_windows": [[8.5, 22.122]], "category": "context", "split": "test",
     "language": "vi", "paraphrase_group": "test-paper-bag-bottles",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-test-006", "video_id": "video_test2",
     "query": "Người xếp chai thủy tinh xanh vào túi giấy",
-    "time_windows": [[9.75, 16.0]], "category": "action", "split": "test",
+    "time_windows": [[10.0, 16.0]], "category": "action", "split": "test",
     "language": "vi", "paraphrase_group": "test-pack-green-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   },
   {
     "query_id": "vi-test-007", "video_id": "video_test2",
     "query": "Chai nhựa lớn có nhãn xanh ở bên ngoài túi giấy",
     "time_windows": [[9.25, 22.122]], "category": "color", "split": "test",
     "language": "vi", "paraphrase_group": "test-large-blue-label-bottle",
-    "annotator": "Codex draft from sampled frames", "review_status": "draft",
-    "reviewer": null, "reviewed_at": null
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-test-008", "video_id": "video-test4",
+    "query": "Người đội mũ bảo hộ màu vàng",
+    "time_windows": [[0.0, 14.208333]], "category": "color", "split": "test",
+    "language": "vi", "paraphrase_group": "test4-yellow-hard-hat",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-test-009", "video_id": "video-test4",
+    "query": "Áo phản quang màu vàng có các dải xám trên lưng",
+    "time_windows": [[0.0, 14.208333]], "category": "object", "split": "test",
+    "language": "vi", "paraphrase_group": "test4-reflective-vest",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-test-010", "video_id": "video-test4",
+    "query": "Người mặc áo màu xanh dương bên dưới áo phản quang",
+    "time_windows": [[0.0, 14.208333]], "category": "color", "split": "test",
+    "language": "vi", "paraphrase_group": "test4-blue-shirt",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-test-011", "video_id": "video-test4",
+    "query": "Người ở công trường quay lưng một phần về phía máy quay",
+    "time_windows": [[0.0, 14.208333]], "category": "context", "split": "test",
+    "language": "vi", "paraphrase_group": "test4-construction-worker-back",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-test-012", "video_id": "video-test4",
+    "query": "Người nhấc điện thoại màu đen lên tai",
+    "time_windows": [[2.75, 3.5]], "category": "short_event", "split": "test",
+    "language": "vi", "paraphrase_group": "test4-raise-phone",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-test-013", "video_id": "video-test4",
+    "query": "Người giữ điện thoại bên tai",
+    "time_windows": [[3.25, 14.208333]], "category": "action", "split": "test",
+    "language": "vi", "paraphrase_group": "test4-phone-at-ear",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
+  },
+  {
+    "query_id": "vi-test-014", "video_id": "video-test4",
+    "query": "Các thanh gỗ và cột kim loại ở phía sau người đội mũ",
+    "time_windows": [[0.0, 14.208333]], "category": "object", "split": "test",
+    "language": "vi", "paraphrase_group": "test4-construction-frames",
+    "annotator": "Codex draft from sampled frames", "review_status": "verified",
+    "reviewer": "Codex (owner-requested visual review)", "reviewed_at": "2026-11-08"
   }
 ]
