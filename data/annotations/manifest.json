@@ -30,6 +30,21 @@
       },
       "split": "test",
       "group_id": "video_test2"
+    },
+    {
+      "video_id": "video_test3",
+      "path": "video_test3.mp4",
+      "sha256": "ab9bf9811ef8fb79cd5048c65bd933c2933ad2467bbf26a57f4cb99207ba8341",
+      "duration_s": 18.72,
+      "fps": 25.0,
+      "frame_count": 468,
+      "source": "Downloaded video_test3.mp4 supplied by the repository owner; original URL and license terms were not provided",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-07 that video_test3.mp4 was downloaded and may be used freely; original URL and license terms were not provided"
+      },
+      "split": "dev",
+      "group_id": "video_test3"
     }
   ]
 }

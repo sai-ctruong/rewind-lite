@@ -56,6 +56,78 @@
     "reviewer": null, "reviewed_at": null
   },
   {
+    "query_id": "vi-dev-008", "video_id": "video_test3",
+    "query": "Một người mặc áo thun trắng ngồi trước máy tính",
+    "time_windows": [[0.0, 18.72]], "category": "context", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-white-shirt-computer",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-009", "video_id": "video_test3",
+    "query": "Biểu tượng màu hồng phát sáng trên máy tính ở tiền cảnh",
+    "time_windows": [[0.0, 18.72]], "category": "color", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-pink-computer-logo",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-010", "video_id": "video_test3",
+    "query": "Người mặc áo trắng đeo dây chuyền màu bạc",
+    "time_windows": [[2.5, 16.0]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-silver-necklace",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-011", "video_id": "video_test3",
+    "query": "Các thanh gỗ lớn bắt chéo phía sau người ngồi",
+    "time_windows": [[0.0, 18.72]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-wooden-beams",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-012", "video_id": "video_test3",
+    "query": "Người cầm chai thủy tinh trong suốt",
+    "time_windows": [[3.25, 14.0]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-clear-glass-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-013", "video_id": "video_test3",
+    "query": "Người đưa chai thủy tinh lên miệng",
+    "time_windows": [[5.75, 6.25]], "category": "short_event", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-raise-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-014", "video_id": "video_test3",
+    "query": "Người uống từ chai thủy tinh",
+    "time_windows": [[6.0, 9.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-drink-from-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-015", "video_id": "video_test3",
+    "query": "Người hạ chai thủy tinh xuống sau khi uống",
+    "time_windows": [[8.75, 9.75]], "category": "short_event", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-lower-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-016", "video_id": "video_test3",
+    "query": "Chỉ có một người xuất hiện trong khung hình",
+    "time_windows": [[0.0, 18.72]], "category": "count", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev3-one-person",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
     "query_id": "vi-test-001", "video_id": "video_test2",
     "query": "Chai thủy tinh màu xanh nằm trên nền đá",
     "time_windows": [[0.0, 6.5]], "category": "color", "split": "test",

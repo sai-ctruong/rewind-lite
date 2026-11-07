@@ -1,6 +1,6 @@
 # Rewind Lite — T09 hardening và bàn giao
 
-Ngày kiểm tra: 2026-11-07 (Asia/Bangkok). Đây là bản kiểm tra để review **checkpoint T09**, chưa phải tuyên bố benchmark hoặc phát hành học thuật hoàn tất. T05 sau đó nhận thêm `video_test2.mp4`; hiện có 2 video, 14 nhãn draft và 0 verified. Dữ liệu T05/T06 vẫn bị chặn.
+Ngày kiểm tra: 2026-11-07 (Asia/Bangkok). Đây là bản kiểm tra để review **checkpoint T09**, chưa phải tuyên bố benchmark hoặc phát hành học thuật hoàn tất. T05 sau đó nhận thêm `video_test2.mp4` và `video_test3.mp4`; hiện có 3 video, 23 nhãn draft và 0 verified. Dữ liệu T05/T06 vẫn bị chặn.
 
 ## Kịch bản demo 3–5 phút
 
@@ -12,7 +12,7 @@ Ngày kiểm tra: 2026-11-07 (Asia/Bangkok). Đây là bản kiểm tra để re
 | 0:40–1:20 | Chọn video, giải thích sampling → encoder → index | Trạng thái `ready`, số frame đã index |
 | 1:20–2:40 | Nhập truy vấn tiếng Việt, tìm Top-5 | Rank, thumbnail, timestamp và cosine score thật; mẫu hiện trả 2 kết quả |
 | 2:40–3:20 | Chọn một thumbnail và phát video từ timestamp | Player tua tới keyframe đã chọn |
-| 3:20–4:20 | Nêu dataset và giới hạn đánh giá | 2 video `dev`/`test`, 14 nhãn draft, 0 verified; accuracy chưa đo |
+| 3:20–4:20 | Nêu dataset và giới hạn đánh giá | 3 video `dev`/`test`, 23 nhãn draft, 0 verified; accuracy chưa đo |
 | 4:20–5:00 | Tóm tắt đóng góp và hướng hoàn thành benchmark | Validator, benchmark gate và kế hoạch bổ sung dữ liệu |
 
 Nếu trình duyệt không phát video, kiểm tra MP4/codec bằng cách phát file gốc trước buổi demo. Nếu model chưa có cache, tải và index từ trước. Không trình bày score cosine của một query như accuracy.
@@ -35,7 +35,7 @@ Nếu trình duyệt không phát video, kiểm tra MP4/codec bằng cách phát
 | T02 | PASS về protocol | [T02](rewind-lite-task-02-protocol.md), unit tests metrics/dataset; video legacy chưa xác minh |
 | T03 | PASS đường model thật | CLI CUDA dùng lại index, 2 keyframe tại 5.0 và 0.0 giây; [T03](rewind-lite-task-03-environment.md) |
 | T04 | PASS core và import boundary | Full suite 353 pass, 1 skip; [T04](rewind-lite-task-04-core.md) |
-| T05 | DATA BLOCKED | Bản T09 ban đầu: 1 video, 0 labels. Sau cập nhật T05: 2 video, 14 draft, 0 verified, `ready_for_accuracy=false`; [T05](rewind-lite-task-05-dataset.md) |
+| T05 | DATA BLOCKED | Bản T09 ban đầu: 1 video, 0 labels. Sau cập nhật T05: 3 video, 23 draft, 0 verified, `ready_for_accuracy=false`; [T05](rewind-lite-task-05-dataset.md) |
 | T06 | DATA BLOCKED | `evaluation.lite_benchmark --check` trả `DATA_BLOCKED`; không có accuracy report; [T06](rewind-lite-task-06-benchmark.md) |
 | T07 | PASS API smoke | Flask client trên model thật: select 200, index cached 200, search 200, frame 200, stream range 206; [T07](rewind-lite-task-07-api.md) |
 | T08 | PASS UI flow trong phạm vi đã kiểm | Trang UI 200; browser/desktop/mobile check và click-to-seek ghi ở [T08](rewind-lite-task-08-ui.md). Không lặp lại visual browser check ở T09. |

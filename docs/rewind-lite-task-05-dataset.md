@@ -1,21 +1,22 @@
 # Rewind Lite — T05 dataset preparation and annotation protocol
 
-Date: 2026-11-06 (Asia/Bangkok). Updated 2026-11-07 with a second local video and draft annotations; this is still a partial T05 checkpoint.
+Date: 2026-11-06 (Asia/Bangkok). Updated 2026-11-07 with two additional local videos and draft annotations; this is still a partial T05 checkpoint.
 
 ## Current evidence
 
-`data/annotations/manifest.json` records two local source videos supplied by the repository owner. The owner confirmed permission to use additional video data for evaluation and then provided `video_test2.mp4`. Both files remain local and ignored by Git. Their exact origin or license terms beyond that owner statement have not yet been supplied.
+`data/annotations/manifest.json` records three local source videos supplied by the repository owner. The owner confirmed permission to use the downloaded `video_test2.mp4` and `video_test3.mp4` freely. All three files remain local and ignored by Git. Original URLs and specific license terms for the downloaded files have not been supplied.
 
 | Video | Split | SHA-256 | OpenCV metadata | Scene observed |
 |---|---|---|---|---|
 | `video-test.mp4` | `dev` | `8410556fea9c755db18ebd29316405065e4330af52aa21530604bb72abdc448c` | 1,193 frames, 50 FPS, 23.86 s | Crowded tree-lined walkway |
 | `video_test2.mp4` | `test` | `a0de57a8a60d9c87d4aebf3f9407b44fdfedb9a2d3bdd2dc82cdc1a1653d83b8` | 663 frames, 29.970 FPS, 22.122 s | Person picking up and carrying bottles by rocks |
+| `video_test3.mp4` | `dev` | `ab9bf9811ef8fb79cd5048c65bd933c2933ad2467bbf26a57f4cb99207ba8341` | 468 frames, 25 FPS, 18.72 s, 3840×2160 | Person at a computer drinking from a clear bottle |
 
-The scenes are visually distinct and assigned different `group_id` values. This permits a video-level held-out split in the manifest, but one short clip per split is far too small to support a generalization claim.
+The scenes are visually distinct and assigned different `group_id` values. The third video joins `dev` to preserve the held-out `test` video. Two short `dev` clips and one short `test` clip are still too small to support a generalization claim.
 
-`data/annotations/labels.json` now contains **14 candidate Vietnamese queries**: 7 `dev`, 7 `test`. Every row is explicitly `draft`, with no reviewer or review date. The draft windows were proposed from timestamped sampled frames and selected full-resolution frames; they have **not** received an independent review against playback. The validator reports 2 videos, 14 labels, 14 nominally sampled windows, **0 verified**, and 0 structural issues. The 78 rows in `evaluation/labels.json` and 51 in `evaluation/labels_en.json` remain unverified legacy material because their source videos are absent; they are excluded from T05 counts.
+`data/annotations/labels.json` now contains **23 candidate Vietnamese queries**: 16 `dev`, 7 `test`. Every row is explicitly `draft`, with no reviewer or review date. The draft windows were proposed from timestamped sampled frames and selected full-resolution frames; they have **not** received an independent review against playback. The validator reports 3 videos, 23 labels, 23 nominally sampled windows, **0 verified**, and 0 structural issues. The 78 rows in `evaluation/labels.json` and 51 in `evaluation/labels_en.json` remain unverified legacy material because their source videos are absent; they are excluded from T05 counts.
 
-The ignored contact sheets are `artifacts/contact-sheets/video-test.jpg` (24 samples at 1 second) and `artifacts/contact-sheets/video_test2.jpg` (45 samples at 0.5 seconds). For a second visual pass, Codex generated `video-test-review-05.jpg` (48 samples at 0.5 seconds) and `video_test2-review-025.jpg` (89 samples at 0.25 seconds), plus selected full-resolution frames. These are review aids, not proof of exact event boundaries. No retrieval accuracy is reported.
+The ignored contact sheets are `artifacts/contact-sheets/video-test.jpg` (24 samples at 1 second) and `artifacts/contact-sheets/video_test2.jpg` (45 samples at 0.5 seconds). For visual review, Codex generated `video-test-review-05.jpg` (48 samples at 0.5 seconds), `video_test2-review-025.jpg` (89 samples at 0.25 seconds), `video_test3-review-05.jpg` (38 samples at 0.5 seconds), and `video_test3-review-025.jpg` (75 samples at 0.25 seconds), plus selected full-resolution frames. These are review aids, not proof of exact event boundaries. No retrieval accuracy is reported.
 
 ## Codex visual review of the draft labels
 
@@ -35,7 +36,16 @@ The owner designated Codex to review the candidates. Codex performed a second pa
 | `vi-test-006` | Green bottle is moved into the paper bag | Narrowed proposed action to `[9.75, 16)`; exact completion still needs playback review |
 | `vi-test-007` | Large plastic bottle with blue label hangs beside the bag | Moved start to 9.25 s |
 
-The owner described `video_test2.mp4` as downloaded and free to use. No original URL, publisher, or license text was supplied, so the manifest records that statement and the provenance gap explicitly. A human reviewer still needs to play both full clips, correct any missed appearances or boundaries, and record name/date before any row becomes `verified`. More diverse videos and genuine query moments are needed to reach the 50-query gate without padding two short scenes with near-duplicates.
+For `video_test3.mp4`, Codex inspected the whole 0.25-second contact sheet and selected original-resolution frames without retrieval predictions. The nine new drafts cover distinct visible details and events; proposed windows still need playback and independent review:
+
+| Query IDs | Visual evidence | Proposed window / remaining uncertainty |
+|---|---|---|
+| `vi-dev-008`, `009`, `011`, `016` | One white-shirted person at a computer; pink foreground logo and crossed wooden beams remain visible | Broad `[0, 18.72)` scene windows; a reviewer must check every boundary |
+| `vi-dev-010` | Silver-colored chain visible against white shirt | `[2.5, 16)`; material is not inferred from color |
+| `vi-dev-012` | Clear bottle held in front of the person | `[3.25, 14)`; material appears glass in inspected full-resolution frames |
+| `vi-dev-013`, `014`, `015` | Bottle rises to mouth, person drinks, then lowers it | Proposed `[5.75, 6.25)`, `[6, 9)`, `[8.75, 9.75)`; exact transitions require playback |
+
+The owner described both downloaded videos as free to use. No original URL, publisher, or license text was supplied, so the manifest records those statements and the provenance gap explicitly. A human reviewer still needs to play all three full clips, correct any missed appearances or boundaries, and record name/date before any row becomes `verified`. More diverse videos and genuine query moments are needed to reach the 50-query gate without padding three short scenes with near-duplicates.
 
 ## Format and review workflow
 
@@ -54,6 +64,7 @@ Generate a sheet and validate the current files from the repository root:
 ```powershell
 .venv\Scripts\python.exe -m scripts.contact_sheet video-test.mp4 artifacts\contact-sheets\video-test.jpg --every 1 --max-frames 64
 .venv\Scripts\python.exe -m scripts.contact_sheet video_test2.mp4 artifacts\contact-sheets\video_test2.jpg --every 0.5 --max-frames 64 --columns 6
+.venv\Scripts\python.exe -m scripts.contact_sheet video_test3.mp4 artifacts\contact-sheets\video_test3-review-025.jpg --every 0.25 --max-frames 80 --columns 8
 .venv\Scripts\python.exe -m evaluation.dataset --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --every 1
 .venv\Scripts\python.exe -m evaluation.dataset --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --every 1 --require-ready
 ```
@@ -64,10 +75,10 @@ The validator exits 2 for structural/source errors. Without `--require-ready`, i
 
 | Criterion | Status | Evidence |
 |---|---|---|
-| Source manifest, rights, real file checks | PASS for two owner-supplied files; provenance detail pending | `data/annotations/manifest.json`; validator checks file, SHA-256 and OpenCV metadata |
-| At least 50 verified Vietnamese queries | BLOCKED | 14 drafts, 0 verified; two short clips do not justify manufacturing near-duplicate queries |
+| Source manifest, rights, real file checks | PASS for three owner-supplied files; provenance detail pending | `data/annotations/manifest.json`; validator checks file, SHA-256 and OpenCV metadata |
+| At least 50 verified Vietnamese queries | BLOCKED | 23 drafts, 0 verified; three short clips do not justify manufacturing near-duplicate queries |
 | Human-checked windows, categories, review metadata | BLOCKED | Contact sheets and candidate windows exist; no independent reviewer yet |
-| Independent split without query/paraphrase leakage | PASS structurally, small sample | Distinct scenes and group IDs; validator found 0 issues; one clip per split limits inference |
-| Validator and nominal sampling coverage reporting | PASS as tooling | `evaluation/dataset.py`, `scripts/contact_sheet.py`, `tests/test_dataset_t05.py`; 14/14 draft windows intersect the nominal 1 s grid before dedup |
+| Independent split without query/paraphrase leakage | PASS structurally, small sample | Distinct scenes and group IDs; validator found 0 issues; one held-out `test` clip limits inference |
+| Validator and nominal sampling coverage reporting | PASS as tooling | `evaluation/dataset.py`, `scripts/contact_sheet.py`, `tests/test_dataset_t05.py`; 23/23 draft windows intersect the nominal 1 s grid before dedup |
 
 T05's dataset gate remains blocked until independent human review and at least 50 verified queries are available, ideally with more source-video diversity. The reviewer should play each source clip near the listed windows, correct all appearances and boundaries, then add their name/date before changing `review_status` to `verified`. Do not use retrieval output to revise the held-out test labels. This checkpoint does not justify retrieval accuracy claims or a T06 benchmark conclusion.
