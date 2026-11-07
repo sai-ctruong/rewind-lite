@@ -1,1 +1,114 @@
-[]
+[
+  {
+    "query_id": "vi-dev-001", "video_id": "video-test",
+    "query": "Lối đi có nhiều người đi bộ dưới hàng cây",
+    "time_windows": [[0.0, 23.86]], "category": "context", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev-walkway-crowd",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-002", "video_id": "video-test",
+    "query": "Các cột đèn có bóng tròn màu trắng dọc con đường",
+    "time_windows": [[0.0, 23.86]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev-globe-lamps",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-003", "video_id": "video-test",
+    "query": "Người mặc áo sẫm có vạch trắng đạp xe về phía máy quay bên trái lối đi",
+    "time_windows": [[0.0, 14.0]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev-left-cyclist",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-004", "video_id": "video-test",
+    "query": "Người mặc áo khoác xanh dương đi về phía máy quay",
+    "time_windows": [[0.0, 23.86]], "category": "color", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev-blue-jacket",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-005", "video_id": "video-test",
+    "query": "Một con chim bồ câu đi trên mặt đường",
+    "time_windows": [[0.0, 21.0]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev-pigeon",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-006", "video_id": "video-test",
+    "query": "Biển báo hình xe đạp màu xanh ở cạnh lối đi",
+    "time_windows": [[0.0, 23.86]], "category": "object", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev-bicycle-sign",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-dev-007", "video_id": "video-test",
+    "query": "Một nhóm người đi cùng nhau và quay lưng về phía máy quay",
+    "time_windows": [[0.0, 23.86]], "category": "action", "split": "dev",
+    "language": "vi", "paraphrase_group": "dev-group-walking-away",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-test-001", "video_id": "video_test2",
+    "query": "Chai thủy tinh màu xanh nằm trên nền đá",
+    "time_windows": [[0.0, 6.5]], "category": "color", "split": "test",
+    "language": "vi", "paraphrase_group": "test-green-bottle-ground",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-test-002", "video_id": "video_test2",
+    "query": "Người mặc áo khoác màu be cúi xuống bên đống đá",
+    "time_windows": [[2.5, 7.5]], "category": "action", "split": "test",
+    "language": "vi", "paraphrase_group": "test-bend-rocks",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-test-003", "video_id": "video_test2",
+    "query": "Bàn tay nhặt chai thủy tinh xanh lên khỏi đống đá",
+    "time_windows": [[6.0, 7.25]], "category": "short_event", "split": "test",
+    "language": "vi", "paraphrase_group": "test-pick-up-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-test-004", "video_id": "video_test2",
+    "query": "Người cầm một chai nhựa trong suốt đã bị bóp méo",
+    "time_windows": [[8.75, 22.122]], "category": "object", "split": "test",
+    "language": "vi", "paraphrase_group": "test-crushed-plastic-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-test-005", "video_id": "video_test2",
+    "query": "Túi giấy màu nâu được dùng để đựng những chiếc chai",
+    "time_windows": [[8.5, 22.122]], "category": "context", "split": "test",
+    "language": "vi", "paraphrase_group": "test-paper-bag-bottles",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-test-006", "video_id": "video_test2",
+    "query": "Người xếp chai thủy tinh xanh vào túi giấy",
+    "time_windows": [[9.75, 16.0]], "category": "action", "split": "test",
+    "language": "vi", "paraphrase_group": "test-pack-green-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  },
+  {
+    "query_id": "vi-test-007", "video_id": "video_test2",
+    "query": "Chai nhựa lớn có nhãn xanh ở bên ngoài túi giấy",
+    "time_windows": [[9.25, 22.122]], "category": "color", "split": "test",
+    "language": "vi", "paraphrase_group": "test-large-blue-label-bottle",
+    "annotator": "Codex draft from sampled frames", "review_status": "draft",
+    "reviewer": null, "reviewed_at": null
+  }
+]

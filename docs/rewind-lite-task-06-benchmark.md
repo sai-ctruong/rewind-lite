@@ -4,7 +4,7 @@ Date: 2026-11-06 (Asia/Bangkok). T06 partial checkpoint approved for `rewind-lit
 
 ## Protocol prepared
 
-`evaluation/lite_benchmark.py` gates every real run through the T05 source/annotation validator **before** loading a model, building an index, or writing accuracy results. The current manifest has one authorized video and `data/annotations/labels.json` has zero verified rows. The actual command returns `DATA_BLOCKED`, `n_verified=0`, and exit code 3. Thus no E1/E2/E3 accuracy, latency, throughput, or VRAM measurement is claimed for T06.
+`evaluation/lite_benchmark.py` gates every real run through the T05 source/annotation validator **before** loading a model, building an index, or writing accuracy results. The current manifest has two authorized videos in distinct `dev`/`test` scenes; `data/annotations/labels.json` has 14 draft rows and zero verified rows. The actual command returns `DATA_BLOCKED`, `n_verified=0`, and exit code 3. Thus no E1/E2/E3 accuracy, latency, throughput, or VRAM measurement is claimed for T06.
 
 When the gate reaches at least 50 validated, reviewed Vietnamese rows spanning independent `dev` and `test` videos, the harness will index each video once with both encoders. E1 searches the SigLIP2 slot, E2 the multilingual SigLIP slot, and E3 fuses their rankings with RRF. All three use the same sampled frames and the same index retained after histogram filtering and semantic deduplication. The current semantic dedup uses E1 vectors; this constraint must be considered when interpreting E2 as a standalone model. Explicit manifest `video_id` values are passed to the indexer, so labels need not depend on filenames.
 
@@ -31,7 +31,7 @@ Both commands currently stop before model loading with `DATA_BLOCKED` and exit c
 
 | Criterion | Status | Evidence |
 |---|---|---|
-| E1/E2/E3 same verified dataset, JSON/Markdown report | BLOCKED | Harness prepared; T05 gate has 0 verified queries |
+| E1/E2/E3 same verified dataset, JSON/Markdown report | BLOCKED | Harness prepared; T05 gate has 14 drafts and 0 verified queries |
 | T02 metrics and per-query missing/coverage accounting | PASS as tooling | `evaluation/lite_benchmark.py`; synthetic regression tests only |
 | Measured index/query/GPU latency and throughput | BLOCKED | Instrumentation prepared; no valid real run |
 | Error taxonomy and 5–10 checked failure cases | PARTIAL | Taxonomy and candidate export prepared; human diagnoses await data |

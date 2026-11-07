@@ -4,7 +4,7 @@
 
 ## Trạng thái và đóng góp
 
-Đường Lite T03–T08 đã có CLI, index lưu/nạp, API và giao diện. T05 có **1 video được phép dùng, 0 truy vấn tiếng Việt đã được xác minh**, chưa có video `test` độc lập. Vì vậy T06 chưa có số đo accuracy hợp lệ; không được dùng kết quả smoke hoặc nhãn legacy để kết luận chất lượng retrieval. [Trạng thái từng task](docs/task-status.md), [giao thức chấm T02](docs/rewind-lite-task-02-protocol.md), [dữ liệu T05](docs/rewind-lite-task-05-dataset.md), [benchmark T06](docs/rewind-lite-task-06-benchmark.md).
+Đường Lite T03–T08 đã có CLI, index lưu/nạp, API và giao diện. T05 có **2 video được phép dùng ở các split `dev`/`test`, 14 nhãn draft và 0 truy vấn tiếng Việt đã được xác minh**. Vì vậy T06 chưa có số đo accuracy hợp lệ; không được dùng kết quả smoke hoặc nhãn legacy để kết luận chất lượng retrieval. [Trạng thái từng task](docs/task-status.md), [giao thức chấm T02](docs/rewind-lite-task-02-protocol.md), [dữ liệu T05](docs/rewind-lite-task-05-dataset.md), [benchmark T06](docs/rewind-lite-task-06-benchmark.md).
 
 SigLIP/SigLIP2, PyTorch, OpenCV và Faiss là thành phần pretrained/thư viện bên ngoài. Rewind Lite tái sử dụng ingestion, encoder và index từ Rewind gốc; phần triển khai của Lite gồm đường single-encoder có manifest và cache, hợp đồng tìm kiếm, validator nhãn, benchmark E1/E2/E3 có gate dữ liệu, API và UI. Các module Agent, VQA, OCR/ASR, image search và temporal search của Rewind gốc vẫn nằm trong repository nhưng không thuộc đường Lite.
 
@@ -70,7 +70,7 @@ Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn vi
 
 ## Dữ liệu và đánh giá
 
-`data/annotations/manifest.json` ghi nguồn, quyền dùng, checksum, metadata và split. `data/annotations/labels.json` chứa nhãn đã review; hiện là `[]`. Hai file `evaluation/labels*.json` là dữ liệu Rewind cũ chưa kiểm tra với video nguồn nên **không** thuộc tập đánh giá Lite. Video, index, contact sheet, benchmark JSON tạo ra ở máy của người chạy và bị Git ignore.
+`data/annotations/manifest.json` ghi nguồn, quyền dùng, checksum, metadata và split. `data/annotations/labels.json` hiện có 14 nhãn **draft** chờ review độc lập; không hàng nào được tính là verified. Hai file `evaluation/labels*.json` là dữ liệu Rewind cũ chưa kiểm tra với video nguồn nên **không** thuộc tập đánh giá Lite. Video, index, contact sheet, benchmark JSON tạo ra ở máy của người chạy và bị Git ignore.
 
 ```powershell
 .venv\Scripts\python.exe -m evaluation.dataset --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --every 1
@@ -82,8 +82,8 @@ Validator có thể báo metadata hợp lệ trong khi bộ dữ liệu chưa đ
 
 | Chỉ số / bằng chứng | Kết quả thực hiện có | Ý nghĩa |
 |---|---:|---|
-| Video được xác nhận quyền dùng | 1 (`dev`) | Chưa có video `test` độc lập |
-| Truy vấn tiếng Việt verified | 0 | Chưa có mẫu để chấm accuracy |
+| Video được xác nhận quyền dùng | 2 (`dev` và `test`) | Hai cảnh khác nhau, mỗi split một clip ngắn |
+| Truy vấn tiếng Việt draft / verified | 14 / 0 | Chưa có mẫu đã review để chấm accuracy |
 | Hit@1, Hit@5, Recall@5, MRR E1/E2/E3 | Chưa đo | T05/T06 `DATA_BLOCKED` |
 | Smoke CLI SigLIP2 trên video 23.86 giây | 2 keyframe, timestamp 0.0 và 5.0 giây | Chỉ xác nhận đường index/search hoạt động |
 | Thời gian build index đầu tiên | 9.332 giây | Một lần chạy T03, 2 frame, GPU nêu trên; không là benchmark throughput |
