@@ -84,12 +84,22 @@ Validator có thể báo metadata hợp lệ mà không bảo đảm nội dung 
 |---|---:|---|
 | Video được xác nhận quyền dùng | 5 (`dev` và `test`) | Năm cảnh khác nhau; hai clip `test` ngắn |
 | Truy vấn tiếng Việt draft / verified | 0 / 57 | Codex đã review; chưa có người kiểm tra độc lập |
-| Hit@5 dev: E1 / E2 / E3 | 33/43 / 37/43 / 36/43 | Cùng 43 truy vấn, coverage 42/43 |
-| Hit@5 test: E1 / E2 / E3 | 13/14 / 13/14 / 14/14 | Test chưa tune, cỡ mẫu nhỏ; xem Hit@1/MRR/CI trong report |
+| Benchmark T06 | 407 frame lấy mẫu, 215 frame trong index | 47.744 giây build index; peak PyTorch GPU 1,596,314,624 byte |
 | Smoke CLI SigLIP2 trên video 23.86 giây | 2 keyframe, timestamp 0.0 và 5.0 giây | Chỉ xác nhận đường index/search hoạt động |
 | Thời gian build index đầu tiên | 9.332 giây | Một lần chạy T03, 2 frame, GPU nêu trên; không là benchmark throughput |
 
 Bảy ca E3 trượt Hit@5 đã được đối chiếu với khung hình nguồn và top 5 dự đoán: một ca không có khung hình dương do lấy mẫu/lọc trùng, sáu ca còn lại nhầm vật thể hoặc giai đoạn hành động. [Chi tiết từng ca](docs/rewind-lite-task-06-benchmark.md). So sánh cặp chưa cho thấy khác biệt có ý nghĩa thống kê; chưa kết luận mô hình nào tốt hơn nói chung.
+
+| Split | Baseline | Coverage | Hit@1 | Hit@5 | MRR |
+|---|---|---:|---:|---:|---:|
+| Dev (43) | E1 SigLIP2 | 42/43 | 24/43 | 33/43 | 0.645 |
+| Dev (43) | E2 multilingual SigLIP | 42/43 | 29/43 | 37/43 | 0.749 |
+| Dev (43) | E3 RRF | 42/43 | 29/43 | 36/43 | 0.745 |
+| Test (14) | E1 SigLIP2 | 14/14 | 12/14 | 13/14 | 0.871 |
+| Test (14) | E2 multilingual SigLIP | 14/14 | 10/14 | 13/14 | 0.810 |
+| Test (14) | E3 RRF | 14/14 | 11/14 | 14/14 | 0.863 |
+
+T06 dùng cùng tập frame và protocol cho ba baseline; E3 hợp nhất rank bằng RRF. Model revision, cấu hình sampling/dedup, khoảng tin cậy và thời gian embedding/retrieval riêng nằm trong [report](docs/rewind-lite-task-06-benchmark.md). Test split không dùng để tune.
 
 ## Giới hạn và xử lý lỗi thường gặp
 

@@ -8,7 +8,7 @@ T04 implementation commit: `412a6cd`, pushed to `main` and `refactor/rewind-lite
 
 Push remote `rewind-lite`: `https://github.com/sai-ctruong/rewind-lite.git`. The original `origin` remains `https://github.com/sai-ctruong/tlcn-rewind.git`.
 
-Latest task: T06 measured benchmark on `main`, approved and pushed on 2026-11-08. Five authorized videos and 57 Vietnamese labels have Codex visual review; the validator and T06 `--check` return ready. E1/E2/E3 were measured on these labels and seven E3 failures were checked against source frames. The same agent drafted and reviewed the labels, so independent human adjudication is still needed for external claims. The preceding T05 checkpoint was pushed to `rewind-lite/main` as `caeead0`.
+Latest task: T09 release reconciliation on `main`, approved and pushed on 2026-11-08 after T06 commit `bc6fb22`. Five authorized videos and 57 Vietnamese labels have Codex visual review; T06 measured E1/E2/E3 and checked seven E3 misses against source frames. The same agent drafted and reviewed the labels, so independent human adjudication remains necessary for external accuracy claims.
 
 | Task | Status | Evidence |
 |---|---|---|
@@ -20,8 +20,8 @@ Latest task: T06 measured benchmark on `main`, approved and pushed on 2026-11-08
 | T06 | MEASURED / INTERNAL BENCHMARK; pushed to `main` | `docs/rewind-lite-task-06-benchmark.md`; `docs/benchmark-results/t06.json`; 57 queries, 407 sampled / 215 indexed frames, E1/E2/E3 scores, timing and 7 checked E3 misses; independent label review pending |
 | T07 | DONE / pushed to `main` | `96b5c91`; `ui/lite_app.py`, `tests/test_lite_api_t07.py`, `docs/rewind-lite-task-07-api.md`; real `video-test.mp4` API smoke passed |
 | T08 | DONE / pushed to `main` | `4a87459`; `docs/rewind-lite-task-08-ui.md`; real SigLIP2 browser flow and 1440/768/390 screenshots |
-| T09 | PARTIAL / RELEASE REVIEW PENDING; pushed to `main` | `175d301`; `docs/rewind-lite-task-09-release.md`; README, demo and release checklist; T06 internal report exists, independent label review and release reconciliation pending |
+| T09 | INTERNAL HANDOFF READY / UPDATE PUSHED TO `main` | Original checkpoint `175d301` on `main`; updated `docs/rewind-lite-task-09-release.md` and README reconcile T06 metrics, demo, tests and release checklist; independent label review still pending for academic claims |
 
 Known limit: only two keyframes survived the duplicate filters on the original `video-test.mp4`; the measured T06 result depends on same-agent reviewed labels and five videos. Source videos, model cache and indexes are local ignored artifacts; the compact report JSON is tracked under `docs/benchmark-results/`.
 
-Next action: for an academic release, obtain independent human adjudication of the 57 labels, reproduce the report and update T09 release evidence.
+Next action: owner tests the local web demo. For an academic accuracy claim, obtain independent human adjudication of the 57 labels, reproduce T06 and verify the two downloaded videos' source/license details.
