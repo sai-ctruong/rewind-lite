@@ -4,7 +4,7 @@
 
 ## Trạng thái và đóng góp
 
-Đường Lite T03–T08 đã có CLI, index lưu/nạp, API và giao diện. T05 có **5 video được phép dùng ở các split `dev`/`test` và 57 nhãn tiếng Việt đã được Codex review bằng khung hình theo yêu cầu của chủ repository**. Validator báo `ready_for_accuracy=true`, nhưng đây là review cùng tác giả nhãn, chưa có người kiểm tra độc lập. T06 chưa chạy benchmark thực nên chưa có số đo accuracy; không được dùng kết quả smoke hoặc nhãn legacy để kết luận chất lượng retrieval. [Trạng thái từng task](docs/task-status.md), [giao thức chấm T02](docs/rewind-lite-task-02-protocol.md), [dữ liệu T05](docs/rewind-lite-task-05-dataset.md), [benchmark T06](docs/rewind-lite-task-06-benchmark.md).
+Đường Lite T03–T08 đã có CLI, index lưu/nạp, API và giao diện. T05 có **5 video được phép dùng ở các split `dev`/`test` và 57 nhãn tiếng Việt đã được Codex review bằng khung hình theo yêu cầu của chủ repository**. Validator báo `ready_for_accuracy=true`. T06 đã đo E1/E2/E3 trên tập này; kết quả là benchmark nội bộ vì nhãn do cùng một tác giả tạo và review, chưa có người kiểm tra độc lập. [Trạng thái từng task](docs/task-status.md), [giao thức chấm T02](docs/rewind-lite-task-02-protocol.md), [dữ liệu T05](docs/rewind-lite-task-05-dataset.md), [benchmark T06](docs/rewind-lite-task-06-benchmark.md).
 
 SigLIP/SigLIP2, PyTorch, OpenCV và Faiss là thành phần pretrained/thư viện bên ngoài. Rewind Lite tái sử dụng ingestion, encoder và index từ Rewind gốc; phần triển khai của Lite gồm đường single-encoder có manifest và cache, hợp đồng tìm kiếm, validator nhãn, benchmark E1/E2/E3 có gate dữ liệu, API và UI. Các module Agent, VQA, OCR/ASR, image search và temporal search của Rewind gốc vẫn nằm trong repository nhưng không thuộc đường Lite.
 
@@ -70,7 +70,7 @@ Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn vi
 
 ## Dữ liệu và đánh giá
 
-`data/annotations/manifest.json` ghi nguồn, quyền dùng, checksum, metadata và split. `data/annotations/labels.json` có 57 nhãn `verified` sau lượt review trực quan của Codex ngày 2026-11-08; tính độc lập và độ chính xác ranh giới dưới một giây vẫn cần người khác kiểm tra. Hai file `evaluation/labels*.json` là dữ liệu Rewind cũ chưa kiểm tra với video nguồn nên **không** thuộc tập đánh giá Lite. Video, index, contact sheet, benchmark JSON tạo ra ở máy của người chạy và bị Git ignore.
+`data/annotations/manifest.json` ghi nguồn, quyền dùng, checksum, metadata và split. `data/annotations/labels.json` có 57 nhãn `verified` sau lượt review trực quan của Codex ngày 2026-11-08; tính độc lập và độ chính xác ranh giới dưới một giây vẫn cần người khác kiểm tra. Hai file `evaluation/labels*.json` là dữ liệu Rewind cũ chưa kiểm tra với video nguồn nên **không** thuộc tập đánh giá Lite. Video, index, contact sheet và artifact benchmark cục bộ bị Git ignore; bản [JSON T06 đã đo](docs/benchmark-results/t06.json) được lưu cùng tài liệu.
 
 ```powershell
 .venv\Scripts\python.exe -m evaluation.dataset --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --every 1
@@ -78,17 +78,18 @@ Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn vi
 .venv\Scripts\python.exe -m evaluation.lite_benchmark --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --output artifacts\benchmarks\t06.json --device cuda --every 1 --top-k 5
 ```
 
-Validator có thể báo metadata hợp lệ mà không bảo đảm nội dung nhãn đúng. `--check` hiện trả `READY` với 57 nhãn đã review; benchmark T06 chưa chạy. Khi chạy, report JSON có config, per-query predictions, coverage, Hit@1/5, Recall@5, MRR, timing, VRAM và so sánh E1/E2/E3; report Markdown nằm cạnh JSON. [Quy trình gán nhãn T05](docs/rewind-lite-task-05-dataset.md), [thiết kế benchmark T06](docs/rewind-lite-task-06-benchmark.md). Artifact dự kiến: `artifacts/benchmarks/t06.json` và `artifacts/benchmarks/t06.md`; **chưa có report đo hợp lệ để liên kết/publish**.
+Validator có thể báo metadata hợp lệ mà không bảo đảm nội dung nhãn đúng. `--check` trả `READY` với 57 nhãn đã review. Benchmark T06 thực đã tạo [JSON đầy đủ](docs/benchmark-results/t06.json), [bảng Markdown](docs/benchmark-results/t06.md) và [phân tích 7 lỗi](docs/rewind-lite-task-06-benchmark.md). JSON có cấu hình, dự đoán từng truy vấn, coverage, Hit@1/5, Recall@5, MRR, thời gian, VRAM và so sánh cặp. Kết quả chỉ dùng để đánh giá nội bộ cho đến khi có review độc lập.
 
 | Chỉ số / bằng chứng | Kết quả thực hiện có | Ý nghĩa |
 |---|---:|---|
 | Video được xác nhận quyền dùng | 5 (`dev` và `test`) | Năm cảnh khác nhau; hai clip `test` ngắn |
 | Truy vấn tiếng Việt draft / verified | 0 / 57 | Codex đã review; chưa có người kiểm tra độc lập |
-| Hit@1, Hit@5, Recall@5, MRR E1/E2/E3 | Chưa đo | T06 chưa chạy benchmark thực |
+| Hit@5 dev: E1 / E2 / E3 | 33/43 / 37/43 / 36/43 | Cùng 43 truy vấn, coverage 42/43 |
+| Hit@5 test: E1 / E2 / E3 | 13/14 / 13/14 / 14/14 | Test chưa tune, cỡ mẫu nhỏ; xem Hit@1/MRR/CI trong report |
 | Smoke CLI SigLIP2 trên video 23.86 giây | 2 keyframe, timestamp 0.0 và 5.0 giây | Chỉ xác nhận đường index/search hoạt động |
 | Thời gian build index đầu tiên | 9.332 giây | Một lần chạy T03, 2 frame, GPU nêu trên; không là benchmark throughput |
 
-Các điểm lỗi cần phân tích sau khi có predictions T06: query bị sai ngôn ngữ/ngữ nghĩa, nhầm thuộc tính hoặc hành động, sự kiện bị bỏ qua do sampling, ảnh mơ hồ, hoặc nhãn/window chưa chính xác. Phải xem video và predictions từng query trước khi gán nguyên nhân. Hiện chưa có 5–10 ca lỗi được xác minh. Không kết luận mô hình nào tốt hơn từ video demo này.
+Bảy ca E3 trượt Hit@5 đã được đối chiếu với khung hình nguồn và top 5 dự đoán: một ca không có khung hình dương do lấy mẫu/lọc trùng, sáu ca còn lại nhầm vật thể hoặc giai đoạn hành động. [Chi tiết từng ca](docs/rewind-lite-task-06-benchmark.md). So sánh cặp chưa cho thấy khác biệt có ý nghĩa thống kê; chưa kết luận mô hình nào tốt hơn nói chung.
 
 ## Giới hạn và xử lý lỗi thường gặp
 

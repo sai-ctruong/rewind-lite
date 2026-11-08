@@ -1,6 +1,6 @@
 # Rewind Lite — T09 hardening và bàn giao
 
-Ngày kiểm tra: 2026-11-07 (Asia/Bangkok), cập nhật trạng thái dữ liệu 2026-11-08. Đây là bản kiểm tra để review **checkpoint T09**, chưa phải tuyên bố benchmark hoặc phát hành học thuật hoàn tất. T05 sau đó nhận thêm `video_test2.mp4`, `video_test3.mp4`, `video-test4.mp4` và `video-cook.mp4`; hiện có 5 video được phép dùng và 57 nhãn đã được Codex review bằng khung hình theo yêu cầu của chủ repository. T06 chưa chạy benchmark thực; nhãn chưa có người kiểm tra độc lập.
+Ngày kiểm tra: 2026-11-07 (Asia/Bangkok), cập nhật trạng thái dữ liệu 2026-11-08. Đây là bản kiểm tra để review **checkpoint T09**, chưa phải tuyên bố phát hành học thuật hoàn tất. T05 sau đó nhận thêm `video_test2.mp4`, `video_test3.mp4`, `video-test4.mp4` và `video-cook.mp4`; hiện có 5 video được phép dùng và 57 nhãn đã được Codex review bằng khung hình theo yêu cầu của chủ repository. T06 đã được đo sau checkpoint này; xem [báo cáo T06](rewind-lite-task-06-benchmark.md) để biết số đo mới. Nhãn chưa có người kiểm tra độc lập, và bảng trạng thái T09 bên dưới phản ánh thời điểm checkpoint ban đầu.
 
 ## Kịch bản demo 3–5 phút
 
