@@ -10,7 +10,7 @@ Trước buổi trình bày, chuẩn bị `video-test.mp4` được phép dùng,
 |---|---|---|
 | 0:00–0:40 | Nêu bài toán tìm keyframe từ câu tiếng Việt | Giao diện hiển thị video; kết quả là timestamp, không phải ranh giới đoạn `[start,end]` |
 | 0:40–1:20 | Chọn video và giải thích sampling → SigLIP2 → dedup → index | Trạng thái `ready`, số khung hình đã index |
-| 1:20–2:40 | Nhập truy vấn tiếng Việt và tìm Top-K | Thumbnail, rank, timestamp và điểm cosine; video demo hiện có 2 keyframe sau lọc trùng |
+| 1:20–2:40 | Nhập truy vấn tiếng Việt và tìm Top-K | Thumbnail, rank, timestamp và điểm cosine; xây lại chỉ mục cũ trước khi thử bản web mới |
 | 2:40–3:20 | Chọn thumbnail để tua player | Player phát từ timestamp đã chọn |
 | 3:20–4:20 | Trình bày benchmark nội bộ T06 | 5 video, 57 truy vấn; Hit@5 test E1/E2/E3 = 13/14, 13/14, 14/14; test nhỏ và nhãn chưa review độc lập |
 | 4:20–5:00 | Nêu đóng góp và giới hạn | Đường Lite/API/UI, giao thức đánh giá, 7 ca lỗi đã đối chiếu khung hình; không suy ra mô hình tốt hơn nói chung |
@@ -22,7 +22,7 @@ Nếu trình duyệt không phát MP4, kiểm tra codec bằng cách mở file n
 1. Bài toán và phạm vi: retrieval keyframe, không phải full temporal sentence grounding.
 2. Thành phần pretrained/tái sử dụng: SigLIP2/SigLIP, PyTorch, OpenCV, Faiss và ingestion/encoder/index từ Rewind gốc.
 3. Đóng góp riêng của Lite: đường single-encoder, manifest/cache, hợp đồng rank, API/UI, validator và benchmark E1/E2/E3.
-4. Kiến trúc: sampling 1 giây, lọc trùng histogram 0.985, semantic dedup 0.97, text max length 64, chuẩn hóa L2, exact Top-K trên index nhỏ.
+4. Kiến trúc: benchmark T06 dùng sampling 1 giây, histogram 0.985 và semantic dedup 0.97; web hiện dùng ngân sách 512 frame trải toàn video, histogram 0.999 và semantic dedup 0.99; text max length 64, chuẩn hóa L2, exact Top-K trên index nhỏ.
 5. Dữ liệu và protocol: nguồn/quyền, split theo video, 43 dev/14 test, coverage và cách chấm T02; nêu giới hạn cùng tác giả tạo/review nhãn.
 6. Kết quả T06: bảng Hit@1/Hit@5/MRR, thời gian index/query và GPU peak từ [report](rewind-lite-task-06-benchmark.md); không đọc chênh lệch 1–2 query như bằng chứng vượt trội.
 7. Bảy ca E3 trượt Hit@5: nhầm vật thể/giai đoạn hành động và một ca không có khung hình dương sau lấy mẫu/lọc trùng.

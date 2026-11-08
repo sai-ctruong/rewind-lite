@@ -5,6 +5,7 @@ Run ``python -m ui.lite_app``. The advanced ui.app endpoints are not registered.
 from __future__ import annotations
 
 import json
+import math
 import re
 import threading
 import time
@@ -37,17 +38,25 @@ class LiteService:
     def __init__(self, *, video_dir: str | Path, index_root: str | Path,
                  encoder_factory=None, model_id: str = DEFAULT_MODEL,
                  revision: str = DEFAULT_REVISION, device: str = "auto",
-                 sample_every_s: float = 1.0, max_frames: int | None = None):
+                 sample_every_s: float = 1.0, max_frames: int | None = 512,
+                 hist_duplicate_threshold: float = 0.999,
+                 dedup_threshold: float = 0.99):
         from retrieval.video_engine import VideoSearchEngine
 
         self.video_dir = Path(video_dir).resolve()
         self.index_root = Path(index_root).resolve()
+        if max_frames is not None and max_frames < 1:
+            raise ValueError("max_frames must be positive")
         self.encoder_factory = encoder_factory or _real_encoder
         self.model_id, self.revision, self.device = model_id, revision, device
         self.sample_every_s, self.max_frames = sample_every_s, max_frames
+        self.hist_duplicate_threshold = hist_duplicate_threshold
+        self.dedup_threshold = dedup_threshold
         self.engine = VideoSearchEngine(
             encoder_names=(model_id,), sample_every_s=sample_every_s,
-            max_frames=max_frames, query_templates=("{q}",),
+            max_frames=max_frames,
+            hist_duplicate_threshold=hist_duplicate_threshold,
+            dedup_threshold=dedup_threshold, query_templates=("{q}",),
             enable_ocr=False, enable_asr=False, enable_caption=False,
             embed_batch_size=8, decode_backend="cv2", use_gpu_decode=False,
             parallel_index=False)
@@ -155,8 +164,13 @@ class LiteService:
             validate_manifest(manifest, path, self.model_id, self.revision)
             sampling = manifest.get("sampling", {})
             if (sampling.get("every_s") != self.sample_every_s or
-                    sampling.get("max_frames") != self.max_frames):
-                raise ValueError("sampling changed")
+                    sampling.get("max_frames") != self.max_frames or
+                    sampling.get("budget_strategy") != "uniform_full_video_v1" or
+                    sampling.get("hist_duplicate_threshold") !=
+                    self.hist_duplicate_threshold or
+                    manifest.get("dedup", {}).get("similarity_threshold") !=
+                    self.dedup_threshold):
+                raise ValueError("index config changed")
             entry = VideoIndexEntry.load(directory)
             self._cache(video_id, path, entry)
         except (OSError, ValueError, KeyError, AttributeError, TypeError) as exc:
@@ -193,6 +207,11 @@ class LiteService:
                     return {"video_id": video_id, "cached": True,
                             "frames": entry.num_indexed, "sampled": entry.num_sampled}
             source = probe_video(path)
+            effective_every_s = self.sample_every_s
+            if self.max_frames is not None and source["frame_count"] > 0:
+                frame_step = math.ceil(source["frame_count"] / self.max_frames)
+                effective_every_s = max(
+                    self.sample_every_s, frame_step / source["fps"])
             encoder = self._get_encoder()
             self.engine.set_encoders([encoder])
             started = time.perf_counter()
@@ -202,7 +221,7 @@ class LiteService:
 
             entry = self.engine.index_video(
                 path, self.index_root / video_id / "frames", video_id=video_id,
-                progress_cb=on_progress)
+                sample_every_s=effective_every_s, progress_cb=on_progress)
             index_seconds = round(time.perf_counter() - started, 3)
             entry.index.encoder_metadata = {
                 "clip": {"id": self.model_id, "revision": self.revision}}
@@ -214,10 +233,13 @@ class LiteService:
                           "size_bytes": path.stat().st_size, **source},
                 "model": {"id": self.model_id, "revision": self.revision},
                 "sampling": {"every_s": self.sample_every_s,
+                             "effective_every_s": effective_every_s,
+                             "budget_strategy": "uniform_full_video_v1",
                              "max_frames": self.max_frames,
                              "decode_backend": "cv2",
-                             "hist_duplicate_threshold": 0.985},
-                "dedup": {"similarity_threshold": 0.97},
+                             "hist_duplicate_threshold":
+                             self.hist_duplicate_threshold},
+                "dedup": {"similarity_threshold": self.dedup_threshold},
                 "n_sampled": entry.num_sampled,
                 "n_indexed": entry.num_indexed,
                 "index_seconds": index_seconds,
@@ -289,7 +311,9 @@ def create_lite_app(*, video_dir: str | Path | None = None,
                     index_root: str | Path | None = None,
                     encoder_factory=None, model_id: str = DEFAULT_MODEL,
                     revision: str = DEFAULT_REVISION, device: str = "auto",
-                    sample_every_s: float = 1.0, max_frames: int | None = None,
+                    sample_every_s: float = 1.0, max_frames: int | None = 512,
+                    hist_duplicate_threshold: float = 0.999,
+                    dedup_threshold: float = 0.99,
                     max_upload_bytes: int = 512 * 1024 * 1024) -> Flask:
     app = Flask(__name__)
     app.config["MAX_CONTENT_LENGTH"] = max_upload_bytes
@@ -297,7 +321,9 @@ def create_lite_app(*, video_dir: str | Path | None = None,
         video_dir=video_dir or _ROOT / "data" / "videos",
         index_root=index_root or _ROOT / "artifacts" / "indexes",
         encoder_factory=encoder_factory, model_id=model_id, revision=revision,
-        device=device, sample_every_s=sample_every_s, max_frames=max_frames)
+        device=device, sample_every_s=sample_every_s, max_frames=max_frames,
+        hist_duplicate_threshold=hist_duplicate_threshold,
+        dedup_threshold=dedup_threshold)
     app.extensions["lite_service"] = service
 
     @app.get("/")

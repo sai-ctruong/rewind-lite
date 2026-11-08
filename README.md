@@ -24,7 +24,7 @@ flowchart LR
     U --> V[Thumbnail + video seek]
 ```
 
-CLI và UI mặc định dùng **một** encoder `google/siglip2-base-patch16-256` tại revision `6328738b83b563ff8396fdb87f8ce130a7b60d74`. Ảnh được lấy mẫu mỗi 1 giây (CLI mặc định tối đa 64 frame), lọc trùng histogram ngưỡng 0.985 rồi semantic dedup ngưỡng 0.97. Text tiếng Việt được đưa nguyên văn vào processor với `padding=max_length`, `max_length=64`, `truncation=True`. Vector được chuẩn hóa L2; điểm dense là cosine. Với chỉ mục nhỏ, retriever dùng tìm kiếm exact; cấu hình Faiss HNSW được lưu trong manifest. [Chi tiết T03](docs/rewind-lite-task-03-environment.md), [hợp đồng core T04](docs/rewind-lite-task-04-core.md).
+CLI và UI mặc định dùng **một** encoder `google/siglip2-base-patch16-256` tại revision `6328738b83b563ff8396fdb87f8ce130a7b60d74`. CLI và benchmark T06 dùng lấy mẫu mỗi 1 giây, lọc trùng histogram 0.985 và semantic dedup 0.97; CLI mặc định tối đa 64 frame. Web lấy mẫu tối thiểu mỗi 1 giây, tối đa 512 frame **trải đều trên toàn bộ video**, lọc trùng histogram 0.999 và semantic dedup 0.99 để giữ thêm chuyển động nhỏ. Text tiếng Việt được đưa nguyên văn vào processor với `padding=max_length`, `max_length=64`, `truncation=True`. Vector được chuẩn hóa L2; điểm dense là cosine. Với chỉ mục nhỏ, retriever dùng tìm kiếm exact; cấu hình Faiss HNSW được lưu trong manifest. [Chi tiết T03](docs/rewind-lite-task-03-environment.md), [hợp đồng core T04](docs/rewind-lite-task-04-core.md).
 
 ## Cài đặt trên Windows PowerShell
 
@@ -66,7 +66,7 @@ Thay `--device cuda` bằng `--device cpu` khi không có CUDA. `manifest.json` 
 .venv\Scripts\python.exe -m ui.lite_app
 ```
 
-Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn video đã có trong `data/videos/`. Sau khi index xong, nhập truy vấn tiếng Việt, xem tối đa 5 thumbnail và chọn kết quả để tua video. Index mặc định lưu ở `artifacts/indexes/`. Server chỉ lắng nghe `127.0.0.1`; tiến độ và cache model nằm trong một process. [Hợp đồng HTTP và lỗi T07](docs/rewind-lite-task-07-api.md), [kiểm tra UI T08](docs/rewind-lite-task-08-ui.md).
+Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn video đã có trong `data/videos/`. Sau khi index xong, nhập truy vấn tiếng Việt, xem tối đa 5 thumbnail và chọn kết quả để tua video. Index mặc định lưu ở `artifacts/indexes/`. Khi đổi sang cấu hình lấy mẫu mới, web báo chỉ mục cũ hết hạn; chọn **Xây lại chỉ mục** để áp dụng. Với video dài, khoảng cách lấy mẫu tự tăng để phủ hết thời lượng nên sự kiện ngắn hơn khoảng này vẫn có thể bị bỏ sót. Server chỉ lắng nghe `127.0.0.1`; tiến độ và cache model nằm trong một process. [Kiểm tra chất lượng tìm kiếm web](docs/lite-search-quality.md), [hợp đồng HTTP và lỗi T07](docs/rewind-lite-task-07-api.md), [kiểm tra UI T08](docs/rewind-lite-task-08-ui.md).
 
 ## Dữ liệu và đánh giá
 

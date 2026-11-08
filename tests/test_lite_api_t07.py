@@ -1,6 +1,7 @@
 """T07 Lite HTTP contract with a real tiny video and a fake text/image encoder."""
 from __future__ import annotations
 
+import json
 from io import BytesIO
 from threading import Event, Thread
 
@@ -19,6 +20,91 @@ def _video(path):
         writer.write(np.full((32, 32, 3), i * 10, dtype=np.uint8))
     writer.release()
     return path
+
+
+def _subtle_motion_video(path):
+    """Moving small object: nearby frames look alike in a global histogram."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    writer = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*"mp4v"), 1,
+                             (96, 96))
+    assert writer.isOpened()
+    background = np.full((96, 96, 3), (90, 120, 150), dtype=np.uint8)
+    for i in range(5):
+        frame = background.copy()
+        frame[8:20, 8 + i * 14:20 + i * 14] = (10, 40, 230)
+        writer.write(frame)
+    writer.release()
+    return path
+
+
+def test_lite_index_keeps_subtle_motion_for_search(tmp_path):
+    from ui.lite_app import create_lite_app
+
+    videos = tmp_path / "videos"
+    _subtle_motion_video(videos / "motion.mp4")
+    app = create_lite_app(video_dir=videos, index_root=tmp_path / "indexes",
+                          encoder_factory=lambda *_: FakeEncoder())
+    client = app.test_client()
+    assert client.post("/api/lite/select", json={"video_id": "motion"}).status_code == 200
+    response = client.post("/api/lite/index", json={})
+    assert response.status_code == 200
+    assert response.get_json()["sampled"] >= 2
+    manifest = json.loads((tmp_path / "indexes/motion/manifest.json").read_text())
+    assert manifest["sampling"]["max_frames"] == 512
+    assert manifest["sampling"]["hist_duplicate_threshold"] == 0.999
+    assert manifest["dedup"]["similarity_threshold"] == 0.99
+
+
+def test_lite_requires_rebuild_for_old_dedup_config(tmp_path):
+    from ui.lite_app import create_lite_app
+
+    videos = tmp_path / "videos"
+    _subtle_motion_video(videos / "motion.mp4")
+    indexes = tmp_path / "indexes"
+    old = create_lite_app(video_dir=videos, index_root=indexes,
+                          encoder_factory=lambda *_: FakeEncoder(),
+                          hist_duplicate_threshold=0.985,
+                          dedup_threshold=0.97).test_client()
+    old.post("/api/lite/select", json={"video_id": "motion"})
+    assert old.post("/api/lite/index", json={}).get_json()["sampled"] == 1
+
+    current = create_lite_app(video_dir=videos, index_root=indexes,
+                              encoder_factory=lambda *_: FakeEncoder()).test_client()
+    current.post("/api/lite/select", json={"video_id": "motion"})
+    stale = current.post("/api/lite/index", json={})
+    assert stale.status_code == 409
+    assert stale.get_json()["error"]["code"] == "index_expired"
+    rebuilt = current.post("/api/lite/index", json={"rebuild": True})
+    assert rebuilt.status_code == 200
+    assert rebuilt.get_json()["sampled"] >= 2
+
+
+def test_lite_frame_budget_spans_full_video(tmp_path):
+    from ui.lite_app import create_lite_app
+
+    videos = tmp_path / "videos"
+    videos.mkdir()
+    writer = cv2.VideoWriter(str(videos / "long.mp4"),
+                             cv2.VideoWriter_fourcc(*"mp4v"), 1, (64, 64))
+    assert writer.isOpened()
+    for i in range(12):
+        frame = np.full((64, 64, 3), (i * 19, 30, 200 - i * 13),
+                        dtype=np.uint8)
+        writer.write(frame)
+    writer.release()
+
+    app = create_lite_app(video_dir=videos, index_root=tmp_path / "indexes",
+                          encoder_factory=lambda *_: FakeEncoder(),
+                          max_frames=3)
+    client = app.test_client()
+    client.post("/api/lite/select", json={"video_id": "long"})
+    response = client.post("/api/lite/index", json={})
+    assert response.status_code == 200
+    entry = app.extensions["lite_service"].entries["long"]
+    assert max(raw.timestamp for raw in entry.raws.values()) >= 8
+    assert response.get_json()["sampled"] <= 3
+    manifest = json.loads((tmp_path / "indexes/long/manifest.json").read_text())
+    assert manifest["sampling"]["effective_every_s"] >= 4
 
 
 class FakeEncoder:

@@ -173,6 +173,7 @@ class VideoSearchEngine:
         encoder_names: Sequence[str] = DEFAULT_ENCODERS,
         sample_every_s: float = 1.0,           # [PROVISIONAL] 1 frame/giây
         max_frames: Optional[int] = None,       # None = KHÔNG giới hạn (index cả video)
+        hist_duplicate_threshold: float = 0.985,
         dedup_threshold: float = 0.97,          # [PROVISIONAL] khớp settings.yaml
         query_templates: Sequence[str] = QUERY_TEMPLATES,
         rerank_model: str = "Qwen/Qwen2-VL-2B-Instruct",
@@ -197,6 +198,7 @@ class VideoSearchEngine:
         self.encoder_names = list(encoder_names)[:2]  # KeyframeIndex có đúng 2 slot dense
         self.sample_every_s = sample_every_s
         self.max_frames = max_frames
+        self.hist_duplicate_threshold = hist_duplicate_threshold
         self.dedup_threshold = dedup_threshold
         self.query_templates = list(query_templates)
         self.rerank_model = rerank_model
@@ -591,6 +593,7 @@ class VideoSearchEngine:
                     for kf in iter_keyframes(
                         path, out_dir, video_id=vid,
                         sample_every_s=sample_every_s or self.sample_every_s,
+                        duplicate_threshold=self.hist_duplicate_threshold,
                         max_frames=max_frames, decode_backend=self.decode_backend,
                         use_gpu=self.use_gpu_decode,
                     ):
@@ -661,6 +664,7 @@ class VideoSearchEngine:
             all_raws.extend(extract_keyframes(
                 path, out_dir, video_id=vid,
                 sample_every_s=sample_every_s or self.sample_every_s,
+                duplicate_threshold=self.hist_duplicate_threshold,
                 max_frames=max_frames, decode_backend=self.decode_backend,
                 use_gpu=self.use_gpu_decode))
         return all_raws, self._embed_raws(all_raws, enable_ocr)
