@@ -1,0 +1,132 @@
+[
+  {
+    "id": "TC00",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "2 người đi giữa cánh đồng hoa",
+    "gt_windows": [
+      [58.0, 68.0],
+      [228.0, 242.0]
+    ],
+    "note": "Cảnh 2 người đi giữa cánh đồng hoa trắng (đoạn 1: 00:58–01:08; đoạn 2: 03:48–04:02 kèm chữ cuối MV)."
+  },
+  {
+    "id": "TC01",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "người đàn ông hát vào micro",
+    "gt_windows": [
+      [140.0, 172.0],
+      [176.0, 186.0]
+    ],
+    "note": "Cảnh chú rể hát vào micro trong lễ cưới (02:20–02:52 và 02:56–03:06)."
+  },
+  {
+    "id": "TC02",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "cô gái cầm bóng bay",
+    "gt_windows": [
+      [97.0, 104.0]
+    ],
+    "note": "Cảnh cô gái cầm chùm bóng bay trắng giữa đồng cỏ (01:37–01:44)."
+  },
+  {
+    "id": "TC03",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "xe ô tô chạy trong đêm bật đèn pha",
+    "gt_windows": [
+      [121.0, 128.0]
+    ],
+    "note": "Cảnh xe ô tô chạy trong đêm rọi đèn pha trên đường tối (02:01–02:08)."
+  },
+  {
+    "id": "TC04",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "hoàng hôn",
+    "gt_windows": [
+      [80.0, 88.0]
+    ],
+    "note": "Cảnh hoàng hôn nắng vàng rực rỡ (01:20–01:28)."
+  },
+  {
+    "id": "TC05",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "cô gái mỉm cười dưới bầu trời xanh",
+    "gt_windows": [
+      [208.0, 216.0]
+    ],
+    "note": "Cảnh cô gái mặc áo xanh mỉm cười nhìn lên bầu trời (03:28–03:36)."
+  },
+  {
+    "id": "TC06",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "bó hoa hồng đỏ",
+    "gt_windows": [
+      [13.0, 20.0],
+      [136.0, 142.0],
+      [154.0, 160.0]
+    ],
+    "note": "Bổ sung cửa sổ [154.0, 160.0] (02:34–02:40: cô dâu cầm bó hoa hồng đỏ trên sân khấu). Bản nháp Opus chỉ có [13.0, 20.0] và [136.0, 142.0], Opus đã xác nhận bằng mắt cảnh 02:38 đạt chuẩn."
+  },
+  {
+    "id": "TC07",
+    "video_id": "cd004f04834e466791e25c202ef4756f",
+    "query_vi": "đám cưới đông người trong hội trường",
+    "gt_windows": [
+      [0.0, 8.0],
+      [144.0, 150.0],
+      [178.0, 184.0]
+    ],
+    "note": "Bổ sung cửa sổ [0.0, 8.0] (00:00–00:08: cảnh toàn hội trường đám cưới đông khách mở đầu MV). Opus ghi thiếu cửa sổ này ở eval_queries.py nhưng đã có trong sweep_trim.py và yêu cầu bổ sung trong review."
+  },
+  {
+    "id": "TC08",
+    "video_id": "959c2799bf8c4ca0b380399c813dc051",
+    "query_vi": "học sinh đi bộ trong hành lang",
+    "gt_windows": [
+      [0.0, 13.0]
+    ],
+    "note": "Cảnh nam sinh đi bộ dọc hành lang trường học (00:00–00:13)."
+  },
+  {
+    "id": "TC09",
+    "video_id": "959c2799bf8c4ca0b380399c813dc051",
+    "query_vi": "bầu trời xanh có mây trắng",
+    "gt_windows": [
+      [13.0, 25.0]
+    ],
+    "note": "Cảnh toàn bầu trời xanh ngắt mây trắng chữ June (00:13–00:25). Rút ngắn từ [13, 30] xuống [13, 25] vì từ giây 26 trở đi là chuyển cảnh tối sang lớp học."
+  },
+  {
+    "id": "TC10",
+    "video_id": "959c2799bf8c4ca0b380399c813dc051",
+    "query_vi": "ban nhạc rock chơi guitar",
+    "gt_windows": [
+      [78.0, 88.0]
+    ],
+    "note": "Cảnh ban nhạc học sinh biểu diễn rock với guitar ở sân trường (01:18–01:28)."
+  },
+  {
+    "id": "TC11",
+    "video_id": "959c2799bf8c4ca0b380399c813dc051",
+    "query_vi": "hai học sinh ngồi viết bài trên bàn",
+    "gt_windows": [
+      [30.0, 40.0]
+    ],
+    "note": "Cảnh hai nam sinh ngồi học bài tại bàn trong lớp học (00:30–00:40)."
+  },
+  {
+    "id": "TC12",
+    "video_id": "959c2799bf8c4ca0b380399c813dc051",
+    "query_vi": "cái trống lớn màu đỏ",
+    "gt_windows": [
+      [62.0, 70.0]
+    ],
+    "note": "Cảnh nam sinh chuẩn bị đánh cái trống trường màu đỏ lớn đặt trên giá (01:02–01:10)."
+  },
+  {
+    "id": "TC13",
+    "video_id": "959c2799bf8c4ca0b380399c813dc051",
+    "query_vi": "con mèo",
+    "gt_windows": [],
+    "note": "Test case âm tính (không có mèo trong video). Kỳ vọng không crash, điểm thấp, bị loại khỏi phép tính @k và mIoU."
+  }
+]

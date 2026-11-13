@@ -59,6 +59,21 @@
             <input id="search-query" name="query" type="search" maxlength="512" placeholder="Ví dụ: một người đang đi bộ ngoài đường" disabled required>
             <button id="search-button" class="primary-button" type="submit" disabled>Tìm kiếm</button>
           </div>
+          <div class="search-options" style="display:flex;gap:1.5rem;align-items:center;margin-top:0.5rem;font-size:0.875rem;">
+            <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer;">
+              <input type="radio" name="search-mode" value="temporal" checked>
+              <strong>Khoảng thời gian [t_start, t_end] (Phase 2)</strong>
+            </label>
+            <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer;">
+              <input type="radio" name="search-mode" value="keyframe">
+              <span>Khung hình đơn (Phase 1)</span>
+            </label>
+            <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer;margin-left:auto;">
+              <input type="checkbox" id="toggle-yolo">
+              <span>Bật hỗ trợ YOLO Object Evidence</span>
+            </label>
+          </div>
+          <p class="field-help">Điểm xếp hạng không phải xác suất. YOLO hỗ trợ xếp hạng theo vật thể, không xác minh hành động.</p>
           <p id="search-help" class="field-help">Chọn video và chờ lập chỉ mục để bắt đầu.</p>
         </form>
 

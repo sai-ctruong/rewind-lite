@@ -39,13 +39,13 @@ button:focus-visible, input:focus-visible, label[for="video-upload"]:focus-withi
 .video-list-wrap { flex: 1; min-height: 120px; }
 .sidebar-state { color: var(--faint); font-size: 13px; padding: 10px 6px; }
 .sidebar-state.error, .upload-status.error { color: var(--negative); }
-.video-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.video-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; grid-template-columns: minmax(0, 1fr); }
 .video-list button { width: 100%; min-height: 44px; border: 0; border-radius: 8px; background: transparent; color: var(--muted); display: flex; align-items: center; gap: 9px; padding: 7px 8px; text-align: left; }
 .video-list button:hover { background: #1b1b1b; color: var(--text); }
 .video-list button[aria-current="true"] { color: var(--text); background: #191919; }
 .video-list button:disabled { opacity: .5; }
 .video-glyph { display: inline-block; flex: none; width: 13px; height: 10px; border: 1px solid currentColor; border-radius: 2px; opacity: .7; }
-.video-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.video-name { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sidebar-bottom { border-top: 1px solid var(--rule); padding-top: 18px; }
 .upload-action { display: flex; align-items: center; justify-content: center; min-height: 40px; border: 1px solid #676767; border-radius: 999px; color: var(--text); font-weight: 500; }
 .upload-action:hover { background: #222; }
@@ -165,3 +165,10 @@ button:focus-visible, input:focus-visible, label[for="video-upload"]:focus-withi
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+/* UI01: evidence stays on its exact static frame, never on moving video. */
+.evidence-image { position: relative; display: block; flex: none; width: 116px; overflow: hidden; border-radius: 6px; }
+.evidence-image .result-image { display: block; width: 100%; height: auto; border-radius: 0; }
+.moment-track button.interval { transform: none; border-radius: 3px; top: 4px; height: 16px; min-width: 4px; border-width: 1px; opacity: .75; }
+.moment-track button.interval:hover, .moment-track button.interval.is-active { opacity: 1; height: 20px; top: 2px; }
+.search-options { flex-wrap: wrap; }
+@media(max-width: 600px) { .evidence-image { width: 104px; } }

@@ -78,6 +78,53 @@ Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn vi
 .venv\Scripts\python.exe -m evaluation.lite_benchmark --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --output artifacts\benchmarks\t06.json --device cuda --every 1 --top-k 5
 ```
 
+## Phase 2 — Vietnamese Temporal Video Moment Localization with Object Evidence
+
+Phase 2 mở rộng Rewind Lite từ định vị timestamp đơn lẻ sang bài toán **Temporal Video Moment Localization** với đầu ra `[t_start, t_end]` và module hỗ trợ **Object Detection (YOLO)**:
+
+```mermaid
+flowchart TD
+    Video[Video MP4] --> Ingest[Keyframe Extraction & Embeddings]
+    QueryVI[Truy vấn Tiếng Việt] --> TextEmbed[SigLIP2 Text Embedding]
+    Ingest & TextEmbed --> FrameSim[Frame-level Similarity Chronology]
+    FrameSim --> TemporalProposal[P03: Temporal Smoothing & Segment Proposal]
+    TemporalProposal --> E1[E1: Temporal-Only Baseline Moments]
+    E1 --> CandidateFrames[Candidate Evidence Frames Only]
+    CandidateFrames --> YOLO[P04: Lightweight Pretrained YOLO & SHA-256 Cache]
+    YOLO --> BBoxes[Detected BBoxes & Evidence Classes]
+    E1 & BBoxes --> Rerank[P05: Object-Aware Reranker]
+    Rerank --> E2[E2: Temporal + Object Reranked Moments]
+    E1 & E2 --> Eval[P07: Temporal Benchmark & Paired Error Taxonomy]
+```
+
+### Các thành phần Phase 2 (P01 – P09)
+* **P01:** Khóa contract `TemporalMoment` `[t_start, t_end)`.
+* **P02 (`evaluation/temporal_metrics.py`):** Giao thức tính Temporal IoU (tIoU), Recall@1/5 tại tIoU 0.3/0.5, mean IoU.
+* **P03 (`retrieval/temporal.py`):** Gom cụm temporal smoothing, peak selection, gap-aware merging và Temporal NMS (baseline không cần detector).
+* **P04 (`retrieval/detector.py`):** Adapter YOLO pretrained nhẹ, bộ nhớ cache băm SHA-256, chỉ chạy trên candidate frames (ngân sách GPU 4.29 GB VRAM).
+* **P05 (`retrieval/object_reranker.py`):** Parser từ khóa tiếng Việt sang COCO, rerank kết hợp điểm ngữ nghĩa và vật thể, lưu provenance chi tiết.
+* **P06 (`docs/phase2-p06-action-verification.md`):** Quyết định **NO-GO (Option A)** bảo vệ pipeline sạch (E0 vs E1 vs E2), không làm phình dự án và kiểm chứng guardrails học thuật.
+* **P07 (`evaluation/temporal_benchmark.py` & `evaluation/error_analysis.py`):** Thử nghiệm Ablation E0/E1/E2 và phân loại 7 nhóm lỗi học thuật (`hit`, `boundary_error`, `wrong_object`, `wrong_relation`, `wrong_action_or_stage`, `sampling_or_coverage_miss`, `no_prediction`).
+* **P08 (`ui/lite_app.py`, `ui/lite_index.html`, `ui/lite.js`):** Temporal Search có timeline khoảng `[t_start, t_end]`; chọn đoạn để phát từ đầu và dừng ở cuối, chọn thumbnail để tua tới peak. YOLO tắt mặc định và hỗ trợ xếp hạng theo vật thể; điểm sau rerank là điểm xếp hạng, không phải xác suất. Theo quyết định chủ dự án, UI không còn tùy chọn hiển thị bbox; detector không xác minh hành động.
+
+### Lệnh chạy kiểm thử và đánh giá Phase 2
+```powershell
+# Chạy đánh giá P02 (chuẩn bị dataset và kiểm tra quy chuẩn interval)
+.venv\Scripts\python.exe -m evaluation.temporal_metrics --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root .
+
+# Chạy runner P07 temporal ablation (E0/E1/E2)
+.venv\Scripts\python.exe -m evaluation.temporal_benchmark --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root .
+
+# Chạy toàn bộ test suite Phase 1 + Phase 2 (402 test cases)
+.venv\Scripts\python.exe -m pytest -v
+```
+
+### Tuyên bố Liêm chính Học thuật (Academic Claims & Limitations)
+1. **Detection $\neq$ Action:** Phát hiện bounding box `person` và `bottle` trong khung hình **không đồng nghĩa** với việc người đó đang thực hiện hành động "lấy chai" hoặc "uống nước". Hệ thống luôn ghi rõ `action_verified=False`.
+2. **Sparse Sampling Bound:** Các hành động ngắn (1 giây) có thể bị bỏ sót nếu khoảng cách lấy mẫu của video thưa hơn thời lượng hành động.
+3. **Approximate Boundaries:** Ranh giới `[t_start, t_end]` là các đề xuất định vị thời gian xấp xỉ theo chuỗi frame được lấy mẫu, không phải ranh giới chính xác tuyệt đối từng khung hình micro-second.
+
+
 Validator có thể báo metadata hợp lệ mà không bảo đảm nội dung nhãn đúng. `--check` trả `READY` với 57 nhãn đã review. Benchmark T06 thực đã tạo [JSON đầy đủ](docs/benchmark-results/t06.json), [bảng Markdown](docs/benchmark-results/t06.md) và [phân tích 7 lỗi](docs/rewind-lite-task-06-benchmark.md). JSON có cấu hình, dự đoán từng truy vấn, coverage, Hit@1/5, Recall@5, MRR, thời gian, VRAM và so sánh cặp. Kết quả chỉ dùng để đánh giá nội bộ cho đến khi có review độc lập.
 
 | Chỉ số / bằng chứng | Kết quả thực hiện có | Ý nghĩa |

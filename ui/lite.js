@@ -15,7 +15,7 @@
   };
   const state = {
     videos: [], selected: null, ready: false, busy: false, searching: false,
-    results: [], activeFrame: null, menuOpen: false, needsRebuild: false, generation: 0
+    results: [], segmentEnd: null, activeFrame: null, menuOpen: false, needsRebuild: false, generation: 0
   };
   const phone = window.matchMedia("(max-width: 900px)");
 
@@ -124,6 +124,7 @@
   }
 
   function clearResults(text = "Nhập mô tả để tìm khoảnh khắc trong video này.") {
+    state.segmentEnd = null;
     state.results = [];
     state.activeFrame = null;
     el.results.replaceChildren();
@@ -144,19 +145,28 @@
     for (const hit of state.results) {
       const mark = document.createElement("button");
       mark.type = "button";
-      mark.style.left = `${Math.min(98, Math.max(2, hit.timestamp / duration * 100))}%`;
+      const isSegment = hit.is_temporal && Number.isFinite(hit.t_start) && hit.t_end > hit.t_start;
+      mark.style.left = `${(isSegment ? hit.t_start : hit.timestamp) / duration * 100}%`;
+      if (isSegment) mark.style.width = `${(Math.min(duration, hit.t_end)-hit.t_start)/duration*100}%`;
       mark.className = hit.frame_id === state.activeFrame ? "is-active" : "";
       mark.setAttribute("aria-label", `Tua đến ${formatTime(hit.timestamp)}, kết quả hạng ${hit.rank}`);
       mark.title = `${formatTime(hit.timestamp)} · hạng ${hit.rank}`;
-      mark.addEventListener("click", () => seekTo(hit));
+      if (isSegment) {
+        mark.classList.add("interval");
+        mark.setAttribute("aria-label", `Phát đoạn ${formatTime(hit.t_start)} đến ${formatTime(hit.t_end)}, hạng ${hit.rank}`);
+        mark.title = mark.getAttribute("aria-label");
+      }
+      mark.addEventListener("click", () => seekTo(hit, isSegment));
       el.track.append(mark);
     }
   }
 
-  function seekTo(hit) {
+  function seekTo(hit, segment = false) {
     const seek = () => {
       const duration = el.player.duration;
-      el.player.currentTime = Number.isFinite(duration) ? Math.min(hit.timestamp, duration) : hit.timestamp;
+      const target = segment ? hit.t_start : hit.timestamp;
+      state.segmentEnd = segment ? hit.t_end : null;
+      el.player.currentTime = Number.isFinite(duration) ? Math.min(target, duration) : target;
       el.player.play().catch(() => {});
       state.activeFrame = hit.frame_id;
       el.timelineHint.textContent = `Đang ở mốc ${formatTime(hit.timestamp)}.`;
@@ -184,7 +194,7 @@
       button.type = "button";
       button.className = "result-button";
       button.dataset.frameId = hit.frame_id;
-      button.setAttribute("aria-label", `Kết quả hạng ${hit.rank}, ${formatTime(hit.timestamp)}, độ tương đồng ${hit.score.toFixed(3)}. Tua video tới mốc này.`);
+      button.setAttribute("aria-label", `Kết quả hạng ${hit.rank}, ${formatTime(hit.timestamp)}, điểm ${hit.score.toFixed(3)}. Tua video tới mốc này.`);
       const image = document.createElement("img");
       image.className = "result-image";
       image.src = hit.image_url;
@@ -197,12 +207,19 @@
       rank.textContent = `Hạng ${hit.rank}`;
       const time = document.createElement("span");
       time.className = "result-time";
-      time.textContent = formatTime(hit.timestamp);
+      if (hit.is_temporal && Number.isFinite(hit.t_start) && Number.isFinite(hit.t_end)) {
+        time.textContent = `${formatTime(hit.timestamp)} · [${formatTime(hit.t_start)} - ${formatTime(hit.t_end)}]`;
+      } else {
+        time.textContent = formatTime(hit.timestamp);
+      }
       const score = document.createElement("span");
       score.className = "result-score";
-      score.textContent = `${hit.score_kind === "cosine" ? "Cosine" : hit.score_kind} · ${hit.score.toFixed(3)}`;
+      score.textContent = `${hit.score_kind === "temporal_object_reranked" ? "Điểm xếp hạng" : "Cosine"} · ${hit.score.toFixed(3)}`;
       copy.append(rank, time, score);
-      button.append(image, copy);
+      const evidence = document.createElement("span");
+      evidence.className = "evidence-image";
+      evidence.append(image);
+      button.append(evidence, copy);
       button.addEventListener("click", () => seekTo(hit));
       li.append(button);
       el.results.append(li);
@@ -335,19 +352,47 @@
     el.searchHelp.textContent = `Đang tìm “${query}”…`;
     state.searching = true;
     controls();
-    clearResults("Đang tìm các khung hình phù hợp…");
+    clearResults("Đang tìm kiếm các khoảnh khắc phù hợp…");
     el.resultsStatus.classList.add("loading");
     const id = state.selected;
     const generation = state.generation;
+
+    const modeInput = document.querySelector('input[name="search-mode"]:checked');
+    const isTemporal = modeInput ? modeInput.value === "temporal" : true;
+    const yoloCheckbox = document.getElementById("toggle-yolo");
+    const useDetector = yoloCheckbox ? yoloCheckbox.checked : false;
+
     try {
-      const data = await post("/search", { video_id: id, query, top_k: 5 });
-      if (generation !== state.generation) return;
-      state.results = (Array.isArray(data.results) ? data.results : []).filter((hit) =>
-        Number.isFinite(hit.timestamp) && hit.timestamp >= 0 && Number.isFinite(hit.score) &&
-        typeof hit.frame_id === "string" && typeof hit.image_url === "string" &&
-        hit.image_url.startsWith(`/api/lite/frames/${encodeURIComponent(id)}/`)).slice(0, 5);
+      if (isTemporal) {
+        const data = await post("/temporal_search", {
+          video_id: id, query, top_k: 5, use_detector: useDetector
+        });
+        if (generation !== state.generation) return;
+        state.results = (Array.isArray(data.results) ? data.results : []).map(r => ({
+          rank: r.rank,
+          score: r.score,
+          score_kind: r.score_type,
+          video_id: r.video_id,
+          frame_id: r.primary_frame_id,
+          timestamp: Number.isFinite(r.peak_timestamp) ? r.peak_timestamp : r.t_start,
+          t_start: r.t_start,
+          t_end: r.t_end,
+          peak_timestamp: r.peak_timestamp,
+          image_url: r.image_url,
+          detections: r.detections,
+          provenance: r.provenance,
+          is_temporal: true,
+        })).slice(0, 5);
+      } else {
+        const data = await post("/search", { video_id: id, query, top_k: 5 });
+        if (generation !== state.generation) return;
+        state.results = (Array.isArray(data.results) ? data.results : []).filter((hit) =>
+          Number.isFinite(hit.timestamp) && hit.timestamp >= 0 && Number.isFinite(hit.score) &&
+          typeof hit.frame_id === "string" && typeof hit.image_url === "string" &&
+          hit.image_url.startsWith(`/api/lite/frames/${encodeURIComponent(id)}/`)).slice(0, 5);
+      }
       renderResults();
-      el.searchHelp.textContent = state.results.length ? `Đã tìm thấy ${state.results.length} khung hình.` : "Thử mô tả ngắn hơn hoặc dùng từ khác.";
+      el.searchHelp.textContent = state.results.length ? `Đã tìm thấy ${state.results.length} kết quả.` : "Thử mô tả ngắn hơn hoặc dùng từ khác.";
     } catch (error) {
       setResultStatus(message(error, "Tìm kiếm thất bại. Hãy thử lại."), "error");
       el.searchHelp.textContent = "Bạn có thể thử tìm lại.";
@@ -366,5 +411,15 @@
   el.indexButton.addEventListener("click", () => indexVideo(state.needsRebuild));
   el.searchForm.addEventListener("submit", search);
   el.player.addEventListener("loadedmetadata", renderTimeline);
+  for (const control of document.querySelectorAll('input[name="search-mode"], #toggle-yolo')) {
+    control.addEventListener("change", () => { state.generation += 1; clearResults(); });
+  }
+  el.query.addEventListener("input", () => { state.generation += 1; clearResults(); });
+  el.player.addEventListener("timeupdate", () => {
+    if (state.segmentEnd !== null && el.player.currentTime >= state.segmentEnd) {
+      const end = state.segmentEnd; state.segmentEnd = null;
+      el.player.pause(); el.player.currentTime = end;
+    }
+  });
   loadVideos();
 })();

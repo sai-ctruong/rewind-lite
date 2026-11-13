@@ -1,0 +1,99 @@
+{
+  "library_none_contract": {
+    "config": {
+      "smoothing_window": 1,
+      "score_quantile": 0.7,
+      "min_score_floor": null,
+      "include_local_peaks": true,
+      "max_merge_gap_s": 2.5,
+      "default_frame_span_s": 1.0,
+      "min_duration_s": 1.0,
+      "max_duration_s": 30.0,
+      "nms_tiou_threshold": 0.5,
+      "relative_peak_threshold": 0.5,
+      "dark_frame_luma_max": null,
+      "top_k": 5,
+      "boundary_tolerance_s": 1e-06
+    },
+    "plain_count": 1,
+    "service_attached_count": 0,
+    "explicit_search_config_count": 1,
+    "contract_holds": false
+  },
+  "person_mapping": [
+    {
+      "query_vi": "2 người đi giữa cánh đồng hoa",
+      "target_classes": [
+        "person"
+      ],
+      "subject_class": null,
+      "object_classes": [
+        "person"
+      ],
+      "matched_phrases": [
+        "người"
+      ],
+      "unsupported_cues": [],
+      "mapping_supported": true,
+      "person_count": 2
+    },
+    {
+      "query_vi": "hai học sinh",
+      "target_classes": [],
+      "subject_class": null,
+      "object_classes": [],
+      "matched_phrases": [],
+      "unsupported_cues": [],
+      "mapping_supported": false,
+      "person_count": 2
+    },
+    {
+      "query_vi": "cặp đôi",
+      "target_classes": [],
+      "subject_class": null,
+      "object_classes": [],
+      "matched_phrases": [],
+      "unsupported_cues": [],
+      "mapping_supported": false,
+      "person_count": 2
+    },
+    {
+      "query_vi": "đám đông",
+      "target_classes": [],
+      "subject_class": null,
+      "object_classes": [],
+      "matched_phrases": [],
+      "unsupported_cues": [],
+      "mapping_supported": false,
+      "person_count": 2
+    },
+    {
+      "query_vi": "nhóm học sinh",
+      "target_classes": [],
+      "subject_class": null,
+      "object_classes": [],
+      "matched_phrases": [],
+      "unsupported_cues": [],
+      "mapping_supported": false,
+      "person_count": 2
+    },
+    {
+      "query_vi": "hai học sinh cầm chai nước",
+      "target_classes": [
+        "bottle"
+      ],
+      "subject_class": null,
+      "object_classes": [
+        "bottle"
+      ],
+      "matched_phrases": [
+        "chai nước"
+      ],
+      "unsupported_cues": [
+        "action:cầm"
+      ],
+      "mapping_supported": true,
+      "person_count": 2
+    }
+  ]
+}

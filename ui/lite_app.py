@@ -24,6 +24,7 @@ from scripts.lite_search import (DEFAULT_MODEL, DEFAULT_REVISION, _real_encoder,
 _ROOT = Path(__file__).resolve().parents[1]
 _UI_DIR = Path(__file__).resolve().parent
 _VIDEO_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}\Z")
+DEFAULT_DARK_FRAME_LUMA_MAX = 5.0
 
 
 class ApiError(Exception):
@@ -36,11 +37,14 @@ class ApiError(Exception):
 
 class LiteService:
     def __init__(self, *, video_dir: str | Path, index_root: str | Path,
-                 encoder_factory=None, model_id: str = DEFAULT_MODEL,
+                 encoder_factory=None, detector_backend_factory=None,
+                 model_id: str = DEFAULT_MODEL,
                  revision: str = DEFAULT_REVISION, device: str = "auto",
                  sample_every_s: float = 1.0, max_frames: int | None = 512,
                  hist_duplicate_threshold: float = 0.999,
-                 dedup_threshold: float = 0.99):
+                 dedup_threshold: float = 0.99,
+                 dark_frame_luma_max: float | None = DEFAULT_DARK_FRAME_LUMA_MAX):
+        from retrieval.detector import DetectionCache
         from retrieval.video_engine import VideoSearchEngine
 
         self.video_dir = Path(video_dir).resolve()
@@ -48,10 +52,12 @@ class LiteService:
         if max_frames is not None and max_frames < 1:
             raise ValueError("max_frames must be positive")
         self.encoder_factory = encoder_factory or _real_encoder
+        self.detector_backend_factory = detector_backend_factory
         self.model_id, self.revision, self.device = model_id, revision, device
         self.sample_every_s, self.max_frames = sample_every_s, max_frames
         self.hist_duplicate_threshold = hist_duplicate_threshold
         self.dedup_threshold = dedup_threshold
+        self.dark_frame_luma_max = dark_frame_luma_max
         self.engine = VideoSearchEngine(
             encoder_names=(model_id,), sample_every_s=sample_every_s,
             max_frames=max_frames,
@@ -61,6 +67,11 @@ class LiteService:
             embed_batch_size=8, decode_backend="cv2", use_gpu_decode=False,
             parallel_index=False)
         self.encoder = None
+        self.detector_backend = None
+        self.detection_cache = DetectionCache()
+        self.detector_lock = threading.Lock()
+        self.frame_lumas: dict[str, dict[str, float]] = {}
+        self.luma_lock = threading.Lock()
         self.selected: str | None = None
         self.entries: dict = {}
         self.retrievers: dict = {}
@@ -133,6 +144,15 @@ class LiteService:
                 self.model_id, self.revision, self.device)
         return self.encoder
 
+    def _get_detector_backend(self, model_id: str = "yolov8n.pt"):
+        if self.detector_backend is None:
+            with self.detector_lock:
+                if self.detector_backend is None:
+                    from retrieval.detector import UltralyticsYOLOBackend
+                    factory = self.detector_backend_factory or UltralyticsYOLOBackend
+                    self.detector_backend = factory(model_id=model_id)
+        return self.detector_backend
+
     @staticmethod
     def _signature(path: Path) -> tuple[int, int]:
         stat = path.stat()
@@ -146,9 +166,123 @@ class LiteService:
         if entry.video_id != video_id or any(
                 entry.raws[rid].video_id != video_id for rid in entry.index.ids):
             raise ApiError(409, "index_expired", "Saved index does not match video")
+        sig = self._signature(path)
+        if self.source_signatures.get(video_id) != sig:
+            self.frame_lumas.pop(video_id, None)
         self.entries[video_id] = entry
         self.retrievers[video_id] = retriever
-        self.source_signatures[video_id] = self._signature(path)
+        self.source_signatures[video_id] = sig
+
+    def _get_frame_lumas(self, video_id: str, path: Path, entry) -> dict[str, float]:
+        cached = self.frame_lumas.get(video_id)
+        if cached is not None:
+            return cached
+        with self.luma_lock:
+            cached = self.frame_lumas.get(video_id)
+            if cached is not None:
+                return cached
+            import cv2
+            import numpy as np
+            from ingestion.schemas import frame_jpeg_bytes
+
+            lumas: dict[str, float] = {}
+            pending_by_idx: list[tuple[int, str]] = []
+            pending_fallback: list[str] = []
+
+            for fid in entry.index.ids:
+                raw = entry.raws.get(fid)
+                if raw is None:
+                    continue
+                if raw.image_bytes is not None:
+                    try:
+                        gray = cv2.imdecode(
+                            np.frombuffer(raw.image_bytes, np.uint8),
+                            cv2.IMREAD_GRAYSCALE,
+                        )
+                        if gray is not None:
+                            lumas[fid] = float(np.mean(gray))
+                            continue
+                    except Exception:
+                        pass
+                if raw.frame_idx is not None:
+                    pending_by_idx.append((int(raw.frame_idx), fid))
+                else:
+                    pending_fallback.append(fid)
+
+            if pending_by_idx and path.is_file():
+                cap = cv2.VideoCapture(str(path))
+                if cap.isOpened():
+                    try:
+                        pending_by_idx.sort(key=lambda item: item[0])
+                        pos = 0
+                        for target_idx, fid in pending_by_idx:
+                            delta = target_idx - pos
+                            if 0 <= delta <= 35:
+                                ok_step = True
+                                while pos < target_idx:
+                                    if not cap.grab():
+                                        ok_step = False
+                                        break
+                                    pos += 1
+                                if ok_step and cap.grab():
+                                    pos += 1
+                                    ok, bgr = cap.retrieve()
+                                else:
+                                    ok, bgr = False, None
+                            else:
+                                cap.set(cv2.CAP_PROP_POS_FRAMES, target_idx)
+                                ok, bgr = cap.read()
+                                pos = target_idx + 1
+                            if ok and bgr is not None:
+                                gray = (
+                                    cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+                                    if bgr.ndim == 3
+                                    else bgr
+                                )
+                                lumas[fid] = float(np.mean(gray))
+                            else:
+                                pending_fallback.append(fid)
+                    finally:
+                        cap.release()
+                else:
+                    pending_fallback.extend(fid for _, fid in pending_by_idx)
+            else:
+                pending_fallback.extend(fid for _, fid in pending_by_idx)
+
+            for fid in pending_fallback:
+                if fid in lumas:
+                    continue
+                raw = entry.raws.get(fid)
+                if raw is None:
+                    continue
+                try:
+                    safe_raw = replace(raw, image_path=None, source_video=str(path))
+                    img_bytes = frame_jpeg_bytes(safe_raw)
+                    gray = cv2.imdecode(
+                        np.frombuffer(img_bytes, np.uint8),
+                        cv2.IMREAD_GRAYSCALE,
+                    )
+                    if gray is not None:
+                        lumas[fid] = float(np.mean(gray))
+                except Exception:
+                    pass
+
+            self.frame_lumas[video_id] = lumas
+            return lumas
+
+    def _get_dark_frame_ids(
+        self,
+        video_id: str,
+        path: Path,
+        entry,
+        luma_max: float | None = None,
+    ) -> frozenset[str]:
+        thresh = self.dark_frame_luma_max if luma_max is None else luma_max
+        if thresh is None:
+            return frozenset()
+        lumas = self._get_frame_lumas(video_id, path, entry)
+        limit = float(thresh)
+        return frozenset(fid for fid, luma in lumas.items() if luma <= limit)
 
     def _load_saved(self, video_id: str, path: Path):
         from retrieval.video_engine import VideoIndexEntry
@@ -282,6 +416,132 @@ class LiteService:
         finally:
             self.index_lock.release()
 
+    def search_temporal(self, video_id: str, query: str, top_k: int = 5,
+                        use_detector: bool = False, detector_backend=None):
+        import cv2
+        import numpy as np
+        from ingestion.schemas import frame_jpeg_bytes
+        from retrieval.detector import DetectorConfig, attach_moment_detections
+        from retrieval.lite_core import EncoderSpec
+        from retrieval.object_reranker import ObjectRerankConfig, parse_vietnamese_query_objects, rerank_temporal_moments
+        from retrieval.temporal import TemporalBaselineRetriever, TemporalConfig
+
+        path = self._video_path(video_id)
+        if not self.index_lock.acquire(blocking=False):
+            raise ApiError(409, "index_busy", "Indexing or search is already running")
+        try:
+            entry = self._checked_entry(video_id, path)
+            encoder = self._get_encoder()
+            specs = {"clip": EncoderSpec(self.model_id, self.revision)}
+
+            # Determine duration from manifest or max indexed timestamp
+            duration = 0.0
+            manifest_file = self.index_root / video_id / "manifest.json"
+            if manifest_file.is_file():
+                try:
+                    m_data = json.loads(manifest_file.read_text(encoding="utf-8"))
+                    duration = float(m_data.get("video", {}).get("duration_s", 0.0))
+                except Exception:
+                    pass
+            if duration <= 0.0:
+                duration = float(max(entry.index.timestamps, default=0.0)) + 1.0
+
+            temporal_cfg = TemporalConfig(
+                top_k=top_k,
+                dark_frame_luma_max=self.dark_frame_luma_max,
+            )
+            dark_frame_ids = self._get_dark_frame_ids(
+                video_id, path, entry, temporal_cfg.dark_frame_luma_max
+            )
+            retriever = TemporalBaselineRetriever(
+                entry,
+                specs,
+                config=temporal_cfg,
+                dark_frame_ids=dark_frame_ids,
+            )
+            moments = retriever.search_temporal_text(
+                query, {"clip": encoder}, video_duration=duration, video_id=video_id
+            )
+            query_spec = parse_vietnamese_query_objects(query)
+
+            if use_detector and moments and query_spec.mapping_supported:
+                det_cfg = DetectorConfig(enabled=True, allowed_classes=query_spec.target_classes)
+                active_backend = (
+                    detector_backend
+                    if detector_backend is not None
+                    else self._get_detector_backend(det_cfg.model_id)
+                )
+                # Decode candidate frames only on detection cache misses
+                needed_ids = list(dict.fromkeys(
+                    fid for m in moments for fid in m.evidence_frame_ids if fid in entry.raws
+                ))
+                frame_images: dict[str, np.ndarray] = {}
+                frame_ts: dict[str, float] = {}
+                for fid in needed_ids:
+                    raw = entry.raws[fid]
+                    ts = float(raw.timestamp)
+                    frame_ts[fid] = ts
+                    cache_key = self.detection_cache.make_key(
+                        video_id=video_id,
+                        frame_id=fid,
+                        timestamp=ts,
+                        model_id=det_cfg.model_id,
+                        conf_threshold=float(det_cfg.conf_threshold),
+                        iou_threshold=float(det_cfg.iou_threshold),
+                        imgsz=int(det_cfg.imgsz),
+                    )
+                    if self.detection_cache.get(cache_key) is not None:
+                        continue
+                    try:
+                        safe_raw = replace(raw, image_path=None, source_video=str(path))
+                        img_bytes = frame_jpeg_bytes(safe_raw)
+                        arr = cv2.imdecode(np.frombuffer(img_bytes, np.uint8), cv2.IMREAD_COLOR)
+                        if arr is not None:
+                            frame_images[fid] = arr
+                    except Exception:
+                        pass
+
+                moments_with_dets = attach_moment_detections(
+                    moments,
+                    frame_images,
+                    config=det_cfg,
+                    backend=active_backend,
+                    cache=self.detection_cache,
+                    frame_timestamps=frame_ts,
+                )
+                rerank_cfg = ObjectRerankConfig(enabled=True)
+                reranked_moments, provenances, _ = rerank_temporal_moments(
+                    moments_with_dets, query, config=rerank_cfg
+                )
+                return {
+                    "video_id": video_id,
+                    "query": query,
+                    "mode": "temporal_object",
+                    "video_duration": duration,
+                    "query_analysis": query_spec.to_dict(),
+                    "moments": reranked_moments,
+                    "provenances": [p.to_dict() for p in provenances],
+                }
+
+            return {
+                "video_id": video_id,
+                "query": query,
+                "mode": "temporal_only",
+                "video_duration": duration,
+                "query_analysis": query_spec.to_dict(),
+                "moments": moments,
+                "provenances": [],
+            }
+        except ApiError:
+            raise
+        except (MemoryError, RuntimeError, ValueError) as exc:
+            oom = isinstance(exc, MemoryError) or "out of memory" in str(exc).lower()
+            raise ApiError(503 if oom else 500,
+                           "model_oom" if oom else "search_failed",
+                           "Model ran out of memory" if oom else "Search failed") from exc
+        finally:
+            self.index_lock.release()
+
     def frame(self, video_id: str, frame_id: str) -> bytes:
         from ingestion.schemas import frame_jpeg_bytes
 
@@ -309,7 +569,8 @@ class LiteService:
 
 def create_lite_app(*, video_dir: str | Path | None = None,
                     index_root: str | Path | None = None,
-                    encoder_factory=None, model_id: str = DEFAULT_MODEL,
+                    encoder_factory=None, detector_backend_factory=None,
+                    model_id: str = DEFAULT_MODEL,
                     revision: str = DEFAULT_REVISION, device: str = "auto",
                     sample_every_s: float = 1.0, max_frames: int | None = 512,
                     hist_duplicate_threshold: float = 0.999,
@@ -320,7 +581,9 @@ def create_lite_app(*, video_dir: str | Path | None = None,
     service = LiteService(
         video_dir=video_dir or _ROOT / "data" / "videos",
         index_root=index_root or _ROOT / "artifacts" / "indexes",
-        encoder_factory=encoder_factory, model_id=model_id, revision=revision,
+        encoder_factory=encoder_factory,
+        detector_backend_factory=detector_backend_factory,
+        model_id=model_id, revision=revision,
         device=device, sample_every_s=sample_every_s, max_frames=max_frames,
         hist_duplicate_threshold=hist_duplicate_threshold,
         dedup_threshold=dedup_threshold)
@@ -409,6 +672,51 @@ def create_lite_app(*, video_dir: str | Path | None = None,
                                          frame_id=hit.frame_id)}
                    for hit in hits]
         return jsonify(video_id=video_id, query=query.strip(), results=results)
+
+    @app.post("/api/lite/temporal_search")
+    def temporal_search():
+        data = body()
+        query = data.get("query")
+        if not isinstance(query, str) or not query.strip() or len(query) > 512:
+            raise ApiError(400, "invalid_query", "Enter a text query (1–512 characters)")
+        top_k = data.get("top_k", 5)
+        if isinstance(top_k, bool) or not isinstance(top_k, int) or not 1 <= top_k <= 20:
+            raise ApiError(400, "invalid_top_k", "top_k must be between 1 and 20")
+        use_detector = bool(data.get("use_detector", False))
+        video_id = service.resolve_id(data.get("video_id"))
+
+        outcome = service.search_temporal(video_id, query.strip(), top_k=top_k, use_detector=use_detector)
+        results = []
+        for idx, m in enumerate(outcome["moments"]):
+            primary_id = getattr(m, "peak_frame_id", None) or (m.evidence_frame_ids[0] if m.evidence_frame_ids else "")
+            primary_ts = getattr(m, "peak_timestamp", None)
+            if primary_ts is None:
+                primary_ts = m.t_start
+            prov = outcome["provenances"][idx] if idx < len(outcome["provenances"]) else None
+            results.append({
+                "rank": m.rank,
+                "video_id": m.video_id,
+                "t_start": m.t_start,
+                "t_end": m.t_end,
+                "peak_frame_id": getattr(m, "peak_frame_id", None),
+                "peak_timestamp": float(primary_ts),
+                "score": m.score,
+                "score_type": m.score_type,
+                "evidence_frame_ids": list(m.evidence_frame_ids),
+                "primary_frame_id": primary_id,
+                "image_url": url_for("frame", video_id=video_id, frame_id=primary_id) if primary_id else None,
+                "detections": [dict(d) for d in m.detections] if m.detections is not None else None,
+                "provenance": prov,
+            })
+
+        return jsonify(
+            video_id=video_id,
+            query=query.strip(),
+            mode=outcome["mode"],
+            video_duration=outcome["video_duration"],
+            query_analysis=outcome["query_analysis"],
+            results=results,
+        )
 
     @app.get("/api/lite/frames/<video_id>/<path:frame_id>")
     def frame(video_id: str, frame_id: str):

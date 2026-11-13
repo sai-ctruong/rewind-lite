@@ -1,0 +1,2793 @@
+{
+  "timestamp": "2026-11-12T18:51:57Z",
+  "queries_file": "evaluation\\golden_lite_queries.json",
+  "temporal_config": {
+    "smoothing_window": 3,
+    "score_quantile": 0.7,
+    "min_score_floor": null,
+    "include_local_peaks": true,
+    "max_merge_gap_s": 2.5,
+    "default_frame_span_s": 1.0,
+    "min_duration_s": 1.0,
+    "max_duration_s": 30.0,
+    "nms_tiou_threshold": 0.5,
+    "relative_peak_threshold": 0.5,
+    "dark_frame_luma_max": null,
+    "top_k": 5,
+    "boundary_tolerance_s": 1e-06
+  },
+  "rerank_config": {
+    "enabled": true,
+    "max_object_boost": 0.15,
+    "semantic_weight": 0.75,
+    "object_weight": 0.25,
+    "presence_weight": 0.6,
+    "cooccurrence_weight": 0.25,
+    "spatial_proximity_weight": 0.15,
+    "multi_person_penalty": 0.5,
+    "generic_person_object_scale": 0.5,
+    "min_detection_confidence": 0.25,
+    "duplicate_box_iou_threshold": 0.85
+  },
+  "no_yolo": false,
+  "summary": {
+    "phase1": {
+      "n_evaluable": 13,
+      "hit_at_1": 0.923,
+      "hit_at_1_count": 12,
+      "hit_at_3": 0.923,
+      "hit_at_3_count": 12,
+      "miou_at_1": null,
+      "r1_tiou_05": null,
+      "r1_tiou_05_count": null,
+      "median_latency_ms": 20.1
+    },
+    "phase2_temporal": {
+      "n_evaluable": 13,
+      "hit_at_1": 0.846,
+      "hit_at_1_count": 11,
+      "hit_at_3": 1.0,
+      "hit_at_3_count": 13,
+      "miou_at_1": 0.532,
+      "r1_tiou_05": 0.615,
+      "r1_tiou_05_count": 8,
+      "median_latency_ms": 25.9
+    },
+    "phase2_yolo": {
+      "n_evaluable": 13,
+      "hit_at_1": 0.923,
+      "hit_at_1_count": 12,
+      "hit_at_3": 1.0,
+      "hit_at_3_count": 13,
+      "miou_at_1": 0.571,
+      "r1_tiou_05": 0.692,
+      "r1_tiou_05_count": 9,
+      "median_latency_ms": 4233.4
+    }
+  },
+  "details": {
+    "phase1": [
+      {
+        "id": "TC00",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "2 người đi giữa cánh đồng hoa",
+        "gt_windows": [
+          [
+            58.0,
+            68.0
+          ],
+          [
+            228.0,
+            242.0
+          ]
+        ],
+        "latency_ms": 401.93,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 62.0,
+        "top1_score": 0.18985538184642792,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/56",
+            "timestamp": 62.0,
+            "score": 0.18985538184642792,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/57",
+            "timestamp": 63.0,
+            "score": 0.1881611943244934,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/223",
+            "timestamp": 234.0,
+            "score": 0.18389204144477844,
+            "hit": true
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/222",
+            "timestamp": 233.0,
+            "score": 0.18173396587371826,
+            "hit": true
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/221",
+            "timestamp": 232.0,
+            "score": 0.17713870108127594,
+            "hit": true
+          }
+        ]
+      },
+      {
+        "id": "TC01",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "người đàn ông hát vào micro",
+        "gt_windows": [
+          [
+            140.0,
+            172.0
+          ],
+          [
+            176.0,
+            186.0
+          ]
+        ],
+        "latency_ms": 9.71,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 164.0,
+        "top1_score": 0.15799598395824432,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/154",
+            "timestamp": 164.0,
+            "score": 0.15799598395824432,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/155",
+            "timestamp": 165.0,
+            "score": 0.14907148480415344,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/200",
+            "timestamp": 210.0,
+            "score": 0.14481355249881744,
+            "hit": false
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/140",
+            "timestamp": 150.0,
+            "score": 0.14051423966884613,
+            "hit": true
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/204",
+            "timestamp": 214.0,
+            "score": 0.14038264751434326,
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "TC02",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "cô gái cầm bóng bay",
+        "gt_windows": [
+          [
+            97.0,
+            104.0
+          ]
+        ],
+        "latency_ms": 16.07,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 100.0,
+        "top1_score": 0.1727011799812317,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/93",
+            "timestamp": 100.0,
+            "score": 0.1727011799812317,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/92",
+            "timestamp": 99.0,
+            "score": 0.15617527067661285,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/182",
+            "timestamp": 192.0,
+            "score": 0.11522048711776733,
+            "hit": false
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/32",
+            "timestamp": 33.0,
+            "score": 0.11510342359542847,
+            "hit": false
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/19",
+            "timestamp": 20.0,
+            "score": 0.10556931793689728,
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "TC03",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "xe ô tô chạy trong đêm bật đèn pha",
+        "gt_windows": [
+          [
+            121.0,
+            128.0
+          ]
+        ],
+        "latency_ms": 18.11,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 123.0,
+        "top1_score": 0.15643921494483948,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/116",
+            "timestamp": 123.0,
+            "score": 0.15643921494483948,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/117",
+            "timestamp": 124.0,
+            "score": 0.1514013111591339,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/99",
+            "timestamp": 106.0,
+            "score": 0.1340656280517578,
+            "hit": false
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/29",
+            "timestamp": 30.0,
+            "score": 0.1295020580291748,
+            "hit": false
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/30",
+            "timestamp": 31.0,
+            "score": 0.11133237183094025,
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "TC04",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "hoàng hôn",
+        "gt_windows": [
+          [
+            80.0,
+            88.0
+          ]
+        ],
+        "latency_ms": 6.6,
+        "hit_at_1": false,
+        "hit_at_3": false,
+        "top1_timestamp": 192.0,
+        "top1_score": 0.15286710858345032,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/182",
+            "timestamp": 192.0,
+            "score": 0.15286710858345032,
+            "hit": false
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/180",
+            "timestamp": 190.0,
+            "score": 0.14664193987846375,
+            "hit": false
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/181",
+            "timestamp": 191.0,
+            "score": 0.1414143145084381,
+            "hit": false
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/179",
+            "timestamp": 189.0,
+            "score": 0.13788306713104248,
+            "hit": false
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/77",
+            "timestamp": 83.0,
+            "score": 0.12669122219085693,
+            "hit": true
+          }
+        ]
+      },
+      {
+        "id": "TC05",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "cô gái mỉm cười dưới bầu trời xanh",
+        "gt_windows": [
+          [
+            208.0,
+            216.0
+          ]
+        ],
+        "latency_ms": 27.48,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 213.0,
+        "top1_score": 0.17775963246822357,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/203",
+            "timestamp": 213.0,
+            "score": 0.17775963246822357,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/202",
+            "timestamp": 212.0,
+            "score": 0.16835154592990875,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/182",
+            "timestamp": 192.0,
+            "score": 0.12668117880821228,
+            "hit": false
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/176",
+            "timestamp": 186.0,
+            "score": 0.12576769292354584,
+            "hit": false
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/70",
+            "timestamp": 76.0,
+            "score": 0.12286220490932465,
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "TC06",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "bó hoa hồng đỏ",
+        "gt_windows": [
+          [
+            13.0,
+            20.0
+          ],
+          [
+            136.0,
+            142.0
+          ],
+          [
+            154.0,
+            160.0
+          ]
+        ],
+        "latency_ms": 19.89,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 18.0,
+        "top1_score": 0.09448124468326569,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/17",
+            "timestamp": 18.0,
+            "score": 0.09448124468326569,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/145",
+            "timestamp": 155.0,
+            "score": 0.09348827600479126,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/148",
+            "timestamp": 158.0,
+            "score": 0.08729035407304764,
+            "hit": true
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/149",
+            "timestamp": 159.0,
+            "score": 0.08599966019392014,
+            "hit": true
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/132",
+            "timestamp": 141.0,
+            "score": 0.0839148759841919,
+            "hit": true
+          }
+        ]
+      },
+      {
+        "id": "TC07",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "đám cưới đông người trong hội trường",
+        "gt_windows": [
+          [
+            0.0,
+            8.0
+          ],
+          [
+            144.0,
+            150.0
+          ],
+          [
+            178.0,
+            184.0
+          ]
+        ],
+        "latency_ms": 19.45,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 4.0,
+        "top1_score": 0.14876839518547058,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/4",
+            "timestamp": 4.0,
+            "score": 0.14876839518547058,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/5",
+            "timestamp": 5.0,
+            "score": 0.14689165353775024,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/158",
+            "timestamp": 168.0,
+            "score": 0.13847433030605316,
+            "hit": false
+          },
+          {
+            "rank": 4,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/1",
+            "timestamp": 1.0,
+            "score": 0.13645648956298828,
+            "hit": true
+          },
+          {
+            "rank": 5,
+            "frame_id": "cd004f04834e466791e25c202ef4756f/157",
+            "timestamp": 167.0,
+            "score": 0.1295754462480545,
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "TC08",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "học sinh đi bộ trong hành lang",
+        "gt_windows": [
+          [
+            0.0,
+            13.0
+          ]
+        ],
+        "latency_ms": 17.95,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 10.0,
+        "top1_score": 0.14066782593727112,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/10",
+            "timestamp": 10.0,
+            "score": 0.14066782593727112,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/48",
+            "timestamp": 52.0,
+            "score": 0.13660195469856262,
+            "hit": false
+          },
+          {
+            "rank": 3,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/11",
+            "timestamp": 11.0,
+            "score": 0.13450506329536438,
+            "hit": true
+          },
+          {
+            "rank": 4,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/2",
+            "timestamp": 2.0,
+            "score": 0.13005807995796204,
+            "hit": true
+          },
+          {
+            "rank": 5,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/12",
+            "timestamp": 12.0,
+            "score": 0.12842778861522675,
+            "hit": true
+          }
+        ]
+      },
+      {
+        "id": "TC09",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "bầu trời xanh có mây trắng",
+        "gt_windows": [
+          [
+            13.0,
+            25.0
+          ]
+        ],
+        "latency_ms": 30.65,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 15.0,
+        "top1_score": 0.12462625652551651,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/15",
+            "timestamp": 15.0,
+            "score": 0.12462625652551651,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/14",
+            "timestamp": 14.0,
+            "score": 0.1128886416554451,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/17",
+            "timestamp": 17.0,
+            "score": 0.10435841232538223,
+            "hit": true
+          },
+          {
+            "rank": 4,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/18",
+            "timestamp": 18.0,
+            "score": 0.09776482731103897,
+            "hit": true
+          },
+          {
+            "rank": 5,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/13",
+            "timestamp": 13.0,
+            "score": 0.08304088562726974,
+            "hit": true
+          }
+        ]
+      },
+      {
+        "id": "TC10",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "ban nhạc rock chơi guitar",
+        "gt_windows": [
+          [
+            78.0,
+            88.0
+          ]
+        ],
+        "latency_ms": 25.18,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 80.0,
+        "top1_score": 0.12493366748094559,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/76",
+            "timestamp": 80.0,
+            "score": 0.12493366748094559,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/80",
+            "timestamp": 84.0,
+            "score": 0.12181994318962097,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/77",
+            "timestamp": 81.0,
+            "score": 0.12098360061645508,
+            "hit": true
+          },
+          {
+            "rank": 4,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/78",
+            "timestamp": 82.0,
+            "score": 0.11926507949829102,
+            "hit": true
+          },
+          {
+            "rank": 5,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/79",
+            "timestamp": 83.0,
+            "score": 0.11820296943187714,
+            "hit": true
+          }
+        ]
+      },
+      {
+        "id": "TC11",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "hai học sinh ngồi viết bài trên bàn",
+        "gt_windows": [
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "latency_ms": 30.38,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 34.0,
+        "top1_score": 0.13879762589931488,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/30",
+            "timestamp": 34.0,
+            "score": 0.13879762589931488,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/23",
+            "timestamp": 27.0,
+            "score": 0.13759785890579224,
+            "hit": false
+          },
+          {
+            "rank": 3,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/31",
+            "timestamp": 35.0,
+            "score": 0.13661536574363708,
+            "hit": true
+          },
+          {
+            "rank": 4,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/56",
+            "timestamp": 60.0,
+            "score": 0.13533449172973633,
+            "hit": false
+          },
+          {
+            "rank": 5,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/54",
+            "timestamp": 58.0,
+            "score": 0.1342281848192215,
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "TC12",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "cái trống lớn màu đỏ",
+        "gt_windows": [
+          [
+            62.0,
+            70.0
+          ]
+        ],
+        "latency_ms": 26.27,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "top1_timestamp": 66.0,
+        "top1_score": 0.09261035919189453,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/62",
+            "timestamp": 66.0,
+            "score": 0.09261035919189453,
+            "hit": true
+          },
+          {
+            "rank": 2,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/61",
+            "timestamp": 65.0,
+            "score": 0.08805739879608154,
+            "hit": true
+          },
+          {
+            "rank": 3,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/63",
+            "timestamp": 67.0,
+            "score": 0.08728531002998352,
+            "hit": true
+          },
+          {
+            "rank": 4,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/87",
+            "timestamp": 91.0,
+            "score": 0.07294060289859772,
+            "hit": false
+          },
+          {
+            "rank": 5,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/84",
+            "timestamp": 88.0,
+            "score": 0.07228899747133255,
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "TC13",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "con mèo",
+        "gt_windows": [],
+        "latency_ms": 20.34,
+        "hit_at_1": false,
+        "hit_at_3": false,
+        "top1_timestamp": 26.0,
+        "top1_score": 0.0666322112083435,
+        "results": [
+          {
+            "rank": 1,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/22",
+            "timestamp": 26.0,
+            "score": 0.0666322112083435,
+            "hit": false
+          },
+          {
+            "rank": 2,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/88",
+            "timestamp": 92.0,
+            "score": 0.06661363691091537,
+            "hit": false
+          },
+          {
+            "rank": 3,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/52",
+            "timestamp": 56.0,
+            "score": 0.06385434418916702,
+            "hit": false
+          },
+          {
+            "rank": 4,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/53",
+            "timestamp": 57.0,
+            "score": 0.05817483738064766,
+            "hit": false
+          },
+          {
+            "rank": 5,
+            "frame_id": "959c2799bf8c4ca0b380399c813dc051/50",
+            "timestamp": 54.0,
+            "score": 0.05770302191376686,
+            "hit": false
+          }
+        ]
+      }
+    ],
+    "phase2_temporal": [
+      {
+        "id": "TC00",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "2 người đi giữa cánh đồng hoa",
+        "gt_windows": [
+          [
+            58.0,
+            68.0
+          ],
+          [
+            228.0,
+            242.0
+          ]
+        ],
+        "latency_ms": 5175.97,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.931,
+        "top1_interval": [
+          227.5,
+          241.5
+        ],
+        "top1_peak_timestamp": 233.0,
+        "top1_score": 0.18020405206415385,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 227.5,
+            "t_end": 241.5,
+            "peak_timestamp": 233.0,
+            "score": 0.18020405206415385,
+            "hit": true,
+            "tiou": 0.931
+          },
+          {
+            "rank": 2,
+            "t_start": 50.5,
+            "t_end": 67.5,
+            "peak_timestamp": 62.0,
+            "score": 0.17731192343764834,
+            "hit": true,
+            "tiou": 0.543
+          },
+          {
+            "rank": 3,
+            "t_start": 112.5,
+            "t_end": 122.5,
+            "peak_timestamp": 114.0,
+            "score": 0.13417152580287722,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 182.5,
+            "t_end": 186.5,
+            "peak_timestamp": 184.0,
+            "score": 0.13147888084252674,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 97.5,
+            "t_end": 102.5,
+            "peak_timestamp": 101.0,
+            "score": 0.10983109722534816,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC01",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "người đàn ông hát vào micro",
+        "gt_windows": [
+          [
+            140.0,
+            172.0
+          ],
+          [
+            176.0,
+            186.0
+          ]
+        ],
+        "latency_ms": 10.02,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.275,
+        "top1_interval": [
+          162.5,
+          174.5
+        ],
+        "top1_peak_timestamp": 165.0,
+        "top1_score": 0.1376528561115265,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 162.5,
+            "t_end": 174.5,
+            "peak_timestamp": 165.0,
+            "score": 0.1376528561115265,
+            "hit": true,
+            "tiou": 0.275
+          },
+          {
+            "rank": 2,
+            "t_start": 207.5,
+            "t_end": 216.5,
+            "peak_timestamp": 209.0,
+            "score": 0.13589056034882863,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 143.5,
+            "t_end": 152.5,
+            "peak_timestamp": 150.0,
+            "score": 0.13479537632730273,
+            "hit": true,
+            "tiou": 0.281
+          },
+          {
+            "rank": 4,
+            "t_start": 186.5,
+            "t_end": 192.5,
+            "peak_timestamp": 190.0,
+            "score": 0.10967626969019573,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 17.5,
+            "t_end": 26.5,
+            "peak_timestamp": 21.0,
+            "score": 0.09383470515410106,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC02",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "cô gái cầm bóng bay",
+        "gt_windows": [
+          [
+            97.0,
+            104.0
+          ]
+        ],
+        "latency_ms": 23.57,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.571,
+        "top1_interval": [
+          97.5,
+          101.5
+        ],
+        "top1_peak_timestamp": 100.0,
+        "top1_score": 0.1237496664126714,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 97.5,
+            "t_end": 101.5,
+            "peak_timestamp": 100.0,
+            "score": 0.1237496664126714,
+            "hit": true,
+            "tiou": 0.571
+          },
+          {
+            "rank": 2,
+            "t_start": 16.5,
+            "t_end": 27.5,
+            "peak_timestamp": 19.0,
+            "score": 0.102356532547209,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 186.5,
+            "t_end": 192.5,
+            "peak_timestamp": 191.0,
+            "score": 0.09616010503636466,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 68.5,
+            "t_end": 76.5,
+            "peak_timestamp": 75.0,
+            "score": 0.09423314813110564,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 211.5,
+            "t_end": 215.5,
+            "peak_timestamp": 213.0,
+            "score": 0.09013613421056005,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC03",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "xe ô tô chạy trong đêm bật đèn pha",
+        "gt_windows": [
+          [
+            121.0,
+            128.0
+          ]
+        ],
+        "latency_ms": 26.93,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.714,
+        "top1_interval": [
+          122.5,
+          127.5
+        ],
+        "top1_peak_timestamp": 124.0,
+        "top1_score": 0.1274327014883359,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 122.5,
+            "t_end": 127.5,
+            "peak_timestamp": 124.0,
+            "score": 0.1274327014883359,
+            "hit": true,
+            "tiou": 0.714
+          },
+          {
+            "rank": 2,
+            "t_start": 102.5,
+            "t_end": 107.5,
+            "peak_timestamp": 105.0,
+            "score": 0.11025230950779386,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 22.5,
+            "t_end": 37.5,
+            "peak_timestamp": 30.0,
+            "score": 0.10654500590430364,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 135.5,
+            "t_end": 143.5,
+            "peak_timestamp": 136.0,
+            "score": 0.07900782194402482,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 131.5,
+            "t_end": 133.5,
+            "peak_timestamp": 133.0,
+            "score": 0.06236180042227109,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC04",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "hoàng hôn",
+        "gt_windows": [
+          [
+            80.0,
+            88.0
+          ]
+        ],
+        "latency_ms": 8.79,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "tiou_at_1": 0.0,
+        "top1_interval": [
+          185.5,
+          193.5
+        ],
+        "top1_peak_timestamp": 191.0,
+        "top1_score": 0.14270965324507817,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 185.5,
+            "t_end": 193.5,
+            "peak_timestamp": 191.0,
+            "score": 0.14270965324507817,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 80.5,
+            "t_end": 83.5,
+            "peak_timestamp": 82.0,
+            "score": 0.10827768825822406,
+            "hit": true,
+            "tiou": 0.375
+          },
+          {
+            "rank": 3,
+            "t_start": 110.5,
+            "t_end": 118.5,
+            "peak_timestamp": 114.0,
+            "score": 0.09004806379477183,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 18.5,
+            "t_end": 27.5,
+            "peak_timestamp": 19.0,
+            "score": 0.08993251820405324,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 156.5,
+            "t_end": 159.5,
+            "peak_timestamp": 158.0,
+            "score": 0.08921938770347171,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC05",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "cô gái mỉm cười dưới bầu trời xanh",
+        "gt_windows": [
+          [
+            208.0,
+            216.0
+          ]
+        ],
+        "latency_ms": 39.98,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.5,
+        "top1_interval": [
+          210.5,
+          214.5
+        ],
+        "top1_peak_timestamp": 212.0,
+        "top1_score": 0.1301631972193718,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 210.5,
+            "t_end": 214.5,
+            "peak_timestamp": 212.0,
+            "score": 0.1301631972193718,
+            "hit": true,
+            "tiou": 0.5
+          },
+          {
+            "rank": 2,
+            "t_start": 185.5,
+            "t_end": 193.5,
+            "peak_timestamp": 191.0,
+            "score": 0.11395438197586272,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 73.5,
+            "t_end": 77.5,
+            "peak_timestamp": 75.0,
+            "score": 0.11007789058817757,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 109.5,
+            "t_end": 121.5,
+            "peak_timestamp": 118.0,
+            "score": 0.10773438182142045,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 224.5,
+            "t_end": 228.5,
+            "peak_timestamp": 226.0,
+            "score": 0.10292347222566606,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC06",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "bó hoa hồng đỏ",
+        "gt_windows": [
+          [
+            13.0,
+            20.0
+          ],
+          [
+            136.0,
+            142.0
+          ],
+          [
+            154.0,
+            160.0
+          ]
+        ],
+        "latency_ms": 27.0,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.833,
+        "top1_interval": [
+          154.5,
+          159.5
+        ],
+        "top1_peak_timestamp": 158.0,
+        "top1_score": 0.07509174711174435,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 154.5,
+            "t_end": 159.5,
+            "peak_timestamp": 158.0,
+            "score": 0.07509174711174435,
+            "hit": true,
+            "tiou": 0.833
+          },
+          {
+            "rank": 2,
+            "t_start": 15.5,
+            "t_end": 20.5,
+            "peak_timestamp": 19.0,
+            "score": 0.07041633087727758,
+            "hit": true,
+            "tiou": 0.6
+          },
+          {
+            "rank": 3,
+            "t_start": 126.5,
+            "t_end": 130.5,
+            "peak_timestamp": 129.0,
+            "score": 0.05364221036434174,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 212.5,
+            "t_end": 215.5,
+            "peak_timestamp": 214.0,
+            "score": 0.05109698557191425,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 0.5,
+            "t_end": 4.5,
+            "peak_timestamp": 4.0,
+            "score": 0.04673401117324829,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC07",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "đám cưới đông người trong hội trường",
+        "gt_windows": [
+          [
+            0.0,
+            8.0
+          ],
+          [
+            144.0,
+            150.0
+          ],
+          [
+            178.0,
+            184.0
+          ]
+        ],
+        "latency_ms": 29.93,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.75,
+        "top1_interval": [
+          0.5,
+          6.5
+        ],
+        "top1_peak_timestamp": 4.0,
+        "top1_score": 0.1390931291712655,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 0.5,
+            "t_end": 6.5,
+            "peak_timestamp": 4.0,
+            "score": 0.1390931291712655,
+            "hit": true,
+            "tiou": 0.75
+          },
+          {
+            "rank": 2,
+            "t_start": 163.5,
+            "t_end": 169.5,
+            "peak_timestamp": 167.0,
+            "score": 0.12677836186356015,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 143.5,
+            "t_end": 152.5,
+            "peak_timestamp": 151.0,
+            "score": 0.12596367829375799,
+            "hit": true,
+            "tiou": 0.667
+          },
+          {
+            "rank": 4,
+            "t_start": 154.5,
+            "t_end": 159.5,
+            "peak_timestamp": 158.0,
+            "score": 0.11112655566798316,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 177.5,
+            "t_end": 182.5,
+            "peak_timestamp": 180.0,
+            "score": 0.1105953089065022,
+            "hit": true,
+            "tiou": 0.692
+          }
+        ]
+      },
+      {
+        "id": "TC08",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "học sinh đi bộ trong hành lang",
+        "gt_windows": [
+          [
+            0.0,
+            13.0
+          ]
+        ],
+        "latency_ms": 12504.44,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.923,
+        "top1_interval": [
+          0.0,
+          12.0
+        ],
+        "top1_peak_timestamp": 11.0,
+        "top1_score": 0.1338466958867179,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 12.0,
+            "peak_timestamp": 11.0,
+            "score": 0.1338466958867179,
+            "hit": true,
+            "tiou": 0.923
+          },
+          {
+            "rank": 2,
+            "t_start": 51.5,
+            "t_end": 57.5,
+            "peak_timestamp": 53.0,
+            "score": 0.12240164395835665,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 77.5,
+            "t_end": 78.5,
+            "peak_timestamp": 78.0,
+            "score": 0.11042611300945282,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 71.5,
+            "t_end": 72.5,
+            "peak_timestamp": 72.0,
+            "score": 0.10371894141038258,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 40.5,
+            "t_end": 41.5,
+            "peak_timestamp": 41.0,
+            "score": 0.10163253794113795,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC09",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "bầu trời xanh có mây trắng",
+        "gt_windows": [
+          [
+            13.0,
+            25.0
+          ]
+        ],
+        "latency_ms": 24.88,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.44,
+        "top1_interval": [
+          12.5,
+          18.5
+        ],
+        "top1_peak_timestamp": 15.0,
+        "top1_score": 0.11233815501133601,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 12.5,
+            "t_end": 18.5,
+            "peak_timestamp": 15.0,
+            "score": 0.11233815501133601,
+            "hit": true,
+            "tiou": 0.44
+          },
+          {
+            "rank": 2,
+            "t_start": 51.5,
+            "t_end": 58.5,
+            "peak_timestamp": 53.0,
+            "score": 0.04801555400093396,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 70.5,
+            "t_end": 78.5,
+            "peak_timestamp": 71.0,
+            "score": 0.03674064464867115,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "peak_timestamp": 0.0,
+            "score": 0.02631558943539858,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 40.5,
+            "t_end": 41.5,
+            "peak_timestamp": 41.0,
+            "score": 0.0209540290137132,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC10",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "ban nhạc rock chơi guitar",
+        "gt_windows": [
+          [
+            78.0,
+            88.0
+          ]
+        ],
+        "latency_ms": 37.64,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.6,
+        "top1_interval": [
+          78.5,
+          84.5
+        ],
+        "top1_peak_timestamp": 81.0,
+        "top1_score": 0.12123667879237068,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 78.5,
+            "t_end": 84.5,
+            "peak_timestamp": 81.0,
+            "score": 0.12123667879237068,
+            "hit": true,
+            "tiou": 0.6
+          },
+          {
+            "rank": 2,
+            "t_start": 90.5,
+            "t_end": 91.5,
+            "peak_timestamp": 91.0,
+            "score": 0.09799135476350784,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 87.5,
+            "t_end": 88.5,
+            "peak_timestamp": 88.0,
+            "score": 0.09411632269620895,
+            "hit": true,
+            "tiou": 0.048
+          },
+          {
+            "rank": 4,
+            "t_start": 52.5,
+            "t_end": 58.5,
+            "peak_timestamp": 55.0,
+            "score": 0.04565852325823572,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 64.5,
+            "t_end": 68.5,
+            "peak_timestamp": 66.0,
+            "score": 0.04358323920104239,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC11",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "hai học sinh ngồi viết bài trên bàn",
+        "gt_windows": [
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "latency_ms": 21.81,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "tiou_at_1": 0.0,
+        "top1_interval": [
+          26.5,
+          27.5
+        ],
+        "top1_peak_timestamp": 27.0,
+        "top1_score": 0.13759785890579224,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 26.5,
+            "t_end": 27.5,
+            "peak_timestamp": 27.0,
+            "score": 0.13759785890579224,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 32.5,
+            "t_end": 44.5,
+            "peak_timestamp": 34.0,
+            "score": 0.1346455862124761,
+            "hit": true,
+            "tiou": 0.517
+          },
+          {
+            "rank": 3,
+            "t_start": 56.5,
+            "t_end": 63.5,
+            "peak_timestamp": 60.0,
+            "score": 0.1295265151394738,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 47.5,
+            "t_end": 50.5,
+            "peak_timestamp": 48.0,
+            "score": 0.11312446784642008,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 71.5,
+            "t_end": 72.5,
+            "peak_timestamp": 72.0,
+            "score": 0.06829050680001576,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC12",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "cái trống lớn màu đỏ",
+        "gt_windows": [
+          [
+            62.0,
+            70.0
+          ]
+        ],
+        "latency_ms": 14.84,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.375,
+        "top1_interval": [
+          64.5,
+          67.5
+        ],
+        "top1_peak_timestamp": 66.0,
+        "top1_score": 0.08051190401117007,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 64.5,
+            "t_end": 67.5,
+            "peak_timestamp": 66.0,
+            "score": 0.08051190401117007,
+            "hit": true,
+            "tiou": 0.375
+          },
+          {
+            "rank": 2,
+            "t_start": 90.5,
+            "t_end": 91.5,
+            "peak_timestamp": 91.0,
+            "score": 0.07294060289859772,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 87.5,
+            "t_end": 88.5,
+            "peak_timestamp": 88.0,
+            "score": 0.07228899747133255,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 79.5,
+            "t_end": 83.5,
+            "peak_timestamp": 81.0,
+            "score": 0.05508413645956251,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 52.5,
+            "t_end": 57.5,
+            "peak_timestamp": 53.0,
+            "score": 0.0324659810298019,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC13",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "con mèo",
+        "gt_windows": [],
+        "latency_ms": 24.53,
+        "hit_at_1": false,
+        "hit_at_3": false,
+        "tiou_at_1": null,
+        "top1_interval": [
+          51.5,
+          61.5
+        ],
+        "top1_peak_timestamp": 56.0,
+        "top1_score": 0.05742987212207582,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 51.5,
+            "t_end": 61.5,
+            "peak_timestamp": 56.0,
+            "score": 0.05742987212207582,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 74.5,
+            "t_end": 82.5,
+            "peak_timestamp": 81.0,
+            "score": 0.04950762026839786,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 71.5,
+            "t_end": 72.5,
+            "peak_timestamp": 72.0,
+            "score": 0.03509814913074175,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 32.5,
+            "t_end": 33.5,
+            "peak_timestamp": 33.0,
+            "score": 0.03232720587402582,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 40.5,
+            "t_end": 41.5,
+            "peak_timestamp": 41.0,
+            "score": 0.03147766242424647,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      }
+    ],
+    "phase2_yolo": [
+      {
+        "id": "TC00",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "2 người đi giữa cánh đồng hoa",
+        "gt_windows": [
+          [
+            58.0,
+            68.0
+          ],
+          [
+            228.0,
+            242.0
+          ]
+        ],
+        "latency_ms": 7875.94,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.931,
+        "top1_interval": [
+          227.5,
+          241.5
+        ],
+        "top1_peak_timestamp": 233.0,
+        "top1_score": 1.069818115234375,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 227.5,
+            "t_end": 241.5,
+            "peak_timestamp": 233.0,
+            "score": 1.069818115234375,
+            "hit": true,
+            "tiou": 0.931
+          },
+          {
+            "rank": 2,
+            "t_start": 50.5,
+            "t_end": 67.5,
+            "peak_timestamp": 62.0,
+            "score": 1.0568267890254968,
+            "hit": true,
+            "tiou": 0.543
+          },
+          {
+            "rank": 3,
+            "t_start": 112.5,
+            "t_end": 122.5,
+            "peak_timestamp": 114.0,
+            "score": 0.8166419461603378,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 182.5,
+            "t_end": 186.5,
+            "peak_timestamp": 184.0,
+            "score": 0.8002532131037273,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 97.5,
+            "t_end": 102.5,
+            "peak_timestamp": 101.0,
+            "score": 0.6313666056129684,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC01",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "người đàn ông hát vào micro",
+        "gt_windows": [
+          [
+            140.0,
+            172.0
+          ],
+          [
+            176.0,
+            186.0
+          ]
+        ],
+        "latency_ms": 6310.68,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.275,
+        "top1_interval": [
+          162.5,
+          174.5
+        ],
+        "top1_peak_timestamp": 165.0,
+        "top1_score": 1.065555419921875,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 162.5,
+            "t_end": 174.5,
+            "peak_timestamp": 165.0,
+            "score": 1.065555419921875,
+            "hit": true,
+            "tiou": 0.275
+          },
+          {
+            "rank": 2,
+            "t_start": 207.5,
+            "t_end": 216.5,
+            "peak_timestamp": 209.0,
+            "score": 1.0521432145087415,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 143.5,
+            "t_end": 152.5,
+            "peak_timestamp": 150.0,
+            "score": 1.0451099360463143,
+            "hit": true,
+            "tiou": 0.281
+          },
+          {
+            "rank": 4,
+            "t_start": 186.5,
+            "t_end": 192.5,
+            "peak_timestamp": 190.0,
+            "score": 0.8687569254174017,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 17.5,
+            "t_end": 26.5,
+            "peak_timestamp": 21.0,
+            "score": 0.753874899043282,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC02",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "cô gái cầm bóng bay",
+        "gt_windows": [
+          [
+            97.0,
+            104.0
+          ]
+        ],
+        "latency_ms": 4174.89,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.571,
+        "top1_interval": [
+          97.5,
+          101.5
+        ],
+        "top1_peak_timestamp": 100.0,
+        "top1_score": 1.07294921875,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 97.5,
+            "t_end": 101.5,
+            "peak_timestamp": 100.0,
+            "score": 1.07294921875,
+            "hit": true,
+            "tiou": 0.571
+          },
+          {
+            "rank": 2,
+            "t_start": 16.5,
+            "t_end": 27.5,
+            "peak_timestamp": 19.0,
+            "score": 0.8993242113048523,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 186.5,
+            "t_end": 192.5,
+            "peak_timestamp": 191.0,
+            "score": 0.8490505188098634,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 68.5,
+            "t_end": 76.5,
+            "peak_timestamp": 75.0,
+            "score": 0.8274000063408229,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 211.5,
+            "t_end": 215.5,
+            "peak_timestamp": 213.0,
+            "score": 0.7933204438596418,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC03",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "xe ô tô chạy trong đêm bật đèn pha",
+        "gt_windows": [
+          [
+            121.0,
+            128.0
+          ]
+        ],
+        "latency_ms": 4291.89,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.714,
+        "top1_interval": [
+          122.5,
+          127.5
+        ],
+        "top1_peak_timestamp": 124.0,
+        "top1_score": 1.0,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 122.5,
+            "t_end": 127.5,
+            "peak_timestamp": 124.0,
+            "score": 1.0,
+            "hit": true,
+            "tiou": 0.714
+          },
+          {
+            "rank": 2,
+            "t_start": 22.5,
+            "t_end": 37.5,
+            "peak_timestamp": 30.0,
+            "score": 0.9384443759372547,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 102.5,
+            "t_end": 107.5,
+            "peak_timestamp": 105.0,
+            "score": 0.8651806657169973,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 135.5,
+            "t_end": 143.5,
+            "peak_timestamp": 136.0,
+            "score": 0.6199964453492851,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 131.5,
+            "t_end": 133.5,
+            "peak_timestamp": 133.0,
+            "score": 0.4893704653038306,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC04",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "hoàng hôn",
+        "gt_windows": [
+          [
+            80.0,
+            88.0
+          ]
+        ],
+        "latency_ms": 0.29,
+        "mode": "temporal_only_fallback",
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "tiou_at_1": 0.0,
+        "top1_interval": [
+          185.5,
+          193.5
+        ],
+        "top1_peak_timestamp": 191.0,
+        "top1_score": 0.14270965324507817,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 185.5,
+            "t_end": 193.5,
+            "peak_timestamp": 191.0,
+            "score": 0.14270965324507817,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 80.5,
+            "t_end": 83.5,
+            "peak_timestamp": 82.0,
+            "score": 0.10827768825822406,
+            "hit": true,
+            "tiou": 0.375
+          },
+          {
+            "rank": 3,
+            "t_start": 110.5,
+            "t_end": 118.5,
+            "peak_timestamp": 114.0,
+            "score": 0.09004806379477183,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 18.5,
+            "t_end": 27.5,
+            "peak_timestamp": 19.0,
+            "score": 0.08993251820405324,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 156.5,
+            "t_end": 159.5,
+            "peak_timestamp": 158.0,
+            "score": 0.08921938770347171,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC05",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "cô gái mỉm cười dưới bầu trời xanh",
+        "gt_windows": [
+          [
+            208.0,
+            216.0
+          ]
+        ],
+        "latency_ms": 4046.34,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.5,
+        "top1_interval": [
+          210.5,
+          214.5
+        ],
+        "top1_peak_timestamp": 212.0,
+        "top1_score": 1.0649456787109375,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 210.5,
+            "t_end": 214.5,
+            "peak_timestamp": 212.0,
+            "score": 1.0649456787109375,
+            "hit": true,
+            "tiou": 0.5
+          },
+          {
+            "rank": 2,
+            "t_start": 185.5,
+            "t_end": 193.5,
+            "peak_timestamp": 191.0,
+            "score": 0.9402704955508008,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 73.5,
+            "t_end": 77.5,
+            "peak_timestamp": 75.0,
+            "score": 0.9004527072363255,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 109.5,
+            "t_end": 121.5,
+            "peak_timestamp": 118.0,
+            "score": 0.8925667269731203,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 224.5,
+            "t_end": 228.5,
+            "peak_timestamp": 226.0,
+            "score": 0.8538263439018831,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC06",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "bó hoa hồng đỏ",
+        "gt_windows": [
+          [
+            13.0,
+            20.0
+          ],
+          [
+            136.0,
+            142.0
+          ],
+          [
+            154.0,
+            160.0
+          ]
+        ],
+        "latency_ms": 0.6,
+        "mode": "temporal_only_fallback",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.833,
+        "top1_interval": [
+          154.5,
+          159.5
+        ],
+        "top1_peak_timestamp": 158.0,
+        "top1_score": 0.07509174711174435,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 154.5,
+            "t_end": 159.5,
+            "peak_timestamp": 158.0,
+            "score": 0.07509174711174435,
+            "hit": true,
+            "tiou": 0.833
+          },
+          {
+            "rank": 2,
+            "t_start": 15.5,
+            "t_end": 20.5,
+            "peak_timestamp": 19.0,
+            "score": 0.07041633087727758,
+            "hit": true,
+            "tiou": 0.6
+          },
+          {
+            "rank": 3,
+            "t_start": 126.5,
+            "t_end": 130.5,
+            "peak_timestamp": 129.0,
+            "score": 0.05364221036434174,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 212.5,
+            "t_end": 215.5,
+            "peak_timestamp": 214.0,
+            "score": 0.05109698557191425,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 0.5,
+            "t_end": 4.5,
+            "peak_timestamp": 4.0,
+            "score": 0.04673401117324829,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC07",
+        "video_id": "cd004f04834e466791e25c202ef4756f",
+        "query_vi": "đám cưới đông người trong hội trường",
+        "gt_windows": [
+          [
+            0.0,
+            8.0
+          ],
+          [
+            144.0,
+            150.0
+          ],
+          [
+            178.0,
+            184.0
+          ]
+        ],
+        "latency_ms": 4303.61,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.75,
+        "top1_interval": [
+          0.5,
+          6.5
+        ],
+        "top1_peak_timestamp": 4.0,
+        "top1_score": 1.068756103515625,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 0.5,
+            "t_end": 6.5,
+            "peak_timestamp": 4.0,
+            "score": 1.068756103515625,
+            "hit": true,
+            "tiou": 0.75
+          },
+          {
+            "rank": 2,
+            "t_start": 163.5,
+            "t_end": 169.5,
+            "peak_timestamp": 167.0,
+            "score": 0.9841933626095812,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 143.5,
+            "t_end": 152.5,
+            "peak_timestamp": 151.0,
+            "score": 0.9787940176330553,
+            "hit": true,
+            "tiou": 0.667
+          },
+          {
+            "rank": 4,
+            "t_start": 154.5,
+            "t_end": 159.5,
+            "peak_timestamp": 158.0,
+            "score": 0.8702192999099783,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 177.5,
+            "t_end": 182.5,
+            "peak_timestamp": 180.0,
+            "score": 0.865777381117445,
+            "hit": true,
+            "tiou": 0.692
+          }
+        ]
+      },
+      {
+        "id": "TC08",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "học sinh đi bộ trong hành lang",
+        "gt_windows": [
+          [
+            0.0,
+            13.0
+          ]
+        ],
+        "latency_ms": 13902.91,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.923,
+        "top1_interval": [
+          0.0,
+          12.0
+        ],
+        "top1_peak_timestamp": 11.0,
+        "top1_score": 1.0662310791015626,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 12.0,
+            "peak_timestamp": 11.0,
+            "score": 1.0662310791015626,
+            "hit": true,
+            "tiou": 0.923
+          },
+          {
+            "rank": 2,
+            "t_start": 51.5,
+            "t_end": 57.5,
+            "peak_timestamp": 53.0,
+            "score": 0.985627812236059,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 77.5,
+            "t_end": 78.5,
+            "peak_timestamp": 78.0,
+            "score": 0.8876908510887987,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 71.5,
+            "t_end": 72.5,
+            "peak_timestamp": 72.0,
+            "score": 0.8397223358315391,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 40.5,
+            "t_end": 41.5,
+            "peak_timestamp": 41.0,
+            "score": 0.8239530526480224,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC09",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "bầu trời xanh có mây trắng",
+        "gt_windows": [
+          [
+            13.0,
+            25.0
+          ]
+        ],
+        "latency_ms": 0.77,
+        "mode": "temporal_only_fallback",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.44,
+        "top1_interval": [
+          12.5,
+          18.5
+        ],
+        "top1_peak_timestamp": 15.0,
+        "top1_score": 0.11233815501133601,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 12.5,
+            "t_end": 18.5,
+            "peak_timestamp": 15.0,
+            "score": 0.11233815501133601,
+            "hit": true,
+            "tiou": 0.44
+          },
+          {
+            "rank": 2,
+            "t_start": 51.5,
+            "t_end": 58.5,
+            "peak_timestamp": 53.0,
+            "score": 0.04801555400093396,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 70.5,
+            "t_end": 78.5,
+            "peak_timestamp": 71.0,
+            "score": 0.03674064464867115,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "peak_timestamp": 0.0,
+            "score": 0.02631558943539858,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 40.5,
+            "t_end": 41.5,
+            "peak_timestamp": 41.0,
+            "score": 0.0209540290137132,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC10",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "ban nhạc rock chơi guitar",
+        "gt_windows": [
+          [
+            78.0,
+            88.0
+          ]
+        ],
+        "latency_ms": 2.23,
+        "mode": "temporal_only_fallback",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.6,
+        "top1_interval": [
+          78.5,
+          84.5
+        ],
+        "top1_peak_timestamp": 81.0,
+        "top1_score": 0.12123667879237068,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 78.5,
+            "t_end": 84.5,
+            "peak_timestamp": 81.0,
+            "score": 0.12123667879237068,
+            "hit": true,
+            "tiou": 0.6
+          },
+          {
+            "rank": 2,
+            "t_start": 90.5,
+            "t_end": 91.5,
+            "peak_timestamp": 91.0,
+            "score": 0.09799135476350784,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 87.5,
+            "t_end": 88.5,
+            "peak_timestamp": 88.0,
+            "score": 0.09411632269620895,
+            "hit": true,
+            "tiou": 0.048
+          },
+          {
+            "rank": 4,
+            "t_start": 52.5,
+            "t_end": 58.5,
+            "peak_timestamp": 55.0,
+            "score": 0.04565852325823572,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 64.5,
+            "t_end": 68.5,
+            "peak_timestamp": 66.0,
+            "score": 0.04358323920104239,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC11",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "hai học sinh ngồi viết bài trên bàn",
+        "gt_windows": [
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "latency_ms": 15437.08,
+        "mode": "temporal_object",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.517,
+        "top1_interval": [
+          32.5,
+          44.5
+        ],
+        "top1_peak_timestamp": 34.0,
+        "top1_score": 1.1043155340757898,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 32.5,
+            "t_end": 44.5,
+            "peak_timestamp": 34.0,
+            "score": 1.1043155340757898,
+            "hit": true,
+            "tiou": 0.517
+          },
+          {
+            "rank": 2,
+            "t_start": 56.5,
+            "t_end": 63.5,
+            "peak_timestamp": 60.0,
+            "score": 1.0563838231683347,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 26.5,
+            "t_end": 27.5,
+            "peak_timestamp": 27.0,
+            "score": 1.03689208984375,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 47.5,
+            "t_end": 50.5,
+            "peak_timestamp": 48.0,
+            "score": 0.9439367077372629,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 71.5,
+            "t_end": 72.5,
+            "peak_timestamp": 72.0,
+            "score": 0.53951423895021,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC12",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "cái trống lớn màu đỏ",
+        "gt_windows": [
+          [
+            62.0,
+            70.0
+          ]
+        ],
+        "latency_ms": 0.53,
+        "mode": "temporal_only_fallback",
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "tiou_at_1": 0.375,
+        "top1_interval": [
+          64.5,
+          67.5
+        ],
+        "top1_peak_timestamp": 66.0,
+        "top1_score": 0.08051190401117007,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 64.5,
+            "t_end": 67.5,
+            "peak_timestamp": 66.0,
+            "score": 0.08051190401117007,
+            "hit": true,
+            "tiou": 0.375
+          },
+          {
+            "rank": 2,
+            "t_start": 90.5,
+            "t_end": 91.5,
+            "peak_timestamp": 91.0,
+            "score": 0.07294060289859772,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 87.5,
+            "t_end": 88.5,
+            "peak_timestamp": 88.0,
+            "score": 0.07228899747133255,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 79.5,
+            "t_end": 83.5,
+            "peak_timestamp": 81.0,
+            "score": 0.05508413645956251,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 52.5,
+            "t_end": 57.5,
+            "peak_timestamp": 53.0,
+            "score": 0.0324659810298019,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      },
+      {
+        "id": "TC13",
+        "video_id": "959c2799bf8c4ca0b380399c813dc051",
+        "query_vi": "con mèo",
+        "gt_windows": [],
+        "latency_ms": 12745.87,
+        "mode": "temporal_object",
+        "hit_at_1": false,
+        "hit_at_3": false,
+        "tiou_at_1": null,
+        "top1_interval": [
+          51.5,
+          61.5
+        ],
+        "top1_peak_timestamp": 56.0,
+        "top1_score": 1.0,
+        "results": [
+          {
+            "rank": 1,
+            "t_start": 51.5,
+            "t_end": 61.5,
+            "peak_timestamp": 56.0,
+            "score": 1.0,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 74.5,
+            "t_end": 82.5,
+            "peak_timestamp": 81.0,
+            "score": 0.8620534651925043,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 71.5,
+            "t_end": 72.5,
+            "peak_timestamp": 72.0,
+            "score": 0.6111479589600228,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 32.5,
+            "t_end": 33.5,
+            "peak_timestamp": 33.0,
+            "score": 0.5628987960361376,
+            "hit": false,
+            "tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 40.5,
+            "t_end": 41.5,
+            "peak_timestamp": 41.0,
+            "score": 0.5481060859292176,
+            "hit": false,
+            "tiou": 0.0
+          }
+        ]
+      }
+    ]
+  }
+}
