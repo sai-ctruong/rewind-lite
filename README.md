@@ -68,6 +68,8 @@ Thay `--device cuda` bằng `--device cpu` khi không có CUDA. `manifest.json` 
 
 Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn video đã có trong `data/videos/`. Sau khi index xong, nhập truy vấn tiếng Việt, xem tối đa 5 thumbnail và chọn kết quả để tua video. Index mặc định lưu ở `artifacts/indexes/`. Khi đổi sang cấu hình lấy mẫu mới, web báo chỉ mục cũ hết hạn; chọn **Xây lại chỉ mục** để áp dụng. Với video dài, khoảng cách lấy mẫu tự tăng để phủ hết thời lượng nên sự kiện ngắn hơn khoảng này vẫn có thể bị bỏ sót. Server chỉ lắng nghe `127.0.0.1`; tiến độ và cache model nằm trong một process. [Kiểm tra chất lượng tìm kiếm web](docs/lite-search-quality.md), [hợp đồng HTTP và lỗi T07](docs/rewind-lite-task-07-api.md), [kiểm tra UI T08](docs/rewind-lite-task-08-ui.md).
 
+Chọn **Toàn bộ video có chỉ mục · Khung hình** để tìm trên các video đã lập chỉ mục bằng một truy vấn. Giao diện hiển thị số video thực sự được tìm và số video thiếu hoặc hết hạn chỉ mục; mỗi kết quả ghi tên video và mở đúng video tại mốc tương ứng. Chế độ này dùng keyframe; tìm khoảng thời gian và YOLO vẫn áp dụng cho từng video. [Hợp đồng tìm kiếm toàn kho](docs/corpus-wide-search.md).
+
 ## Dữ liệu và đánh giá
 
 `data/annotations/manifest.json` ghi nguồn, quyền dùng, checksum, metadata và split. `data/annotations/labels.json` có 57 nhãn `verified` sau lượt review trực quan của Codex ngày 2026-11-08; tính độc lập và độ chính xác ranh giới dưới một giây vẫn cần người khác kiểm tra. Hai file `evaluation/labels*.json` là dữ liệu Rewind cũ chưa kiểm tra với video nguồn nên **không** thuộc tập đánh giá Lite. Video, index, contact sheet và artifact benchmark cục bộ bị Git ignore; bản [JSON T06 đã đo](docs/benchmark-results/t06.json) được lưu cùng tài liệu.

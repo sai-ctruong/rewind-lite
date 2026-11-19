@@ -50,14 +50,14 @@ def diversify_keyframe_results(ranked: list, *, top_k: int,
                or abs(hit.timestamp - prev.timestamp) >= min_gap_s
                for prev in chosen):
             chosen.append(hit)
-            chosen_ids.add(hit.frame_id)
+            chosen_ids.add((hit.video_id, hit.frame_id))
             if len(chosen) == top_k:
                 break
     if len(chosen) < top_k:
         for hit in ranked:
-            if hit.frame_id not in chosen_ids:
+            if (hit.video_id, hit.frame_id) not in chosen_ids:
                 chosen.append(hit)
-                chosen_ids.add(hit.frame_id)
+                chosen_ids.add((hit.video_id, hit.frame_id))
                 if len(chosen) == top_k:
                     break
     return [replace(hit, rank=rank) for rank, hit in enumerate(chosen, 1)]
@@ -148,6 +148,10 @@ class LiteService:
         return sorted(path.stem for path in self.video_dir.glob("*.mp4")
                       if _VIDEO_ID.fullmatch(path.stem) and path.is_file()
                       and path.resolve().is_relative_to(self.video_dir))
+
+    def list_saved_index_videos(self, video_ids: list[str]) -> list[str]:
+        return [video_id for video_id in video_ids
+                if (self.index_root / video_id / "manifest.json").is_file()]
 
     def select(self, video_id: str) -> str:
         self._video_path(video_id)
@@ -458,6 +462,47 @@ class LiteService:
         finally:
             self.index_lock.release()
 
+    def search_all(self, query: str, top_k: int):
+        """Rank saved, valid video indexes together with one text embedding."""
+        if not self.index_lock.acquire(blocking=False):
+            raise ApiError(409, "index_busy", "Indexing or search is already running")
+        try:
+            video_ids = self.list_videos()
+            available = []
+            skipped = []
+            for video_id in video_ids:
+                try:
+                    path = self._video_path(video_id)
+                    entry = self._checked_entry(video_id, path)
+                    available.append((video_id, entry))
+                except ApiError as exc:
+                    if exc.code not in {"index_missing", "index_incomplete", "index_expired"}:
+                        raise
+                    skipped.append({"video_id": video_id, "reason": exc.code})
+            if not available:
+                raise ApiError(409, "index_missing", "Index a video before searching")
+
+            vector = self._get_encoder().encode_text(query)
+            ranked = []
+            for video_id, entry in available:
+                candidate_k = entry.num_indexed if self.keyframe_min_gap_s > 0 else top_k
+                ranked.extend(self.retrievers[video_id].search_vectors(
+                    {"clip": vector}, top_k=max(1, candidate_k)))
+            ranked.sort(key=lambda hit: (-hit.score, hit.video_id, hit.frame_id))
+            hits = diversify_keyframe_results(
+                ranked, top_k=top_k, min_gap_s=self.keyframe_min_gap_s)
+            return {"hits": hits, "total_videos": len(video_ids),
+                    "searched_videos": len(available), "skipped": skipped}
+        except ApiError:
+            raise
+        except (MemoryError, RuntimeError, ValueError) as exc:
+            oom = isinstance(exc, MemoryError) or "out of memory" in str(exc).lower()
+            raise ApiError(503 if oom else 500,
+                           "model_oom" if oom else "search_failed",
+                           "Model ran out of memory" if oom else "Search failed") from exc
+        finally:
+            self.index_lock.release()
+
     def search_temporal(self, video_id: str, query: str, top_k: int = 5,
                         use_detector: bool = False, detector_backend=None):
         import cv2
@@ -668,7 +713,9 @@ def create_lite_app(*, video_dir: str | Path | None = None,
 
     @app.get("/api/lite/videos")
     def videos():
-        return jsonify(videos=service.list_videos(), selected_video=service.selected)
+        video_ids = service.list_videos()
+        return jsonify(videos=video_ids, selected_video=service.selected,
+                       saved_index_videos=service.list_saved_index_videos(video_ids))
 
     @app.post("/api/lite/upload")
     def upload():
@@ -715,6 +762,24 @@ def create_lite_app(*, video_dir: str | Path | None = None,
                                          frame_id=hit.frame_id)}
                    for hit in hits]
         return jsonify(video_id=video_id, query=query.strip(), results=results)
+
+    @app.post("/api/lite/search_all")
+    def search_all():
+        data = body()
+        query = data.get("query")
+        if not isinstance(query, str) or not query.strip() or len(query) > 512:
+            raise ApiError(400, "invalid_query", "Enter a text query (1–512 characters)")
+        top_k = data.get("top_k", 5)
+        if isinstance(top_k, bool) or not isinstance(top_k, int) or not 1 <= top_k <= 50:
+            raise ApiError(400, "invalid_top_k", "top_k must be between 1 and 50")
+        outcome = service.search_all(query.strip(), top_k)
+        results = [{"rank": hit.rank, "score": hit.score,
+                    "score_kind": hit.score_kind, "video_id": hit.video_id,
+                    "frame_id": hit.frame_id, "timestamp": hit.timestamp,
+                    "image_url": url_for("frame", video_id=hit.video_id,
+                                         frame_id=hit.frame_id)}
+                   for hit in outcome.pop("hits")]
+        return jsonify(query=query.strip(), results=results, **outcome)
 
     @app.post("/api/lite/temporal_search")
     def temporal_search():
