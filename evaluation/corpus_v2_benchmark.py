@@ -104,6 +104,29 @@ def report_timestamp() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def select_queries(labels: list[dict], absent: list[dict], *,
+                   split: str, exclude_query_ids: set[str] | None = None
+                   ) -> tuple[list[dict], list[dict]]:
+    """Keep the held-out test entirely out of exploratory dev runs."""
+    if split not in {"all", "dev"}:
+        raise ValueError("split must be all or dev")
+    excluded = exclude_query_ids or set()
+    if excluded and split != "dev":
+        raise ValueError("query exclusions are allowed only on dev")
+    if excluded:
+        dev_ids = {row["query_id"] for row in labels + absent
+                   if row["split"] == "dev"}
+        unknown = excluded - dev_ids
+        if unknown:
+            raise ValueError(f"unknown dev query IDs for exclusion: {sorted(unknown)}")
+    if split == "all":
+        return labels, absent
+    return ([row for row in labels if row["split"] == "dev"
+             and row["query_id"] not in excluded],
+            [row for row in absent if row["split"] == "dev"
+             and row["query_id"] not in excluded])
+
+
 def _prediction(hit) -> dict:
     return {"rank": hit.rank, "frame_id": hit.frame_id,
             "video_id": hit.video_id, "timestamp": hit.timestamp,
@@ -111,7 +134,11 @@ def _prediction(hit) -> dict:
 
 
 def run_benchmark(manifest_path: Path, labels_path: Path, absent_path: Path,
-                  *, root: Path, output: Path, device: str = "cuda") -> dict:
+                  *, root: Path, output: Path, device: str = "cuda",
+                  model_id: str | None = None, revision: str | None = None,
+                  split: str = "all", index_root: Path | None = None,
+                  exclude_query_ids: set[str] | None = None,
+                  keyframe_min_gap_s: float = 0.0) -> dict:
     """Index only annotated videos, then score each query within its source video."""
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     labels = json.loads(labels_path.read_text(encoding="utf-8"))
@@ -124,15 +151,22 @@ def run_benchmark(manifest_path: Path, labels_path: Path, absent_path: Path,
     from scripts.lite_search import DEFAULT_MODEL, DEFAULT_REVISION
     from ui.lite_app import LiteService
 
+    if (model_id is None) != (revision is None):
+        raise ValueError("model_id and revision must be specified together")
+    model_id = model_id or DEFAULT_MODEL
+    revision = revision or DEFAULT_REVISION
+    labels_run, absent_run = select_queries(
+        labels, absent, split=split, exclude_query_ids=exclude_query_ids)
     sources = {video["video_id"]: video for video in manifest["videos"]}
-    selected = sorted({row["video_id"] for row in labels + absent},
+    selected = sorted({row["video_id"] for row in labels_run + absent_run},
                       key=lambda video_id: int(video_id.split("_")[-1]))
-    index_root = root / "artifacts/corpus-v2-benchmark/indexes"
+    index_root = index_root or root / "artifacts/corpus-v2-benchmark/indexes"
     service = LiteService(video_dir=root / "data/videos/corpus_v2",
                           index_root=index_root, device=device,
-                          model_id=DEFAULT_MODEL, revision=DEFAULT_REVISION,
+                          model_id=model_id, revision=revision,
                           sample_every_s=0.5, max_frames=512,
-                          hist_duplicate_threshold=1.0, dedup_threshold=1.0)
+                          hist_duplicate_threshold=1.0, dedup_threshold=1.0,
+                          keyframe_min_gap_s=keyframe_min_gap_s)
     positive_rows: list[dict] = []
     absent_rows: list[dict] = []
     temporal_predictions: dict[str, list[dict]] = {}
@@ -143,7 +177,7 @@ def run_benchmark(manifest_path: Path, labels_path: Path, absent_path: Path,
         indexed = service.index(video_id)
         entry = service.entries[video_id]
         source = sources[video_id]
-        for label in [row for row in labels if row["video_id"] == video_id]:
+        for label in [row for row in labels_run if row["video_id"] == video_id]:
             query_started = time.perf_counter()
             hits = service.search(video_id, label["query"], top_k=5)
             elapsed = time.perf_counter() - query_started
@@ -159,7 +193,7 @@ def run_benchmark(manifest_path: Path, labels_path: Path, absent_path: Path,
                                                use_detector=False)
             temporal_predictions[label["query_id"]] = [moment.to_dict()
                                                          for moment in temporal["moments"]]
-        for label in [row for row in absent if row["video_id"] == video_id]:
+        for label in [row for row in absent_run if row["video_id"] == video_id]:
             query_started = time.perf_counter()
             hits = service.search(video_id, label["query"], top_k=5)
             absent_rows.append({"query_id": label["query_id"], "query": label["query"],
@@ -195,18 +229,23 @@ def run_benchmark(manifest_path: Path, labels_path: Path, absent_path: Path,
                          "video_id": label["video_id"], "split": label["split"],
                          "duration_s": sources[label["video_id"]]["duration_s"],
                          "time_windows": label["time_windows"]}
-                        for label in labels]
+                        for label in labels_run]
     temporal_metrics = evaluate_temporal_predictions(temporal_queries, temporal_predictions)
     report = {
-        "status": "MEASURED_INTERNAL_LABELS",
+        "status": "EXPLORATORY_DEV" if split == "dev" else "MEASURED_INTERNAL_LABELS",
         "measured_at": report_timestamp(),
         "input_sha256": {"manifest": _sha256(manifest_path),
                          "labels": _sha256(labels_path), "absent": _sha256(absent_path)},
-        "config": {"model_id": DEFAULT_MODEL, "model_revision": DEFAULT_REVISION,
+        "config": {"model_id": model_id, "model_revision": revision,
                    "device": device, "sample_every_s": 0.5, "max_frames_per_video": 512,
+                   "split": split,
+                   "excluded_query_ids": sorted(exclude_query_ids or []),
+                   "keyframe_min_gap_s": keyframe_min_gap_s,
                    "hist_duplicate_threshold": 1.0, "semantic_dedup_threshold": 1.0,
                    "search_scope": "one source video per query",
-                   "keyframe_retrieval": "LiteService.search, exact cosine for <=512 frames",
+                   "keyframe_retrieval": (
+                       "LiteService.search, exact cosine for <=512 frames; "
+                       f"minimum gap {keyframe_min_gap_s}s with backfill"),
                    "temporal_retrieval": "LiteService.search_temporal, detector off",
                    "presence_rule": "accept when top-1 keyframe cosine >= dev threshold",
                    "top_k": 5, "command": sys.argv},
@@ -225,6 +264,13 @@ def run_benchmark(manifest_path: Path, labels_path: Path, absent_path: Path,
     return report
 
 
+def cli_summary(report: dict, *, split: str) -> dict:
+    measured = "dev" if split == "dev" else "test"
+    return {f"keyframe_{measured}": report["keyframe"]["by_split"][measured],
+            f"temporal_{measured}": report["temporal"]["summary"][measured],
+            f"presence_{measured}": report["presence"][measured]}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Measure the corpus v2 web baseline")
     parser.add_argument("--manifest", type=Path,
@@ -237,17 +283,25 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", type=Path,
                         default=Path("artifacts/corpus-v2-benchmark/report.json"))
     parser.add_argument("--device", choices=("cuda", "cpu"), default="cuda")
+    parser.add_argument("--model-id")
+    parser.add_argument("--revision")
+    parser.add_argument("--split", choices=("all", "dev"), default="all")
+    parser.add_argument("--index-root", type=Path)
+    parser.add_argument("--exclude-query-id", action="append", default=[])
+    parser.add_argument("--keyframe-min-gap-s", type=float, default=0.0)
     args = parser.parse_args(argv)
     try:
         report = run_benchmark(args.manifest, args.labels, args.absent,
                                root=args.root.resolve(), output=args.output,
-                               device=args.device)
+                               device=args.device, model_id=args.model_id,
+                               revision=args.revision, split=args.split,
+                               index_root=args.index_root,
+                               exclude_query_ids=set(args.exclude_query_id),
+                               keyframe_min_gap_s=args.keyframe_min_gap_s)
     except (OSError, ValueError, RuntimeError) as exc:
         parser.exit(2, f"error: {exc}\n")
     print(json.dumps({"status": report["status"], "output": str(args.output),
-                      "keyframe_test": report["keyframe"]["by_split"]["test"],
-                      "temporal_test": report["temporal"]["summary"]["test"],
-                      "presence_test": report["presence"]["test"]},
+                      **cli_summary(report, split=args.split)},
                      ensure_ascii=False, indent=2))
     return 0
 

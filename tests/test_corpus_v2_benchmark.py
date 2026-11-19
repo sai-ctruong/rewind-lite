@@ -50,3 +50,58 @@ def test_report_timestamp_uses_utc_without_system_timezone_database():
     timestamp = benchmark.report_timestamp()
     parsed = datetime.fromisoformat(timestamp)
     assert parsed.utcoffset() == timezone.utc.utcoffset(None)
+
+
+def test_dev_experiment_excludes_all_test_queries():
+    positive = [{"query_id": "p-dev", "split": "dev"},
+                {"query_id": "p-test", "split": "test"}]
+    absent = [{"query_id": "a-dev", "split": "dev"},
+              {"query_id": "a-test", "split": "test"}]
+    selected_positive, selected_absent = benchmark.select_queries(
+        positive, absent, split="dev")
+    assert [row["query_id"] for row in selected_positive] == ["p-dev"]
+    assert [row["query_id"] for row in selected_absent] == ["a-dev"]
+
+
+def test_full_benchmark_keeps_both_splits():
+    positive = [{"split": "dev"}, {"split": "test"}]
+    selected_positive, selected_absent = benchmark.select_queries(
+        positive, [], split="all")
+    assert selected_positive == positive
+    assert selected_absent == []
+
+
+def test_dev_experiment_can_quarantine_a_confirmed_bad_label():
+    positive = [{"query_id": "p", "split": "dev"}]
+    absent = [{"query_id": "bad", "split": "dev"},
+              {"query_id": "good", "split": "dev"}]
+    selected_positive, selected_absent = benchmark.select_queries(
+        positive, absent, split="dev", exclude_query_ids={"bad"})
+    assert selected_positive == positive
+    assert [row["query_id"] for row in selected_absent] == ["good"]
+
+
+def test_exclusions_cannot_modify_full_held_out_measurement():
+    with pytest.raises(ValueError, match="dev"):
+        benchmark.select_queries([], [], split="all", exclude_query_ids={"bad"})
+
+
+def test_exclusion_must_identify_an_existing_dev_query():
+    positive = [{"query_id": "p-test", "split": "test"}]
+    absent = [{"query_id": "a-dev", "split": "dev"}]
+    with pytest.raises(ValueError, match="unknown dev"):
+        benchmark.select_queries(positive, absent, split="dev",
+                                 exclude_query_ids={"p-test"})
+
+
+def test_dev_cli_summary_reports_dev_instead_of_empty_test_metrics():
+    report = {"keyframe": {"by_split": {"dev": {"hit@1": .4},
+                                        "test": {"hit@1": 0.0}}},
+              "temporal": {"summary": {"dev": {"miou": .2},
+                                       "test": {"miou": 0.0}}},
+              "presence": {"dev": {"n_present": 64},
+                           "test": {"n_present": 0}}}
+    summary = benchmark.cli_summary(report, split="dev")
+    assert summary == {"keyframe_dev": {"hit@1": .4},
+                       "temporal_dev": {"miou": .2},
+                       "presence_dev": {"n_present": 64}}

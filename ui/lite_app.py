@@ -25,6 +25,7 @@ _ROOT = Path(__file__).resolve().parents[1]
 _UI_DIR = Path(__file__).resolve().parent
 _VIDEO_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}\Z")
 DEFAULT_DARK_FRAME_LUMA_MAX = 5.0
+DEFAULT_KEYFRAME_MIN_GAP_S = 5.0
 
 
 class ApiError(Exception):
@@ -35,6 +36,31 @@ class ApiError(Exception):
         self.message = message
 
 
+def diversify_keyframe_results(ranked: list, *, top_k: int,
+                               min_gap_s: float) -> list:
+    """Keep the strongest match, then cover distinct moments before backfilling."""
+    if top_k < 1 or not math.isfinite(min_gap_s) or min_gap_s < 0:
+        raise ValueError("top_k and min_gap_s must be nonnegative and finite")
+    chosen = []
+    chosen_ids = set()
+    for hit in ranked:
+        if all(hit.video_id != prev.video_id
+               or abs(hit.timestamp - prev.timestamp) >= min_gap_s
+               for prev in chosen):
+            chosen.append(hit)
+            chosen_ids.add(hit.frame_id)
+            if len(chosen) == top_k:
+                break
+    if len(chosen) < top_k:
+        for hit in ranked:
+            if hit.frame_id not in chosen_ids:
+                chosen.append(hit)
+                chosen_ids.add(hit.frame_id)
+                if len(chosen) == top_k:
+                    break
+    return [replace(hit, rank=rank) for rank, hit in enumerate(chosen, 1)]
+
+
 class LiteService:
     def __init__(self, *, video_dir: str | Path, index_root: str | Path,
                  encoder_factory=None, detector_backend_factory=None,
@@ -43,7 +69,8 @@ class LiteService:
                  sample_every_s: float = 0.5, max_frames: int | None = 512,
                  hist_duplicate_threshold: float = 1.0,
                  dedup_threshold: float = 1.0,
-                 dark_frame_luma_max: float | None = DEFAULT_DARK_FRAME_LUMA_MAX):
+                 dark_frame_luma_max: float | None = DEFAULT_DARK_FRAME_LUMA_MAX,
+                 keyframe_min_gap_s: float = DEFAULT_KEYFRAME_MIN_GAP_S):
         from retrieval.detector import DetectionCache
         from retrieval.video_engine import VideoSearchEngine
 
@@ -51,6 +78,8 @@ class LiteService:
         self.index_root = Path(index_root).resolve()
         if max_frames is not None and max_frames < 1:
             raise ValueError("max_frames must be positive")
+        if not math.isfinite(keyframe_min_gap_s) or keyframe_min_gap_s < 0:
+            raise ValueError("keyframe_min_gap_s must be nonnegative and finite")
         self.encoder_factory = encoder_factory or _real_encoder
         self.detector_backend_factory = detector_backend_factory
         self.model_id, self.revision, self.device = model_id, revision, device
@@ -58,6 +87,7 @@ class LiteService:
         self.hist_duplicate_threshold = hist_duplicate_threshold
         self.dedup_threshold = dedup_threshold
         self.dark_frame_luma_max = dark_frame_luma_max
+        self.keyframe_min_gap_s = keyframe_min_gap_s
         self.engine = VideoSearchEngine(
             encoder_names=(model_id,), sample_every_s=sample_every_s,
             max_frames=max_frames,
@@ -403,9 +433,13 @@ class LiteService:
         if not self.index_lock.acquire(blocking=False):
             raise ApiError(409, "index_busy", "Indexing or search is already running")
         try:
-            self._checked_entry(video_id, path)
-            return self.retrievers[video_id].search_text(
-                query, {"clip": self._get_encoder()}, top_k=top_k)
+            entry = self._checked_entry(video_id, path)
+            candidate_k = (entry.num_indexed if self.keyframe_min_gap_s > 0
+                           and entry.num_indexed else top_k)
+            ranked = self.retrievers[video_id].search_text(
+                query, {"clip": self._get_encoder()}, top_k=candidate_k)
+            return diversify_keyframe_results(
+                ranked, top_k=top_k, min_gap_s=self.keyframe_min_gap_s)
         except ApiError:
             raise
         except (MemoryError, RuntimeError, ValueError) as exc:

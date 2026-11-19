@@ -2,6 +2,8 @@
 
 Đo ngày 2026-11-19 bằng model và đường tìm kiếm của web Rewind Lite. [JSON đầy đủ](benchmark-results/corpus-v2.json) lưu cấu hình, checksum đầu vào, chỉ mục từng video, dự đoán từng truy vấn và các chỉ số. Đây là **kết quả trên nhãn do Codex tự rà soát**, chưa phải ground truth được thẩm định độc lập.
 
+Lượt [rà soát `dev` sau baseline](corpus-v2-dev-audit.md) xác nhận một truy vấn vắng mặt gán nhãn sai (`v2-abs-012`) và chỉ ra vài khoảng dương có thể thiếu lần xuất hiện. Tài liệu và JSON này được giữ như bản đo lịch sử; xem báo cáo rà soát trước khi trích số liệu.
+
 ## Giao thức
 
 - Nguồn: [manifest 62 video](../data/annotations/corpus_v2_manifest.json), [84 truy vấn có cảnh khớp](../data/annotations/corpus_v2_labels.json), [20 truy vấn vắng mặt](../data/annotations/corpus_v2_absent.json). Chỉ 21 video có truy vấn được lập chỉ mục cho phép đo này. Mỗi truy vấn tìm **trong video nguồn của chính nó**; kết quả không đo tìm kiếm toàn kho 62 video.

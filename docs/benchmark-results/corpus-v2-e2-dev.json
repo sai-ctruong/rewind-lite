@@ -1,0 +1,7191 @@
+{
+  "status": "EXPLORATORY_DEV",
+  "measured_at": "2026-11-19T12:32:30+00:00",
+  "input_sha256": {
+    "manifest": "4e872ae58a9df1ead886a8c772e1b3a0dc65de7cc7c7d1fbced4241c851b6fa6",
+    "labels": "74a875b72dc2158ca8abb5881a02aa758bc93e46f1d2f32c5b67416625f06be5",
+    "absent": "b3789e952f6135379f9484e66da69feddffe7822f6840445dc9b77ff73c3ccf7"
+  },
+  "config": {
+    "model_id": "google/siglip-base-patch16-256-multilingual",
+    "model_revision": "8952a4eafcde3cb7ab46b1dd629b33f8784ca9c6",
+    "device": "cuda",
+    "sample_every_s": 0.5,
+    "max_frames_per_video": 512,
+    "split": "dev",
+    "excluded_query_ids": [
+      "v2-abs-012"
+    ],
+    "hist_duplicate_threshold": 1.0,
+    "semantic_dedup_threshold": 1.0,
+    "search_scope": "one source video per query",
+    "keyframe_retrieval": "LiteService.search, exact cosine for <=512 frames",
+    "temporal_retrieval": "LiteService.search_temporal, detector off",
+    "presence_rule": "accept when top-1 keyframe cosine >= dev threshold",
+    "top_k": 5,
+    "command": [
+      "D:\\Rewind\\evaluation\\corpus_v2_benchmark.py",
+      "--device",
+      "cuda",
+      "--split",
+      "dev",
+      "--exclude-query-id",
+      "v2-abs-012",
+      "--model-id",
+      "google/siglip-base-patch16-256-multilingual",
+      "--revision",
+      "8952a4eafcde3cb7ab46b1dd629b33f8784ca9c6",
+      "--index-root",
+      "artifacts\\corpus-v2-experiments\\e2-indexes",
+      "--output",
+      "artifacts\\corpus-v2-experiments\\e2-dev.json"
+    ]
+  },
+  "n_source_videos": 62,
+  "n_annotated_videos": 16,
+  "n_positive": 64,
+  "n_absent": 11,
+  "index": [
+    {
+      "video_id": "video_6",
+      "split": "dev",
+      "group_id": "person_b",
+      "cached": false,
+      "n_sampled": 122,
+      "n_indexed": 122,
+      "elapsed_seconds": 20.865794599999845
+    },
+    {
+      "video_id": "video_8",
+      "split": "dev",
+      "group_id": "person_b",
+      "cached": false,
+      "n_sampled": 119,
+      "n_indexed": 119,
+      "elapsed_seconds": 3.3603720000000976
+    },
+    {
+      "video_id": "video_16",
+      "split": "dev",
+      "group_id": "person_d",
+      "cached": false,
+      "n_sampled": 145,
+      "n_indexed": 145,
+      "elapsed_seconds": 4.150414499999897
+    },
+    {
+      "video_id": "video_18",
+      "split": "dev",
+      "group_id": "person_d",
+      "cached": false,
+      "n_sampled": 79,
+      "n_indexed": 79,
+      "elapsed_seconds": 2.2550852999997915
+    },
+    {
+      "video_id": "video_26",
+      "split": "dev",
+      "group_id": "person_f",
+      "cached": false,
+      "n_sampled": 162,
+      "n_indexed": 162,
+      "elapsed_seconds": 4.124950500000068
+    },
+    {
+      "video_id": "video_28",
+      "split": "dev",
+      "group_id": "person_g",
+      "cached": false,
+      "n_sampled": 254,
+      "n_indexed": 254,
+      "elapsed_seconds": 6.837913699999717
+    },
+    {
+      "video_id": "video_30",
+      "split": "dev",
+      "group_id": "person_g",
+      "cached": false,
+      "n_sampled": 164,
+      "n_indexed": 164,
+      "elapsed_seconds": 4.458839400000215
+    },
+    {
+      "video_id": "video_33",
+      "split": "dev",
+      "group_id": "person_h",
+      "cached": false,
+      "n_sampled": 255,
+      "n_indexed": 255,
+      "elapsed_seconds": 6.268819800000074
+    },
+    {
+      "video_id": "video_35",
+      "split": "dev",
+      "group_id": "person_h",
+      "cached": false,
+      "n_sampled": 149,
+      "n_indexed": 149,
+      "elapsed_seconds": 3.9373092999999244
+    },
+    {
+      "video_id": "video_38",
+      "split": "dev",
+      "group_id": "person_i",
+      "cached": false,
+      "n_sampled": 133,
+      "n_indexed": 133,
+      "elapsed_seconds": 3.596244899999874
+    },
+    {
+      "video_id": "video_40",
+      "split": "dev",
+      "group_id": "person_i",
+      "cached": false,
+      "n_sampled": 134,
+      "n_indexed": 134,
+      "elapsed_seconds": 3.6751545000001897
+    },
+    {
+      "video_id": "video_48",
+      "split": "dev",
+      "group_id": "person_b",
+      "cached": false,
+      "n_sampled": 65,
+      "n_indexed": 65,
+      "elapsed_seconds": 1.8077805000002627
+    },
+    {
+      "video_id": "video_50",
+      "split": "dev",
+      "group_id": "person_b",
+      "cached": false,
+      "n_sampled": 58,
+      "n_indexed": 58,
+      "elapsed_seconds": 1.6003098999999565
+    },
+    {
+      "video_id": "video_53",
+      "split": "dev",
+      "group_id": "person_g",
+      "cached": false,
+      "n_sampled": 58,
+      "n_indexed": 58,
+      "elapsed_seconds": 1.6273780000001352
+    },
+    {
+      "video_id": "video_58",
+      "split": "dev",
+      "group_id": "person_d",
+      "cached": false,
+      "n_sampled": 54,
+      "n_indexed": 54,
+      "elapsed_seconds": 1.5306519000000662
+    },
+    {
+      "video_id": "video_62",
+      "split": "dev",
+      "group_id": "person_d",
+      "cached": false,
+      "n_sampled": 31,
+      "n_indexed": 31,
+      "elapsed_seconds": 1.017567500000041
+    }
+  ],
+  "index_and_query_seconds": 73.27418710000029,
+  "calibration_dev": {
+    "threshold": 0.08840097486972809,
+    "balanced_accuracy": 0.7904829545454546,
+    "sensitivity": 0.671875,
+    "specificity": 0.9090909090909091,
+    "selection": "maximize dev balanced accuracy; on ties choose higher threshold"
+  },
+  "presence": {
+    "dev": {
+      "n_present": 64,
+      "n_absent": 11,
+      "tp": 43,
+      "fn": 21,
+      "tn": 10,
+      "fp": 1,
+      "sensitivity": 0.671875,
+      "specificity": 0.9090909090909091,
+      "balanced_accuracy": 0.7904829545454546
+    },
+    "test": {
+      "n_present": 0,
+      "n_absent": 0,
+      "tp": 0,
+      "fn": 0,
+      "tn": 0,
+      "fp": 0,
+      "sensitivity": null,
+      "specificity": null,
+      "balanced_accuracy": null
+    }
+  },
+  "keyframe": {
+    "by_split": {
+      "dev": {
+        "n_queries": 64,
+        "n_covered": 64,
+        "coverage": 1.0,
+        "hit@1": 0.234375,
+        "hit@1_ci95_query_level": [
+          0.1474976721963502,
+          0.35133490250707655
+        ],
+        "hit@5": 0.546875,
+        "mrr": 0.35625
+      },
+      "test": {
+        "n_queries": 0,
+        "n_covered": 0,
+        "coverage": 0.0,
+        "hit@1": 0.0,
+        "hit@1_ci95_query_level": null,
+        "hit@5": 0.0,
+        "mrr": 0.0
+      }
+    },
+    "by_group": {
+      "person_b": {
+        "n_queries": 16,
+        "n_covered": 16,
+        "coverage": 1.0,
+        "hit@1": 0.125,
+        "hit@1_ci95_query_level": [
+          0.034976749337057134,
+          0.3602333143674828
+        ],
+        "hit@5": 0.5,
+        "mrr": 0.27291666666666664
+      },
+      "person_d": {
+        "n_queries": 16,
+        "n_covered": 16,
+        "coverage": 1.0,
+        "hit@1": 0.25,
+        "hit@1_ci95_query_level": [
+          0.10181901984237346,
+          0.49498768929398645
+        ],
+        "hit@5": 0.8125,
+        "mrr": 0.4625
+      },
+      "person_f": {
+        "n_queries": 4,
+        "n_covered": 4,
+        "coverage": 1.0,
+        "hit@1": 0.25,
+        "hit@1_ci95_query_level": [
+          0.045586062644636216,
+          0.6993639475573634
+        ],
+        "hit@5": 0.25,
+        "mrr": 0.25
+      },
+      "person_g": {
+        "n_queries": 12,
+        "n_covered": 12,
+        "coverage": 1.0,
+        "hit@1": 0.4166666666666667,
+        "hit@1_ci95_query_level": [
+          0.19325746190524656,
+          0.6804926643446272
+        ],
+        "hit@5": 0.6666666666666666,
+        "mrr": 0.5027777777777778
+      },
+      "person_h": {
+        "n_queries": 8,
+        "n_covered": 8,
+        "coverage": 1.0,
+        "hit@1": 0.375,
+        "hit@1_ci95_query_level": [
+          0.13684175946152105,
+          0.6942621454161981
+        ],
+        "hit@5": 0.375,
+        "mrr": 0.375
+      },
+      "person_i": {
+        "n_queries": 8,
+        "n_covered": 8,
+        "coverage": 1.0,
+        "hit@1": 0.0,
+        "hit@1_ci95_query_level": [
+          0.0,
+          0.3244156195108769
+        ],
+        "hit@5": 0.25,
+        "mrr": 0.125
+      }
+    },
+    "per_query": [
+      {
+        "query_id": "v2-vi-005",
+        "query": "Người phụ nữ mặc áo đỏ đưa cốc lên miệng uống",
+        "video_id": "video_6",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            26,
+            29
+          ]
+        ],
+        "query_seconds": 0.06102409999994052,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_6/6",
+            "video_id": "video_6",
+            "timestamp": 2.88,
+            "score": 0.06602519750595093
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_6/5",
+            "video_id": "video_6",
+            "timestamp": 2.4,
+            "score": 0.06305394321680069
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_6/9",
+            "video_id": "video_6",
+            "timestamp": 4.32,
+            "score": 0.06290788948535919
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_6/47",
+            "video_id": "video_6",
+            "timestamp": 22.56,
+            "score": 0.05476467311382294
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_6/52",
+            "video_id": "video_6",
+            "timestamp": 24.96,
+            "score": 0.05364353954792023
+          }
+        ],
+        "n_sampled_relevant": 6,
+        "n_relevant": 6,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.06602519750595093
+      },
+      {
+        "query_id": "v2-vi-006",
+        "query": "Người phụ nữ áo đỏ cúi xem tờ tài liệu trên bàn ăn",
+        "video_id": "video_6",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            45,
+            49
+          ]
+        ],
+        "query_seconds": 0.020578300000124727,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_6/66",
+            "video_id": "video_6",
+            "timestamp": 31.68,
+            "score": 0.10669508576393127
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_6/86",
+            "video_id": "video_6",
+            "timestamp": 41.28,
+            "score": 0.09507295489311218
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_6/82",
+            "video_id": "video_6",
+            "timestamp": 39.36,
+            "score": 0.09329455345869064
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_6/83",
+            "video_id": "video_6",
+            "timestamp": 39.84,
+            "score": 0.09114305675029755
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_6/65",
+            "video_id": "video_6",
+            "timestamp": 31.2,
+            "score": 0.0897408276796341
+          }
+        ],
+        "n_sampled_relevant": 9,
+        "n_relevant": 9,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.10669508576393127
+      },
+      {
+        "query_id": "v2-vi-007",
+        "query": "Chiếc cốc màu trắng nằm cạnh hộp ngũ cốc ở bàn ăn",
+        "video_id": "video_6",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            10,
+            22
+          ]
+        ],
+        "query_seconds": 0.017729700000018056,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_6/50",
+            "video_id": "video_6",
+            "timestamp": 24.0,
+            "score": 0.08812327682971954
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_6/57",
+            "video_id": "video_6",
+            "timestamp": 27.36,
+            "score": 0.0848432332277298
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_6/44",
+            "video_id": "video_6",
+            "timestamp": 21.12,
+            "score": 0.08298646658658981
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_6/49",
+            "video_id": "video_6",
+            "timestamp": 23.52,
+            "score": 0.08202125132083893
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_6/55",
+            "video_id": "video_6",
+            "timestamp": 26.4,
+            "score": 0.08197828382253647
+          }
+        ],
+        "n_sampled_relevant": 25,
+        "n_relevant": 25,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.3333333333333333,
+        "top_score": 0.08812327682971954
+      },
+      {
+        "query_id": "v2-vi-008",
+        "query": "Người phụ nữ áo đỏ ngồi một mình tại bàn ăn sáng",
+        "video_id": "video_6",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            0,
+            20
+          ]
+        ],
+        "query_seconds": 0.01789169999983642,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_6/66",
+            "video_id": "video_6",
+            "timestamp": 31.68,
+            "score": 0.06151349097490311
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_6/34",
+            "video_id": "video_6",
+            "timestamp": 16.32,
+            "score": 0.06088569015264511
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_6/82",
+            "video_id": "video_6",
+            "timestamp": 39.36,
+            "score": 0.05976434424519539
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_6/83",
+            "video_id": "video_6",
+            "timestamp": 39.84,
+            "score": 0.058421846479177475
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_6/64",
+            "video_id": "video_6",
+            "timestamp": 30.72,
+            "score": 0.057623326778411865
+          }
+        ],
+        "n_sampled_relevant": 42,
+        "n_relevant": 42,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.06151349097490311
+      },
+      {
+        "query_id": "v2-vi-009",
+        "query": "Người phụ nữ áo đỏ dùng thìa ăn từ chiếc bát",
+        "video_id": "video_8",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            30,
+            40
+          ]
+        ],
+        "query_seconds": 0.01846990000012738,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_8/25",
+            "video_id": "video_8",
+            "timestamp": 12.0,
+            "score": 0.07973238825798035
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_8/26",
+            "video_id": "video_8",
+            "timestamp": 12.48,
+            "score": 0.07811907678842545
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_8/24",
+            "video_id": "video_8",
+            "timestamp": 11.52,
+            "score": 0.07396987825632095
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_8/27",
+            "video_id": "video_8",
+            "timestamp": 12.96,
+            "score": 0.07051937282085419
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_8/22",
+            "video_id": "video_8",
+            "timestamp": 10.56,
+            "score": 0.06720593571662903
+          }
+        ],
+        "n_sampled_relevant": 21,
+        "n_relevant": 21,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.07973238825798035
+      },
+      {
+        "query_id": "v2-vi-010",
+        "query": "Người phụ nữ mặc áo đỏ nâng chiếc cốc lên uống ở cuối đoạn",
+        "video_id": "video_8",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            48,
+            54
+          ]
+        ],
+        "query_seconds": 0.023433700000168756,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_8/24",
+            "video_id": "video_8",
+            "timestamp": 11.52,
+            "score": 0.0799790546298027
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_8/26",
+            "video_id": "video_8",
+            "timestamp": 12.48,
+            "score": 0.07714710384607315
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_8/23",
+            "video_id": "video_8",
+            "timestamp": 11.04,
+            "score": 0.07616336643695831
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_8/27",
+            "video_id": "video_8",
+            "timestamp": 12.96,
+            "score": 0.0717107355594635
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_8/22",
+            "video_id": "video_8",
+            "timestamp": 10.56,
+            "score": 0.07081206887960434
+          }
+        ],
+        "n_sampled_relevant": 13,
+        "n_relevant": 13,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.0799790546298027
+      },
+      {
+        "query_id": "v2-vi-011",
+        "query": "Hộp ngũ cốc Brave nằm ở phía trước bàn ăn",
+        "video_id": "video_8",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            2,
+            18
+          ]
+        ],
+        "query_seconds": 0.018191099999967264,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_8/6",
+            "video_id": "video_8",
+            "timestamp": 2.88,
+            "score": 0.07197931408882141
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_8/3",
+            "video_id": "video_8",
+            "timestamp": 1.44,
+            "score": 0.0697534829378128
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_8/10",
+            "video_id": "video_8",
+            "timestamp": 4.8,
+            "score": 0.06715712696313858
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_8/8",
+            "video_id": "video_8",
+            "timestamp": 3.84,
+            "score": 0.0666816383600235
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_8/0",
+            "video_id": "video_8",
+            "timestamp": 0.0,
+            "score": 0.06406635046005249
+          }
+        ],
+        "n_sampled_relevant": 33,
+        "n_relevant": 33,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.07197931408882141
+      },
+      {
+        "query_id": "v2-vi-012",
+        "query": "Trên bàn ăn có bát và hộp ngũ cốc trước mặt người áo đỏ",
+        "video_id": "video_8",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            18,
+            29
+          ]
+        ],
+        "query_seconds": 0.020853799999713374,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_8/26",
+            "video_id": "video_8",
+            "timestamp": 12.48,
+            "score": 0.11838562786579132
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_8/25",
+            "video_id": "video_8",
+            "timestamp": 12.0,
+            "score": 0.11814442276954651
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_8/24",
+            "video_id": "video_8",
+            "timestamp": 11.52,
+            "score": 0.11010127514600754
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_8/0",
+            "video_id": "video_8",
+            "timestamp": 0.0,
+            "score": 0.10880882292985916
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_8/1",
+            "video_id": "video_8",
+            "timestamp": 0.48,
+            "score": 0.10565610229969025
+          }
+        ],
+        "n_sampled_relevant": 23,
+        "n_relevant": 23,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.11838562786579132
+      },
+      {
+        "query_id": "v2-vi-017",
+        "query": "Người phụ nữ áo màu be nghiêng ấm trắng để rót vào cốc",
+        "video_id": "video_16",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            3,
+            7
+          ]
+        ],
+        "query_seconds": 0.01703449999968143,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_16/37",
+            "video_id": "video_16",
+            "timestamp": 17.76,
+            "score": 0.10973791778087616
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_16/143",
+            "video_id": "video_16",
+            "timestamp": 68.64,
+            "score": 0.10385371744632721
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_16/38",
+            "video_id": "video_16",
+            "timestamp": 18.24,
+            "score": 0.10332316160202026
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_16/11",
+            "video_id": "video_16",
+            "timestamp": 5.28,
+            "score": 0.10302110016345978
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_16/85",
+            "video_id": "video_16",
+            "timestamp": 40.8,
+            "score": 0.10261297225952148
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.25,
+        "top_score": 0.10973791778087616
+      },
+      {
+        "query_id": "v2-vi-018",
+        "query": "Người phụ nữ áo màu be đọc tập giấy trong bữa sáng",
+        "video_id": "video_16",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            25,
+            44
+          ]
+        ],
+        "query_seconds": 0.018836300000202755,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_16/87",
+            "video_id": "video_16",
+            "timestamp": 41.76,
+            "score": 0.10216586291790009
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_16/104",
+            "video_id": "video_16",
+            "timestamp": 49.92,
+            "score": 0.09845329821109772
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_16/119",
+            "video_id": "video_16",
+            "timestamp": 57.12,
+            "score": 0.0983281135559082
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_16/86",
+            "video_id": "video_16",
+            "timestamp": 41.28,
+            "score": 0.0981825590133667
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_16/117",
+            "video_id": "video_16",
+            "timestamp": 56.16,
+            "score": 0.09806232154369354
+          }
+        ],
+        "n_sampled_relevant": 39,
+        "n_relevant": 39,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.10216586291790009
+      },
+      {
+        "query_id": "v2-vi-019",
+        "query": "Ấm điện màu trắng đặt trên bàn cạnh hộp ngũ cốc",
+        "video_id": "video_16",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            0,
+            12
+          ]
+        ],
+        "query_seconds": 0.020954499999788823,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_16/1",
+            "video_id": "video_16",
+            "timestamp": 0.48,
+            "score": 0.08526969701051712
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_16/0",
+            "video_id": "video_16",
+            "timestamp": 0.0,
+            "score": 0.08380655944347382
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_16/16",
+            "video_id": "video_16",
+            "timestamp": 7.68,
+            "score": 0.08180903643369675
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_16/2",
+            "video_id": "video_16",
+            "timestamp": 0.96,
+            "score": 0.08177395164966583
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_16/6",
+            "video_id": "video_16",
+            "timestamp": 2.88,
+            "score": 0.08014674484729767
+          }
+        ],
+        "n_sampled_relevant": 25,
+        "n_relevant": 25,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.08526969701051712
+      },
+      {
+        "query_id": "v2-vi-020",
+        "query": "Người phụ nữ mặc áo be vừa xem tài liệu vừa ngồi ở bàn ăn",
+        "video_id": "video_16",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            45,
+            62
+          ]
+        ],
+        "query_seconds": 0.017648900000040157,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_16/86",
+            "video_id": "video_16",
+            "timestamp": 41.28,
+            "score": 0.11476200073957443
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_16/104",
+            "video_id": "video_16",
+            "timestamp": 49.92,
+            "score": 0.11409150063991547
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_16/75",
+            "video_id": "video_16",
+            "timestamp": 36.0,
+            "score": 0.11220027506351471
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_16/87",
+            "video_id": "video_16",
+            "timestamp": 41.76,
+            "score": 0.11039737612009048
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_16/94",
+            "video_id": "video_16",
+            "timestamp": 45.12,
+            "score": 0.1069500744342804
+          }
+        ],
+        "n_sampled_relevant": 36,
+        "n_relevant": 36,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.11476200073957443
+      },
+      {
+        "query_id": "v2-vi-021",
+        "query": "Người phụ nữ áo be nhấc ấm trắng trên bàn ăn",
+        "video_id": "video_18",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            4,
+            7
+          ]
+        ],
+        "query_seconds": 0.018787100000281498,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_18/50",
+            "video_id": "video_18",
+            "timestamp": 24.0,
+            "score": 0.08174918591976166
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_18/39",
+            "video_id": "video_18",
+            "timestamp": 18.72,
+            "score": 0.0723901242017746
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_18/71",
+            "video_id": "video_18",
+            "timestamp": 34.08,
+            "score": 0.07067152857780457
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_18/63",
+            "video_id": "video_18",
+            "timestamp": 30.24,
+            "score": 0.07048752158880234
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_18/51",
+            "video_id": "video_18",
+            "timestamp": 24.48,
+            "score": 0.0702456384897232
+          }
+        ],
+        "n_sampled_relevant": 6,
+        "n_relevant": 6,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.08174918591976166
+      },
+      {
+        "query_id": "v2-vi-022",
+        "query": "Người phụ nữ áo be cầm hộp ngũ cốc trong lúc chuẩn bị bữa sáng",
+        "video_id": "video_18",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            9,
+            12
+          ]
+        ],
+        "query_seconds": 0.016384100000323087,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_18/50",
+            "video_id": "video_18",
+            "timestamp": 24.0,
+            "score": 0.1192084401845932
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_18/39",
+            "video_id": "video_18",
+            "timestamp": 18.72,
+            "score": 0.1155536100268364
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_18/51",
+            "video_id": "video_18",
+            "timestamp": 24.48,
+            "score": 0.11078892648220062
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_18/18",
+            "video_id": "video_18",
+            "timestamp": 8.64,
+            "score": 0.11061691492795944
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_18/28",
+            "video_id": "video_18",
+            "timestamp": 13.44,
+            "score": 0.11032287031412125
+          }
+        ],
+        "n_sampled_relevant": 6,
+        "n_relevant": 6,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.1192084401845932
+      },
+      {
+        "query_id": "v2-vi-023",
+        "query": "Người phụ nữ áo be đưa cốc đồ uống lên miệng",
+        "video_id": "video_18",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            28,
+            32
+          ]
+        ],
+        "query_seconds": 0.02044260000002396,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_18/50",
+            "video_id": "video_18",
+            "timestamp": 24.0,
+            "score": 0.09271513670682907
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_18/63",
+            "video_id": "video_18",
+            "timestamp": 30.24,
+            "score": 0.07814766466617584
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_18/16",
+            "video_id": "video_18",
+            "timestamp": 7.68,
+            "score": 0.07753694802522659
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_18/30",
+            "video_id": "video_18",
+            "timestamp": 14.4,
+            "score": 0.07211404293775558
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_18/71",
+            "video_id": "video_18",
+            "timestamp": 34.08,
+            "score": 0.0716974288225174
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.09271513670682907
+      },
+      {
+        "query_id": "v2-vi-024",
+        "query": "Trên bàn của người áo be có ấm trắng và hộp ngũ cốc",
+        "video_id": "video_18",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            0,
+            14
+          ]
+        ],
+        "query_seconds": 0.021025900000040565,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_18/50",
+            "video_id": "video_18",
+            "timestamp": 24.0,
+            "score": 0.09761674702167511
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_18/1",
+            "video_id": "video_18",
+            "timestamp": 0.48,
+            "score": 0.09299079328775406
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_18/26",
+            "video_id": "video_18",
+            "timestamp": 12.48,
+            "score": 0.09153102338314056
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_18/63",
+            "video_id": "video_18",
+            "timestamp": 30.24,
+            "score": 0.0915088877081871
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_18/2",
+            "video_id": "video_18",
+            "timestamp": 0.96,
+            "score": 0.09113113582134247
+          }
+        ],
+        "n_sampled_relevant": 30,
+        "n_relevant": 30,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.09761674702167511
+      },
+      {
+        "query_id": "v2-vi-033",
+        "query": "Người đàn ông áo sơ mi kẻ đỏ ăn bằng thìa tại bàn",
+        "video_id": "video_26",
+        "group_id": "person_f",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            29,
+            41
+          ]
+        ],
+        "query_seconds": 0.01755910000019867,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_26/75",
+            "video_id": "video_26",
+            "timestamp": 36.0,
+            "score": 0.09160672128200531
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_26/73",
+            "video_id": "video_26",
+            "timestamp": 35.04,
+            "score": 0.0874418094754219
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_26/90",
+            "video_id": "video_26",
+            "timestamp": 43.2,
+            "score": 0.08430366218090057
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_26/48",
+            "video_id": "video_26",
+            "timestamp": 23.04,
+            "score": 0.08423561602830887
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_26/71",
+            "video_id": "video_26",
+            "timestamp": 34.08,
+            "score": 0.08328874409198761
+          }
+        ],
+        "n_sampled_relevant": 25,
+        "n_relevant": 25,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.09160672128200531
+      },
+      {
+        "query_id": "v2-vi-034",
+        "query": "Người đàn ông áo kẻ đỏ nhận chiếc bát tại bàn ăn",
+        "video_id": "video_26",
+        "group_id": "person_f",
+        "split": "dev",
+        "category": "short_event",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            18,
+            23
+          ]
+        ],
+        "query_seconds": 0.018188000000009197,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_26/93",
+            "video_id": "video_26",
+            "timestamp": 44.64,
+            "score": 0.11329995840787888
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_26/88",
+            "video_id": "video_26",
+            "timestamp": 42.24,
+            "score": 0.11248031258583069
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_26/87",
+            "video_id": "video_26",
+            "timestamp": 41.76,
+            "score": 0.11117146909236908
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_26/85",
+            "video_id": "video_26",
+            "timestamp": 40.8,
+            "score": 0.111106276512146
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_26/89",
+            "video_id": "video_26",
+            "timestamp": 42.72,
+            "score": 0.11067423969507217
+          }
+        ],
+        "n_sampled_relevant": 10,
+        "n_relevant": 10,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.11329995840787888
+      },
+      {
+        "query_id": "v2-vi-035",
+        "query": "Chiếc cốc màu xanh lá đặt cạnh bát ăn của người áo kẻ đỏ",
+        "video_id": "video_26",
+        "group_id": "person_f",
+        "split": "dev",
+        "category": "color",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            49,
+            54
+          ]
+        ],
+        "query_seconds": 0.01753119999966657,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_26/93",
+            "video_id": "video_26",
+            "timestamp": 44.64,
+            "score": 0.10792995244264603
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_26/90",
+            "video_id": "video_26",
+            "timestamp": 43.2,
+            "score": 0.1067565530538559
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_26/89",
+            "video_id": "video_26",
+            "timestamp": 42.72,
+            "score": 0.10464619100093842
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_26/85",
+            "video_id": "video_26",
+            "timestamp": 40.8,
+            "score": 0.10393187403678894
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_26/91",
+            "video_id": "video_26",
+            "timestamp": 43.68,
+            "score": 0.10331892967224121
+          }
+        ],
+        "n_sampled_relevant": 10,
+        "n_relevant": 10,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.10792995244264603
+      },
+      {
+        "query_id": "v2-vi-036",
+        "query": "Đĩa trái cây đặt trước người đàn ông mặc áo kẻ đỏ",
+        "video_id": "video_26",
+        "group_id": "person_f",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            0,
+            15
+          ]
+        ],
+        "query_seconds": 0.0171213000003263,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_26/89",
+            "video_id": "video_26",
+            "timestamp": 42.72,
+            "score": 0.11896289139986038
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_26/88",
+            "video_id": "video_26",
+            "timestamp": 42.24,
+            "score": 0.11766547709703445
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_26/83",
+            "video_id": "video_26",
+            "timestamp": 39.84,
+            "score": 0.11687847971916199
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_26/99",
+            "video_id": "video_26",
+            "timestamp": 47.52,
+            "score": 0.11380323767662048
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_26/43",
+            "video_id": "video_26",
+            "timestamp": 20.64,
+            "score": 0.11226202547550201
+          }
+        ],
+        "n_sampled_relevant": 32,
+        "n_relevant": 32,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.11896289139986038
+      },
+      {
+        "query_id": "v2-vi-037",
+        "query": "Người phụ nữ mặc áo khoác xám được người khác mang thức ăn đến",
+        "video_id": "video_28",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            6,
+            11
+          ]
+        ],
+        "query_seconds": 0.018001100000219594,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_28/97",
+            "video_id": "video_28",
+            "timestamp": 46.56,
+            "score": 0.1108439713716507
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_28/101",
+            "video_id": "video_28",
+            "timestamp": 48.48,
+            "score": 0.10967381298542023
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_28/122",
+            "video_id": "video_28",
+            "timestamp": 58.56,
+            "score": 0.10793287307024002
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_28/112",
+            "video_id": "video_28",
+            "timestamp": 53.76,
+            "score": 0.10781914740800858
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_28/190",
+            "video_id": "video_28",
+            "timestamp": 91.2,
+            "score": 0.1074257344007492
+          }
+        ],
+        "n_sampled_relevant": 10,
+        "n_relevant": 10,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.1108439713716507
+      },
+      {
+        "query_id": "v2-vi-038",
+        "query": "Người mặc áo khoác xám ngồi trước chiếc bát cạnh đĩa hoa quả",
+        "video_id": "video_28",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            54,
+            60
+          ]
+        ],
+        "query_seconds": 0.017841699999735283,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_28/90",
+            "video_id": "video_28",
+            "timestamp": 43.2,
+            "score": 0.14875349402427673
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_28/91",
+            "video_id": "video_28",
+            "timestamp": 43.68,
+            "score": 0.14793194830417633
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_28/101",
+            "video_id": "video_28",
+            "timestamp": 48.48,
+            "score": 0.14741282165050507
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_28/102",
+            "video_id": "video_28",
+            "timestamp": 48.96,
+            "score": 0.14737823605537415
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_28/81",
+            "video_id": "video_28",
+            "timestamp": 38.88,
+            "score": 0.14713862538337708
+          }
+        ],
+        "n_sampled_relevant": 12,
+        "n_relevant": 12,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.14875349402427673
+      },
+      {
+        "query_id": "v2-vi-039",
+        "query": "Người phụ nữ áo khoác xám uống từ chai nhỏ",
+        "video_id": "video_28",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            95,
+            107
+          ]
+        ],
+        "query_seconds": 0.020423599999958242,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_28/188",
+            "video_id": "video_28",
+            "timestamp": 90.24,
+            "score": 0.07878606021404266
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_28/190",
+            "video_id": "video_28",
+            "timestamp": 91.2,
+            "score": 0.07685983926057816
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_28/216",
+            "video_id": "video_28",
+            "timestamp": 103.68,
+            "score": 0.07670320570468903
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_28/199",
+            "video_id": "video_28",
+            "timestamp": 95.52,
+            "score": 0.07667523622512817
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_28/218",
+            "video_id": "video_28",
+            "timestamp": 104.64,
+            "score": 0.07634083926677704
+          }
+        ],
+        "n_sampled_relevant": 25,
+        "n_relevant": 25,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.3333333333333333,
+        "top_score": 0.07878606021404266
+      },
+      {
+        "query_id": "v2-vi-040",
+        "query": "Đĩa trái cây nằm cạnh người phụ nữ mặc áo khoác xám",
+        "video_id": "video_28",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            13,
+            27
+          ]
+        ],
+        "query_seconds": 0.020605000000159635,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_28/61",
+            "video_id": "video_28",
+            "timestamp": 29.28,
+            "score": 0.12983208894729614
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_28/31",
+            "video_id": "video_28",
+            "timestamp": 14.88,
+            "score": 0.12960192561149597
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_28/64",
+            "video_id": "video_28",
+            "timestamp": 30.72,
+            "score": 0.12950140237808228
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_28/97",
+            "video_id": "video_28",
+            "timestamp": 46.56,
+            "score": 0.12715034186840057
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_28/101",
+            "video_id": "video_28",
+            "timestamp": 48.48,
+            "score": 0.12669600546360016
+          }
+        ],
+        "n_sampled_relevant": 29,
+        "n_relevant": 29,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.12983208894729614
+      },
+      {
+        "query_id": "v2-vi-041",
+        "query": "Người phụ nữ áo khoác xám uống nước từ cốc xanh lá",
+        "video_id": "video_30",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            14,
+            18
+          ]
+        ],
+        "query_seconds": 0.019720499999948515,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_30/33",
+            "video_id": "video_30",
+            "timestamp": 15.84,
+            "score": 0.09691750258207321
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_30/94",
+            "video_id": "video_30",
+            "timestamp": 45.12,
+            "score": 0.0959925651550293
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_30/99",
+            "video_id": "video_30",
+            "timestamp": 47.52,
+            "score": 0.08831126987934113
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_30/34",
+            "video_id": "video_30",
+            "timestamp": 16.32,
+            "score": 0.08616145700216293
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_30/98",
+            "video_id": "video_30",
+            "timestamp": 47.04,
+            "score": 0.08505391329526901
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.09691750258207321
+      },
+      {
+        "query_id": "v2-vi-042",
+        "query": "Chiếc cốc xanh lá ở cạnh đĩa hoa quả của người áo khoác xám",
+        "video_id": "video_30",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "color",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            45,
+            49
+          ]
+        ],
+        "query_seconds": 0.020024500000090484,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_30/94",
+            "video_id": "video_30",
+            "timestamp": 45.12,
+            "score": 0.15126945078372955
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_30/99",
+            "video_id": "video_30",
+            "timestamp": 47.52,
+            "score": 0.1481073796749115
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_30/98",
+            "video_id": "video_30",
+            "timestamp": 47.04,
+            "score": 0.14421984553337097
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_30/97",
+            "video_id": "video_30",
+            "timestamp": 46.56,
+            "score": 0.1350710391998291
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_30/33",
+            "video_id": "video_30",
+            "timestamp": 15.84,
+            "score": 0.134722039103508
+          }
+        ],
+        "n_sampled_relevant": 9,
+        "n_relevant": 9,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.15126945078372955
+      },
+      {
+        "query_id": "v2-vi-043",
+        "query": "Người phụ nữ áo khoác xám cắn quả táo màu đỏ",
+        "video_id": "video_30",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            56,
+            64
+          ]
+        ],
+        "query_seconds": 0.018527899999753572,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_30/124",
+            "video_id": "video_30",
+            "timestamp": 59.52,
+            "score": 0.09116050601005554
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_30/115",
+            "video_id": "video_30",
+            "timestamp": 55.2,
+            "score": 0.09107223153114319
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_30/128",
+            "video_id": "video_30",
+            "timestamp": 61.44,
+            "score": 0.08901418745517731
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_30/131",
+            "video_id": "video_30",
+            "timestamp": 62.88,
+            "score": 0.08451834321022034
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_30/127",
+            "video_id": "video_30",
+            "timestamp": 60.96,
+            "score": 0.08428235352039337
+          }
+        ],
+        "n_sampled_relevant": 17,
+        "n_relevant": 17,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.09116050601005554
+      },
+      {
+        "query_id": "v2-vi-044",
+        "query": "Người phụ nữ mặc áo khoác xám ăn từ chiếc bát",
+        "video_id": "video_30",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            30,
+            43
+          ]
+        ],
+        "query_seconds": 0.021042600000328093,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_30/74",
+            "video_id": "video_30",
+            "timestamp": 35.52,
+            "score": 0.1143379881978035
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_30/86",
+            "video_id": "video_30",
+            "timestamp": 41.28,
+            "score": 0.11158142983913422
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_30/71",
+            "video_id": "video_30",
+            "timestamp": 34.08,
+            "score": 0.10969573259353638
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_30/83",
+            "video_id": "video_30",
+            "timestamp": 39.84,
+            "score": 0.1096661388874054
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_30/81",
+            "video_id": "video_30",
+            "timestamp": 38.88,
+            "score": 0.10542583465576172
+          }
+        ],
+        "n_sampled_relevant": 27,
+        "n_relevant": 27,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.1143379881978035
+      },
+      {
+        "query_id": "v2-vi-045",
+        "query": "Người phụ nữ tóc sẫm áo xám cầm thức ăn ở bàn",
+        "video_id": "video_33",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            23,
+            41
+          ]
+        ],
+        "query_seconds": 0.017305800000031013,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_33/115",
+            "video_id": "video_33",
+            "timestamp": 55.2,
+            "score": 0.13628308475017548
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_33/116",
+            "video_id": "video_33",
+            "timestamp": 55.68,
+            "score": 0.13496533036231995
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_33/117",
+            "video_id": "video_33",
+            "timestamp": 56.16,
+            "score": 0.13474756479263306
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_33/118",
+            "video_id": "video_33",
+            "timestamp": 56.64,
+            "score": 0.13455438613891602
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_33/150",
+            "video_id": "video_33",
+            "timestamp": 72.0,
+            "score": 0.1323820948600769
+          }
+        ],
+        "n_sampled_relevant": 38,
+        "n_relevant": 38,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.13628308475017548
+      },
+      {
+        "query_id": "v2-vi-046",
+        "query": "Người khác đứng cạnh người phụ nữ tóc sẫm đang ngồi ăn",
+        "video_id": "video_33",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            79,
+            91
+          ]
+        ],
+        "query_seconds": 0.01666509999995469,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_33/176",
+            "video_id": "video_33",
+            "timestamp": 84.48,
+            "score": 0.12925995886325836
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_33/169",
+            "video_id": "video_33",
+            "timestamp": 81.12,
+            "score": 0.12901069223880768
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_33/168",
+            "video_id": "video_33",
+            "timestamp": 80.64,
+            "score": 0.12766587734222412
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_33/45",
+            "video_id": "video_33",
+            "timestamp": 21.6,
+            "score": 0.12742069363594055
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_33/86",
+            "video_id": "video_33",
+            "timestamp": 41.28,
+            "score": 0.12530067563056946
+          }
+        ],
+        "n_sampled_relevant": 25,
+        "n_relevant": 25,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.12925995886325836
+      },
+      {
+        "query_id": "v2-vi-047",
+        "query": "Người phụ nữ tóc sẫm áo xám ăn tại bàn có trái cây",
+        "video_id": "video_33",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            94,
+            100
+          ]
+        ],
+        "query_seconds": 0.018313000000034663,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_33/115",
+            "video_id": "video_33",
+            "timestamp": 55.2,
+            "score": 0.17193877696990967
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_33/158",
+            "video_id": "video_33",
+            "timestamp": 75.84,
+            "score": 0.1714642345905304
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_33/117",
+            "video_id": "video_33",
+            "timestamp": 56.16,
+            "score": 0.170903742313385
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_33/118",
+            "video_id": "video_33",
+            "timestamp": 56.64,
+            "score": 0.17057251930236816
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_33/116",
+            "video_id": "video_33",
+            "timestamp": 55.68,
+            "score": 0.1702881008386612
+          }
+        ],
+        "n_sampled_relevant": 13,
+        "n_relevant": 13,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.17193877696990967
+      },
+      {
+        "query_id": "v2-vi-048",
+        "query": "Một người đứng bên phải bàn ăn của người phụ nữ tóc sẫm",
+        "video_id": "video_33",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            111,
+            117
+          ]
+        ],
+        "query_seconds": 0.02042699999992692,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_33/86",
+            "video_id": "video_33",
+            "timestamp": 41.28,
+            "score": 0.13503795862197876
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_33/87",
+            "video_id": "video_33",
+            "timestamp": 41.76,
+            "score": 0.13372623920440674
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_33/136",
+            "video_id": "video_33",
+            "timestamp": 65.28,
+            "score": 0.13178750872612
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_33/100",
+            "video_id": "video_33",
+            "timestamp": 48.0,
+            "score": 0.13160072267055511
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_33/115",
+            "video_id": "video_33",
+            "timestamp": 55.2,
+            "score": 0.13156339526176453
+          }
+        ],
+        "n_sampled_relevant": 12,
+        "n_relevant": 12,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.13503795862197876
+      },
+      {
+        "query_id": "v2-vi-049",
+        "query": "Người phụ nữ tóc sẫm áo xám uống từ cốc xanh lá",
+        "video_id": "video_35",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            26,
+            31
+          ]
+        ],
+        "query_seconds": 0.0157627999997203,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_35/61",
+            "video_id": "video_35",
+            "timestamp": 29.28,
+            "score": 0.12318921834230423
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_35/62",
+            "video_id": "video_35",
+            "timestamp": 29.76,
+            "score": 0.12247781455516815
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_35/59",
+            "video_id": "video_35",
+            "timestamp": 28.32,
+            "score": 0.12049361318349838
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_35/60",
+            "video_id": "video_35",
+            "timestamp": 28.8,
+            "score": 0.11452850699424744
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_35/57",
+            "video_id": "video_35",
+            "timestamp": 27.36,
+            "score": 0.10542475432157516
+          }
+        ],
+        "n_sampled_relevant": 10,
+        "n_relevant": 10,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.12318921834230423
+      },
+      {
+        "query_id": "v2-vi-050",
+        "query": "Người phụ nữ tóc sẫm áo xám ăn từ chiếc bát",
+        "video_id": "video_35",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            13,
+            25
+          ]
+        ],
+        "query_seconds": 0.01606130000027406,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_35/41",
+            "video_id": "video_35",
+            "timestamp": 19.68,
+            "score": 0.13881967961788177
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_35/42",
+            "video_id": "video_35",
+            "timestamp": 20.16,
+            "score": 0.1383858323097229
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_35/48",
+            "video_id": "video_35",
+            "timestamp": 23.04,
+            "score": 0.13591301441192627
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_35/54",
+            "video_id": "video_35",
+            "timestamp": 25.92,
+            "score": 0.13501492142677307
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_35/49",
+            "video_id": "video_35",
+            "timestamp": 23.52,
+            "score": 0.13417458534240723
+          }
+        ],
+        "n_sampled_relevant": 25,
+        "n_relevant": 25,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.13881967961788177
+      },
+      {
+        "query_id": "v2-vi-051",
+        "query": "Người phụ nữ tóc sẫm áo xám quay sang phải và giơ tay",
+        "video_id": "video_35",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            40,
+            45
+          ]
+        ],
+        "query_seconds": 0.017373700000007375,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_35/143",
+            "video_id": "video_35",
+            "timestamp": 68.64,
+            "score": 0.070990651845932
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_35/13",
+            "video_id": "video_35",
+            "timestamp": 6.24,
+            "score": 0.06701651960611343
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_35/26",
+            "video_id": "video_35",
+            "timestamp": 12.48,
+            "score": 0.06577862054109573
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_35/94",
+            "video_id": "video_35",
+            "timestamp": 45.12,
+            "score": 0.06313671916723251
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_35/131",
+            "video_id": "video_35",
+            "timestamp": 62.88,
+            "score": 0.06234545260667801
+          }
+        ],
+        "n_sampled_relevant": 10,
+        "n_relevant": 10,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.070990651845932
+      },
+      {
+        "query_id": "v2-vi-052",
+        "query": "Người phụ nữ áo xám cầm cốc xanh lá lần nữa",
+        "video_id": "video_35",
+        "group_id": "person_h",
+        "split": "dev",
+        "category": "color",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            45,
+            49
+          ]
+        ],
+        "query_seconds": 0.017309999999724823,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_35/61",
+            "video_id": "video_35",
+            "timestamp": 29.28,
+            "score": 0.10661397874355316
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_35/62",
+            "video_id": "video_35",
+            "timestamp": 29.76,
+            "score": 0.10636106878519058
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_35/59",
+            "video_id": "video_35",
+            "timestamp": 28.32,
+            "score": 0.10281424969434738
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_35/60",
+            "video_id": "video_35",
+            "timestamp": 28.8,
+            "score": 0.09733310341835022
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_35/57",
+            "video_id": "video_35",
+            "timestamp": 27.36,
+            "score": 0.09184157848358154
+          }
+        ],
+        "n_sampled_relevant": 9,
+        "n_relevant": 9,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.10661397874355316
+      },
+      {
+        "query_id": "v2-vi-053",
+        "query": "Người phụ nữ áo hồng nhạt ăn từ chiếc đĩa",
+        "video_id": "video_38",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            19,
+            24
+          ]
+        ],
+        "query_seconds": 0.015524999999797728,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_38/114",
+            "video_id": "video_38",
+            "timestamp": 54.72,
+            "score": 0.12290103733539581
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_38/38",
+            "video_id": "video_38",
+            "timestamp": 18.24,
+            "score": 0.11645954102277756
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_38/106",
+            "video_id": "video_38",
+            "timestamp": 50.88,
+            "score": 0.11484899371862411
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_38/112",
+            "video_id": "video_38",
+            "timestamp": 53.76,
+            "score": 0.11180077493190765
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_38/36",
+            "video_id": "video_38",
+            "timestamp": 17.28,
+            "score": 0.11080338805913925
+          }
+        ],
+        "n_sampled_relevant": 10,
+        "n_relevant": 10,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.12290103733539581
+      },
+      {
+        "query_id": "v2-vi-054",
+        "query": "Một phụ nữ khác đi vào phía bên phải bàn ăn của người áo hồng",
+        "video_id": "video_38",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            11,
+            15
+          ]
+        ],
+        "query_seconds": 0.03338470000016969,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_38/119",
+            "video_id": "video_38",
+            "timestamp": 57.12,
+            "score": 0.09837956726551056
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_38/67",
+            "video_id": "video_38",
+            "timestamp": 32.16,
+            "score": 0.09766735881567001
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_38/118",
+            "video_id": "video_38",
+            "timestamp": 56.64,
+            "score": 0.09670425206422806
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_38/116",
+            "video_id": "video_38",
+            "timestamp": 55.68,
+            "score": 0.09658045321702957
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_38/115",
+            "video_id": "video_38",
+            "timestamp": 55.2,
+            "score": 0.09600836038589478
+          }
+        ],
+        "n_sampled_relevant": 9,
+        "n_relevant": 9,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.09837956726551056
+      },
+      {
+        "query_id": "v2-vi-055",
+        "query": "Người đứng cạnh mang đồ ăn đến cho người phụ nữ áo hồng",
+        "video_id": "video_38",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "short_event",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            32,
+            36
+          ]
+        ],
+        "query_seconds": 0.024481700000251294,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_38/119",
+            "video_id": "video_38",
+            "timestamp": 57.12,
+            "score": 0.1020665094256401
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_38/41",
+            "video_id": "video_38",
+            "timestamp": 19.68,
+            "score": 0.10139777511358261
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_38/40",
+            "video_id": "video_38",
+            "timestamp": 19.2,
+            "score": 0.09981855750083923
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_38/115",
+            "video_id": "video_38",
+            "timestamp": 55.2,
+            "score": 0.09974807500839233
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_38/116",
+            "video_id": "video_38",
+            "timestamp": 55.68,
+            "score": 0.09956087172031403
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.1020665094256401
+      },
+      {
+        "query_id": "v2-vi-056",
+        "query": "Người đứng bên phải đưa thêm đĩa cho người ngồi áo hồng",
+        "video_id": "video_38",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            45,
+            50
+          ]
+        ],
+        "query_seconds": 0.020640600000206177,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_38/116",
+            "video_id": "video_38",
+            "timestamp": 55.68,
+            "score": 0.1083560511469841
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_38/97",
+            "video_id": "video_38",
+            "timestamp": 46.56,
+            "score": 0.10792003571987152
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_38/119",
+            "video_id": "video_38",
+            "timestamp": 57.12,
+            "score": 0.1078101098537445
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_38/122",
+            "video_id": "video_38",
+            "timestamp": 58.56,
+            "score": 0.10761495679616928
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_38/129",
+            "video_id": "video_38",
+            "timestamp": 61.92,
+            "score": 0.10702747106552124
+          }
+        ],
+        "n_sampled_relevant": 11,
+        "n_relevant": 11,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.1083560511469841
+      },
+      {
+        "query_id": "v2-vi-057",
+        "query": "Người phụ nữ áo hồng nhạt uống từ cốc xanh lá",
+        "video_id": "video_40",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            20,
+            24
+          ]
+        ],
+        "query_seconds": 0.014953800000057527,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_40/64",
+            "video_id": "video_40",
+            "timestamp": 30.72,
+            "score": 0.10300624370574951
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_40/45",
+            "video_id": "video_40",
+            "timestamp": 21.6,
+            "score": 0.09334146976470947
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_40/44",
+            "video_id": "video_40",
+            "timestamp": 21.12,
+            "score": 0.08555520325899124
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_40/43",
+            "video_id": "video_40",
+            "timestamp": 20.64,
+            "score": 0.08399541676044464
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_40/86",
+            "video_id": "video_40",
+            "timestamp": 41.28,
+            "score": 0.08064043521881104
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.10300624370574951
+      },
+      {
+        "query_id": "v2-vi-058",
+        "query": "Người phụ nữ áo hồng nhạt ăn tại bàn trước khi có người tới",
+        "video_id": "video_40",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            15,
+            20
+          ]
+        ],
+        "query_seconds": 0.019823299999643496,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_40/52",
+            "video_id": "video_40",
+            "timestamp": 24.96,
+            "score": 0.13088563084602356
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_40/51",
+            "video_id": "video_40",
+            "timestamp": 24.48,
+            "score": 0.1291593313217163
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_40/69",
+            "video_id": "video_40",
+            "timestamp": 33.12,
+            "score": 0.12819132208824158
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_40/47",
+            "video_id": "video_40",
+            "timestamp": 22.56,
+            "score": 0.12805403769016266
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_40/60",
+            "video_id": "video_40",
+            "timestamp": 28.8,
+            "score": 0.12561199069023132
+          }
+        ],
+        "n_sampled_relevant": 10,
+        "n_relevant": 10,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.13088563084602356
+      },
+      {
+        "query_id": "v2-vi-059",
+        "query": "Một người bước đến cạnh người phụ nữ áo hồng nhạt",
+        "video_id": "video_40",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "context",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            37,
+            41
+          ]
+        ],
+        "query_seconds": 0.023736899999676098,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_40/132",
+            "video_id": "video_40",
+            "timestamp": 63.36,
+            "score": 0.04122579097747803
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_40/12",
+            "video_id": "video_40",
+            "timestamp": 5.76,
+            "score": 0.038432247936725616
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_40/52",
+            "video_id": "video_40",
+            "timestamp": 24.96,
+            "score": 0.035553429275751114
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_40/88",
+            "video_id": "video_40",
+            "timestamp": 42.24,
+            "score": 0.035185713320970535
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_40/90",
+            "video_id": "video_40",
+            "timestamp": 43.2,
+            "score": 0.035080332309007645
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.04122579097747803
+      },
+      {
+        "query_id": "v2-vi-060",
+        "query": "Người đứng cạnh thu dọn đĩa trên bàn của người áo hồng",
+        "video_id": "video_40",
+        "group_id": "person_i",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            41,
+            48
+          ]
+        ],
+        "query_seconds": 0.027322599999934027,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_40/70",
+            "video_id": "video_40",
+            "timestamp": 33.6,
+            "score": 0.10158480703830719
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_40/46",
+            "video_id": "video_40",
+            "timestamp": 22.08,
+            "score": 0.10076160728931427
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_40/27",
+            "video_id": "video_40",
+            "timestamp": 12.96,
+            "score": 0.09956680238246918
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_40/125",
+            "video_id": "video_40",
+            "timestamp": 60.0,
+            "score": 0.09880328178405762
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_40/30",
+            "video_id": "video_40",
+            "timestamp": 14.4,
+            "score": 0.09820302575826645
+          }
+        ],
+        "n_sampled_relevant": 14,
+        "n_relevant": 14,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.10158480703830719
+      },
+      {
+        "query_id": "v2-vi-065",
+        "query": "Người phụ nữ áo đỏ viết lên tờ giấy ở bàn làm việc",
+        "video_id": "video_48",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            8,
+            17
+          ]
+        ],
+        "query_seconds": 0.018977800000357092,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_48/41",
+            "video_id": "video_48",
+            "timestamp": 19.68,
+            "score": 0.09758178889751434
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_48/43",
+            "video_id": "video_48",
+            "timestamp": 20.64,
+            "score": 0.09593366831541061
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_48/57",
+            "video_id": "video_48",
+            "timestamp": 27.36,
+            "score": 0.08865522593259811
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_48/4",
+            "video_id": "video_48",
+            "timestamp": 1.92,
+            "score": 0.08842799812555313
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_48/35",
+            "video_id": "video_48",
+            "timestamp": 16.8,
+            "score": 0.08733066916465759
+          }
+        ],
+        "n_sampled_relevant": 19,
+        "n_relevant": 19,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.2,
+        "top_score": 0.09758178889751434
+      },
+      {
+        "query_id": "v2-vi-066",
+        "query": "Người phụ nữ áo đỏ gõ bàn phím máy tính xách tay",
+        "video_id": "video_48",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            22,
+            26
+          ]
+        ],
+        "query_seconds": 0.017150799999853916,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_48/50",
+            "video_id": "video_48",
+            "timestamp": 24.0,
+            "score": 0.08715596795082092
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_48/51",
+            "video_id": "video_48",
+            "timestamp": 24.48,
+            "score": 0.08697840571403503
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_48/52",
+            "video_id": "video_48",
+            "timestamp": 24.96,
+            "score": 0.0868629738688469
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_48/58",
+            "video_id": "video_48",
+            "timestamp": 27.84,
+            "score": 0.0866745337843895
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_48/62",
+            "video_id": "video_48",
+            "timestamp": 29.76,
+            "score": 0.08608710765838623
+          }
+        ],
+        "n_sampled_relevant": 9,
+        "n_relevant": 9,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.08715596795082092
+      },
+      {
+        "query_id": "v2-vi-067",
+        "query": "Người phụ nữ áo đỏ cầm cốc xanh lá tại bàn làm việc",
+        "video_id": "video_48",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "color",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            19,
+            21
+          ]
+        ],
+        "query_seconds": 0.01884909999989759,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_48/57",
+            "video_id": "video_48",
+            "timestamp": 27.36,
+            "score": 0.08840097486972809
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_48/56",
+            "video_id": "video_48",
+            "timestamp": 26.88,
+            "score": 0.08822330087423325
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_48/43",
+            "video_id": "video_48",
+            "timestamp": 20.64,
+            "score": 0.08384903520345688
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_48/10",
+            "video_id": "video_48",
+            "timestamp": 4.8,
+            "score": 0.08216601610183716
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_48/62",
+            "video_id": "video_48",
+            "timestamp": 29.76,
+            "score": 0.07705950736999512
+          }
+        ],
+        "n_sampled_relevant": 4,
+        "n_relevant": 4,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.3333333333333333,
+        "top_score": 0.08840097486972809
+      },
+      {
+        "query_id": "v2-vi-068",
+        "query": "Người phụ nữ áo đỏ mở tập giấy đặt cạnh laptop",
+        "video_id": "video_48",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            0,
+            4
+          ]
+        ],
+        "query_seconds": 0.018146600000363833,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_48/54",
+            "video_id": "video_48",
+            "timestamp": 25.92,
+            "score": 0.10241475701332092
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_48/52",
+            "video_id": "video_48",
+            "timestamp": 24.96,
+            "score": 0.10194332897663116
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_48/57",
+            "video_id": "video_48",
+            "timestamp": 27.36,
+            "score": 0.1014057993888855
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_48/10",
+            "video_id": "video_48",
+            "timestamp": 4.8,
+            "score": 0.10088871419429779
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_48/55",
+            "video_id": "video_48",
+            "timestamp": 26.4,
+            "score": 0.10081836581230164
+          }
+        ],
+        "n_sampled_relevant": 9,
+        "n_relevant": 9,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.10241475701332092
+      },
+      {
+        "query_id": "v2-vi-069",
+        "query": "Người phụ nữ áo đỏ uống từ cốc màu xanh lá tại bàn làm việc",
+        "video_id": "video_50",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            17,
+            20
+          ]
+        ],
+        "query_seconds": 0.020376200000100653,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_50/52",
+            "video_id": "video_50",
+            "timestamp": 24.96,
+            "score": 0.11041221022605896
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_50/39",
+            "video_id": "video_50",
+            "timestamp": 18.72,
+            "score": 0.10595421493053436
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_50/5",
+            "video_id": "video_50",
+            "timestamp": 2.4,
+            "score": 0.10571209341287613
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_50/28",
+            "video_id": "video_50",
+            "timestamp": 13.44,
+            "score": 0.10556615144014359
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_50/4",
+            "video_id": "video_50",
+            "timestamp": 1.92,
+            "score": 0.10366447269916534
+          }
+        ],
+        "n_sampled_relevant": 6,
+        "n_relevant": 6,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.11041221022605896
+      },
+      {
+        "query_id": "v2-vi-070",
+        "query": "Người phụ nữ áo đỏ viết chữ lên tờ giấy cạnh laptop",
+        "video_id": "video_50",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            7,
+            14
+          ]
+        ],
+        "query_seconds": 0.0184570999999778,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_50/42",
+            "video_id": "video_50",
+            "timestamp": 20.16,
+            "score": 0.11358955502510071
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_50/43",
+            "video_id": "video_50",
+            "timestamp": 20.64,
+            "score": 0.11251387745141983
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_50/48",
+            "video_id": "video_50",
+            "timestamp": 23.04,
+            "score": 0.10803776979446411
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_50/46",
+            "video_id": "video_50",
+            "timestamp": 22.08,
+            "score": 0.10617904365062714
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_50/47",
+            "video_id": "video_50",
+            "timestamp": 22.56,
+            "score": 0.10596215724945068
+          }
+        ],
+        "n_sampled_relevant": 15,
+        "n_relevant": 15,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.11358955502510071
+      },
+      {
+        "query_id": "v2-vi-071",
+        "query": "Người phụ nữ áo đỏ dùng máy tính xách tay sau khi uống",
+        "video_id": "video_50",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            23,
+            25
+          ]
+        ],
+        "query_seconds": 0.017002600000068924,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_50/38",
+            "video_id": "video_50",
+            "timestamp": 18.24,
+            "score": 0.10313084721565247
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_50/52",
+            "video_id": "video_50",
+            "timestamp": 24.96,
+            "score": 0.10192446410655975
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_50/42",
+            "video_id": "video_50",
+            "timestamp": 20.16,
+            "score": 0.09867149591445923
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_50/5",
+            "video_id": "video_50",
+            "timestamp": 2.4,
+            "score": 0.09578973054885864
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_50/37",
+            "video_id": "video_50",
+            "timestamp": 17.76,
+            "score": 0.09256015717983246
+          }
+        ],
+        "n_sampled_relevant": 5,
+        "n_relevant": 5,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.10313084721565247
+      },
+      {
+        "query_id": "v2-vi-072",
+        "query": "Máy tính xách tay mở trên bàn cạnh người phụ nữ áo đỏ",
+        "video_id": "video_50",
+        "group_id": "person_b",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            3,
+            16
+          ]
+        ],
+        "query_seconds": 0.02140300000019124,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_50/42",
+            "video_id": "video_50",
+            "timestamp": 20.16,
+            "score": 0.09921044111251831
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_50/38",
+            "video_id": "video_50",
+            "timestamp": 18.24,
+            "score": 0.09848213195800781
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_50/52",
+            "video_id": "video_50",
+            "timestamp": 24.96,
+            "score": 0.09245731681585312
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_50/48",
+            "video_id": "video_50",
+            "timestamp": 23.04,
+            "score": 0.08996075391769409
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_50/43",
+            "video_id": "video_50",
+            "timestamp": 20.64,
+            "score": 0.0890635997056961
+          }
+        ],
+        "n_sampled_relevant": 27,
+        "n_relevant": 27,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.09921044111251831
+      },
+      {
+        "query_id": "v2-vi-073",
+        "query": "Người phụ nữ áo khoác xám gõ bàn phím máy tính xách tay",
+        "video_id": "video_53",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            6,
+            8
+          ]
+        ],
+        "query_seconds": 0.016279299999951036,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_53/35",
+            "video_id": "video_53",
+            "timestamp": 16.8,
+            "score": 0.08258650451898575
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_53/37",
+            "video_id": "video_53",
+            "timestamp": 17.76,
+            "score": 0.08250931650400162
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_53/38",
+            "video_id": "video_53",
+            "timestamp": 18.24,
+            "score": 0.08124682307243347
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_53/34",
+            "video_id": "video_53",
+            "timestamp": 16.32,
+            "score": 0.07607617974281311
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_53/36",
+            "video_id": "video_53",
+            "timestamp": 17.28,
+            "score": 0.07584510743618011
+          }
+        ],
+        "n_sampled_relevant": 4,
+        "n_relevant": 4,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.08258650451898575
+      },
+      {
+        "query_id": "v2-vi-074",
+        "query": "Người phụ nữ áo khoác xám cúi viết trên giấy ở bàn làm việc",
+        "video_id": "video_53",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            11,
+            20
+          ]
+        ],
+        "query_seconds": 0.01873250000016924,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_53/39",
+            "video_id": "video_53",
+            "timestamp": 18.72,
+            "score": 0.11774149537086487
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_53/26",
+            "video_id": "video_53",
+            "timestamp": 12.48,
+            "score": 0.11736465990543365
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_53/25",
+            "video_id": "video_53",
+            "timestamp": 12.0,
+            "score": 0.11584252864122391
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_53/23",
+            "video_id": "video_53",
+            "timestamp": 11.04,
+            "score": 0.11454790830612183
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_53/24",
+            "video_id": "video_53",
+            "timestamp": 11.52,
+            "score": 0.11209772527217865
+          }
+        ],
+        "n_sampled_relevant": 19,
+        "n_relevant": 19,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.11774149537086487
+      },
+      {
+        "query_id": "v2-vi-075",
+        "query": "Chai đồ uống nắp cam đứng bên phải tờ giấy",
+        "video_id": "video_53",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "color",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            0,
+            20
+          ]
+        ],
+        "query_seconds": 0.013723900000059075,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_53/45",
+            "video_id": "video_53",
+            "timestamp": 21.6,
+            "score": 0.02294783666729927
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_53/48",
+            "video_id": "video_53",
+            "timestamp": 23.04,
+            "score": 0.016302376985549927
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_53/44",
+            "video_id": "video_53",
+            "timestamp": 21.12,
+            "score": 0.013929858803749084
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_53/43",
+            "video_id": "video_53",
+            "timestamp": 20.64,
+            "score": 0.013730596750974655
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_53/13",
+            "video_id": "video_53",
+            "timestamp": 6.24,
+            "score": 0.012619402259588242
+          }
+        ],
+        "n_sampled_relevant": 42,
+        "n_relevant": 42,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.2,
+        "top_score": 0.02294783666729927
+      },
+      {
+        "query_id": "v2-vi-076",
+        "query": "Người phụ nữ áo khoác xám đưa tay chạm vào tai khi làm việc",
+        "video_id": "video_53",
+        "group_id": "person_g",
+        "split": "dev",
+        "category": "short_event",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            22,
+            25
+          ]
+        ],
+        "query_seconds": 0.019214699999793083,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_53/19",
+            "video_id": "video_53",
+            "timestamp": 9.12,
+            "score": 0.09586646407842636
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_53/20",
+            "video_id": "video_53",
+            "timestamp": 9.6,
+            "score": 0.09571263194084167
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_53/18",
+            "video_id": "video_53",
+            "timestamp": 8.64,
+            "score": 0.09222801774740219
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_53/11",
+            "video_id": "video_53",
+            "timestamp": 5.28,
+            "score": 0.0917360931634903
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_53/35",
+            "video_id": "video_53",
+            "timestamp": 16.8,
+            "score": 0.09132136404514313
+          }
+        ],
+        "n_sampled_relevant": 7,
+        "n_relevant": 7,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.09586646407842636
+      },
+      {
+        "query_id": "v2-vi-077",
+        "query": "Người phụ nữ áo be gõ bàn phím máy tính xách tay",
+        "video_id": "video_58",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            1,
+            4
+          ]
+        ],
+        "query_seconds": 0.019240799999806768,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_58/35",
+            "video_id": "video_58",
+            "timestamp": 16.8,
+            "score": 0.059542618691921234
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_58/36",
+            "video_id": "video_58",
+            "timestamp": 17.28,
+            "score": 0.059291135519742966
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_58/37",
+            "video_id": "video_58",
+            "timestamp": 17.76,
+            "score": 0.05777101218700409
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_58/38",
+            "video_id": "video_58",
+            "timestamp": 18.24,
+            "score": 0.057647887617349625
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_58/3",
+            "video_id": "video_58",
+            "timestamp": 1.44,
+            "score": 0.057487379759550095
+          }
+        ],
+        "n_sampled_relevant": 6,
+        "n_relevant": 6,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.2,
+        "top_score": 0.059542618691921234
+      },
+      {
+        "query_id": "v2-vi-078",
+        "query": "Người phụ nữ áo be viết lên giấy bằng bút màu đỏ",
+        "video_id": "video_58",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            6,
+            10
+          ]
+        ],
+        "query_seconds": 0.01752950000036435,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_58/44",
+            "video_id": "video_58",
+            "timestamp": 21.12,
+            "score": 0.06155465170741081
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_58/43",
+            "video_id": "video_58",
+            "timestamp": 20.64,
+            "score": 0.05626378208398819
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_58/41",
+            "video_id": "video_58",
+            "timestamp": 19.68,
+            "score": 0.051543641835451126
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_58/1",
+            "video_id": "video_58",
+            "timestamp": 0.48,
+            "score": 0.05123681575059891
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_58/47",
+            "video_id": "video_58",
+            "timestamp": 22.56,
+            "score": 0.0505756139755249
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 0,
+        "mrr": 0.0,
+        "top_score": 0.06155465170741081
+      },
+      {
+        "query_id": "v2-vi-079",
+        "query": "Người phụ nữ áo be uống từ chai nắp cam ở bàn làm việc",
+        "video_id": "video_58",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            19.5,
+            21.5
+          ]
+        ],
+        "query_seconds": 0.020296300000154588,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_58/41",
+            "video_id": "video_58",
+            "timestamp": 19.68,
+            "score": 0.10771733522415161
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_58/42",
+            "video_id": "video_58",
+            "timestamp": 20.16,
+            "score": 0.10344841331243515
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_58/39",
+            "video_id": "video_58",
+            "timestamp": 18.72,
+            "score": 0.09791804850101471
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_58/36",
+            "video_id": "video_58",
+            "timestamp": 17.28,
+            "score": 0.09615744650363922
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_58/0",
+            "video_id": "video_58",
+            "timestamp": 0.0,
+            "score": 0.09471143782138824
+          }
+        ],
+        "n_sampled_relevant": 4,
+        "n_relevant": 4,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.10771733522415161
+      },
+      {
+        "query_id": "v2-vi-080",
+        "query": "Chai đồ uống nắp cam nằm bên phải tờ giấy của người áo be",
+        "video_id": "video_58",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            10,
+            18
+          ]
+        ],
+        "query_seconds": 0.017250500000045577,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_58/47",
+            "video_id": "video_58",
+            "timestamp": 22.56,
+            "score": 0.0551949068903923
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_58/32",
+            "video_id": "video_58",
+            "timestamp": 15.36,
+            "score": 0.05494149029254913
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_58/46",
+            "video_id": "video_58",
+            "timestamp": 22.08,
+            "score": 0.05357411503791809
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_58/50",
+            "video_id": "video_58",
+            "timestamp": 24.0,
+            "score": 0.05214017257094383
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_58/48",
+            "video_id": "video_58",
+            "timestamp": 23.04,
+            "score": 0.0503358468413353
+          }
+        ],
+        "n_sampled_relevant": 17,
+        "n_relevant": 17,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.0551949068903923
+      },
+      {
+        "query_id": "v2-vi-081",
+        "query": "Người phụ nữ áo be viết lên tờ giấy cạnh máy tính xách tay",
+        "video_id": "video_62",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            4,
+            8
+          ]
+        ],
+        "query_seconds": 0.02061970000022484,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_62/30",
+            "video_id": "video_62",
+            "timestamp": 14.4,
+            "score": 0.07009821385145187
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_62/20",
+            "video_id": "video_62",
+            "timestamp": 9.6,
+            "score": 0.06694412976503372
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_62/25",
+            "video_id": "video_62",
+            "timestamp": 12.0,
+            "score": 0.06250913441181183
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_62/29",
+            "video_id": "video_62",
+            "timestamp": 13.92,
+            "score": 0.06250442564487457
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_62/12",
+            "video_id": "video_62",
+            "timestamp": 5.76,
+            "score": 0.05963125452399254
+          }
+        ],
+        "n_sampled_relevant": 8,
+        "n_relevant": 8,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.2,
+        "top_score": 0.07009821385145187
+      },
+      {
+        "query_id": "v2-vi-082",
+        "query": "Người phụ nữ áo be gõ bàn phím rồi nhìn về tờ giấy",
+        "video_id": "video_62",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "action",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            8,
+            10
+          ]
+        ],
+        "query_seconds": 0.019627899999704823,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_62/28",
+            "video_id": "video_62",
+            "timestamp": 13.44,
+            "score": 0.08456002175807953
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_62/6",
+            "video_id": "video_62",
+            "timestamp": 2.88,
+            "score": 0.08291102945804596
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_62/7",
+            "video_id": "video_62",
+            "timestamp": 3.36,
+            "score": 0.08095553517341614
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_62/18",
+            "video_id": "video_62",
+            "timestamp": 8.64,
+            "score": 0.0795094445347786
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_62/4",
+            "video_id": "video_62",
+            "timestamp": 1.92,
+            "score": 0.07943348586559296
+          }
+        ],
+        "n_sampled_relevant": 4,
+        "n_relevant": 4,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.25,
+        "top_score": 0.08456002175807953
+      },
+      {
+        "query_id": "v2-vi-083",
+        "query": "Người phụ nữ áo be cầm bút màu đỏ trên tờ giấy",
+        "video_id": "video_62",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "color",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            11,
+            14.4
+          ]
+        ],
+        "query_seconds": 0.018835700000181532,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_62/30",
+            "video_id": "video_62",
+            "timestamp": 14.4,
+            "score": 0.05387095361948013
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_62/29",
+            "video_id": "video_62",
+            "timestamp": 13.92,
+            "score": 0.049583666026592255
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_62/22",
+            "video_id": "video_62",
+            "timestamp": 10.56,
+            "score": 0.04918291047215462
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_62/23",
+            "video_id": "video_62",
+            "timestamp": 11.04,
+            "score": 0.04692709073424339
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_62/12",
+            "video_id": "video_62",
+            "timestamp": 5.76,
+            "score": 0.033518873155117035
+          }
+        ],
+        "n_sampled_relevant": 7,
+        "n_relevant": 7,
+        "coverage": "covered",
+        "hit@1": 0,
+        "hit@5": 1,
+        "mrr": 0.5,
+        "top_score": 0.05387095361948013
+      },
+      {
+        "query_id": "v2-vi-084",
+        "query": "Máy tính xách tay mở bên trái người phụ nữ áo be",
+        "video_id": "video_62",
+        "group_id": "person_d",
+        "split": "dev",
+        "category": "object",
+        "expected_presence": "present",
+        "time_windows": [
+          [
+            0,
+            13
+          ]
+        ],
+        "query_seconds": 0.019554299999981595,
+        "predictions": [
+          {
+            "rank": 1,
+            "frame_id": "video_62/20",
+            "video_id": "video_62",
+            "timestamp": 9.6,
+            "score": 0.06202185899019241
+          },
+          {
+            "rank": 2,
+            "frame_id": "video_62/25",
+            "video_id": "video_62",
+            "timestamp": 12.0,
+            "score": 0.05356583744287491
+          },
+          {
+            "rank": 3,
+            "frame_id": "video_62/8",
+            "video_id": "video_62",
+            "timestamp": 3.84,
+            "score": 0.05341215431690216
+          },
+          {
+            "rank": 4,
+            "frame_id": "video_62/2",
+            "video_id": "video_62",
+            "timestamp": 0.96,
+            "score": 0.05310972407460213
+          },
+          {
+            "rank": 5,
+            "frame_id": "video_62/6",
+            "video_id": "video_62",
+            "timestamp": 2.88,
+            "score": 0.05308639630675316
+          }
+        ],
+        "n_sampled_relevant": 28,
+        "n_relevant": 28,
+        "coverage": "covered",
+        "hit@1": 1,
+        "hit@5": 1,
+        "mrr": 1.0,
+        "top_score": 0.06202185899019241
+      }
+    ]
+  },
+  "absent_per_query": [
+    {
+      "query_id": "v2-abs-003",
+      "query": "Người phụ nữ áo đỏ dùng đũa để ăn mì",
+      "video_id": "video_6",
+      "group_id": "person_b",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.018441300000176852,
+      "top_score": 0.04918558895587921,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_6/9",
+          "video_id": "video_6",
+          "timestamp": 4.32,
+          "score": 0.04918558895587921
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_6/6",
+          "video_id": "video_6",
+          "timestamp": 2.88,
+          "score": 0.04844824597239494
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_6/47",
+          "video_id": "video_6",
+          "timestamp": 22.56,
+          "score": 0.046820785850286484
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_6/55",
+          "video_id": "video_6",
+          "timestamp": 26.4,
+          "score": 0.04522208124399185
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_6/54",
+          "video_id": "video_6",
+          "timestamp": 25.92,
+          "score": 0.04329101741313934
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-004",
+      "query": "Người phụ nữ áo đỏ viết bằng bút trên tập giấy",
+      "video_id": "video_8",
+      "group_id": "person_b",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.01737009999988004,
+      "top_score": 0.04481567069888115,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_8/21",
+          "video_id": "video_8",
+          "timestamp": 10.08,
+          "score": 0.04481567069888115
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_8/27",
+          "video_id": "video_8",
+          "timestamp": 12.96,
+          "score": 0.04378008842468262
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_8/26",
+          "video_id": "video_8",
+          "timestamp": 12.48,
+          "score": 0.04346497729420662
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_8/16",
+          "video_id": "video_8",
+          "timestamp": 7.68,
+          "score": 0.03601217269897461
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_8/28",
+          "video_id": "video_8",
+          "timestamp": 13.44,
+          "score": 0.03509266674518585
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-007",
+      "query": "Người phụ nữ áo be gõ bàn phím khi ngồi ăn sáng",
+      "video_id": "video_16",
+      "group_id": "person_d",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.021358599999985017,
+      "top_score": 0.08710256218910217,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_16/2",
+          "video_id": "video_16",
+          "timestamp": 0.96,
+          "score": 0.08710256218910217
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_16/1",
+          "video_id": "video_16",
+          "timestamp": 0.48,
+          "score": 0.08476807922124863
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_16/4",
+          "video_id": "video_16",
+          "timestamp": 1.92,
+          "score": 0.08281512558460236
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_16/75",
+          "video_id": "video_16",
+          "timestamp": 36.0,
+          "score": 0.07941137254238129
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_16/18",
+          "video_id": "video_16",
+          "timestamp": 8.64,
+          "score": 0.07573443651199341
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-008",
+      "query": "Người phụ nữ áo be cắt trái cây bằng dao trên bàn ăn",
+      "video_id": "video_18",
+      "group_id": "person_d",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.021185199999763427,
+      "top_score": 0.05559152364730835,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_18/39",
+          "video_id": "video_18",
+          "timestamp": 18.72,
+          "score": 0.05559152364730835
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_18/41",
+          "video_id": "video_18",
+          "timestamp": 19.68,
+          "score": 0.054907750338315964
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_18/63",
+          "video_id": "video_18",
+          "timestamp": 30.24,
+          "score": 0.053731001913547516
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_18/62",
+          "video_id": "video_18",
+          "timestamp": 29.76,
+          "score": 0.05349888652563095
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_18/25",
+          "video_id": "video_18",
+          "timestamp": 12.0,
+          "score": 0.052784208208322525
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-011",
+      "query": "Người đàn ông áo kẻ đỏ đeo tai nghe khi ăn",
+      "video_id": "video_26",
+      "group_id": "person_f",
+      "split": "dev",
+      "category": "object",
+      "expected_presence": "absent",
+      "query_seconds": 0.020151300000179617,
+      "top_score": 0.0851205587387085,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_26/73",
+          "video_id": "video_26",
+          "timestamp": 35.04,
+          "score": 0.0851205587387085
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_26/71",
+          "video_id": "video_26",
+          "timestamp": 34.08,
+          "score": 0.08185907453298569
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_26/48",
+          "video_id": "video_26",
+          "timestamp": 23.04,
+          "score": 0.08157162368297577
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_26/75",
+          "video_id": "video_26",
+          "timestamp": 36.0,
+          "score": 0.08113577961921692
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_26/90",
+          "video_id": "video_26",
+          "timestamp": 43.2,
+          "score": 0.07873500138521194
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-013",
+      "query": "Người phụ nữ áo khoác xám uống từ ấm trà trắng",
+      "video_id": "video_30",
+      "group_id": "person_g",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.01850330000024769,
+      "top_score": 0.0421631745994091,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_30/94",
+          "video_id": "video_30",
+          "timestamp": 45.12,
+          "score": 0.0421631745994091
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_30/83",
+          "video_id": "video_30",
+          "timestamp": 39.84,
+          "score": 0.04165934771299362
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_30/113",
+          "video_id": "video_30",
+          "timestamp": 54.24,
+          "score": 0.03641479089856148
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_30/33",
+          "video_id": "video_30",
+          "timestamp": 15.84,
+          "score": 0.035674117505550385
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_30/86",
+          "video_id": "video_30",
+          "timestamp": 41.28,
+          "score": 0.03435792773962021
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-014",
+      "query": "Người phụ nữ tóc sẫm áo xám nấu ăn bằng chảo",
+      "video_id": "video_33",
+      "group_id": "person_h",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.016941700000188575,
+      "top_score": 0.08554848283529282,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_33/46",
+          "video_id": "video_33",
+          "timestamp": 22.08,
+          "score": 0.08554848283529282
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_33/115",
+          "video_id": "video_33",
+          "timestamp": 55.2,
+          "score": 0.08462152630090714
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_33/116",
+          "video_id": "video_33",
+          "timestamp": 55.68,
+          "score": 0.0844198614358902
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_33/117",
+          "video_id": "video_33",
+          "timestamp": 56.16,
+          "score": 0.08416613936424255
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_33/45",
+          "video_id": "video_33",
+          "timestamp": 21.6,
+          "score": 0.08346600830554962
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-015",
+      "query": "Người phụ nữ tóc sẫm áo xám cầm hộp ngũ cốc",
+      "video_id": "video_35",
+      "group_id": "person_h",
+      "split": "dev",
+      "category": "object",
+      "expected_presence": "absent",
+      "query_seconds": 0.030536300000221672,
+      "top_score": 0.08839063346385956,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_35/42",
+          "video_id": "video_35",
+          "timestamp": 20.16,
+          "score": 0.08839063346385956
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_35/41",
+          "video_id": "video_35",
+          "timestamp": 19.68,
+          "score": 0.08691494911909103
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_35/84",
+          "video_id": "video_35",
+          "timestamp": 40.32,
+          "score": 0.08676029741764069
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_35/54",
+          "video_id": "video_35",
+          "timestamp": 25.92,
+          "score": 0.08431704342365265
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_35/78",
+          "video_id": "video_35",
+          "timestamp": 37.44,
+          "score": 0.0823320522904396
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-016",
+      "query": "Người phụ nữ áo hồng nhạt gõ bàn phím máy tính",
+      "video_id": "video_38",
+      "group_id": "person_i",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.018985199999860924,
+      "top_score": 0.02839839458465576,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_38/117",
+          "video_id": "video_38",
+          "timestamp": 56.16,
+          "score": 0.02839839458465576
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_38/119",
+          "video_id": "video_38",
+          "timestamp": 57.12,
+          "score": 0.026531172916293144
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_38/115",
+          "video_id": "video_38",
+          "timestamp": 55.2,
+          "score": 0.024505406618118286
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_38/112",
+          "video_id": "video_38",
+          "timestamp": 53.76,
+          "score": 0.024292096495628357
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_38/118",
+          "video_id": "video_38",
+          "timestamp": 56.64,
+          "score": 0.023057937622070312
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-019",
+      "query": "Người phụ nữ áo đỏ dùng thìa ăn từ chiếc bát ở bàn làm việc",
+      "video_id": "video_48",
+      "group_id": "person_b",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.01806510000005801,
+      "top_score": 0.09848232567310333,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_48/43",
+          "video_id": "video_48",
+          "timestamp": 20.64,
+          "score": 0.09848232567310333
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_48/41",
+          "video_id": "video_48",
+          "timestamp": 19.68,
+          "score": 0.09612450003623962
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_48/42",
+          "video_id": "video_48",
+          "timestamp": 20.16,
+          "score": 0.09235875308513641
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_48/57",
+          "video_id": "video_48",
+          "timestamp": 27.36,
+          "score": 0.08853765577077866
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_48/56",
+          "video_id": "video_48",
+          "timestamp": 26.88,
+          "score": 0.08684460818767548
+        }
+      ]
+    },
+    {
+      "query_id": "v2-abs-020",
+      "query": "Người phụ nữ áo be ăn quả táo tại bàn có máy tính",
+      "video_id": "video_58",
+      "group_id": "person_d",
+      "split": "dev",
+      "category": "action",
+      "expected_presence": "absent",
+      "query_seconds": 0.014650200000232871,
+      "top_score": 0.07790160179138184,
+      "predictions": [
+        {
+          "rank": 1,
+          "frame_id": "video_58/41",
+          "video_id": "video_58",
+          "timestamp": 19.68,
+          "score": 0.07790160179138184
+        },
+        {
+          "rank": 2,
+          "frame_id": "video_58/42",
+          "video_id": "video_58",
+          "timestamp": 20.16,
+          "score": 0.07447509467601776
+        },
+        {
+          "rank": 3,
+          "frame_id": "video_58/50",
+          "video_id": "video_58",
+          "timestamp": 24.0,
+          "score": 0.05981362611055374
+        },
+        {
+          "rank": 4,
+          "frame_id": "video_58/2",
+          "video_id": "video_58",
+          "timestamp": 0.96,
+          "score": 0.05980580672621727
+        },
+        {
+          "rank": 5,
+          "frame_id": "video_58/46",
+          "video_id": "video_58",
+          "timestamp": 22.08,
+          "score": 0.059772931039333344
+        }
+      ]
+    }
+  ],
+  "temporal": {
+    "n_evaluable": 64,
+    "per_query": [
+      {
+        "query_id": "v2-vi-005",
+        "video_id": "video_6",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 7.2,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 20.88,
+            "t_end": 32.4,
+            "best_tiou": 0.2604166666666667
+          },
+          {
+            "rank": 3,
+            "t_start": 9.84,
+            "t_end": 17.52,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 56.14,
+            "t_end": 57.14,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 49.68,
+            "t_end": 54.0,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-006",
+        "video_id": "video_6",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 22.32,
+            "t_end": 51.6,
+            "best_tiou": 0.13661202185792348
+          },
+          {
+            "rank": 2,
+            "t_start": 0.24,
+            "t_end": 8.88,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 14.64,
+            "t_end": 19.44,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 11.02,
+            "t_end": 12.02,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 57.4,
+            "t_end": 58.4,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.13661202185792348,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-007",
+        "video_id": "video_6",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 20.88,
+            "t_end": 29.52,
+            "best_tiou": 0.05737704918032792
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 7.2,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 49.68,
+            "t_end": 53.52,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 57.4,
+            "t_end": 58.4,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 43.44,
+            "t_end": 47.28,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.05737704918032792,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-008",
+        "video_id": "video_6",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 30.0,
+            "t_end": 42.48,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 8.88,
+            "t_end": 27.12,
+            "best_tiou": 0.41002949852507364
+          },
+          {
+            "rank": 3,
+            "t_start": 49.68,
+            "t_end": 52.08,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 45.36,
+            "t_end": 46.8,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-009",
+        "video_id": "video_8",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 13.92,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 42.48,
+            "t_end": 48.24,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 30.0,
+            "t_end": 37.2,
+            "best_tiou": 0.7200000000000003
+          },
+          {
+            "rank": 4,
+            "t_start": 18.0,
+            "t_end": 24.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 50.56,
+            "t_end": 56.8,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-010",
+        "video_id": "video_8",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 14.4,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 16.56,
+            "t_end": 30.48,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 33.36,
+            "t_end": 35.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 50.38,
+            "t_end": 51.38,
+            "best_tiou": 0.16666666666666666
+          },
+          {
+            "rank": 5,
+            "t_start": 42.96,
+            "t_end": 47.76,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-011",
+        "video_id": "video_8",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 5.28,
+            "best_tiou": 0.18222222222222223
+          },
+          {
+            "rank": 2,
+            "t_start": 10.32,
+            "t_end": 13.2,
+            "best_tiou": 0.17999999999999994
+          },
+          {
+            "rank": 3,
+            "t_start": 27.12,
+            "t_end": 34.8,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 53.44,
+            "t_end": 56.8,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 37.2,
+            "t_end": 39.12,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.18222222222222223,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-012",
+        "video_id": "video_8",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 13.44,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 27.6,
+            "t_end": 34.8,
+            "best_tiou": 0.08333333333333326
+          },
+          {
+            "rank": 3,
+            "t_start": 50.64,
+            "t_end": 53.52,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 37.2,
+            "t_end": 47.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 24.46,
+            "t_end": 25.46,
+            "best_tiou": 0.09090909090909091
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-017",
+        "video_id": "video_16",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 14.16,
+            "t_end": 24.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 57.28,
+            "t_end": 69.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 2.16,
+            "t_end": 10.32,
+            "best_tiou": 0.49019607843137253
+          },
+          {
+            "rank": 4,
+            "t_start": 46.32,
+            "t_end": 51.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 31.92,
+            "t_end": 42.96,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-018",
+        "video_id": "video_16",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 40.96,
+            "t_end": 69.28,
+            "best_tiou": 0.06865401987353205
+          },
+          {
+            "rank": 2,
+            "t_start": 35.28,
+            "t_end": 41.04,
+            "best_tiou": 0.303157894736842
+          },
+          {
+            "rank": 3,
+            "t_start": 23.98,
+            "t_end": 24.98,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 0.24,
+            "t_end": 5.52,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 15.34,
+            "t_end": 16.34,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.06865401987353205,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-019",
+        "video_id": "video_16",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 10.08,
+            "best_tiou": 0.8400000000000001
+          },
+          {
+            "rank": 2,
+            "t_start": 64.48,
+            "t_end": 69.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 34.8,
+            "t_end": 42.48,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 60.24,
+            "t_end": 61.68,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 53.52,
+            "t_end": 57.84,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.8400000000000001,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 1,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-020",
+        "video_id": "video_16",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 38.16,
+            "t_end": 61.68,
+            "best_tiou": 0.6996644295302012
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 3.84,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 24.24,
+            "t_end": 30.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 7.92,
+            "t_end": 16.08,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 35.02,
+            "t_end": 36.02,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.6996644295302012,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 1,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-021",
+        "video_id": "video_18",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 21.84,
+            "t_end": 24.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 7.92,
+            "t_end": 19.44,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 27.12,
+            "t_end": 36.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 3.12,
+            "t_end": 5.52,
+            "best_tiou": 0.3917525773195875
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-022",
+        "video_id": "video_18",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 11.76,
+            "t_end": 30.96,
+            "best_tiou": 0.010928961748633888
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 9.12,
+            "best_tiou": 0.009999999999999934
+          },
+          {
+            "rank": 3,
+            "t_start": 33.1,
+            "t_end": 34.1,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 36.52,
+            "t_end": 37.52,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.010928961748633888,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-023",
+        "video_id": "video_18",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 21.84,
+            "t_end": 30.96,
+            "best_tiou": 0.29133858267716545
+          },
+          {
+            "rank": 2,
+            "t_start": 7.92,
+            "t_end": 19.44,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 0.0,
+            "t_end": 5.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 33.2,
+            "t_end": 37.52,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.29133858267716545,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-024",
+        "video_id": "video_18",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.0,
+            "t_end": 5.76,
+            "best_tiou": 0.4114285714285715
+          },
+          {
+            "rank": 2,
+            "t_start": 11.76,
+            "t_end": 34.8,
+            "best_tiou": 0.06436781609195404
+          },
+          {
+            "rank": 3,
+            "t_start": 7.66,
+            "t_end": 8.66,
+            "best_tiou": 0.07142857142857142
+          },
+          {
+            "rank": 4,
+            "t_start": 36.52,
+            "t_end": 37.52,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.4114285714285715,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-033",
+        "video_id": "video_26",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 20.88,
+            "t_end": 47.76,
+            "best_tiou": 0.4464285714285715
+          },
+          {
+            "rank": 2,
+            "t_start": 15.6,
+            "t_end": 20.88,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 60.72,
+            "t_end": 63.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 2.86,
+            "t_end": 3.86,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 10.54,
+            "t_end": 11.54,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.4464285714285715,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-034",
+        "video_id": "video_26",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 18.0,
+            "t_end": 47.76,
+            "best_tiou": 0.16801075268817206
+          },
+          {
+            "rank": 2,
+            "t_start": 60.72,
+            "t_end": 63.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 4.08,
+            "t_end": 6.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 50.38,
+            "t_end": 51.38,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 75.34,
+            "t_end": 76.34,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.16801075268817206,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-035",
+        "video_id": "video_26",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 21.36,
+            "t_end": 47.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 59.76,
+            "t_end": 71.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 50.86,
+            "t_end": 51.86,
+            "best_tiou": 0.2
+          },
+          {
+            "rank": 4,
+            "t_start": 54.7,
+            "t_end": 55.7,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 15.12,
+            "t_end": 18.0,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-036",
+        "video_id": "video_26",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 25.68,
+            "t_end": 48.24,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 19.92,
+            "t_end": 23.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 60.72,
+            "t_end": 62.16,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 3.12,
+            "t_end": 6.96,
+            "best_tiou": 0.256
+          },
+          {
+            "rank": 5,
+            "t_start": 50.86,
+            "t_end": 51.86,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-037",
+        "video_id": "video_28",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 33.84,
+            "t_end": 62.64,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 62.64,
+            "t_end": 69.84,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 3.12,
+            "t_end": 19.92,
+            "best_tiou": 0.2976190476190476
+          },
+          {
+            "rank": 4,
+            "t_start": 90.48,
+            "t_end": 99.6,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 102.48,
+            "t_end": 104.4,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-038",
+        "video_id": "video_28",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 38.16,
+            "t_end": 57.84,
+            "best_tiou": 0.17582417582417595
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 8.4,
+            "t_end": 30.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 57.84,
+            "t_end": 68.4,
+            "best_tiou": 0.14999999999999972
+          },
+          {
+            "rank": 5,
+            "t_start": 82.8,
+            "t_end": 87.6,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.17582417582417595,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-039",
+        "video_id": "video_28",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 87.6,
+            "t_end": 110.64,
+            "best_tiou": 0.5208333333333331
+          },
+          {
+            "rank": 2,
+            "t_start": 58.8,
+            "t_end": 70.8,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 40.56,
+            "t_end": 49.68,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 30.48,
+            "t_end": 38.16,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 18.48,
+            "t_end": 19.92,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.5208333333333331,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 1,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-040",
+        "video_id": "video_28",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 9.36,
+            "t_end": 37.2,
+            "best_tiou": 0.5028735632183907
+          },
+          {
+            "rank": 2,
+            "t_start": 40.08,
+            "t_end": 69.84,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 0.0,
+            "t_end": 7.2,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 117.36,
+            "t_end": 121.2,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 75.12,
+            "t_end": 83.28,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.5028735632183907,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 1,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-041",
+        "video_id": "video_30",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 15.12,
+            "t_end": 18.48,
+            "best_tiou": 0.642857142857143
+          },
+          {
+            "rank": 2,
+            "t_start": 38.16,
+            "t_end": 49.68,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 52.08,
+            "t_end": 71.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 22.32,
+            "t_end": 28.08,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 77.26,
+            "t_end": 78.26,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.642857142857143,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 1,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-042",
+        "video_id": "video_30",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 32.4,
+            "t_end": 48.24,
+            "best_tiou": 0.19518072289156638
+          },
+          {
+            "rank": 2,
+            "t_start": 13.68,
+            "t_end": 30.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 30.96,
+            "t_end": 32.4,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 60.24,
+            "t_end": 75.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 51.6,
+            "t_end": 56.88,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.19518072289156638,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-043",
+        "video_id": "video_30",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 54.48,
+            "t_end": 65.04,
+            "best_tiou": 0.7575757575757569
+          },
+          {
+            "rank": 2,
+            "t_start": 13.68,
+            "t_end": 18.48,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 74.52,
+            "t_end": 78.36,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 39.12,
+            "t_end": 46.32,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 8.88,
+            "t_end": 11.28,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.7575757575757569,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 1,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-044",
+        "video_id": "video_30",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 31.92,
+            "t_end": 60.72,
+            "best_tiou": 0.3606770833333333
+          },
+          {
+            "rank": 2,
+            "t_start": 21.84,
+            "t_end": 28.56,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 13.68,
+            "t_end": 18.48,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 5.04,
+            "t_end": 6.48,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.3606770833333333,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-045",
+        "video_id": "video_33",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 47.28,
+            "t_end": 67.44,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 22.32,
+            "t_end": 44.88,
+            "best_tiou": 0.7978723404255318
+          },
+          {
+            "rank": 3,
+            "t_start": 70.8,
+            "t_end": 76.56,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 94.32,
+            "t_end": 99.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 79.18,
+            "t_end": 80.18,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-046",
+        "video_id": "video_33",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 66.96,
+            "t_end": 85.2,
+            "best_tiou": 0.25790349417637276
+          },
+          {
+            "rank": 2,
+            "t_start": 41.04,
+            "t_end": 65.52,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 32.4,
+            "t_end": 41.04,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 20.88,
+            "t_end": 30.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 119.02,
+            "t_end": 120.02,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.25790349417637276,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-047",
+        "video_id": "video_33",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 44.88,
+            "t_end": 70.32,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 70.32,
+            "t_end": 76.56,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 78.96,
+            "t_end": 80.4,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 94.32,
+            "t_end": 102.0,
+            "best_tiou": 0.7100000000000009
+          },
+          {
+            "rank": 5,
+            "t_start": 25.68,
+            "t_end": 42.0,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-048",
+        "video_id": "video_33",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 27.12,
+            "t_end": 55.92,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 55.92,
+            "t_end": 72.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 75.12,
+            "t_end": 76.56,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 21.58,
+            "t_end": 22.58,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 78.96,
+            "t_end": 80.4,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-049",
+        "video_id": "video_35",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 26.16,
+            "t_end": 51.6,
+            "best_tiou": 0.1890625
+          },
+          {
+            "rank": 2,
+            "t_start": 58.32,
+            "t_end": 63.6,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 54.46,
+            "t_end": 55.46,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 8.88,
+            "t_end": 20.4,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 23.02,
+            "t_end": 24.02,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.1890625,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-050",
+        "video_id": "video_35",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 13.68,
+            "t_end": 42.48,
+            "best_tiou": 0.38398914518317506
+          },
+          {
+            "rank": 2,
+            "t_start": 54.7,
+            "t_end": 55.7,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 58.8,
+            "t_end": 61.68,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 51.34,
+            "t_end": 52.34,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 68.4,
+            "t_end": 71.28,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.38398914518317506,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-051",
+        "video_id": "video_35",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 65.04,
+            "t_end": 71.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 10.8,
+            "t_end": 33.36,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 5.52,
+            "t_end": 7.92,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 61.66,
+            "t_end": 62.66,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 37.68,
+            "t_end": 45.84,
+            "best_tiou": 0.6127450980392154
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-052",
+        "video_id": "video_35",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 26.16,
+            "t_end": 52.08,
+            "best_tiou": 0.154320987654321
+          },
+          {
+            "rank": 2,
+            "t_start": 58.32,
+            "t_end": 63.6,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 54.48,
+            "t_end": 55.92,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 8.88,
+            "t_end": 20.4,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 23.02,
+            "t_end": 24.02,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.154320987654321,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-053",
+        "video_id": "video_38",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 44.4,
+            "t_end": 57.36,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 8.4,
+            "t_end": 30.48,
+            "best_tiou": 0.22644927536231885
+          },
+          {
+            "rank": 3,
+            "t_start": 41.26,
+            "t_end": 42.26,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 35.76,
+            "t_end": 38.16,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-054",
+        "video_id": "video_38",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 36.72,
+            "t_end": 58.32,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 10.32,
+            "t_end": 32.4,
+            "best_tiou": 0.1811594202898551
+          },
+          {
+            "rank": 3,
+            "t_start": 6.22,
+            "t_end": 7.22,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 61.42,
+            "t_end": 62.42,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-055",
+        "video_id": "video_38",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 46.8,
+            "t_end": 59.28,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 5.52,
+            "t_end": 31.92,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 61.42,
+            "t_end": 62.42,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 35.76,
+            "t_end": 38.16,
+            "best_tiou": 0.03896103896103931
+          },
+          {
+            "rank": 5,
+            "t_start": 41.52,
+            "t_end": 43.44,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-056",
+        "video_id": "video_38",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 41.52,
+            "t_end": 62.64,
+            "best_tiou": 0.23674242424242428
+          },
+          {
+            "rank": 2,
+            "t_start": 6.48,
+            "t_end": 11.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 36.24,
+            "t_end": 38.16,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 14.16,
+            "t_end": 22.32,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.23674242424242428,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-057",
+        "video_id": "video_40",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 16.08,
+            "t_end": 32.88,
+            "best_tiou": 0.23809523809523803
+          },
+          {
+            "rank": 2,
+            "t_start": 39.6,
+            "t_end": 48.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 52.56,
+            "t_end": 55.44,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 35.5,
+            "t_end": 36.5,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 8.14,
+            "t_end": 9.14,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.23809523809523803,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-058",
+        "video_id": "video_40",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 14.16,
+            "t_end": 36.72,
+            "best_tiou": 0.22163120567375888
+          },
+          {
+            "rank": 2,
+            "t_start": 48.24,
+            "t_end": 51.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 8.88,
+            "t_end": 11.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 40.08,
+            "t_end": 45.84,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 53.52,
+            "t_end": 64.08,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.22163120567375888,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-059",
+        "video_id": "video_40",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 59.28,
+            "t_end": 64.08,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 22.32,
+            "t_end": 39.12,
+            "best_tiou": 0.1134903640256958
+          },
+          {
+            "rank": 3,
+            "t_start": 0.0,
+            "t_end": 11.04,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 41.52,
+            "t_end": 51.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 14.16,
+            "t_end": 16.56,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-060",
+        "video_id": "video_40",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 11.28,
+            "t_end": 15.6,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 22.32,
+            "t_end": 38.16,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 43.44,
+            "t_end": 56.4,
+            "best_tiou": 0.29610389610389626
+          },
+          {
+            "rank": 4,
+            "t_start": 59.28,
+            "t_end": 64.08,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 18.7,
+            "t_end": 19.7,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-065",
+        "video_id": "video_48",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 2.16,
+            "t_end": 30.96,
+            "best_tiou": 0.31250000000000006
+          }
+        ],
+        "miou": 0.31250000000000006,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-066",
+        "video_id": "video_48",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 18.0,
+            "t_end": 29.52,
+            "best_tiou": 0.3472222222222222
+          },
+          {
+            "rank": 2,
+            "t_start": 2.64,
+            "t_end": 11.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 14.16,
+            "t_end": 15.6,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.3472222222222222,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-067",
+        "video_id": "video_48",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 23.28,
+            "t_end": 30.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 13.68,
+            "t_end": 20.88,
+            "best_tiou": 0.256830601092896
+          },
+          {
+            "rank": 3,
+            "t_start": 0.72,
+            "t_end": 5.04,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 7.44,
+            "t_end": 9.84,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-068",
+        "video_id": "video_48",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 2.64,
+            "t_end": 28.56,
+            "best_tiou": 0.047619047619047616
+          }
+        ],
+        "miou": 0.047619047619047616,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-069",
+        "video_id": "video_50",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 1.68,
+            "t_end": 18.96,
+            "best_tiou": 0.10698689956331882
+          },
+          {
+            "rank": 2,
+            "t_start": 21.84,
+            "t_end": 27.6,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.10698689956331882,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-070",
+        "video_id": "video_50",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 9.84,
+            "t_end": 24.72,
+            "best_tiou": 0.23476297968397294
+          },
+          {
+            "rank": 2,
+            "t_start": 1.68,
+            "t_end": 7.44,
+            "best_tiou": 0.03571428571428575
+          },
+          {
+            "rank": 3,
+            "t_start": 26.84,
+            "t_end": 27.84,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.23476297968397294,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-071",
+        "video_id": "video_50",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 11.28,
+            "t_end": 27.12,
+            "best_tiou": 0.12626262626262624
+          },
+          {
+            "rank": 2,
+            "t_start": 1.68,
+            "t_end": 8.4,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.12626262626262624,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-072",
+        "video_id": "video_50",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 9.84,
+            "t_end": 24.72,
+            "best_tiou": 0.283609576427256
+          },
+          {
+            "rank": 2,
+            "t_start": 1.68,
+            "t_end": 4.08,
+            "best_tiou": 0.07541899441340782
+          },
+          {
+            "rank": 3,
+            "t_start": 6.7,
+            "t_end": 7.7,
+            "best_tiou": 0.07692307692307693
+          },
+          {
+            "rank": 4,
+            "t_start": 26.84,
+            "t_end": 27.84,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.283609576427256,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-073",
+        "video_id": "video_53",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 6.96,
+            "t_end": 19.44,
+            "best_tiou": 0.07738095238095237
+          },
+          {
+            "rank": 2,
+            "t_start": 0.94,
+            "t_end": 1.94,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 26.76,
+            "t_end": 27.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 3.82,
+            "t_end": 4.82,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.07738095238095237,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-074",
+        "video_id": "video_53",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 5.04,
+            "t_end": 27.12,
+            "best_tiou": 0.4076086956521739
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 2.4,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.4076086956521739,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-075",
+        "video_id": "video_53",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 20.86,
+            "t_end": 21.86,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 11.02,
+            "t_end": 12.02,
+            "best_tiou": 0.05
+          },
+          {
+            "rank": 3,
+            "t_start": 5.26,
+            "t_end": 6.26,
+            "best_tiou": 0.05
+          },
+          {
+            "rank": 4,
+            "t_start": 25.9,
+            "t_end": 26.9,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.05
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-076",
+        "video_id": "video_53",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 3.6,
+            "t_end": 12.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 16.08,
+            "t_end": 18.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 23.98,
+            "t_end": 24.98,
+            "best_tiou": 0.3333333333333333
+          },
+          {
+            "rank": 5,
+            "t_start": 26.76,
+            "t_end": 27.76,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-077",
+        "video_id": "video_58",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 16.08,
+            "t_end": 18.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 10.32,
+            "t_end": 13.68,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 1.2,
+            "t_end": 4.56,
+            "best_tiou": 0.7865168539325843
+          },
+          {
+            "rank": 4,
+            "t_start": 24.64,
+            "t_end": 25.64,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 21.58,
+            "t_end": 22.58,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-078",
+        "video_id": "video_58",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 18.96,
+            "t_end": 25.2,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 12.72,
+            "t_end": 15.12,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 3.12,
+            "t_end": 6.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 8.14,
+            "t_end": 9.14,
+            "best_tiou": 0.25
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-079",
+        "video_id": "video_58",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 16.08,
+            "t_end": 22.8,
+            "best_tiou": 0.2976190476190475
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 10.32,
+            "t_end": 11.76,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 3.6,
+            "t_end": 6.96,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 24.64,
+            "t_end": 25.64,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.2976190476190475,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-080",
+        "video_id": "video_58",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 18.0,
+            "t_end": 24.72,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 12.24,
+            "t_end": 15.6,
+            "best_tiou": 0.41999999999999993
+          },
+          {
+            "rank": 3,
+            "t_start": 8.14,
+            "t_end": 9.14,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 4,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 5,
+            "t_start": 5.26,
+            "t_end": 6.26,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-081",
+        "video_id": "video_62",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 11.56,
+            "t_end": 14.44,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 8.62,
+            "t_end": 9.62,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 3,
+            "t_start": 4.08,
+            "t_end": 6.0,
+            "best_tiou": 0.48
+          },
+          {
+            "rank": 4,
+            "t_start": 0.46,
+            "t_end": 1.46,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-082",
+        "video_id": "video_62",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 2.16,
+            "t_end": 5.04,
+            "best_tiou": 0.0
+          },
+          {
+            "rank": 2,
+            "t_start": 8.68,
+            "t_end": 14.44,
+            "best_tiou": 0.20496894409937894
+          }
+        ],
+        "miou": 0.0,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 0,
+        "r@5_tiou_0.5": 0
+      },
+      {
+        "query_id": "v2-vi-083",
+        "video_id": "video_62",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 9.64,
+            "t_end": 14.44,
+            "best_tiou": 0.7083333333333336
+          },
+          {
+            "rank": 2,
+            "t_start": 0.0,
+            "t_end": 1.0,
+            "best_tiou": 0.0
+          }
+        ],
+        "miou": 0.7083333333333336,
+        "r@1_tiou_0.3": 1,
+        "r@1_tiou_0.5": 1,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 1
+      },
+      {
+        "query_id": "v2-vi-084",
+        "video_id": "video_62",
+        "split": "dev",
+        "predictions": [
+          {
+            "rank": 1,
+            "t_start": 0.72,
+            "t_end": 4.56,
+            "best_tiou": 0.29538461538461536
+          },
+          {
+            "rank": 2,
+            "t_start": 8.4,
+            "t_end": 14.16,
+            "best_tiou": 0.3248587570621469
+          }
+        ],
+        "miou": 0.29538461538461536,
+        "r@1_tiou_0.3": 0,
+        "r@1_tiou_0.5": 0,
+        "r@5_tiou_0.3": 1,
+        "r@5_tiou_0.5": 0
+      }
+    ],
+    "summary": {
+      "all": {
+        "n_queries": 64,
+        "n_no_prediction": 0,
+        "r@1_tiou_0.3": 0.21875,
+        "r@1_tiou_0.5": 0.109375,
+        "r@5_tiou_0.3": 0.421875,
+        "r@5_tiou_0.5": 0.1875,
+        "miou": 0.17805503051316995
+      },
+      "dev": {
+        "n_queries": 64,
+        "n_no_prediction": 0,
+        "r@1_tiou_0.3": 0.21875,
+        "r@1_tiou_0.5": 0.109375,
+        "r@5_tiou_0.3": 0.421875,
+        "r@5_tiou_0.5": 0.1875,
+        "miou": 0.17805503051316995
+      },
+      "test": {
+        "n_queries": 0,
+        "n_no_prediction": 0,
+        "r@1_tiou_0.3": 0.0,
+        "r@1_tiou_0.5": 0.0,
+        "r@5_tiou_0.3": 0.0,
+        "r@5_tiou_0.5": 0.0,
+        "miou": 0.0
+      }
+    }
+  }
+}

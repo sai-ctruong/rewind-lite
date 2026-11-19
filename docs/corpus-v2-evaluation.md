@@ -4,6 +4,8 @@ Ngày lập: 2026-11-19 (Asia/Bangkok). Mục đích: bước 1 của kế hoạ
 
 Bước 2 đã đo baseline trên 21 video có nhãn: xem [báo cáo và giới hạn](corpus-v2-baseline.md), cùng [JSON dự đoán từng truy vấn](benchmark-results/corpus-v2.json).
 
+Sau phép đo, Codex [rà soát lại nhãn `dev`](corpus-v2-dev-audit.md) và xác nhận `v2-abs-012` gán nhãn vắng mặt sai. Các tệp gốc vẫn được giữ để tái lập baseline; không nên xem trạng thái `verified` trong JSON là xác nhận ngữ nghĩa cuối cùng.
+
 ## Nguồn và phạm vi
 
 Người dùng xác nhận họ tự quay và cho phép dùng 62 tệp `video_1.mp4` đến `video_62.mp4` trong `D:\Videos\Videos` để đánh giá và trích hình cho báo cáo. Bản sao phục vụ đánh giá nằm tại `data/videos/corpus_v2/`; video không được đưa lên Git. [`corpus_v2_manifest.json`](../data/annotations/corpus_v2_manifest.json) ghi đường dẫn, SHA-256 từng tệp, thời lượng, FPS, số khung hình, nguồn, quyền sử dụng và split. Tổng thời lượng đo bằng OpenCV là 138,7 phút; các video đều 640×480, 25 FPS. Quyền sử dụng được ghi theo lời xác nhận của người cung cấp, chưa có giấy tờ độc lập.
