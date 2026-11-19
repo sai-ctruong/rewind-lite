@@ -26,6 +26,8 @@ _UI_DIR = Path(__file__).resolve().parent
 _VIDEO_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}\Z")
 DEFAULT_DARK_FRAME_LUMA_MAX = 5.0
 DEFAULT_KEYFRAME_MIN_GAP_S = 5.0
+# The 8 s experiment regressed top-1 localization on fresh held-out videos.
+DEFAULT_TEMPORAL_PEAK_CAP_S: float | None = None
 
 
 class ApiError(Exception):
@@ -70,7 +72,8 @@ class LiteService:
                  hist_duplicate_threshold: float = 1.0,
                  dedup_threshold: float = 1.0,
                  dark_frame_luma_max: float | None = DEFAULT_DARK_FRAME_LUMA_MAX,
-                 keyframe_min_gap_s: float = DEFAULT_KEYFRAME_MIN_GAP_S):
+                 keyframe_min_gap_s: float = DEFAULT_KEYFRAME_MIN_GAP_S,
+                 temporal_peak_cap_s: float | None = DEFAULT_TEMPORAL_PEAK_CAP_S):
         from retrieval.detector import DetectionCache
         from retrieval.video_engine import VideoSearchEngine
 
@@ -80,6 +83,10 @@ class LiteService:
             raise ValueError("max_frames must be positive")
         if not math.isfinite(keyframe_min_gap_s) or keyframe_min_gap_s < 0:
             raise ValueError("keyframe_min_gap_s must be nonnegative and finite")
+        if temporal_peak_cap_s is not None and (
+            not math.isfinite(temporal_peak_cap_s) or temporal_peak_cap_s <= 0
+        ):
+            raise ValueError("temporal_peak_cap_s must be None or positive and finite")
         self.encoder_factory = encoder_factory or _real_encoder
         self.detector_backend_factory = detector_backend_factory
         self.model_id, self.revision, self.device = model_id, revision, device
@@ -88,6 +95,7 @@ class LiteService:
         self.dedup_threshold = dedup_threshold
         self.dark_frame_luma_max = dark_frame_luma_max
         self.keyframe_min_gap_s = keyframe_min_gap_s
+        self.temporal_peak_cap_s = temporal_peak_cap_s
         self.engine = VideoSearchEngine(
             encoder_names=(model_id,), sample_every_s=sample_every_s,
             max_frames=max_frames,
@@ -483,6 +491,7 @@ class LiteService:
             temporal_cfg = TemporalConfig(
                 top_k=top_k,
                 dark_frame_luma_max=self.dark_frame_luma_max,
+                peak_window_cap_s=self.temporal_peak_cap_s,
             )
             dark_frame_ids = self._get_dark_frame_ids(
                 video_id, path, entry, temporal_cfg.dark_frame_luma_max

@@ -161,6 +161,7 @@ class TemporalConfig:
     default_frame_span_s: float = 1.0
     min_duration_s: float = 1.0
     max_duration_s: float = 30.0
+    peak_window_cap_s: float | None = None
     nms_tiou_threshold: float | None = 0.5
     relative_peak_threshold: float = 0.50
     dark_frame_luma_max: float | None = None
@@ -197,6 +198,11 @@ class TemporalConfig:
             or float(self.max_duration_s) < float(self.min_duration_s)
         ):
             raise ValueError("max_duration_s must be finite and >= min_duration_s")
+        if self.peak_window_cap_s is not None and (
+            not _is_finite_number(self.peak_window_cap_s)
+            or float(self.peak_window_cap_s) < float(self.min_duration_s)
+        ):
+            raise ValueError("peak_window_cap_s must be None or finite and >= min_duration_s")
         if self.nms_tiou_threshold is not None:
             if (
                 not _is_finite_number(self.nms_tiou_threshold)
@@ -582,6 +588,11 @@ def propose_temporal_moments(
             min_duration_s=float(config.min_duration_s),
             max_duration_s=float(config.max_duration_s),
         )
+        if (config.peak_window_cap_s is not None
+                and t_end - t_start > float(config.peak_window_cap_s)):
+            half_cap = 0.5 * float(config.peak_window_cap_s)
+            t_start = round(max(t_start, center_ts - half_cap), 6)
+            t_end = round(min(t_end, center_ts + half_cap), 6)
 
         # Evidence frames: all searchable frames inside [t_start, t_end]
         in_window = [

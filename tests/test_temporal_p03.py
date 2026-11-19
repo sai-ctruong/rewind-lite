@@ -145,6 +145,31 @@ def test_temporal_config_validation():
         TemporalConfig(relative_peak_threshold=-0.1)
     with pytest.raises(ValueError, match="top_k"):
         TemporalConfig(top_k=0)
+    with pytest.raises(ValueError, match="peak_window_cap_s"):
+        TemporalConfig(peak_window_cap_s=0)
+    with pytest.raises(ValueError, match="peak_window_cap_s"):
+        TemporalConfig(peak_window_cap_s=float("nan"))
+    with pytest.raises(ValueError, match="peak_window_cap_s"):
+        TemporalConfig(peak_window_cap_s=0.5, min_duration_s=1.0)
+
+
+def test_peak_window_cap_keeps_peak_and_trims_evidence():
+    frames = [FrameScore(f"f{i}", "v", float(i),
+                         .95 if i == 10 else .8 if 3 <= i <= 17 else .05)
+              for i in range(21)]
+    common = dict(smoothing_window=1, score_quantile=.3,
+                  relative_peak_threshold=0, top_k=5)
+    old = propose_temporal_moments(
+        frames, video_duration=21, config=TemporalConfig(**common))
+    capped = propose_temporal_moments(
+        frames, video_duration=21,
+        config=TemporalConfig(**common, peak_window_cap_s=8))
+    assert old[0].t_end - old[0].t_start > 8
+    assert capped[0].peak_timestamp == old[0].peak_timestamp
+    assert capped[0].t_end - capped[0].t_start <= 8
+    assert capped[0].t_start <= capped[0].peak_timestamp <= capped[0].t_end
+    assert all(capped[0].t_start <= frames[int(fid[1:])].timestamp <= capped[0].t_end
+               for fid in capped[0].evidence_frame_ids)
 
 
 def test_r01_relative_peak_threshold_default_and_tail_trimming():

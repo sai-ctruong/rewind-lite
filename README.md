@@ -76,6 +76,8 @@ Bộ [corpus v2](docs/corpus-v2-evaluation.md) mở rộng nguồn lên 62 video
 
 [Phép đo baseline corpus v2](docs/corpus-v2-baseline.md) chạy cùng đường index/search của web trên 21 video có nhãn. Test keyframe Hit@1 đạt 2/20, Hit@5 đạt 5/20; khả năng từ chối truy vấn vắng mặt đạt 6/8 với ngưỡng chọn từ dev. [JSON dự đoán và cấu hình](docs/benchmark-results/corpus-v2.json) cho phép kiểm tra từng câu. Các số này phản ánh nhãn nội bộ hiện có, chưa qua thẩm định độc lập.
 
+[Phép đo temporal trên video test mới](docs/corpus-v3-temporal-evaluation.md) thử giới hạn kết quả quanh đỉnh điểm số tối đa 8 giây. R@5/tIoU≥0,5 tăng từ 6/15 lên 7/15, nhưng R@1 giảm từ 1/15 xuống 0/15 và mIoU top 1 giảm. Vì vậy web giữ cấu hình temporal cũ làm mặc định; báo cáo lưu cả hai lượt đo và giới hạn của nhãn nội bộ.
+
 ```powershell
 .venv\Scripts\python.exe -m evaluation.dataset --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --every 1
 .venv\Scripts\python.exe -m evaluation.lite_benchmark --check
