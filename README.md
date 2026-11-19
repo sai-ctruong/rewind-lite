@@ -72,6 +72,10 @@ Mở `http://127.0.0.1:5000/`. Sidebar cho phép tải MP4 lên hoặc chọn vi
 
 `data/annotations/manifest.json` ghi nguồn, quyền dùng, checksum, metadata và split. `data/annotations/labels.json` có 57 nhãn `verified` sau lượt review trực quan của Codex ngày 2026-11-08; tính độc lập và độ chính xác ranh giới dưới một giây vẫn cần người khác kiểm tra. Hai file `evaluation/labels*.json` là dữ liệu Rewind cũ chưa kiểm tra với video nguồn nên **không** thuộc tập đánh giá Lite. Video, index, contact sheet và artifact benchmark cục bộ bị Git ignore; bản [JSON T06 đã đo](docs/benchmark-results/t06.json) được lưu cùng tài liệu.
 
+Bộ [corpus v2](docs/corpus-v2-evaluation.md) mở rộng nguồn lên 62 video tự quay (138,7 phút), chia theo nhóm người thành 42 `dev` và 20 `test`. Bộ nhãn mới có 84 truy vấn tiếng Việt có khoảng thời gian đúng và 20 truy vấn vắng mặt trên 21 video được chọn. Truy vấn vắng mặt được kiểm tra riêng bằng `evaluation.absent_dataset`; benchmark T06 hiện hành chưa chấm loại này. Các nhãn là lượt review nội bộ của Codex trên khung hình lấy mẫu; cần người khác xem toàn bộ clip và kiểm tra lại trước khi dùng làm ground truth độc lập trong báo cáo.
+
+[Phép đo baseline corpus v2](docs/corpus-v2-baseline.md) chạy cùng đường index/search của web trên 21 video có nhãn. Test keyframe Hit@1 đạt 2/20, Hit@5 đạt 5/20; khả năng từ chối truy vấn vắng mặt đạt 6/8 với ngưỡng chọn từ dev. [JSON dự đoán và cấu hình](docs/benchmark-results/corpus-v2.json) cho phép kiểm tra từng câu. Các số này phản ánh nhãn nội bộ hiện có, chưa qua thẩm định độc lập.
+
 ```powershell
 .venv\Scripts\python.exe -m evaluation.dataset --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --every 1
 .venv\Scripts\python.exe -m evaluation.lite_benchmark --check

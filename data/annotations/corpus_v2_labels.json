@@ -1,0 +1,1682 @@
+[
+  {
+    "query_id": "v2-vi-001",
+    "video_id": "video_1",
+    "query": "Người đàn ông áo xám cầm túi ngũ cốc phía trên chiếc bát",
+    "time_windows": [
+      [
+        88,
+        91
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_1-001",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-002",
+    "video_id": "video_1",
+    "query": "Người đàn ông áo xám đưa chiếc cốc lên uống trong bữa sáng",
+    "time_windows": [
+      [
+        177,
+        181
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_1-002",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-003",
+    "video_id": "video_1",
+    "query": "Hộp ngũ cốc đặt trên bàn ăn trước mặt người đàn ông",
+    "time_windows": [
+      [
+        0,
+        20
+      ]
+    ],
+    "category": "object",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_1-003",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-004",
+    "video_id": "video_1",
+    "query": "Người đàn ông cúi sát chiếc bát để ăn ở cuối cảnh",
+    "time_windows": [
+      [
+        289,
+        294
+      ]
+    ],
+    "category": "short_event",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_1-004",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-005",
+    "video_id": "video_6",
+    "query": "Người phụ nữ mặc áo đỏ đưa cốc lên miệng uống",
+    "time_windows": [
+      [
+        26,
+        29
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_6-005",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-006",
+    "video_id": "video_6",
+    "query": "Người phụ nữ áo đỏ cúi xem tờ tài liệu trên bàn ăn",
+    "time_windows": [
+      [
+        45,
+        49
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_6-006",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-007",
+    "video_id": "video_6",
+    "query": "Chiếc cốc màu trắng nằm cạnh hộp ngũ cốc ở bàn ăn",
+    "time_windows": [
+      [
+        10,
+        22
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_6-007",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-008",
+    "video_id": "video_6",
+    "query": "Người phụ nữ áo đỏ ngồi một mình tại bàn ăn sáng",
+    "time_windows": [
+      [
+        0,
+        20
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_6-008",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-009",
+    "video_id": "video_8",
+    "query": "Người phụ nữ áo đỏ dùng thìa ăn từ chiếc bát",
+    "time_windows": [
+      [
+        30,
+        40
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_8-009",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-010",
+    "video_id": "video_8",
+    "query": "Người phụ nữ mặc áo đỏ nâng chiếc cốc lên uống ở cuối đoạn",
+    "time_windows": [
+      [
+        48,
+        54
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_8-010",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-011",
+    "video_id": "video_8",
+    "query": "Hộp ngũ cốc Brave nằm ở phía trước bàn ăn",
+    "time_windows": [
+      [
+        2,
+        18
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_8-011",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-012",
+    "video_id": "video_8",
+    "query": "Trên bàn ăn có bát và hộp ngũ cốc trước mặt người áo đỏ",
+    "time_windows": [
+      [
+        18,
+        29
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_8-012",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-013",
+    "video_id": "video_11",
+    "query": "Người phụ nữ áo xanh lá đưa thìa thức ăn lên miệng",
+    "time_windows": [
+      [
+        117,
+        122
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_11-013",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-014",
+    "video_id": "video_11",
+    "query": "Người phụ nữ áo xanh lá ngồi trước hộp ngũ cốc và đĩa trái cây",
+    "time_windows": [
+      [
+        0,
+        25
+      ]
+    ],
+    "category": "context",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_11-014",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-015",
+    "video_id": "video_11",
+    "query": "Người phụ nữ áo xanh lá giơ tay diễn tả trong lúc ngồi ăn",
+    "time_windows": [
+      [
+        237,
+        242
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_11-015",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-016",
+    "video_id": "video_11",
+    "query": "Đĩa trái cây nằm bên phải hộp ngũ cốc trước người áo xanh lá",
+    "time_windows": [
+      [
+        277,
+        281
+      ]
+    ],
+    "category": "object",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_11-016",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-017",
+    "video_id": "video_16",
+    "query": "Người phụ nữ áo màu be nghiêng ấm trắng để rót vào cốc",
+    "time_windows": [
+      [
+        3,
+        7
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_16-017",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-018",
+    "video_id": "video_16",
+    "query": "Người phụ nữ áo màu be đọc tập giấy trong bữa sáng",
+    "time_windows": [
+      [
+        25,
+        44
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_16-018",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-019",
+    "video_id": "video_16",
+    "query": "Ấm điện màu trắng đặt trên bàn cạnh hộp ngũ cốc",
+    "time_windows": [
+      [
+        0,
+        12
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_16-019",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-020",
+    "video_id": "video_16",
+    "query": "Người phụ nữ mặc áo be vừa xem tài liệu vừa ngồi ở bàn ăn",
+    "time_windows": [
+      [
+        45,
+        62
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_16-020",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-021",
+    "video_id": "video_18",
+    "query": "Người phụ nữ áo be nhấc ấm trắng trên bàn ăn",
+    "time_windows": [
+      [
+        4,
+        7
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_18-021",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-022",
+    "video_id": "video_18",
+    "query": "Người phụ nữ áo be cầm hộp ngũ cốc trong lúc chuẩn bị bữa sáng",
+    "time_windows": [
+      [
+        9,
+        12
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_18-022",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-023",
+    "video_id": "video_18",
+    "query": "Người phụ nữ áo be đưa cốc đồ uống lên miệng",
+    "time_windows": [
+      [
+        28,
+        32
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_18-023",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-024",
+    "video_id": "video_18",
+    "query": "Trên bàn của người áo be có ấm trắng và hộp ngũ cốc",
+    "time_windows": [
+      [
+        0,
+        14
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_18-024",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-025",
+    "video_id": "video_21",
+    "query": "Người đàn ông áo xám ngồi ăn tại bàn có đĩa trái cây",
+    "time_windows": [
+      [
+        193,
+        200
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_21-025",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-026",
+    "video_id": "video_21",
+    "query": "Người phụ nữ áo kẻ sẫm đứng cạnh người đàn ông ngồi bàn ăn",
+    "time_windows": [
+      [
+        64,
+        92
+      ]
+    ],
+    "category": "context",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_21-026",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-027",
+    "video_id": "video_21",
+    "query": "Người đàn ông áo xám cầm miếng đồ ăn trước mặt",
+    "time_windows": [
+      [
+        258,
+        263
+      ]
+    ],
+    "category": "short_event",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_21-027",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-028",
+    "video_id": "video_21",
+    "query": "Đĩa thức ăn đặt trên bàn tối màu trước người đàn ông",
+    "time_windows": [
+      [
+        0,
+        25
+      ]
+    ],
+    "category": "object",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_21-028",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-029",
+    "video_id": "video_24",
+    "query": "Người phụ nữ áo kẻ sẫm ăn trái cây tại bàn",
+    "time_windows": [
+      [
+        290,
+        296
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_24-029",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-030",
+    "video_id": "video_24",
+    "query": "Người đàn ông áo xám mang đĩa đến cho người phụ nữ áo kẻ",
+    "time_windows": [
+      [
+        24,
+        29
+      ]
+    ],
+    "category": "short_event",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_24-030",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-031",
+    "video_id": "video_24",
+    "query": "Đĩa trái cây ở trước mặt người phụ nữ mặc áo kẻ",
+    "time_windows": [
+      [
+        40,
+        75
+      ]
+    ],
+    "category": "object",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_24-031",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-032",
+    "video_id": "video_24",
+    "query": "Người đàn ông áo xám quay lại gần bàn của người phụ nữ",
+    "time_windows": [
+      [
+        316,
+        323
+      ]
+    ],
+    "category": "context",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_24-032",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-033",
+    "video_id": "video_26",
+    "query": "Người đàn ông áo sơ mi kẻ đỏ ăn bằng thìa tại bàn",
+    "time_windows": [
+      [
+        29,
+        41
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_26-033",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-034",
+    "video_id": "video_26",
+    "query": "Người đàn ông áo kẻ đỏ nhận chiếc bát tại bàn ăn",
+    "time_windows": [
+      [
+        18,
+        23
+      ]
+    ],
+    "category": "short_event",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_26-034",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-035",
+    "video_id": "video_26",
+    "query": "Chiếc cốc màu xanh lá đặt cạnh bát ăn của người áo kẻ đỏ",
+    "time_windows": [
+      [
+        49,
+        54
+      ]
+    ],
+    "category": "color",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_26-035",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-036",
+    "video_id": "video_26",
+    "query": "Đĩa trái cây đặt trước người đàn ông mặc áo kẻ đỏ",
+    "time_windows": [
+      [
+        0,
+        15
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_26-036",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-037",
+    "video_id": "video_28",
+    "query": "Người phụ nữ mặc áo khoác xám được người khác mang thức ăn đến",
+    "time_windows": [
+      [
+        6,
+        11
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_28-037",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-038",
+    "video_id": "video_28",
+    "query": "Người mặc áo khoác xám ngồi trước chiếc bát cạnh đĩa hoa quả",
+    "time_windows": [
+      [
+        54,
+        60
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_28-038",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-039",
+    "video_id": "video_28",
+    "query": "Người phụ nữ áo khoác xám uống từ chai nhỏ",
+    "time_windows": [
+      [
+        95,
+        107
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_28-039",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-040",
+    "video_id": "video_28",
+    "query": "Đĩa trái cây nằm cạnh người phụ nữ mặc áo khoác xám",
+    "time_windows": [
+      [
+        13,
+        27
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_28-040",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-041",
+    "video_id": "video_30",
+    "query": "Người phụ nữ áo khoác xám uống nước từ cốc xanh lá",
+    "time_windows": [
+      [
+        14,
+        18
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_30-041",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-042",
+    "video_id": "video_30",
+    "query": "Chiếc cốc xanh lá ở cạnh đĩa hoa quả của người áo khoác xám",
+    "time_windows": [
+      [
+        45,
+        49
+      ]
+    ],
+    "category": "color",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_30-042",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-043",
+    "video_id": "video_30",
+    "query": "Người phụ nữ áo khoác xám cắn quả táo màu đỏ",
+    "time_windows": [
+      [
+        56,
+        64
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_30-043",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-044",
+    "video_id": "video_30",
+    "query": "Người phụ nữ mặc áo khoác xám ăn từ chiếc bát",
+    "time_windows": [
+      [
+        30,
+        43
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_30-044",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-045",
+    "video_id": "video_33",
+    "query": "Người phụ nữ tóc sẫm áo xám cầm thức ăn ở bàn",
+    "time_windows": [
+      [
+        23,
+        41
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_33-045",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-046",
+    "video_id": "video_33",
+    "query": "Người khác đứng cạnh người phụ nữ tóc sẫm đang ngồi ăn",
+    "time_windows": [
+      [
+        79,
+        91
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_33-046",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-047",
+    "video_id": "video_33",
+    "query": "Người phụ nữ tóc sẫm áo xám ăn tại bàn có trái cây",
+    "time_windows": [
+      [
+        94,
+        100
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_33-047",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-048",
+    "video_id": "video_33",
+    "query": "Một người đứng bên phải bàn ăn của người phụ nữ tóc sẫm",
+    "time_windows": [
+      [
+        111,
+        117
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_33-048",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-049",
+    "video_id": "video_35",
+    "query": "Người phụ nữ tóc sẫm áo xám uống từ cốc xanh lá",
+    "time_windows": [
+      [
+        26,
+        31
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_35-049",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-050",
+    "video_id": "video_35",
+    "query": "Người phụ nữ tóc sẫm áo xám ăn từ chiếc bát",
+    "time_windows": [
+      [
+        13,
+        25
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_35-050",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-051",
+    "video_id": "video_35",
+    "query": "Người phụ nữ tóc sẫm áo xám quay sang phải và giơ tay",
+    "time_windows": [
+      [
+        40,
+        45
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_35-051",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-052",
+    "video_id": "video_35",
+    "query": "Người phụ nữ áo xám cầm cốc xanh lá lần nữa",
+    "time_windows": [
+      [
+        45,
+        49
+      ]
+    ],
+    "category": "color",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_35-052",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-053",
+    "video_id": "video_38",
+    "query": "Người phụ nữ áo hồng nhạt ăn từ chiếc đĩa",
+    "time_windows": [
+      [
+        19,
+        24
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_38-053",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-054",
+    "video_id": "video_38",
+    "query": "Một phụ nữ khác đi vào phía bên phải bàn ăn của người áo hồng",
+    "time_windows": [
+      [
+        11,
+        15
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_38-054",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-055",
+    "video_id": "video_38",
+    "query": "Người đứng cạnh mang đồ ăn đến cho người phụ nữ áo hồng",
+    "time_windows": [
+      [
+        32,
+        36
+      ]
+    ],
+    "category": "short_event",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_38-055",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-056",
+    "video_id": "video_38",
+    "query": "Người đứng bên phải đưa thêm đĩa cho người ngồi áo hồng",
+    "time_windows": [
+      [
+        45,
+        50
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_38-056",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-057",
+    "video_id": "video_40",
+    "query": "Người phụ nữ áo hồng nhạt uống từ cốc xanh lá",
+    "time_windows": [
+      [
+        20,
+        24
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_40-057",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-058",
+    "video_id": "video_40",
+    "query": "Người phụ nữ áo hồng nhạt ăn tại bàn trước khi có người tới",
+    "time_windows": [
+      [
+        15,
+        20
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_40-058",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-059",
+    "video_id": "video_40",
+    "query": "Một người bước đến cạnh người phụ nữ áo hồng nhạt",
+    "time_windows": [
+      [
+        37,
+        41
+      ]
+    ],
+    "category": "context",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_40-059",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-060",
+    "video_id": "video_40",
+    "query": "Người đứng cạnh thu dọn đĩa trên bàn của người áo hồng",
+    "time_windows": [
+      [
+        41,
+        48
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_40-060",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-061",
+    "video_id": "video_43",
+    "query": "Người đàn ông áo xám cúi xuống viết lên tờ giấy",
+    "time_windows": [
+      [
+        31,
+        48
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_43-061",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-062",
+    "video_id": "video_43",
+    "query": "Người đàn ông áo xám gõ trên bàn phím máy tính xách tay",
+    "time_windows": [
+      [
+        140,
+        158
+      ]
+    ],
+    "category": "action",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_43-062",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-063",
+    "video_id": "video_43",
+    "query": "Máy tính xách tay và tờ giấy ở trước người đàn ông áo xám",
+    "time_windows": [
+      [
+        65,
+        83
+      ]
+    ],
+    "category": "object",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_43-063",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-064",
+    "video_id": "video_43",
+    "query": "Người đàn ông áo xám đưa điện thoại lên sát tai",
+    "time_windows": [
+      [
+        230,
+        233
+      ]
+    ],
+    "category": "short_event",
+    "split": "test",
+    "language": "vi",
+    "paraphrase_group": "v2-video_43-064",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-065",
+    "video_id": "video_48",
+    "query": "Người phụ nữ áo đỏ viết lên tờ giấy ở bàn làm việc",
+    "time_windows": [
+      [
+        8,
+        17
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_48-065",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-066",
+    "video_id": "video_48",
+    "query": "Người phụ nữ áo đỏ gõ bàn phím máy tính xách tay",
+    "time_windows": [
+      [
+        22,
+        26
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_48-066",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-067",
+    "video_id": "video_48",
+    "query": "Người phụ nữ áo đỏ cầm cốc xanh lá tại bàn làm việc",
+    "time_windows": [
+      [
+        19,
+        21
+      ]
+    ],
+    "category": "color",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_48-067",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-068",
+    "video_id": "video_48",
+    "query": "Người phụ nữ áo đỏ mở tập giấy đặt cạnh laptop",
+    "time_windows": [
+      [
+        0,
+        4
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_48-068",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-069",
+    "video_id": "video_50",
+    "query": "Người phụ nữ áo đỏ uống từ cốc màu xanh lá tại bàn làm việc",
+    "time_windows": [
+      [
+        17,
+        20
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_50-069",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-070",
+    "video_id": "video_50",
+    "query": "Người phụ nữ áo đỏ viết chữ lên tờ giấy cạnh laptop",
+    "time_windows": [
+      [
+        7,
+        14
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_50-070",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-071",
+    "video_id": "video_50",
+    "query": "Người phụ nữ áo đỏ dùng máy tính xách tay sau khi uống",
+    "time_windows": [
+      [
+        23,
+        25
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_50-071",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-072",
+    "video_id": "video_50",
+    "query": "Máy tính xách tay mở trên bàn cạnh người phụ nữ áo đỏ",
+    "time_windows": [
+      [
+        3,
+        16
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_50-072",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-073",
+    "video_id": "video_53",
+    "query": "Người phụ nữ áo khoác xám gõ bàn phím máy tính xách tay",
+    "time_windows": [
+      [
+        6,
+        8
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_53-073",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-074",
+    "video_id": "video_53",
+    "query": "Người phụ nữ áo khoác xám cúi viết trên giấy ở bàn làm việc",
+    "time_windows": [
+      [
+        11,
+        20
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_53-074",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-075",
+    "video_id": "video_53",
+    "query": "Chai đồ uống nắp cam đứng bên phải tờ giấy",
+    "time_windows": [
+      [
+        0,
+        20
+      ]
+    ],
+    "category": "color",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_53-075",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-076",
+    "video_id": "video_53",
+    "query": "Người phụ nữ áo khoác xám đưa tay chạm vào tai khi làm việc",
+    "time_windows": [
+      [
+        22,
+        25
+      ]
+    ],
+    "category": "short_event",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_53-076",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-077",
+    "video_id": "video_58",
+    "query": "Người phụ nữ áo be gõ bàn phím máy tính xách tay",
+    "time_windows": [
+      [
+        1,
+        4
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_58-077",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-078",
+    "video_id": "video_58",
+    "query": "Người phụ nữ áo be viết lên giấy bằng bút màu đỏ",
+    "time_windows": [
+      [
+        6,
+        10
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_58-078",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-079",
+    "video_id": "video_58",
+    "query": "Người phụ nữ áo be uống từ chai nắp cam ở bàn làm việc",
+    "time_windows": [
+      [
+        19.5,
+        21.5
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_58-079",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-080",
+    "video_id": "video_58",
+    "query": "Chai đồ uống nắp cam nằm bên phải tờ giấy của người áo be",
+    "time_windows": [
+      [
+        10,
+        18
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_58-080",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-081",
+    "video_id": "video_62",
+    "query": "Người phụ nữ áo be viết lên tờ giấy cạnh máy tính xách tay",
+    "time_windows": [
+      [
+        4,
+        8
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_62-081",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-082",
+    "video_id": "video_62",
+    "query": "Người phụ nữ áo be gõ bàn phím rồi nhìn về tờ giấy",
+    "time_windows": [
+      [
+        8,
+        10
+      ]
+    ],
+    "category": "action",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_62-082",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-083",
+    "video_id": "video_62",
+    "query": "Người phụ nữ áo be cầm bút màu đỏ trên tờ giấy",
+    "time_windows": [
+      [
+        11,
+        14.4
+      ]
+    ],
+    "category": "color",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_62-083",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  },
+  {
+    "query_id": "v2-vi-084",
+    "video_id": "video_62",
+    "query": "Máy tính xách tay mở bên trái người phụ nữ áo be",
+    "time_windows": [
+      [
+        0,
+        13
+      ]
+    ],
+    "category": "object",
+    "split": "dev",
+    "language": "vi",
+    "paraphrase_group": "v2-video_62-084",
+    "annotator": "Codex from timestamped source frames",
+    "review_status": "verified",
+    "reviewer": "Codex visual review (not independent)",
+    "reviewed_at": "2026-11-19",
+    "review_method": "16 timestamped frames per selected video; event interval localized around observed frame(s)"
+  }
+]

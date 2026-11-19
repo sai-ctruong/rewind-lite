@@ -246,6 +246,7 @@ def test_r02_shared_default_backend_and_cache_across_calls(monkeypatch):
 
 
 def test_ultralytics_backend_smoke():
+    pytest.importorskip("ultralytics", reason="optional YOLO dependency is not installed")
     from retrieval.detector import UltralyticsYOLOBackend
     backend = UltralyticsYOLOBackend(model_id="yolov8n.pt")
     # Synthetic frame: black image with small white rectangle

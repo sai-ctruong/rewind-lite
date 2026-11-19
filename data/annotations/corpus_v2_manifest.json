@@ -1,0 +1,1061 @@
+{
+  "schema_version": 1,
+  "dataset_id": "corpus_v2_2026_11_19",
+  "grouping_note": "Visual provisional person grouping across activities; owner or independent reviewer should confirm identities. Entire groups are assigned to one split.",
+  "videos": [
+    {
+      "video_id": "video_1",
+      "path": "data/videos/corpus_v2/video_1.mp4",
+      "sha256": "02601bb85447ef412d462be8fc31d5817a3982ae3375751485fe81218a062f7c",
+      "duration_s": 336.8,
+      "fps": 25.0,
+      "frame_count": 8420,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_2",
+      "path": "data/videos/corpus_v2/video_2.mp4",
+      "sha256": "1b0332f4e232214098b1a9af3d80893258eb503761544146172dfbe9d08ffcc6",
+      "duration_s": 394.84,
+      "fps": 25.0,
+      "frame_count": 9871,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_3",
+      "path": "data/videos/corpus_v2/video_3.mp4",
+      "sha256": "5e3f4d3f1c334b55c3dea07bc80b02e79a7fb228090b2700db03dcf153e9b78a",
+      "duration_s": 282.92,
+      "fps": 25.0,
+      "frame_count": 7073,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_4",
+      "path": "data/videos/corpus_v2/video_4.mp4",
+      "sha256": "e117f0d1658bcc01c72299f4c94a51057560ec44a501a35f66fc7e31e350c147",
+      "duration_s": 199.28,
+      "fps": 25.0,
+      "frame_count": 4982,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_5",
+      "path": "data/videos/corpus_v2/video_5.mp4",
+      "sha256": "71faccff448cf8ff6dc4849e35f7fa96e2e488dc2c0327523a7a7ead4e88b864",
+      "duration_s": 318.2,
+      "fps": 25.0,
+      "frame_count": 7955,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_6",
+      "path": "data/videos/corpus_v2/video_6.mp4",
+      "sha256": "dfbbb63f3773c1e73dee0953bd8408155535da4b861d4bf6652c27c8e072ec2f",
+      "duration_s": 58.4,
+      "fps": 25.0,
+      "frame_count": 1460,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_7",
+      "path": "data/videos/corpus_v2/video_7.mp4",
+      "sha256": "708442c08feae6c8265f730395a1d4b5e007deefb0d46e368fd4209e2aa9db5a",
+      "duration_s": 58.0,
+      "fps": 25.0,
+      "frame_count": 1450,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_8",
+      "path": "data/videos/corpus_v2/video_8.mp4",
+      "sha256": "19d4b5d0a9c89791180d0419d89b4769d1a1541ccfcc3240f63bf06368019c31",
+      "duration_s": 56.8,
+      "fps": 25.0,
+      "frame_count": 1420,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_9",
+      "path": "data/videos/corpus_v2/video_9.mp4",
+      "sha256": "af3b611c02f74ff29e10de831cb71ff8cd6f98081b3af6ae969a663c8e4e50a1",
+      "duration_s": 72.2,
+      "fps": 25.0,
+      "frame_count": 1805,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_10",
+      "path": "data/videos/corpus_v2/video_10.mp4",
+      "sha256": "7159b558807dafc1e5c40d34381397410f4e8da02d6bd2430c8618666d7c94ee",
+      "duration_s": 86.12,
+      "fps": 25.0,
+      "frame_count": 2153,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_11",
+      "path": "data/videos/corpus_v2/video_11.mp4",
+      "sha256": "e2d6e6a9fba52dcd6a554e9ae9e3cc775a4833f3f9b0ac928632c581ba1e06bb",
+      "duration_s": 299.12,
+      "fps": 25.0,
+      "frame_count": 7478,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_c"
+    },
+    {
+      "video_id": "video_12",
+      "path": "data/videos/corpus_v2/video_12.mp4",
+      "sha256": "236acb92d9603b691157d6ce27f3475ed684c2d01ca07f690c15bfc8239024cf",
+      "duration_s": 327.56,
+      "fps": 25.0,
+      "frame_count": 8189,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_c"
+    },
+    {
+      "video_id": "video_13",
+      "path": "data/videos/corpus_v2/video_13.mp4",
+      "sha256": "42e27b7c9bb8c046e58e6216e4d9e6bb8d7e6e87b9f1aa2160a917642c8ece07",
+      "duration_s": 272.24,
+      "fps": 25.0,
+      "frame_count": 6806,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_c"
+    },
+    {
+      "video_id": "video_14",
+      "path": "data/videos/corpus_v2/video_14.mp4",
+      "sha256": "cc74527db9c3b5650c58688b66a73399bbdb0e75b52e9b623f694cde8aa0423b",
+      "duration_s": 346.12,
+      "fps": 25.0,
+      "frame_count": 8653,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_c"
+    },
+    {
+      "video_id": "video_15",
+      "path": "data/videos/corpus_v2/video_15.mp4",
+      "sha256": "74c14d842ccdef1e578c1c725a525601eda00a552b9dcf94bfe416f3cb800bf6",
+      "duration_s": 257.8,
+      "fps": 25.0,
+      "frame_count": 6445,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_c"
+    },
+    {
+      "video_id": "video_16",
+      "path": "data/videos/corpus_v2/video_16.mp4",
+      "sha256": "0b13a0218a0abc09088edbc79040cf57e688e122117ee0b9435a5531cb55ee53",
+      "duration_s": 69.28,
+      "fps": 25.0,
+      "frame_count": 1732,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_17",
+      "path": "data/videos/corpus_v2/video_17.mp4",
+      "sha256": "0059894a74ce3dd73736346ac4cdc09ba4a90e734293ed1aee684e89d85a1586",
+      "duration_s": 30.8,
+      "fps": 25.0,
+      "frame_count": 770,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_18",
+      "path": "data/videos/corpus_v2/video_18.mp4",
+      "sha256": "44e72534a0d6000526febb31fcca1c5f7dddd4979f4d279dd65877f406618edd",
+      "duration_s": 37.52,
+      "fps": 25.0,
+      "frame_count": 938,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_19",
+      "path": "data/videos/corpus_v2/video_19.mp4",
+      "sha256": "78af6c19ecd543ebc42b5fcce95d1565d7fa4e258f1d869565f37cb571484332",
+      "duration_s": 35.08,
+      "fps": 25.0,
+      "frame_count": 877,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_20",
+      "path": "data/videos/corpus_v2/video_20.mp4",
+      "sha256": "d2e3a7f5b6939e67ce01865554aa4b70e639ec78260caadf223d6035ace7ad5b",
+      "duration_s": 33.68,
+      "fps": 25.0,
+      "frame_count": 842,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_21",
+      "path": "data/videos/corpus_v2/video_21.mp4",
+      "sha256": "e8470a0580998db186e974127c087d62f2394c67676710fc45c298582d276ee9",
+      "duration_s": 327.16,
+      "fps": 25.0,
+      "frame_count": 8179,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_22",
+      "path": "data/videos/corpus_v2/video_22.mp4",
+      "sha256": "b304fcf892167295a17065e6f75d3fc9a51d14e1558cbe3836bcd3df1682d4b1",
+      "duration_s": 399.96,
+      "fps": 25.0,
+      "frame_count": 9999,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_23",
+      "path": "data/videos/corpus_v2/video_23.mp4",
+      "sha256": "29d9235835a09116a92f5d5a4f2e2a426e7e466e6d0e2301dba481de8368a49a",
+      "duration_s": 388.88,
+      "fps": 25.0,
+      "frame_count": 9722,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_24",
+      "path": "data/videos/corpus_v2/video_24.mp4",
+      "sha256": "4989c78c029f20b0b6243d1f2add4862dba6a470f6d1c4284bfa068dd2118f48",
+      "duration_s": 399.96,
+      "fps": 25.0,
+      "frame_count": 9999,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_e"
+    },
+    {
+      "video_id": "video_25",
+      "path": "data/videos/corpus_v2/video_25.mp4",
+      "sha256": "bbb1dd36fd5f2e3661909c34d99bf731694e4b9cda90aca5aad2bfe16b6b21a3",
+      "duration_s": 399.96,
+      "fps": 25.0,
+      "frame_count": 9999,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_e"
+    },
+    {
+      "video_id": "video_26",
+      "path": "data/videos/corpus_v2/video_26.mp4",
+      "sha256": "e42016443a1046902596fdd1c2f3f4da8ef9d2e600ec877db8d022f2cc59af38",
+      "duration_s": 77.48,
+      "fps": 25.0,
+      "frame_count": 1937,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_f"
+    },
+    {
+      "video_id": "video_27",
+      "path": "data/videos/corpus_v2/video_27.mp4",
+      "sha256": "5d11f5de3a4acecf8e633b61775bd113180d8c07397a3cdb56e1088e280b2382",
+      "duration_s": 80.24,
+      "fps": 25.0,
+      "frame_count": 2006,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_f"
+    },
+    {
+      "video_id": "video_28",
+      "path": "data/videos/corpus_v2/video_28.mp4",
+      "sha256": "abf37e0625b316795557b0de737b863ba2b95e33c2246b40c7947c451853115e",
+      "duration_s": 121.76,
+      "fps": 25.0,
+      "frame_count": 3044,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_29",
+      "path": "data/videos/corpus_v2/video_29.mp4",
+      "sha256": "f2a14360e9bf2a743b3e87bbfc4fa262ede21c56e776cafa81d8fadf1f56d738",
+      "duration_s": 89.52,
+      "fps": 25.0,
+      "frame_count": 2238,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_30",
+      "path": "data/videos/corpus_v2/video_30.mp4",
+      "sha256": "57182bfe9203b911f049e15e0aefe8f9d8cc4f19f857fb6ae0e8f3a0c7a20d09",
+      "duration_s": 78.36,
+      "fps": 25.0,
+      "frame_count": 1959,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_31",
+      "path": "data/videos/corpus_v2/video_31.mp4",
+      "sha256": "b2578ad6ef8b8dd493cc0fc9293b6b17e5b9b0f01f54445e8db78bc1781282bc",
+      "duration_s": 74.68,
+      "fps": 25.0,
+      "frame_count": 1867,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_32",
+      "path": "data/videos/corpus_v2/video_32.mp4",
+      "sha256": "5a3d45acc8d6acbd22ac8384a51e9131bb2ecaee5dd3235cf29b4f043429ce2c",
+      "duration_s": 83.64,
+      "fps": 25.0,
+      "frame_count": 2091,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_33",
+      "path": "data/videos/corpus_v2/video_33.mp4",
+      "sha256": "d72cf242047c7990643817ff47f85dc2107d7c298f005b256eb209ced71bf2bb",
+      "duration_s": 122.04,
+      "fps": 25.0,
+      "frame_count": 3051,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_h"
+    },
+    {
+      "video_id": "video_34",
+      "path": "data/videos/corpus_v2/video_34.mp4",
+      "sha256": "e3c5a53cffe2a7d378c08d17f1a58d4111261c68a65b6d869d6a978e320475d3",
+      "duration_s": 78.64,
+      "fps": 25.0,
+      "frame_count": 1966,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_h"
+    },
+    {
+      "video_id": "video_35",
+      "path": "data/videos/corpus_v2/video_35.mp4",
+      "sha256": "340e6122479100c7cd7f25e6ecceeebbf50b4dcdc899c5a1ac8ebc41353b1008",
+      "duration_s": 71.36,
+      "fps": 25.0,
+      "frame_count": 1784,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_h"
+    },
+    {
+      "video_id": "video_36",
+      "path": "data/videos/corpus_v2/video_36.mp4",
+      "sha256": "6555c2bac761425119ef76c8f9c1407dada7ff22074ba1a4e42b4905e9fb67fe",
+      "duration_s": 71.12,
+      "fps": 25.0,
+      "frame_count": 1778,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_h"
+    },
+    {
+      "video_id": "video_37",
+      "path": "data/videos/corpus_v2/video_37.mp4",
+      "sha256": "d54723888106523df6f1085492af658c3da445ac14cdda700bcc1f0101985120",
+      "duration_s": 75.36,
+      "fps": 25.0,
+      "frame_count": 1884,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_h"
+    },
+    {
+      "video_id": "video_38",
+      "path": "data/videos/corpus_v2/video_38.mp4",
+      "sha256": "6092d6ddd3e00f79360391eaf356dc4573ad3f04acb081935fef7094447537bd",
+      "duration_s": 63.76,
+      "fps": 25.0,
+      "frame_count": 1594,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_i"
+    },
+    {
+      "video_id": "video_39",
+      "path": "data/videos/corpus_v2/video_39.mp4",
+      "sha256": "35d65aea2e7609b6a99a107e8cbc926ae74d0c52bd5fc348546ef8629030ed71",
+      "duration_s": 48.92,
+      "fps": 25.0,
+      "frame_count": 1223,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_i"
+    },
+    {
+      "video_id": "video_40",
+      "path": "data/videos/corpus_v2/video_40.mp4",
+      "sha256": "03e89a04922b496054fa61c548602d2e3c63ef5756b7aba7761f2d8913343686",
+      "duration_s": 64.28,
+      "fps": 25.0,
+      "frame_count": 1607,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_i"
+    },
+    {
+      "video_id": "video_41",
+      "path": "data/videos/corpus_v2/video_41.mp4",
+      "sha256": "a73f5375ef0bcbc9a1989d4d2f0a1068818d541dbd72db9bbffd5358e387d770",
+      "duration_s": 58.68,
+      "fps": 25.0,
+      "frame_count": 1467,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_i"
+    },
+    {
+      "video_id": "video_42",
+      "path": "data/videos/corpus_v2/video_42.mp4",
+      "sha256": "9ce15e44999284e039ba39cf93b8d4fb5e57046707629985b7ae3e6a86a29996",
+      "duration_s": 74.28,
+      "fps": 25.0,
+      "frame_count": 1857,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_i"
+    },
+    {
+      "video_id": "video_43",
+      "path": "data/videos/corpus_v2/video_43.mp4",
+      "sha256": "9b1e09ceb9906a9ab21cf9bdcdd8f90b180ea997d1bb5c445d69c3eb2d50fd84",
+      "duration_s": 233.64,
+      "fps": 25.0,
+      "frame_count": 5841,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_44",
+      "path": "data/videos/corpus_v2/video_44.mp4",
+      "sha256": "51fa3383013a8a41787bb10879e92e4c8b6b1e8a7b4c28762094ee8b5476e7c0",
+      "duration_s": 240.28,
+      "fps": 25.0,
+      "frame_count": 6007,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_45",
+      "path": "data/videos/corpus_v2/video_45.mp4",
+      "sha256": "7a70116d46e7ee3510e9414be09ca10445bf34f3669d266c3318bc64e1073dd4",
+      "duration_s": 117.48,
+      "fps": 25.0,
+      "frame_count": 2937,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_46",
+      "path": "data/videos/corpus_v2/video_46.mp4",
+      "sha256": "61a75257cf491bf0d9b4a2a5c4aec189be7918e35ae3a965beaea9cd28511ea9",
+      "duration_s": 201.44,
+      "fps": 25.0,
+      "frame_count": 5036,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_47",
+      "path": "data/videos/corpus_v2/video_47.mp4",
+      "sha256": "36ba716591a56584c9579cffab35622a718d48fd2a87dc84b0b62b9347121b6d",
+      "duration_s": 257.32,
+      "fps": 25.0,
+      "frame_count": 6433,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "test",
+      "group_id": "person_a"
+    },
+    {
+      "video_id": "video_48",
+      "path": "data/videos/corpus_v2/video_48.mp4",
+      "sha256": "be2b26f90328835ca902229ebf64db6f28dc5bd3acd79862732add95777b6e28",
+      "duration_s": 31.04,
+      "fps": 25.0,
+      "frame_count": 776,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_49",
+      "path": "data/videos/corpus_v2/video_49.mp4",
+      "sha256": "7177d7732e3bdad3708d54fc5a4d43a0f0bc8806aa686343a547a9b8d2f8ca5d",
+      "duration_s": 30.0,
+      "fps": 25.0,
+      "frame_count": 750,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_50",
+      "path": "data/videos/corpus_v2/video_50.mp4",
+      "sha256": "9bed8d2e6b125457e3b64fdecf4c26b7fbdbc4d3b79ccd25d65f099b92fc7670",
+      "duration_s": 27.84,
+      "fps": 25.0,
+      "frame_count": 696,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_51",
+      "path": "data/videos/corpus_v2/video_51.mp4",
+      "sha256": "720c38e7ac8e59d48f95ec8ce1685eace6ba15aaad8166e8fe4805689731417a",
+      "duration_s": 25.04,
+      "fps": 25.0,
+      "frame_count": 626,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_52",
+      "path": "data/videos/corpus_v2/video_52.mp4",
+      "sha256": "c7d95367e70fbef440a8788bf5e8f86d1531a46238dd256749044a312f7dfc9e",
+      "duration_s": 34.88,
+      "fps": 25.0,
+      "frame_count": 872,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_b"
+    },
+    {
+      "video_id": "video_53",
+      "path": "data/videos/corpus_v2/video_53.mp4",
+      "sha256": "d8e02049321bf02675763942d76373a4ddf5b5e0df6214332f7604ff6d9d8cd7",
+      "duration_s": 27.76,
+      "fps": 25.0,
+      "frame_count": 694,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_54",
+      "path": "data/videos/corpus_v2/video_54.mp4",
+      "sha256": "bcc9bf0eefc1363573145957f2bcc24f356deba6e18eb173239209afb739c759",
+      "duration_s": 34.8,
+      "fps": 25.0,
+      "frame_count": 870,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_55",
+      "path": "data/videos/corpus_v2/video_55.mp4",
+      "sha256": "8b649c8125080027fa06cb4fa697d05c93a6444caf8b42611ea8fca8ac15e512",
+      "duration_s": 34.64,
+      "fps": 25.0,
+      "frame_count": 866,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_56",
+      "path": "data/videos/corpus_v2/video_56.mp4",
+      "sha256": "91500fe7dc9c71aba1fec0ce69bd860a71b540800a0964e3972d2c30002958b8",
+      "duration_s": 38.0,
+      "fps": 25.0,
+      "frame_count": 950,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_57",
+      "path": "data/videos/corpus_v2/video_57.mp4",
+      "sha256": "cd4750932ba532914d2285f03eb86452cb1f3253fc3664ceb5676d861c2eb8c1",
+      "duration_s": 51.64,
+      "fps": 25.0,
+      "frame_count": 1291,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_g"
+    },
+    {
+      "video_id": "video_58",
+      "path": "data/videos/corpus_v2/video_58.mp4",
+      "sha256": "7273611b8f4778141b55f0942101001ea5931afef3dcd85e234f3ff594bbc9f7",
+      "duration_s": 25.64,
+      "fps": 25.0,
+      "frame_count": 641,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_59",
+      "path": "data/videos/corpus_v2/video_59.mp4",
+      "sha256": "1bb4307eccccdbc1c25f851211219c57ce3aef6b442cb150dc20d45ea5ed3d72",
+      "duration_s": 24.6,
+      "fps": 25.0,
+      "frame_count": 615,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_60",
+      "path": "data/videos/corpus_v2/video_60.mp4",
+      "sha256": "a794043d947dc0b7adeefb8ee9b6059bf9569854591fde485de0b9f3fa858fbb",
+      "duration_s": 25.92,
+      "fps": 25.0,
+      "frame_count": 648,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_61",
+      "path": "data/videos/corpus_v2/video_61.mp4",
+      "sha256": "bc13c0320c5e1697d61c3b2e58e89b1b0cfa7bf62c23057220b899d0e1079f10",
+      "duration_s": 22.76,
+      "fps": 25.0,
+      "frame_count": 569,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    },
+    {
+      "video_id": "video_62",
+      "path": "data/videos/corpus_v2/video_62.mp4",
+      "sha256": "7ecac1aac3e4b656f4515a267a62478de77a11246c01c8d3e65e22d78fe47804",
+      "duration_s": 14.44,
+      "fps": 25.0,
+      "frame_count": 361,
+      "width": 640,
+      "height": 480,
+      "source": "Repository owner supplied this self-recorded video corpus for project evaluation on 2026-11-19",
+      "rights": {
+        "status": "confirmed",
+        "basis": "Repository owner stated on 2026-11-19 that they recorded these videos and permit their use in the project evaluation"
+      },
+      "split": "dev",
+      "group_id": "person_d"
+    }
+  ]
+}
