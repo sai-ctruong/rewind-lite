@@ -1,5 +1,22 @@
 # Kiểm tra chất lượng tìm kiếm web — 2026-11-08
 
+## Cập nhật lấy mẫu độ phủ cao — 2026-11-19
+
+Hai kiểm thử hồi quy tạo video MP4 thật bằng OpenCV: (1) chi tiết chỉ xuất hiện từ 1,2 đến 1,8 giây, nằm giữa các mốc lấy mẫu 1 giây; (2) một đốm màu nhỏ xuất hiện đúng mốc 1 giây nhưng bị lọc theo histogram toàn khung. Trước thay đổi, cả hai truy vấn đều trả Top-1 tại giây 0 thay vì lúc chi tiết xuất hiện. Web nay lấy mẫu mỗi 0,5 giây khi đủ ngân sách và chỉ gộp khung hình có tương quan histogram hoặc cosine embedding bằng 1.0. Hai truy vấn tổng hợp trả đúng Top-1 sau khi xây lại chỉ mục. CLI và benchmark T06 không đổi.
+
+Giới hạn: kiểm thử tổng hợp xác nhận cảnh ngắn còn trong chỉ mục và có thể tìm thấy; nó không đo cải thiện độ chính xác trên 57 truy vấn thật. Cần video T05 cục bộ để chạy lại benchmark với đúng model revision và so sánh Top-1, R@1/tIoU, thời gian lập chỉ mục. Giữ nhiều frame hơn có thể làm tăng thời gian lập chỉ mục và số kết quả gần trùng; trên video dài, bước lấy mẫu vẫn tăng theo ngân sách 512 frame.
+
+Đã kiểm tra thêm trên ba clip người dùng cung cấp tại `D:\Videos\Videos` bằng SigLIP2 revision cục bộ `3f9f96cb90da5dbc758b01813f2f6f1aee24c1ab` (khác revision đã chốt trong T06). Số frame trong index trước → sau: `video_6` 39 → 122, `video_57` 32 → 108, `video_62` 10 → 31. Tôi xem trực tiếp các khung hình ở mốc kết quả và chấm thăm dò bốn truy vấn tiếng Anh theo timestamp Top-1 của chế độ keyframe:
+
+| Clip và truy vấn | Cảnh đúng đã xem | Trước | Sau |
+|---|---:|---:|---:|
+| `video_6`: `a woman drinking from a cup` | 26–27 s | 16 s, sai | 16,8 s, sai |
+| `video_57`: `a woman leaving the room` | 50–52 s | 51 s, đúng | 50,88 s, đúng |
+| `video_62`: `a woman opening a laptop` | 1–3 s | 1 s, đúng | 0,96 s, đúng |
+| `video_62`: `a woman typing on a laptop` | 8–14 s | 9 s, đúng | 13,44 s, đúng |
+
+Như vậy, kiểm tra nhỏ này **không cho thấy tăng Top-1** (3/4 ở cả hai cấu hình). Với truy vấn uống cốc, chế độ temporal đưa cảnh đúng vào hạng 2 ở cả hai cấu hình; lỗi xếp hạng hạng 1 còn tồn tại. Encoder đa ngôn ngữ E2 đã thử trên cùng clip cũng xếp một cảnh sai lên đầu, nên chưa có cơ sở đổi model mặc định. Đây là kiểm tra thăm dò trên clip khác bộ T05, không phải benchmark độc lập; video T05 đã bị xóa nên không thể chạy lại 57 nhãn cũ. Lợi ích đã chứng minh của sửa đổi là khả năng giữ và tìm cảnh ngắn bị bộ lấy mẫu/lọc trùng cũ bỏ qua, không phải tăng điểm Top-1 tổng quát.
+
 ## Lỗi đã tái hiện
 
 Phiên web dùng `max_frames=64` theo nghĩa **dừng sau 64 keyframe đầu**. `walk-bangkok.mp4` dài 2037,467 giây; manifest cũ chỉ chứa 64 keyframe của phút đầu. Truy vấn về phần sau video vì thế không thể trả đúng thời điểm. Trên `video-test.mp4` dài 23,86 giây, histogram 0.985 và semantic dedup 0.97 chỉ để lại 2 keyframe ở giây 0 và 5.

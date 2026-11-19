@@ -22,7 +22,7 @@ Nếu trình duyệt không phát MP4, kiểm tra codec bằng cách mở file n
 1. Bài toán và phạm vi: retrieval keyframe, không phải full temporal sentence grounding.
 2. Thành phần pretrained/tái sử dụng: SigLIP2/SigLIP, PyTorch, OpenCV, Faiss và ingestion/encoder/index từ Rewind gốc.
 3. Đóng góp riêng của Lite: đường single-encoder, manifest/cache, hợp đồng rank, API/UI, validator và benchmark E1/E2/E3.
-4. Kiến trúc: benchmark T06 dùng sampling 1 giây, histogram 0.985 và semantic dedup 0.97; web hiện dùng ngân sách 512 frame trải toàn video, histogram 0.999 và semantic dedup 0.99; text max length 64, chuẩn hóa L2, exact Top-K trên index nhỏ.
+4. Kiến trúc tại thời điểm T09: benchmark T06 dùng sampling 1 giây, histogram 0.985 và semantic dedup 0.97; web dùng ngân sách 512 frame trải toàn video, histogram 0.999 và semantic dedup 0.99; text max length 64, chuẩn hóa L2, exact Top-K trên index nhỏ. Cấu hình web hiện hành xem trong README.
 5. Dữ liệu và protocol: nguồn/quyền, split theo video, 43 dev/14 test, coverage và cách chấm T02; nêu giới hạn cùng tác giả tạo/review nhãn.
 6. Kết quả T06: bảng Hit@1/Hit@5/MRR, thời gian index/query và GPU peak từ [report](rewind-lite-task-06-benchmark.md); không đọc chênh lệch 1–2 query như bằng chứng vượt trội.
 7. Bảy ca E3 trượt Hit@5: nhầm vật thể/giai đoạn hành động và một ca không có khung hình dương sau lấy mẫu/lọc trùng.

@@ -40,9 +40,9 @@ class LiteService:
                  encoder_factory=None, detector_backend_factory=None,
                  model_id: str = DEFAULT_MODEL,
                  revision: str = DEFAULT_REVISION, device: str = "auto",
-                 sample_every_s: float = 1.0, max_frames: int | None = 512,
-                 hist_duplicate_threshold: float = 0.999,
-                 dedup_threshold: float = 0.99,
+                 sample_every_s: float = 0.5, max_frames: int | None = 512,
+                 hist_duplicate_threshold: float = 1.0,
+                 dedup_threshold: float = 1.0,
                  dark_frame_luma_max: float | None = DEFAULT_DARK_FRAME_LUMA_MAX):
         from retrieval.detector import DetectionCache
         from retrieval.video_engine import VideoSearchEngine
@@ -572,9 +572,9 @@ def create_lite_app(*, video_dir: str | Path | None = None,
                     encoder_factory=None, detector_backend_factory=None,
                     model_id: str = DEFAULT_MODEL,
                     revision: str = DEFAULT_REVISION, device: str = "auto",
-                    sample_every_s: float = 1.0, max_frames: int | None = 512,
-                    hist_duplicate_threshold: float = 0.999,
-                    dedup_threshold: float = 0.99,
+                    sample_every_s: float = 0.5, max_frames: int | None = 512,
+                    hist_duplicate_threshold: float = 1.0,
+                    dedup_threshold: float = 1.0,
                     max_upload_bytes: int = 512 * 1024 * 1024) -> Flask:
     app = Flask(__name__)
     app.config["MAX_CONTENT_LENGTH"] = max_upload_bytes

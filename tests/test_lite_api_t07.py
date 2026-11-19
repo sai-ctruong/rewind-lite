@@ -51,8 +51,9 @@ def test_lite_index_keeps_subtle_motion_for_search(tmp_path):
     assert response.get_json()["sampled"] >= 2
     manifest = json.loads((tmp_path / "indexes/motion/manifest.json").read_text())
     assert manifest["sampling"]["max_frames"] == 512
-    assert manifest["sampling"]["hist_duplicate_threshold"] == 0.999
-    assert manifest["dedup"]["similarity_threshold"] == 0.99
+    assert manifest["sampling"]["every_s"] == 0.5
+    assert manifest["sampling"]["hist_duplicate_threshold"] == 1.0
+    assert manifest["dedup"]["similarity_threshold"] == 1.0
 
 
 def test_lite_requires_rebuild_for_old_dedup_config(tmp_path):
