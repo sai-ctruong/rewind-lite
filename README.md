@@ -4,7 +4,7 @@
 
 ## Trạng thái và đóng góp
 
-Đường Lite T03–T08 đã có CLI, index lưu/nạp, API và giao diện. T05 có **5 video được phép dùng ở các split `dev`/`test` và 57 nhãn tiếng Việt đã được Codex review bằng khung hình theo yêu cầu của chủ repository**. Validator báo `ready_for_accuracy=true`. T06 đã đo E1/E2/E3 trên tập này; kết quả là benchmark nội bộ vì nhãn do cùng một tác giả tạo và review, chưa có người kiểm tra độc lập. [Trạng thái từng task](docs/task-status.md), [giao thức chấm T02](docs/rewind-lite-task-02-protocol.md), [dữ liệu T05](docs/rewind-lite-task-05-dataset.md), [benchmark T06](docs/rewind-lite-task-06-benchmark.md).
+Đường Lite T03–T08 đã có CLI, index lưu/nạp, API và giao diện. T05 có **5 video được phép dùng ở các split `dev`/`test` và 57 nhãn tiếng Việt đã được Codex review bằng khung hình theo yêu cầu của chủ repository**. Validator báo `ready_for_accuracy=true`. T06 đã đo E1/E2/E3 trên tập này; kết quả là benchmark nội bộ vì nhãn do cùng một tác giả tạo và review, chưa có người kiểm tra độc lập. [Tình trạng bản Lite](docs/rewind-lite-task-09-release.md), [giao thức chấm T02](docs/rewind-lite-task-02-protocol.md), [dữ liệu T05](docs/rewind-lite-task-05-dataset.md), [benchmark T06](docs/rewind-lite-task-06-benchmark.md).
 
 SigLIP/SigLIP2, PyTorch, OpenCV và Faiss là thành phần pretrained/thư viện bên ngoài. Rewind Lite tái sử dụng ingestion, encoder và index từ Rewind gốc; phần triển khai của Lite gồm đường single-encoder có manifest và cache, hợp đồng tìm kiếm, validator nhãn, benchmark E1/E2/E3 có gate dữ liệu, API và UI. Các module Agent, VQA, OCR/ASR, image search và temporal search của Rewind gốc vẫn nằm trong repository nhưng không thuộc đường Lite.
 

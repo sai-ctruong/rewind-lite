@@ -17,8 +17,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_ui01_evidence_identity_and_layout():
     with sync_playwright() as p:
-        if not Path(p.chromium.executable_path).is_file():
-            pytest.skip("UI01 browser test needs a locally installed Chromium")
+        assert Path(p.chromium.executable_path).is_file(), (
+            "UI01 browser test needs a locally installed Chromium"
+        )
         browser = p.chromium.launch(headless=True)
         page = browser.new_page(viewport={"width": 1440, "height": 1000})
         posts = []
