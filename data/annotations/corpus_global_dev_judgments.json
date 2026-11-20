@@ -1,0 +1,3586 @@
+{
+  "schema_version": 1,
+  "split": "dev",
+  "queries": [
+    {
+      "query_id": "v2-vi-005",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_30",
+          "frame_id": "video_30/131",
+          "timestamp": 62.88,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_33",
+          "frame_id": "video_33/232",
+          "timestamp": 111.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_14",
+          "frame_id": "video_14/410",
+          "timestamp": 278.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_14",
+          "frame_id": "video_14/70",
+          "timestamp": 47.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_31",
+          "frame_id": "video_31/117",
+          "timestamp": 56.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-006",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/13",
+          "timestamp": 6.24,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/5",
+          "timestamp": 2.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_29",
+          "frame_id": "video_29/27",
+          "timestamp": 12.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/15",
+          "timestamp": 7.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-007",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/107",
+          "timestamp": 51.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_8",
+          "frame_id": "video_8/4",
+          "timestamp": 1.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/44",
+          "timestamp": 21.12,
+          "judgment": "relevant",
+          "basis": "source_label",
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_11",
+          "frame_id": "video_11/439",
+          "timestamp": 263.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-008",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/65",
+          "timestamp": 31.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/67",
+          "timestamp": 32.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_11",
+          "frame_id": "video_11/111",
+          "timestamp": 66.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/126",
+          "timestamp": 60.48,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-009",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/65",
+          "timestamp": 31.2,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/54",
+          "timestamp": 25.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/207",
+          "timestamp": 99.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/62",
+          "timestamp": 29.76,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/37",
+          "timestamp": 17.76,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-010",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_8",
+          "frame_id": "video_8/25",
+          "timestamp": 12.0,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_9",
+          "frame_id": "video_9/40",
+          "timestamp": 19.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_9",
+          "frame_id": "video_9/94",
+          "timestamp": 45.12,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_7",
+          "frame_id": "video_7/60",
+          "timestamp": 28.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-011",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/67",
+          "timestamp": 32.16,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/49",
+          "timestamp": 23.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/111",
+          "timestamp": 53.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/81",
+          "timestamp": 38.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-012",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/107",
+          "timestamp": 51.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_18",
+          "frame_id": "video_18/17",
+          "timestamp": 8.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_12",
+          "frame_id": "video_12/4",
+          "timestamp": 2.56,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_11",
+          "frame_id": "video_11/439",
+          "timestamp": 263.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-017",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_3",
+          "frame_id": "video_3/47",
+          "timestamp": 26.32,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_20",
+          "frame_id": "video_20/3",
+          "timestamp": 1.44,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_6",
+          "frame_id": "video_6/35",
+          "timestamp": 16.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_18",
+          "frame_id": "video_18/26",
+          "timestamp": 12.48,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_10",
+          "frame_id": "video_10/35",
+          "timestamp": 16.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-018",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/4",
+          "timestamp": 1.92,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/5",
+          "timestamp": 2.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/14",
+          "timestamp": 6.72,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_17",
+          "frame_id": "video_17/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-019",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/111",
+          "timestamp": 53.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_7",
+          "frame_id": "video_7/2",
+          "timestamp": 0.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_8",
+          "frame_id": "video_8/4",
+          "timestamp": 1.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-020",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/13",
+          "timestamp": 6.24,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/10",
+          "timestamp": 4.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_35",
+          "frame_id": "video_35/10",
+          "timestamp": 4.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_37",
+          "frame_id": "video_37/17",
+          "timestamp": 8.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-021",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_34",
+          "frame_id": "video_34/19",
+          "timestamp": 9.12,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_33",
+          "frame_id": "video_33/69",
+          "timestamp": 33.12,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_40",
+          "frame_id": "video_40/89",
+          "timestamp": 42.72,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_19",
+          "frame_id": "video_19/55",
+          "timestamp": 26.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_5",
+          "frame_id": "video_5/491",
+          "timestamp": 314.24,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-022",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/111",
+          "timestamp": 53.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_8",
+          "frame_id": "video_8/10",
+          "timestamp": 4.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/44",
+          "timestamp": 21.12,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_7",
+          "frame_id": "video_7/0",
+          "timestamp": 0.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-023",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/73",
+          "timestamp": 35.04,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_19",
+          "frame_id": "video_19/54",
+          "timestamp": 25.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_19",
+          "frame_id": "video_19/36",
+          "timestamp": 17.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_17",
+          "frame_id": "video_17/17",
+          "timestamp": 8.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/212",
+          "timestamp": 101.76,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-024",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/110",
+          "timestamp": 52.8,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/58",
+          "timestamp": 27.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_6",
+          "frame_id": "video_6/44",
+          "timestamp": 21.12,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_8",
+          "frame_id": "video_8/10",
+          "timestamp": 4.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_7",
+          "frame_id": "video_7/0",
+          "timestamp": 0.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-033",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_23",
+          "frame_id": "video_23/492",
+          "timestamp": 373.92,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_26",
+          "frame_id": "video_26/52",
+          "timestamp": 24.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_24",
+          "frame_id": "video_24/426",
+          "timestamp": 340.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_22",
+          "frame_id": "video_22/211",
+          "timestamp": 168.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_2",
+          "frame_id": "video_2/297",
+          "timestamp": 237.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-034",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_23",
+          "frame_id": "video_23/492",
+          "timestamp": 373.92,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_25",
+          "frame_id": "video_25/339",
+          "timestamp": 271.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_22",
+          "frame_id": "video_22/78",
+          "timestamp": 62.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_24",
+          "frame_id": "video_24/447",
+          "timestamp": 357.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_27",
+          "frame_id": "video_27/99",
+          "timestamp": 47.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-035",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_27",
+          "frame_id": "video_27/99",
+          "timestamp": 47.52,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_26",
+          "frame_id": "video_26/92",
+          "timestamp": 44.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/120",
+          "timestamp": 57.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_26",
+          "frame_id": "video_26/69",
+          "timestamp": 33.12,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/50",
+          "timestamp": 24.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-036",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_22",
+          "frame_id": "video_22/4",
+          "timestamp": 3.2,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_27",
+          "frame_id": "video_27/59",
+          "timestamp": 28.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_26",
+          "frame_id": "video_26/52",
+          "timestamp": 24.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_35",
+          "frame_id": "video_35/51",
+          "timestamp": 24.48,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/20",
+          "timestamp": 9.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-037",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/117",
+          "timestamp": 56.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_36",
+          "frame_id": "video_36/81",
+          "timestamp": 38.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_34",
+          "frame_id": "video_34/19",
+          "timestamp": 9.12,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-038",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_36",
+          "frame_id": "video_36/43",
+          "timestamp": 20.64,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/81",
+          "timestamp": 38.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/53",
+          "timestamp": 25.44,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-039",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_32",
+          "frame_id": "video_32/144",
+          "timestamp": 69.12,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_32",
+          "frame_id": "video_32/133",
+          "timestamp": 63.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_10",
+          "frame_id": "video_10/149",
+          "timestamp": 71.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_10",
+          "frame_id": "video_10/95",
+          "timestamp": 45.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_32",
+          "frame_id": "video_32/157",
+          "timestamp": 75.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-040",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_35",
+          "frame_id": "video_35/51",
+          "timestamp": 24.48,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_28",
+          "frame_id": "video_28/18",
+          "timestamp": 8.64,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_36",
+          "frame_id": "video_36/27",
+          "timestamp": 12.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_28",
+          "frame_id": "video_28/65",
+          "timestamp": 31.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_29",
+          "frame_id": "video_29/60",
+          "timestamp": 28.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-041",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_39",
+          "frame_id": "video_39/49",
+          "timestamp": 23.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/92",
+          "timestamp": 44.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-042",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_30",
+          "frame_id": "video_30/95",
+          "timestamp": 45.6,
+          "judgment": "relevant",
+          "basis": "source_label",
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_26",
+          "frame_id": "video_26/92",
+          "timestamp": 44.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/86",
+          "timestamp": 41.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-043",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_35",
+          "frame_id": "video_35/143",
+          "timestamp": 68.64,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_33",
+          "frame_id": "video_33/248",
+          "timestamp": 119.04,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/107",
+          "timestamp": 51.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/13",
+          "timestamp": 6.24,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-044",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_34",
+          "frame_id": "video_34/74",
+          "timestamp": 35.52,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_35",
+          "frame_id": "video_35/54",
+          "timestamp": 25.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_34",
+          "frame_id": "video_34/95",
+          "timestamp": 45.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-045",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_34",
+          "frame_id": "video_34/114",
+          "timestamp": 54.72,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/73",
+          "timestamp": 35.04,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_34",
+          "frame_id": "video_34/102",
+          "timestamp": 48.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-046",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/178",
+          "timestamp": 85.44,
+          "judgment": "relevant",
+          "basis": "source_label",
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/104",
+          "timestamp": 49.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/152",
+          "timestamp": 72.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-047",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/29",
+          "timestamp": 13.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/233",
+          "timestamp": 111.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/74",
+          "timestamp": 35.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/55",
+          "timestamp": 26.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-048",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/178",
+          "timestamp": 85.44,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/103",
+          "timestamp": 49.44,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/234",
+          "timestamp": 112.32,
+          "judgment": "relevant",
+          "basis": "source_label",
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/146",
+          "timestamp": 70.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-049",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_29",
+          "frame_id": "video_29/130",
+          "timestamp": 62.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/99",
+          "timestamp": 47.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-050",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_34",
+          "frame_id": "video_34/74",
+          "timestamp": 35.52,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_35",
+          "frame_id": "video_35/54",
+          "timestamp": 25.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/82",
+          "timestamp": 39.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/37",
+          "timestamp": 17.76,
+          "judgment": "relevant",
+          "basis": "source_label",
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-051",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/178",
+          "timestamp": 85.44,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_48",
+          "frame_id": "video_48/43",
+          "timestamp": 20.64,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_45",
+          "frame_id": "video_45/235",
+          "timestamp": 112.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_57",
+          "frame_id": "video_57/106",
+          "timestamp": 50.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-052",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_30",
+          "frame_id": "video_30/99",
+          "timestamp": 47.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_28",
+          "frame_id": "video_28/131",
+          "timestamp": 62.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-053",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_42",
+          "frame_id": "video_42/26",
+          "timestamp": 12.48,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 2,
+          "video_id": "video_40",
+          "frame_id": "video_40/23",
+          "timestamp": 11.04,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_39",
+          "frame_id": "video_39/30",
+          "timestamp": 14.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_38",
+          "frame_id": "video_38/114",
+          "timestamp": 54.72,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-054",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/234",
+          "timestamp": 112.32,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_38",
+          "frame_id": "video_38/67",
+          "timestamp": 32.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/106",
+          "timestamp": 50.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-055",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_40",
+          "frame_id": "video_40/23",
+          "timestamp": 11.04,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 2,
+          "video_id": "video_41",
+          "frame_id": "video_41/77",
+          "timestamp": 36.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/68",
+          "timestamp": 32.64,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-056",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_24",
+          "frame_id": "video_24/33",
+          "timestamp": 26.4,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_24",
+          "frame_id": "video_24/447",
+          "timestamp": 357.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/339",
+          "timestamp": 271.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_24",
+          "frame_id": "video_24/426",
+          "timestamp": 340.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_24",
+          "frame_id": "video_24/43",
+          "timestamp": 34.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-057",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_42",
+          "frame_id": "video_42/110",
+          "timestamp": 52.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_39",
+          "frame_id": "video_39/49",
+          "timestamp": 23.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_41",
+          "frame_id": "video_41/37",
+          "timestamp": 17.76,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/121",
+          "timestamp": 58.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-058",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_40",
+          "frame_id": "video_40/34",
+          "timestamp": 16.32,
+          "judgment": "relevant",
+          "basis": "source_label",
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_41",
+          "frame_id": "video_41/27",
+          "timestamp": 12.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_41",
+          "frame_id": "video_41/77",
+          "timestamp": 36.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_40",
+          "frame_id": "video_40/98",
+          "timestamp": 47.04,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-059",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_17",
+          "frame_id": "video_17/41",
+          "timestamp": 19.68,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_19",
+          "frame_id": "video_19/54",
+          "timestamp": 25.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/8",
+          "timestamp": 6.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_38",
+          "frame_id": "video_38/122",
+          "timestamp": 58.56,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/13",
+          "timestamp": 6.24,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-060",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_24",
+          "frame_id": "video_24/33",
+          "timestamp": 26.4,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_24",
+          "frame_id": "video_24/447",
+          "timestamp": 357.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_24",
+          "frame_id": "video_24/426",
+          "timestamp": 340.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_21",
+          "frame_id": "video_21/495",
+          "timestamp": 316.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_23",
+          "frame_id": "video_23/457",
+          "timestamp": 347.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-065",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_49",
+          "frame_id": "video_49/32",
+          "timestamp": 15.36,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/33",
+          "timestamp": 15.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_49",
+          "frame_id": "video_49/18",
+          "timestamp": 8.64,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-066",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/5",
+          "timestamp": 2.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/3",
+          "timestamp": 1.44,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/26",
+          "timestamp": 12.48,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_49",
+          "frame_id": "video_49/35",
+          "timestamp": 16.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-067",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_31",
+          "frame_id": "video_31/117",
+          "timestamp": 56.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_49",
+          "frame_id": "video_49/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/40",
+          "timestamp": 19.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_52",
+          "frame_id": "video_52/4",
+          "timestamp": 1.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-068",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_51",
+          "frame_id": "video_51/11",
+          "timestamp": 5.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/49",
+          "timestamp": 23.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/33",
+          "timestamp": 15.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/3",
+          "timestamp": 1.44,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-069",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_31",
+          "frame_id": "video_31/117",
+          "timestamp": 56.16,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/45",
+          "timestamp": 21.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_48",
+          "frame_id": "video_48/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_49",
+          "frame_id": "video_49/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-070",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/31",
+          "timestamp": 14.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_51",
+          "frame_id": "video_51/11",
+          "timestamp": 5.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_51",
+          "frame_id": "video_51/24",
+          "timestamp": 11.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/3",
+          "timestamp": 1.44,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-071",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/4",
+          "timestamp": 1.92,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/26",
+          "timestamp": 12.48,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-072",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/4",
+          "timestamp": 1.92,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_51",
+          "frame_id": "video_51/50",
+          "timestamp": 24.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/5",
+          "timestamp": 2.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-073",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_50",
+          "frame_id": "video_50/25",
+          "timestamp": 12.0,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_54",
+          "frame_id": "video_54/58",
+          "timestamp": 27.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_57",
+          "frame_id": "video_57/34",
+          "timestamp": 16.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_56",
+          "frame_id": "video_56/61",
+          "timestamp": 29.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_56",
+          "frame_id": "video_56/8",
+          "timestamp": 3.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-074",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_54",
+          "frame_id": "video_54/72",
+          "timestamp": 34.56,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_54",
+          "frame_id": "video_54/36",
+          "timestamp": 17.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_53",
+          "frame_id": "video_53/39",
+          "timestamp": 18.72,
+          "judgment": "relevant",
+          "basis": "source_label",
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_56",
+          "frame_id": "video_56/2",
+          "timestamp": 0.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_54",
+          "frame_id": "video_54/52",
+          "timestamp": 24.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-075",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_25",
+          "frame_id": "video_25/344",
+          "timestamp": 275.2,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "five sampled frames at t-4, t-2, t, t+2, t+4, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_8",
+          "frame_id": "video_8/24",
+          "timestamp": 11.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/284",
+          "timestamp": 227.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_25",
+          "frame_id": "video_25/446",
+          "timestamp": 356.8,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_21",
+          "frame_id": "video_21/151",
+          "timestamp": 96.64,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-076",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_57",
+          "frame_id": "video_57/90",
+          "timestamp": 43.2,
+          "judgment": "relevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_57",
+          "frame_id": "video_57/44",
+          "timestamp": 21.12,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_56",
+          "frame_id": "video_56/8",
+          "timestamp": 3.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_57",
+          "frame_id": "video_57/66",
+          "timestamp": 31.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_47",
+          "frame_id": "video_47/425",
+          "timestamp": 221.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-077",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_50",
+          "frame_id": "video_50/25",
+          "timestamp": 12.0,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_49",
+          "frame_id": "video_49/8",
+          "timestamp": 3.84,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/9",
+          "timestamp": 4.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_48",
+          "frame_id": "video_48/52",
+          "timestamp": 24.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-078",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_48",
+          "frame_id": "video_48/4",
+          "timestamp": 1.92,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_48",
+          "frame_id": "video_48/23",
+          "timestamp": 11.04,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/16",
+          "timestamp": 7.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_51",
+          "frame_id": "video_51/31",
+          "timestamp": 14.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-079",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_10",
+          "frame_id": "video_10/96",
+          "timestamp": 46.08,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_10",
+          "frame_id": "video_10/153",
+          "timestamp": 73.44,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/47",
+          "timestamp": 22.56,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_10",
+          "frame_id": "video_10/34",
+          "timestamp": 16.32,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_48",
+          "frame_id": "video_48/41",
+          "timestamp": 19.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-080",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_25",
+          "frame_id": "video_25/344",
+          "timestamp": 275.2,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_8",
+          "frame_id": "video_8/25",
+          "timestamp": 12.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/284",
+          "timestamp": 227.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/30",
+          "timestamp": 14.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_25",
+          "frame_id": "video_25/353",
+          "timestamp": 282.4,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-081",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/49",
+          "timestamp": 23.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/15",
+          "timestamp": 7.2,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_51",
+          "frame_id": "video_51/21",
+          "timestamp": 10.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_52",
+          "frame_id": "video_52/61",
+          "timestamp": 29.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-082",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/49",
+          "timestamp": 23.52,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_51",
+          "frame_id": "video_51/20",
+          "timestamp": 9.6,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/11",
+          "timestamp": 5.28,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_60",
+          "frame_id": "video_60/16",
+          "timestamp": 7.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-083",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_48",
+          "frame_id": "video_48/4",
+          "timestamp": 1.92,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/16",
+          "timestamp": 7.68,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_54",
+          "frame_id": "video_54/72",
+          "timestamp": 34.56,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/56",
+          "timestamp": 26.88,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_51",
+          "frame_id": "video_51/2",
+          "timestamp": 0.96,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-084",
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_23",
+          "frame_id": "video_23/69",
+          "timestamp": 52.44,
+          "judgment": "irrelevant",
+          "basis": "visual_review",
+          "reviewer": "Codex",
+          "reviewed_at": "2026-11-20",
+          "review_method": "three sampled frames around the hit, compared with the source reference"
+        },
+        {
+          "rank": 2,
+          "video_id": "video_36",
+          "frame_id": "video_36/146",
+          "timestamp": 70.08,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 3,
+          "video_id": "video_35",
+          "frame_id": "video_35/13",
+          "timestamp": 6.24,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 4,
+          "video_id": "video_22",
+          "frame_id": "video_22/5",
+          "timestamp": 4.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        {
+          "rank": 5,
+          "video_id": "video_24",
+          "frame_id": "video_24/455",
+          "timestamp": 364.0,
+          "judgment": "unjudged",
+          "basis": null,
+          "reviewer": null,
+          "reviewed_at": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3158 @@
+{
+  "schema_version": 1,
+  "split": "dev",
+  "search_scope": "all_indexed_videos",
+  "expected_videos": 62,
+  "top_k": 5,
+  "queries": [
+    {
+      "query_id": "v2-vi-005",
+      "query": "Người phụ nữ mặc áo đỏ đưa cốc lên miệng uống",
+      "category": "action",
+      "source_video_id": "video_6",
+      "source_time_windows": [
+        [
+          26,
+          29
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_30",
+          "frame_id": "video_30/131",
+          "timestamp": 62.88,
+          "score": 0.11672639846801758
+        },
+        {
+          "rank": 2,
+          "video_id": "video_33",
+          "frame_id": "video_33/232",
+          "timestamp": 111.36,
+          "score": 0.11456923186779022
+        },
+        {
+          "rank": 3,
+          "video_id": "video_14",
+          "frame_id": "video_14/410",
+          "timestamp": 278.8,
+          "score": 0.11420927941799164
+        },
+        {
+          "rank": 4,
+          "video_id": "video_14",
+          "frame_id": "video_14/70",
+          "timestamp": 47.6,
+          "score": 0.11418239027261734
+        },
+        {
+          "rank": 5,
+          "video_id": "video_31",
+          "frame_id": "video_31/117",
+          "timestamp": 56.16,
+          "score": 0.11331804096698761
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-006",
+      "query": "Người phụ nữ áo đỏ cúi xem tờ tài liệu trên bàn ăn",
+      "category": "action",
+      "source_video_id": "video_6",
+      "source_time_windows": [
+        [
+          45,
+          49
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/13",
+          "timestamp": 6.24,
+          "score": 0.13830313086509705
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/5",
+          "timestamp": 2.4,
+          "score": 0.13428369164466858
+        },
+        {
+          "rank": 3,
+          "video_id": "video_29",
+          "frame_id": "video_29/27",
+          "timestamp": 12.96,
+          "score": 0.13421094417572021
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/15",
+          "timestamp": 7.2,
+          "score": 0.1323539912700653
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "score": 0.13015015423297882
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-007",
+      "query": "Chiếc cốc màu trắng nằm cạnh hộp ngũ cốc ở bàn ăn",
+      "category": "object",
+      "source_video_id": "video_6",
+      "source_time_windows": [
+        [
+          10,
+          22
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/107",
+          "timestamp": 51.36,
+          "score": 0.11536413431167603
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "score": 0.1124662533402443
+        },
+        {
+          "rank": 3,
+          "video_id": "video_8",
+          "frame_id": "video_8/4",
+          "timestamp": 1.92,
+          "score": 0.11189107596874237
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/44",
+          "timestamp": 21.12,
+          "score": 0.11007208377122879
+        },
+        {
+          "rank": 5,
+          "video_id": "video_11",
+          "frame_id": "video_11/439",
+          "timestamp": 263.4,
+          "score": 0.10660238564014435
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-008",
+      "query": "Người phụ nữ áo đỏ ngồi một mình tại bàn ăn sáng",
+      "category": "context",
+      "source_video_id": "video_6",
+      "source_time_windows": [
+        [
+          0,
+          20
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "score": 0.12822768092155457
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/65",
+          "timestamp": 31.2,
+          "score": 0.12700872123241425
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/67",
+          "timestamp": 32.16,
+          "score": 0.12671540677547455
+        },
+        {
+          "rank": 4,
+          "video_id": "video_11",
+          "frame_id": "video_11/111",
+          "timestamp": 66.6,
+          "score": 0.12636055052280426
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/126",
+          "timestamp": 60.48,
+          "score": 0.1258801519870758
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-009",
+      "query": "Người phụ nữ áo đỏ dùng thìa ăn từ chiếc bát",
+      "category": "action",
+      "source_video_id": "video_8",
+      "source_time_windows": [
+        [
+          30,
+          40
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/65",
+          "timestamp": 31.2,
+          "score": 0.11792399734258652
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/54",
+          "timestamp": 25.92,
+          "score": 0.11515147984027863
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/207",
+          "timestamp": 99.36,
+          "score": 0.11497616767883301
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/62",
+          "timestamp": 29.76,
+          "score": 0.1141844168305397
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/37",
+          "timestamp": 17.76,
+          "score": 0.11414173990488052
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-010",
+      "query": "Người phụ nữ mặc áo đỏ nâng chiếc cốc lên uống ở cuối đoạn",
+      "category": "action",
+      "source_video_id": "video_8",
+      "source_time_windows": [
+        [
+          48,
+          54
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_8",
+          "frame_id": "video_8/25",
+          "timestamp": 12.0,
+          "score": 0.13073548674583435
+        },
+        {
+          "rank": 2,
+          "video_id": "video_9",
+          "frame_id": "video_9/40",
+          "timestamp": 19.2,
+          "score": 0.12939903140068054
+        },
+        {
+          "rank": 3,
+          "video_id": "video_9",
+          "frame_id": "video_9/94",
+          "timestamp": 45.12,
+          "score": 0.12272820621728897
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.1227181926369667
+        },
+        {
+          "rank": 5,
+          "video_id": "video_7",
+          "frame_id": "video_7/60",
+          "timestamp": 28.8,
+          "score": 0.12060364335775375
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-011",
+      "query": "Hộp ngũ cốc Brave nằm ở phía trước bàn ăn",
+      "category": "object",
+      "source_video_id": "video_8",
+      "source_time_windows": [
+        [
+          2,
+          18
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/67",
+          "timestamp": 32.16,
+          "score": 0.11889573931694031
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "score": 0.11745727062225342
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/49",
+          "timestamp": 23.52,
+          "score": 0.11684328317642212
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/111",
+          "timestamp": 53.28,
+          "score": 0.11542685329914093
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/81",
+          "timestamp": 38.88,
+          "score": 0.1140577420592308
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-012",
+      "query": "Trên bàn ăn có bát và hộp ngũ cốc trước mặt người áo đỏ",
+      "category": "context",
+      "source_video_id": "video_8",
+      "source_time_windows": [
+        [
+          18,
+          29
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "score": 0.1371811032295227
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/107",
+          "timestamp": 51.36,
+          "score": 0.13568702340126038
+        },
+        {
+          "rank": 3,
+          "video_id": "video_18",
+          "frame_id": "video_18/17",
+          "timestamp": 8.16,
+          "score": 0.13270390033721924
+        },
+        {
+          "rank": 4,
+          "video_id": "video_12",
+          "frame_id": "video_12/4",
+          "timestamp": 2.56,
+          "score": 0.13170523941516876
+        },
+        {
+          "rank": 5,
+          "video_id": "video_11",
+          "frame_id": "video_11/439",
+          "timestamp": 263.4,
+          "score": 0.13139796257019043
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-017",
+      "query": "Người phụ nữ áo màu be nghiêng ấm trắng để rót vào cốc",
+      "category": "action",
+      "source_video_id": "video_16",
+      "source_time_windows": [
+        [
+          3,
+          7
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_3",
+          "frame_id": "video_3/47",
+          "timestamp": 26.32,
+          "score": 0.12639513611793518
+        },
+        {
+          "rank": 2,
+          "video_id": "video_20",
+          "frame_id": "video_20/3",
+          "timestamp": 1.44,
+          "score": 0.12380894273519516
+        },
+        {
+          "rank": 3,
+          "video_id": "video_6",
+          "frame_id": "video_6/35",
+          "timestamp": 16.8,
+          "score": 0.11884220689535141
+        },
+        {
+          "rank": 4,
+          "video_id": "video_18",
+          "frame_id": "video_18/26",
+          "timestamp": 12.48,
+          "score": 0.11724711954593658
+        },
+        {
+          "rank": 5,
+          "video_id": "video_10",
+          "frame_id": "video_10/35",
+          "timestamp": 16.8,
+          "score": 0.11689286679029465
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-018",
+      "query": "Người phụ nữ áo màu be đọc tập giấy trong bữa sáng",
+      "category": "action",
+      "source_video_id": "video_16",
+      "source_time_windows": [
+        [
+          25,
+          44
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/4",
+          "timestamp": 1.92,
+          "score": 0.14063701033592224
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/5",
+          "timestamp": 2.4,
+          "score": 0.13264819979667664
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "score": 0.13240192830562592
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/14",
+          "timestamp": 6.72,
+          "score": 0.1312084197998047
+        },
+        {
+          "rank": 5,
+          "video_id": "video_17",
+          "frame_id": "video_17/41",
+          "timestamp": 19.68,
+          "score": 0.13057634234428406
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-019",
+      "query": "Ấm điện màu trắng đặt trên bàn cạnh hộp ngũ cốc",
+      "category": "object",
+      "source_video_id": "video_16",
+      "source_time_windows": [
+        [
+          0,
+          12
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "score": 0.11862266808748245
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/111",
+          "timestamp": 53.28,
+          "score": 0.11497267335653305
+        },
+        {
+          "rank": 3,
+          "video_id": "video_7",
+          "frame_id": "video_7/2",
+          "timestamp": 0.96,
+          "score": 0.11376268416643143
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/41",
+          "timestamp": 19.68,
+          "score": 0.11206676065921783
+        },
+        {
+          "rank": 5,
+          "video_id": "video_8",
+          "frame_id": "video_8/4",
+          "timestamp": 1.92,
+          "score": 0.10991855710744858
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-020",
+      "query": "Người phụ nữ mặc áo be vừa xem tài liệu vừa ngồi ở bàn ăn",
+      "category": "context",
+      "source_video_id": "video_16",
+      "source_time_windows": [
+        [
+          45,
+          62
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/13",
+          "timestamp": 6.24,
+          "score": 0.14473602175712585
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/10",
+          "timestamp": 4.8,
+          "score": 0.14026491343975067
+        },
+        {
+          "rank": 3,
+          "video_id": "video_35",
+          "frame_id": "video_35/10",
+          "timestamp": 4.8,
+          "score": 0.1401069462299347
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "score": 0.1394118070602417
+        },
+        {
+          "rank": 5,
+          "video_id": "video_37",
+          "frame_id": "video_37/17",
+          "timestamp": 8.16,
+          "score": 0.13777849078178406
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-021",
+      "query": "Người phụ nữ áo be nhấc ấm trắng trên bàn ăn",
+      "category": "action",
+      "source_video_id": "video_18",
+      "source_time_windows": [
+        [
+          4,
+          7
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_34",
+          "frame_id": "video_34/19",
+          "timestamp": 9.12,
+          "score": 0.10815025866031647
+        },
+        {
+          "rank": 2,
+          "video_id": "video_33",
+          "frame_id": "video_33/69",
+          "timestamp": 33.12,
+          "score": 0.107265405356884
+        },
+        {
+          "rank": 3,
+          "video_id": "video_40",
+          "frame_id": "video_40/89",
+          "timestamp": 42.72,
+          "score": 0.10578180104494095
+        },
+        {
+          "rank": 4,
+          "video_id": "video_19",
+          "frame_id": "video_19/55",
+          "timestamp": 26.4,
+          "score": 0.1054762750864029
+        },
+        {
+          "rank": 5,
+          "video_id": "video_5",
+          "frame_id": "video_5/491",
+          "timestamp": 314.24,
+          "score": 0.10475921630859375
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-022",
+      "query": "Người phụ nữ áo be cầm hộp ngũ cốc trong lúc chuẩn bị bữa sáng",
+      "category": "action",
+      "source_video_id": "video_18",
+      "source_time_windows": [
+        [
+          9,
+          12
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/57",
+          "timestamp": 27.36,
+          "score": 0.14051586389541626
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/111",
+          "timestamp": 53.28,
+          "score": 0.13984012603759766
+        },
+        {
+          "rank": 3,
+          "video_id": "video_8",
+          "frame_id": "video_8/10",
+          "timestamp": 4.8,
+          "score": 0.1376062035560608
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/44",
+          "timestamp": 21.12,
+          "score": 0.13535553216934204
+        },
+        {
+          "rank": 5,
+          "video_id": "video_7",
+          "frame_id": "video_7/0",
+          "timestamp": 0.0,
+          "score": 0.13452446460723877
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-023",
+      "query": "Người phụ nữ áo be đưa cốc đồ uống lên miệng",
+      "category": "action",
+      "source_video_id": "video_18",
+      "source_time_windows": [
+        [
+          28,
+          32
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/73",
+          "timestamp": 35.04,
+          "score": 0.11110390722751617
+        },
+        {
+          "rank": 2,
+          "video_id": "video_19",
+          "frame_id": "video_19/54",
+          "timestamp": 25.92,
+          "score": 0.11108240485191345
+        },
+        {
+          "rank": 3,
+          "video_id": "video_19",
+          "frame_id": "video_19/36",
+          "timestamp": 17.28,
+          "score": 0.11059211194515228
+        },
+        {
+          "rank": 4,
+          "video_id": "video_17",
+          "frame_id": "video_17/17",
+          "timestamp": 8.16,
+          "score": 0.10911987721920013
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/212",
+          "timestamp": 101.76,
+          "score": 0.1084296926856041
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-024",
+      "query": "Trên bàn của người áo be có ấm trắng và hộp ngũ cốc",
+      "category": "object",
+      "source_video_id": "video_18",
+      "source_time_windows": [
+        [
+          0,
+          14
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_6",
+          "frame_id": "video_6/110",
+          "timestamp": 52.8,
+          "score": 0.12978807091712952
+        },
+        {
+          "rank": 2,
+          "video_id": "video_6",
+          "frame_id": "video_6/58",
+          "timestamp": 27.84,
+          "score": 0.12801235914230347
+        },
+        {
+          "rank": 3,
+          "video_id": "video_6",
+          "frame_id": "video_6/44",
+          "timestamp": 21.12,
+          "score": 0.12523064017295837
+        },
+        {
+          "rank": 4,
+          "video_id": "video_8",
+          "frame_id": "video_8/10",
+          "timestamp": 4.8,
+          "score": 0.12357524782419205
+        },
+        {
+          "rank": 5,
+          "video_id": "video_7",
+          "frame_id": "video_7/0",
+          "timestamp": 0.0,
+          "score": 0.1213611587882042
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-033",
+      "query": "Người đàn ông áo sơ mi kẻ đỏ ăn bằng thìa tại bàn",
+      "category": "action",
+      "source_video_id": "video_26",
+      "source_time_windows": [
+        [
+          29,
+          41
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_23",
+          "frame_id": "video_23/492",
+          "timestamp": 373.92,
+          "score": 0.09977391362190247
+        },
+        {
+          "rank": 2,
+          "video_id": "video_26",
+          "frame_id": "video_26/52",
+          "timestamp": 24.96,
+          "score": 0.09795534610748291
+        },
+        {
+          "rank": 3,
+          "video_id": "video_24",
+          "frame_id": "video_24/426",
+          "timestamp": 340.8,
+          "score": 0.09673275053501129
+        },
+        {
+          "rank": 4,
+          "video_id": "video_22",
+          "frame_id": "video_22/211",
+          "timestamp": 168.8,
+          "score": 0.09432488679885864
+        },
+        {
+          "rank": 5,
+          "video_id": "video_2",
+          "frame_id": "video_2/297",
+          "timestamp": 237.6,
+          "score": 0.09345492720603943
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-034",
+      "query": "Người đàn ông áo kẻ đỏ nhận chiếc bát tại bàn ăn",
+      "category": "short_event",
+      "source_video_id": "video_26",
+      "source_time_windows": [
+        [
+          18,
+          23
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_23",
+          "frame_id": "video_23/492",
+          "timestamp": 373.92,
+          "score": 0.1314823031425476
+        },
+        {
+          "rank": 2,
+          "video_id": "video_25",
+          "frame_id": "video_25/339",
+          "timestamp": 271.2,
+          "score": 0.1234399676322937
+        },
+        {
+          "rank": 3,
+          "video_id": "video_22",
+          "frame_id": "video_22/78",
+          "timestamp": 62.4,
+          "score": 0.12296287715435028
+        },
+        {
+          "rank": 4,
+          "video_id": "video_24",
+          "frame_id": "video_24/447",
+          "timestamp": 357.6,
+          "score": 0.12182443588972092
+        },
+        {
+          "rank": 5,
+          "video_id": "video_27",
+          "frame_id": "video_27/99",
+          "timestamp": 47.52,
+          "score": 0.12031028419733047
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-035",
+      "query": "Chiếc cốc màu xanh lá đặt cạnh bát ăn của người áo kẻ đỏ",
+      "category": "color",
+      "source_video_id": "video_26",
+      "source_time_windows": [
+        [
+          49,
+          54
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_27",
+          "frame_id": "video_27/99",
+          "timestamp": 47.52,
+          "score": 0.1265798658132553
+        },
+        {
+          "rank": 2,
+          "video_id": "video_26",
+          "frame_id": "video_26/92",
+          "timestamp": 44.16,
+          "score": 0.12460090219974518
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/120",
+          "timestamp": 57.6,
+          "score": 0.11847447603940964
+        },
+        {
+          "rank": 4,
+          "video_id": "video_26",
+          "frame_id": "video_26/69",
+          "timestamp": 33.12,
+          "score": 0.11843154579401016
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/50",
+          "timestamp": 24.0,
+          "score": 0.11802617460489273
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-036",
+      "query": "Đĩa trái cây đặt trước người đàn ông mặc áo kẻ đỏ",
+      "category": "object",
+      "source_video_id": "video_26",
+      "source_time_windows": [
+        [
+          0,
+          15
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_22",
+          "frame_id": "video_22/4",
+          "timestamp": 3.2,
+          "score": 0.11795241385698318
+        },
+        {
+          "rank": 2,
+          "video_id": "video_27",
+          "frame_id": "video_27/59",
+          "timestamp": 28.32,
+          "score": 0.11673802882432938
+        },
+        {
+          "rank": 3,
+          "video_id": "video_26",
+          "frame_id": "video_26/52",
+          "timestamp": 24.96,
+          "score": 0.11633390188217163
+        },
+        {
+          "rank": 4,
+          "video_id": "video_35",
+          "frame_id": "video_35/51",
+          "timestamp": 24.48,
+          "score": 0.1150268018245697
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/20",
+          "timestamp": 9.6,
+          "score": 0.11378992348909378
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-037",
+      "query": "Người phụ nữ mặc áo khoác xám được người khác mang thức ăn đến",
+      "category": "action",
+      "source_video_id": "video_28",
+      "source_time_windows": [
+        [
+          6,
+          11
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.11771983653306961
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/117",
+          "timestamp": 56.16,
+          "score": 0.11190635710954666
+        },
+        {
+          "rank": 3,
+          "video_id": "video_36",
+          "frame_id": "video_36/81",
+          "timestamp": 38.88,
+          "score": 0.11108876019716263
+        },
+        {
+          "rank": 4,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "score": 0.11063475906848907
+        },
+        {
+          "rank": 5,
+          "video_id": "video_34",
+          "frame_id": "video_34/19",
+          "timestamp": 9.12,
+          "score": 0.11045869439840317
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-038",
+      "query": "Người mặc áo khoác xám ngồi trước chiếc bát cạnh đĩa hoa quả",
+      "category": "context",
+      "source_video_id": "video_28",
+      "source_time_windows": [
+        [
+          54,
+          60
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.15374407172203064
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/56",
+          "timestamp": 26.88,
+          "score": 0.15192937850952148
+        },
+        {
+          "rank": 3,
+          "video_id": "video_36",
+          "frame_id": "video_36/43",
+          "timestamp": 20.64,
+          "score": 0.15023940801620483
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/81",
+          "timestamp": 38.88,
+          "score": 0.149032324552536
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/53",
+          "timestamp": 25.44,
+          "score": 0.14611972868442535
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-039",
+      "query": "Người phụ nữ áo khoác xám uống từ chai nhỏ",
+      "category": "action",
+      "source_video_id": "video_28",
+      "source_time_windows": [
+        [
+          95,
+          107
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_32",
+          "frame_id": "video_32/144",
+          "timestamp": 69.12,
+          "score": 0.11378185451030731
+        },
+        {
+          "rank": 2,
+          "video_id": "video_32",
+          "frame_id": "video_32/133",
+          "timestamp": 63.84,
+          "score": 0.11095311492681503
+        },
+        {
+          "rank": 3,
+          "video_id": "video_10",
+          "frame_id": "video_10/149",
+          "timestamp": 71.52,
+          "score": 0.11011315137147903
+        },
+        {
+          "rank": 4,
+          "video_id": "video_10",
+          "frame_id": "video_10/95",
+          "timestamp": 45.6,
+          "score": 0.10983428359031677
+        },
+        {
+          "rank": 5,
+          "video_id": "video_32",
+          "frame_id": "video_32/157",
+          "timestamp": 75.36,
+          "score": 0.10848747938871384
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-040",
+      "query": "Đĩa trái cây nằm cạnh người phụ nữ mặc áo khoác xám",
+      "category": "object",
+      "source_video_id": "video_28",
+      "source_time_windows": [
+        [
+          13,
+          27
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_35",
+          "frame_id": "video_35/51",
+          "timestamp": 24.48,
+          "score": 0.1468326896429062
+        },
+        {
+          "rank": 2,
+          "video_id": "video_28",
+          "frame_id": "video_28/18",
+          "timestamp": 8.64,
+          "score": 0.1389293372631073
+        },
+        {
+          "rank": 3,
+          "video_id": "video_36",
+          "frame_id": "video_36/27",
+          "timestamp": 12.96,
+          "score": 0.13773436844348907
+        },
+        {
+          "rank": 4,
+          "video_id": "video_28",
+          "frame_id": "video_28/65",
+          "timestamp": 31.2,
+          "score": 0.1377159059047699
+        },
+        {
+          "rank": 5,
+          "video_id": "video_29",
+          "frame_id": "video_29/60",
+          "timestamp": 28.8,
+          "score": 0.13402101397514343
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-041",
+      "query": "Người phụ nữ áo khoác xám uống nước từ cốc xanh lá",
+      "category": "action",
+      "source_video_id": "video_30",
+      "source_time_windows": [
+        [
+          14,
+          18
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "score": 0.1316555142402649
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.1292882263660431
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "score": 0.12772220373153687
+        },
+        {
+          "rank": 4,
+          "video_id": "video_39",
+          "frame_id": "video_39/49",
+          "timestamp": 23.52,
+          "score": 0.124516062438488
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/92",
+          "timestamp": 44.16,
+          "score": 0.12336836010217667
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-042",
+      "query": "Chiếc cốc xanh lá ở cạnh đĩa hoa quả của người áo khoác xám",
+      "category": "color",
+      "source_video_id": "video_30",
+      "source_time_windows": [
+        [
+          45,
+          49
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "score": 0.16239044070243835
+        },
+        {
+          "rank": 2,
+          "video_id": "video_30",
+          "frame_id": "video_30/95",
+          "timestamp": 45.6,
+          "score": 0.15195968747138977
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "score": 0.15034854412078857
+        },
+        {
+          "rank": 4,
+          "video_id": "video_26",
+          "frame_id": "video_26/92",
+          "timestamp": 44.16,
+          "score": 0.1496799886226654
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/86",
+          "timestamp": 41.28,
+          "score": 0.14934277534484863
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-043",
+      "query": "Người phụ nữ áo khoác xám cắn quả táo màu đỏ",
+      "category": "action",
+      "source_video_id": "video_30",
+      "source_time_windows": [
+        [
+          56,
+          64
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_35",
+          "frame_id": "video_35/143",
+          "timestamp": 68.64,
+          "score": 0.09874109923839569
+        },
+        {
+          "rank": 2,
+          "video_id": "video_33",
+          "frame_id": "video_33/248",
+          "timestamp": 119.04,
+          "score": 0.09106360375881195
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/107",
+          "timestamp": 51.36,
+          "score": 0.08977287262678146
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/7",
+          "timestamp": 3.36,
+          "score": 0.08974885940551758
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/13",
+          "timestamp": 6.24,
+          "score": 0.08871744573116302
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-044",
+      "query": "Người phụ nữ mặc áo khoác xám ăn từ chiếc bát",
+      "category": "action",
+      "source_video_id": "video_30",
+      "source_time_windows": [
+        [
+          30,
+          43
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_34",
+          "frame_id": "video_34/74",
+          "timestamp": 35.52,
+          "score": 0.12359310686588287
+        },
+        {
+          "rank": 2,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.12240779399871826
+        },
+        {
+          "rank": 3,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "score": 0.11869705468416214
+        },
+        {
+          "rank": 4,
+          "video_id": "video_35",
+          "frame_id": "video_35/54",
+          "timestamp": 25.92,
+          "score": 0.11760762333869934
+        },
+        {
+          "rank": 5,
+          "video_id": "video_34",
+          "frame_id": "video_34/95",
+          "timestamp": 45.6,
+          "score": 0.11712775379419327
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-045",
+      "query": "Người phụ nữ tóc sẫm áo xám cầm thức ăn ở bàn",
+      "category": "action",
+      "source_video_id": "video_33",
+      "source_time_windows": [
+        [
+          23,
+          41
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.1522258222103119
+        },
+        {
+          "rank": 2,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "score": 0.14856186509132385
+        },
+        {
+          "rank": 3,
+          "video_id": "video_34",
+          "frame_id": "video_34/114",
+          "timestamp": 54.72,
+          "score": 0.14739589393138885
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/73",
+          "timestamp": 35.04,
+          "score": 0.14705859124660492
+        },
+        {
+          "rank": 5,
+          "video_id": "video_34",
+          "frame_id": "video_34/102",
+          "timestamp": 48.96,
+          "score": 0.14668509364128113
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-046",
+      "query": "Người khác đứng cạnh người phụ nữ tóc sẫm đang ngồi ăn",
+      "category": "context",
+      "source_video_id": "video_33",
+      "source_time_windows": [
+        [
+          79,
+          91
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/178",
+          "timestamp": 85.44,
+          "score": 0.13310959935188293
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/104",
+          "timestamp": 49.92,
+          "score": 0.12988688051700592
+        },
+        {
+          "rank": 3,
+          "video_id": "video_37",
+          "frame_id": "video_37/41",
+          "timestamp": 19.68,
+          "score": 0.12903201580047607
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/152",
+          "timestamp": 72.96,
+          "score": 0.1277630478143692
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.1271006464958191
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-047",
+      "query": "Người phụ nữ tóc sẫm áo xám ăn tại bàn có trái cây",
+      "category": "action",
+      "source_video_id": "video_33",
+      "source_time_windows": [
+        [
+          94,
+          100
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.16377434134483337
+        },
+        {
+          "rank": 2,
+          "video_id": "video_35",
+          "frame_id": "video_35/29",
+          "timestamp": 13.92,
+          "score": 0.15945012867450714
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/233",
+          "timestamp": 111.84,
+          "score": 0.15941110253334045
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/74",
+          "timestamp": 35.52,
+          "score": 0.1583428829908371
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/55",
+          "timestamp": 26.4,
+          "score": 0.15788771212100983
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-048",
+      "query": "Một người đứng bên phải bàn ăn của người phụ nữ tóc sẫm",
+      "category": "context",
+      "source_video_id": "video_33",
+      "source_time_windows": [
+        [
+          111,
+          117
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/178",
+          "timestamp": 85.44,
+          "score": 0.13001123070716858
+        },
+        {
+          "rank": 2,
+          "video_id": "video_34",
+          "frame_id": "video_34/103",
+          "timestamp": 49.44,
+          "score": 0.1280357986688614
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/234",
+          "timestamp": 112.32,
+          "score": 0.12779483199119568
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/146",
+          "timestamp": 70.08,
+          "score": 0.12728041410446167
+        },
+        {
+          "rank": 5,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "score": 0.1272507756948471
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-049",
+      "query": "Người phụ nữ tóc sẫm áo xám uống từ cốc xanh lá",
+      "category": "action",
+      "source_video_id": "video_35",
+      "source_time_windows": [
+        [
+          26,
+          31
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "score": 0.14374971389770508
+        },
+        {
+          "rank": 2,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "score": 0.1381491869688034
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.13706915080547333
+        },
+        {
+          "rank": 4,
+          "video_id": "video_29",
+          "frame_id": "video_29/130",
+          "timestamp": 62.4,
+          "score": 0.1366921365261078
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/99",
+          "timestamp": 47.52,
+          "score": 0.13585861027240753
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-050",
+      "query": "Người phụ nữ tóc sẫm áo xám ăn từ chiếc bát",
+      "category": "action",
+      "source_video_id": "video_35",
+      "source_time_windows": [
+        [
+          13,
+          25
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_34",
+          "frame_id": "video_34/74",
+          "timestamp": 35.52,
+          "score": 0.12517446279525757
+        },
+        {
+          "rank": 2,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.1235445886850357
+        },
+        {
+          "rank": 3,
+          "video_id": "video_35",
+          "frame_id": "video_35/54",
+          "timestamp": 25.92,
+          "score": 0.12099739909172058
+        },
+        {
+          "rank": 4,
+          "video_id": "video_36",
+          "frame_id": "video_36/82",
+          "timestamp": 39.36,
+          "score": 0.11821030080318451
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/37",
+          "timestamp": 17.76,
+          "score": 0.11715807765722275
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-051",
+      "query": "Người phụ nữ tóc sẫm áo xám quay sang phải và giơ tay",
+      "category": "action",
+      "source_video_id": "video_35",
+      "source_time_windows": [
+        [
+          40,
+          45
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/178",
+          "timestamp": 85.44,
+          "score": 0.09340940415859222
+        },
+        {
+          "rank": 2,
+          "video_id": "video_48",
+          "frame_id": "video_48/43",
+          "timestamp": 20.64,
+          "score": 0.09061016142368317
+        },
+        {
+          "rank": 3,
+          "video_id": "video_45",
+          "frame_id": "video_45/235",
+          "timestamp": 112.8,
+          "score": 0.08941514790058136
+        },
+        {
+          "rank": 4,
+          "video_id": "video_57",
+          "frame_id": "video_57/106",
+          "timestamp": 50.88,
+          "score": 0.08933274447917938
+        },
+        {
+          "rank": 5,
+          "video_id": "video_36",
+          "frame_id": "video_36/56",
+          "timestamp": 26.88,
+          "score": 0.08793722838163376
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-052",
+      "query": "Người phụ nữ áo xám cầm cốc xanh lá lần nữa",
+      "category": "color",
+      "source_video_id": "video_35",
+      "source_time_windows": [
+        [
+          45,
+          49
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_31",
+          "frame_id": "video_31/137",
+          "timestamp": 65.76,
+          "score": 0.13690967857837677
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.13567854464054108
+        },
+        {
+          "rank": 3,
+          "video_id": "video_31",
+          "frame_id": "video_31/34",
+          "timestamp": 16.32,
+          "score": 0.13306081295013428
+        },
+        {
+          "rank": 4,
+          "video_id": "video_30",
+          "frame_id": "video_30/99",
+          "timestamp": 47.52,
+          "score": 0.12741802632808685
+        },
+        {
+          "rank": 5,
+          "video_id": "video_28",
+          "frame_id": "video_28/131",
+          "timestamp": 62.88,
+          "score": 0.1266709864139557
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-053",
+      "query": "Người phụ nữ áo hồng nhạt ăn từ chiếc đĩa",
+      "category": "action",
+      "source_video_id": "video_38",
+      "source_time_windows": [
+        [
+          19,
+          24
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_42",
+          "frame_id": "video_42/26",
+          "timestamp": 12.48,
+          "score": 0.1358737349510193
+        },
+        {
+          "rank": 2,
+          "video_id": "video_40",
+          "frame_id": "video_40/23",
+          "timestamp": 11.04,
+          "score": 0.1349569857120514
+        },
+        {
+          "rank": 3,
+          "video_id": "video_39",
+          "frame_id": "video_39/30",
+          "timestamp": 14.4,
+          "score": 0.12960591912269592
+        },
+        {
+          "rank": 4,
+          "video_id": "video_38",
+          "frame_id": "video_38/114",
+          "timestamp": 54.72,
+          "score": 0.12929368019104004
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "score": 0.12914514541625977
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-054",
+      "query": "Một phụ nữ khác đi vào phía bên phải bàn ăn của người áo hồng",
+      "category": "context",
+      "source_video_id": "video_38",
+      "source_time_windows": [
+        [
+          11,
+          15
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_33",
+          "frame_id": "video_33/234",
+          "timestamp": 112.32,
+          "score": 0.1154753565788269
+        },
+        {
+          "rank": 2,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "score": 0.11482913792133331
+        },
+        {
+          "rank": 3,
+          "video_id": "video_38",
+          "frame_id": "video_38/67",
+          "timestamp": 32.16,
+          "score": 0.11362281441688538
+        },
+        {
+          "rank": 4,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "score": 0.11292387545108795
+        },
+        {
+          "rank": 5,
+          "video_id": "video_30",
+          "frame_id": "video_30/106",
+          "timestamp": 50.88,
+          "score": 0.11242926865816116
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-055",
+      "query": "Người đứng cạnh mang đồ ăn đến cho người phụ nữ áo hồng",
+      "category": "short_event",
+      "source_video_id": "video_38",
+      "source_time_windows": [
+        [
+          32,
+          36
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_40",
+          "frame_id": "video_40/23",
+          "timestamp": 11.04,
+          "score": 0.09761540591716766
+        },
+        {
+          "rank": 2,
+          "video_id": "video_41",
+          "frame_id": "video_41/77",
+          "timestamp": 36.96,
+          "score": 0.09635350853204727
+        },
+        {
+          "rank": 3,
+          "video_id": "video_33",
+          "frame_id": "video_33/46",
+          "timestamp": 22.08,
+          "score": 0.09585773944854736
+        },
+        {
+          "rank": 4,
+          "video_id": "video_34",
+          "frame_id": "video_34/68",
+          "timestamp": 32.64,
+          "score": 0.09576719999313354
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "score": 0.0952581912279129
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-056",
+      "query": "Người đứng bên phải đưa thêm đĩa cho người ngồi áo hồng",
+      "category": "action",
+      "source_video_id": "video_38",
+      "source_time_windows": [
+        [
+          45,
+          50
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_24",
+          "frame_id": "video_24/33",
+          "timestamp": 26.4,
+          "score": 0.11028191447257996
+        },
+        {
+          "rank": 2,
+          "video_id": "video_24",
+          "frame_id": "video_24/447",
+          "timestamp": 357.6,
+          "score": 0.10712535679340363
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/339",
+          "timestamp": 271.2,
+          "score": 0.10392162203788757
+        },
+        {
+          "rank": 4,
+          "video_id": "video_24",
+          "frame_id": "video_24/426",
+          "timestamp": 340.8,
+          "score": 0.10329748690128326
+        },
+        {
+          "rank": 5,
+          "video_id": "video_24",
+          "frame_id": "video_24/43",
+          "timestamp": 34.4,
+          "score": 0.09963677078485489
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-057",
+      "query": "Người phụ nữ áo hồng nhạt uống từ cốc xanh lá",
+      "category": "action",
+      "source_video_id": "video_40",
+      "source_time_windows": [
+        [
+          20,
+          24
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.13097898662090302
+        },
+        {
+          "rank": 2,
+          "video_id": "video_42",
+          "frame_id": "video_42/110",
+          "timestamp": 52.8,
+          "score": 0.12691304087638855
+        },
+        {
+          "rank": 3,
+          "video_id": "video_39",
+          "frame_id": "video_39/49",
+          "timestamp": 23.52,
+          "score": 0.1250467747449875
+        },
+        {
+          "rank": 4,
+          "video_id": "video_41",
+          "frame_id": "video_41/37",
+          "timestamp": 17.76,
+          "score": 0.12024970352649689
+        },
+        {
+          "rank": 5,
+          "video_id": "video_42",
+          "frame_id": "video_42/121",
+          "timestamp": 58.08,
+          "score": 0.11932945251464844
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-058",
+      "query": "Người phụ nữ áo hồng nhạt ăn tại bàn trước khi có người tới",
+      "category": "action",
+      "source_video_id": "video_40",
+      "source_time_windows": [
+        [
+          15,
+          20
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_42",
+          "frame_id": "video_42/84",
+          "timestamp": 40.32,
+          "score": 0.14127686619758606
+        },
+        {
+          "rank": 2,
+          "video_id": "video_40",
+          "frame_id": "video_40/34",
+          "timestamp": 16.32,
+          "score": 0.13316580653190613
+        },
+        {
+          "rank": 3,
+          "video_id": "video_41",
+          "frame_id": "video_41/27",
+          "timestamp": 12.96,
+          "score": 0.1329425573348999
+        },
+        {
+          "rank": 4,
+          "video_id": "video_41",
+          "frame_id": "video_41/77",
+          "timestamp": 36.96,
+          "score": 0.13265058398246765
+        },
+        {
+          "rank": 5,
+          "video_id": "video_40",
+          "frame_id": "video_40/98",
+          "timestamp": 47.04,
+          "score": 0.13264214992523193
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-059",
+      "query": "Một người bước đến cạnh người phụ nữ áo hồng nhạt",
+      "category": "context",
+      "source_video_id": "video_40",
+      "source_time_windows": [
+        [
+          37,
+          41
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_17",
+          "frame_id": "video_17/41",
+          "timestamp": 19.68,
+          "score": 0.06266835331916809
+        },
+        {
+          "rank": 2,
+          "video_id": "video_19",
+          "frame_id": "video_19/54",
+          "timestamp": 25.92,
+          "score": 0.06202182546257973
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/8",
+          "timestamp": 6.4,
+          "score": 0.06130296736955643
+        },
+        {
+          "rank": 4,
+          "video_id": "video_38",
+          "frame_id": "video_38/122",
+          "timestamp": 58.56,
+          "score": 0.06125708669424057
+        },
+        {
+          "rank": 5,
+          "video_id": "video_35",
+          "frame_id": "video_35/13",
+          "timestamp": 6.24,
+          "score": 0.061192743480205536
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-060",
+      "query": "Người đứng cạnh thu dọn đĩa trên bàn của người áo hồng",
+      "category": "action",
+      "source_video_id": "video_40",
+      "source_time_windows": [
+        [
+          41,
+          48
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_24",
+          "frame_id": "video_24/33",
+          "timestamp": 26.4,
+          "score": 0.13216851651668549
+        },
+        {
+          "rank": 2,
+          "video_id": "video_24",
+          "frame_id": "video_24/447",
+          "timestamp": 357.6,
+          "score": 0.12828798592090607
+        },
+        {
+          "rank": 3,
+          "video_id": "video_24",
+          "frame_id": "video_24/426",
+          "timestamp": 340.8,
+          "score": 0.12086054682731628
+        },
+        {
+          "rank": 4,
+          "video_id": "video_21",
+          "frame_id": "video_21/495",
+          "timestamp": 316.8,
+          "score": 0.12066519260406494
+        },
+        {
+          "rank": 5,
+          "video_id": "video_23",
+          "frame_id": "video_23/457",
+          "timestamp": 347.32,
+          "score": 0.12004264444112778
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-065",
+      "query": "Người phụ nữ áo đỏ viết lên tờ giấy ở bàn làm việc",
+      "category": "action",
+      "source_video_id": "video_48",
+      "source_time_windows": [
+        [
+          8,
+          17
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "score": 0.1483493149280548
+        },
+        {
+          "rank": 2,
+          "video_id": "video_49",
+          "frame_id": "video_49/32",
+          "timestamp": 15.36,
+          "score": 0.14431490004062653
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/33",
+          "timestamp": 15.84,
+          "score": 0.14093080163002014
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/56",
+          "timestamp": 26.88,
+          "score": 0.14073003828525543
+        },
+        {
+          "rank": 5,
+          "video_id": "video_49",
+          "frame_id": "video_49/18",
+          "timestamp": 8.64,
+          "score": 0.13928116858005524
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-066",
+      "query": "Người phụ nữ áo đỏ gõ bàn phím máy tính xách tay",
+      "category": "action",
+      "source_video_id": "video_48",
+      "source_time_windows": [
+        [
+          22,
+          26
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "score": 0.12569384276866913
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/5",
+          "timestamp": 2.4,
+          "score": 0.1230805516242981
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/3",
+          "timestamp": 1.44,
+          "score": 0.1212305948138237
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/26",
+          "timestamp": 12.48,
+          "score": 0.12088512629270554
+        },
+        {
+          "rank": 5,
+          "video_id": "video_49",
+          "frame_id": "video_49/35",
+          "timestamp": 16.8,
+          "score": 0.12084046751260757
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-067",
+      "query": "Người phụ nữ áo đỏ cầm cốc xanh lá tại bàn làm việc",
+      "category": "color",
+      "source_video_id": "video_48",
+      "source_time_windows": [
+        [
+          19,
+          21
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.16581352055072784
+        },
+        {
+          "rank": 2,
+          "video_id": "video_31",
+          "frame_id": "video_31/117",
+          "timestamp": 56.16,
+          "score": 0.14750675857067108
+        },
+        {
+          "rank": 3,
+          "video_id": "video_49",
+          "frame_id": "video_49/46",
+          "timestamp": 22.08,
+          "score": 0.14384588599205017
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/40",
+          "timestamp": 19.2,
+          "score": 0.14377199113368988
+        },
+        {
+          "rank": 5,
+          "video_id": "video_52",
+          "frame_id": "video_52/4",
+          "timestamp": 1.92,
+          "score": 0.14213353395462036
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-068",
+      "query": "Người phụ nữ áo đỏ mở tập giấy đặt cạnh laptop",
+      "category": "action",
+      "source_video_id": "video_48",
+      "source_time_windows": [
+        [
+          0,
+          4
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "score": 0.16206446290016174
+        },
+        {
+          "rank": 2,
+          "video_id": "video_51",
+          "frame_id": "video_51/11",
+          "timestamp": 5.28,
+          "score": 0.1522461473941803
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/49",
+          "timestamp": 23.52,
+          "score": 0.1508757472038269
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/33",
+          "timestamp": 15.84,
+          "score": 0.15061688423156738
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/3",
+          "timestamp": 1.44,
+          "score": 0.14926864206790924
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-069",
+      "query": "Người phụ nữ áo đỏ uống từ cốc màu xanh lá tại bàn làm việc",
+      "category": "action",
+      "source_video_id": "video_50",
+      "source_time_windows": [
+        [
+          17,
+          20
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.17328566312789917
+        },
+        {
+          "rank": 2,
+          "video_id": "video_31",
+          "frame_id": "video_31/117",
+          "timestamp": 56.16,
+          "score": 0.15254199504852295
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/45",
+          "timestamp": 21.6,
+          "score": 0.15052708983421326
+        },
+        {
+          "rank": 4,
+          "video_id": "video_48",
+          "frame_id": "video_48/41",
+          "timestamp": 19.68,
+          "score": 0.148484468460083
+        },
+        {
+          "rank": 5,
+          "video_id": "video_49",
+          "frame_id": "video_49/46",
+          "timestamp": 22.08,
+          "score": 0.1480034738779068
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-070",
+      "query": "Người phụ nữ áo đỏ viết chữ lên tờ giấy cạnh laptop",
+      "category": "action",
+      "source_video_id": "video_50",
+      "source_time_windows": [
+        [
+          7,
+          14
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "score": 0.16340459883213043
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/31",
+          "timestamp": 14.88,
+          "score": 0.15100540220737457
+        },
+        {
+          "rank": 3,
+          "video_id": "video_51",
+          "frame_id": "video_51/11",
+          "timestamp": 5.28,
+          "score": 0.14903518557548523
+        },
+        {
+          "rank": 4,
+          "video_id": "video_51",
+          "frame_id": "video_51/24",
+          "timestamp": 11.52,
+          "score": 0.14818811416625977
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/3",
+          "timestamp": 1.44,
+          "score": 0.147001251578331
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-071",
+      "query": "Người phụ nữ áo đỏ dùng máy tính xách tay sau khi uống",
+      "category": "action",
+      "source_video_id": "video_50",
+      "source_time_windows": [
+        [
+          23,
+          25
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "score": 0.13034258782863617
+        },
+        {
+          "rank": 2,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "score": 0.12897104024887085
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/46",
+          "timestamp": 22.08,
+          "score": 0.12825605273246765
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/4",
+          "timestamp": 1.92,
+          "score": 0.12615428864955902
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/26",
+          "timestamp": 12.48,
+          "score": 0.12530162930488586
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-072",
+      "query": "Máy tính xách tay mở trên bàn cạnh người phụ nữ áo đỏ",
+      "category": "object",
+      "source_video_id": "video_50",
+      "source_time_windows": [
+        [
+          3,
+          16
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/4",
+          "timestamp": 1.92,
+          "score": 0.11586020141839981
+        },
+        {
+          "rank": 2,
+          "video_id": "video_51",
+          "frame_id": "video_51/50",
+          "timestamp": 24.0,
+          "score": 0.11490070074796677
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "score": 0.1100720688700676
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "score": 0.10895474255084991
+        },
+        {
+          "rank": 5,
+          "video_id": "video_50",
+          "frame_id": "video_50/5",
+          "timestamp": 2.4,
+          "score": 0.10868045687675476
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-073",
+      "query": "Người phụ nữ áo khoác xám gõ bàn phím máy tính xách tay",
+      "category": "action",
+      "source_video_id": "video_53",
+      "source_time_windows": [
+        [
+          6,
+          8
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_50",
+          "frame_id": "video_50/25",
+          "timestamp": 12.0,
+          "score": 0.10979817807674408
+        },
+        {
+          "rank": 2,
+          "video_id": "video_54",
+          "frame_id": "video_54/58",
+          "timestamp": 27.84,
+          "score": 0.10427641868591309
+        },
+        {
+          "rank": 3,
+          "video_id": "video_57",
+          "frame_id": "video_57/34",
+          "timestamp": 16.32,
+          "score": 0.10341669619083405
+        },
+        {
+          "rank": 4,
+          "video_id": "video_56",
+          "frame_id": "video_56/61",
+          "timestamp": 29.28,
+          "score": 0.10264304280281067
+        },
+        {
+          "rank": 5,
+          "video_id": "video_56",
+          "frame_id": "video_56/8",
+          "timestamp": 3.84,
+          "score": 0.10141488909721375
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-074",
+      "query": "Người phụ nữ áo khoác xám cúi viết trên giấy ở bàn làm việc",
+      "category": "action",
+      "source_video_id": "video_53",
+      "source_time_windows": [
+        [
+          11,
+          20
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_54",
+          "frame_id": "video_54/72",
+          "timestamp": 34.56,
+          "score": 0.14725692570209503
+        },
+        {
+          "rank": 2,
+          "video_id": "video_54",
+          "frame_id": "video_54/36",
+          "timestamp": 17.28,
+          "score": 0.14319081604480743
+        },
+        {
+          "rank": 3,
+          "video_id": "video_53",
+          "frame_id": "video_53/39",
+          "timestamp": 18.72,
+          "score": 0.13892762362957
+        },
+        {
+          "rank": 4,
+          "video_id": "video_56",
+          "frame_id": "video_56/2",
+          "timestamp": 0.96,
+          "score": 0.138583242893219
+        },
+        {
+          "rank": 5,
+          "video_id": "video_54",
+          "frame_id": "video_54/52",
+          "timestamp": 24.96,
+          "score": 0.13591764867305756
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-075",
+      "query": "Chai đồ uống nắp cam đứng bên phải tờ giấy",
+      "category": "color",
+      "source_video_id": "video_53",
+      "source_time_windows": [
+        [
+          0,
+          20
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_25",
+          "frame_id": "video_25/344",
+          "timestamp": 275.2,
+          "score": 0.09231691062450409
+        },
+        {
+          "rank": 2,
+          "video_id": "video_8",
+          "frame_id": "video_8/24",
+          "timestamp": 11.52,
+          "score": 0.08876866102218628
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/284",
+          "timestamp": 227.2,
+          "score": 0.08853936195373535
+        },
+        {
+          "rank": 4,
+          "video_id": "video_25",
+          "frame_id": "video_25/446",
+          "timestamp": 356.8,
+          "score": 0.08593395352363586
+        },
+        {
+          "rank": 5,
+          "video_id": "video_21",
+          "frame_id": "video_21/151",
+          "timestamp": 96.64,
+          "score": 0.08402077853679657
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-076",
+      "query": "Người phụ nữ áo khoác xám đưa tay chạm vào tai khi làm việc",
+      "category": "short_event",
+      "source_video_id": "video_53",
+      "source_time_windows": [
+        [
+          22,
+          25
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_57",
+          "frame_id": "video_57/90",
+          "timestamp": 43.2,
+          "score": 0.11887361109256744
+        },
+        {
+          "rank": 2,
+          "video_id": "video_57",
+          "frame_id": "video_57/44",
+          "timestamp": 21.12,
+          "score": 0.11740384995937347
+        },
+        {
+          "rank": 3,
+          "video_id": "video_56",
+          "frame_id": "video_56/8",
+          "timestamp": 3.84,
+          "score": 0.11731356382369995
+        },
+        {
+          "rank": 4,
+          "video_id": "video_57",
+          "frame_id": "video_57/66",
+          "timestamp": 31.68,
+          "score": 0.11706383526325226
+        },
+        {
+          "rank": 5,
+          "video_id": "video_47",
+          "frame_id": "video_47/425",
+          "timestamp": 221.0,
+          "score": 0.11646002531051636
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-077",
+      "query": "Người phụ nữ áo be gõ bàn phím máy tính xách tay",
+      "category": "action",
+      "source_video_id": "video_58",
+      "source_time_windows": [
+        [
+          1,
+          4
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_50",
+          "frame_id": "video_50/25",
+          "timestamp": 12.0,
+          "score": 0.11135891079902649
+        },
+        {
+          "rank": 2,
+          "video_id": "video_49",
+          "frame_id": "video_49/8",
+          "timestamp": 3.84,
+          "score": 0.10547534376382828
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/38",
+          "timestamp": 18.24,
+          "score": 0.10427665710449219
+        },
+        {
+          "rank": 4,
+          "video_id": "video_52",
+          "frame_id": "video_52/9",
+          "timestamp": 4.32,
+          "score": 0.10427513718605042
+        },
+        {
+          "rank": 5,
+          "video_id": "video_48",
+          "frame_id": "video_48/52",
+          "timestamp": 24.96,
+          "score": 0.10354271531105042
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-078",
+      "query": "Người phụ nữ áo be viết lên giấy bằng bút màu đỏ",
+      "category": "action",
+      "source_video_id": "video_58",
+      "source_time_windows": [
+        [
+          6,
+          10
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_48",
+          "frame_id": "video_48/4",
+          "timestamp": 1.92,
+          "score": 0.10660810768604279
+        },
+        {
+          "rank": 2,
+          "video_id": "video_48",
+          "frame_id": "video_48/23",
+          "timestamp": 11.04,
+          "score": 0.10583656281232834
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/16",
+          "timestamp": 7.68,
+          "score": 0.1046871542930603
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/56",
+          "timestamp": 26.88,
+          "score": 0.10465782880783081
+        },
+        {
+          "rank": 5,
+          "video_id": "video_51",
+          "frame_id": "video_51/31",
+          "timestamp": 14.88,
+          "score": 0.10224302113056183
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-079",
+      "query": "Người phụ nữ áo be uống từ chai nắp cam ở bàn làm việc",
+      "category": "action",
+      "source_video_id": "video_58",
+      "source_time_windows": [
+        [
+          19.5,
+          21.5
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_10",
+          "frame_id": "video_10/96",
+          "timestamp": 46.08,
+          "score": 0.15959113836288452
+        },
+        {
+          "rank": 2,
+          "video_id": "video_10",
+          "frame_id": "video_10/153",
+          "timestamp": 73.44,
+          "score": 0.15599988400936127
+        },
+        {
+          "rank": 3,
+          "video_id": "video_52",
+          "frame_id": "video_52/47",
+          "timestamp": 22.56,
+          "score": 0.15466733276844025
+        },
+        {
+          "rank": 4,
+          "video_id": "video_10",
+          "frame_id": "video_10/34",
+          "timestamp": 16.32,
+          "score": 0.15444517135620117
+        },
+        {
+          "rank": 5,
+          "video_id": "video_48",
+          "frame_id": "video_48/41",
+          "timestamp": 19.68,
+          "score": 0.15318480134010315
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-080",
+      "query": "Chai đồ uống nắp cam nằm bên phải tờ giấy của người áo be",
+      "category": "object",
+      "source_video_id": "video_58",
+      "source_time_windows": [
+        [
+          10,
+          18
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_25",
+          "frame_id": "video_25/344",
+          "timestamp": 275.2,
+          "score": 0.10142485797405243
+        },
+        {
+          "rank": 2,
+          "video_id": "video_8",
+          "frame_id": "video_8/25",
+          "timestamp": 12.0,
+          "score": 0.10069870203733444
+        },
+        {
+          "rank": 3,
+          "video_id": "video_25",
+          "frame_id": "video_25/284",
+          "timestamp": 227.2,
+          "score": 0.09352527558803558
+        },
+        {
+          "rank": 4,
+          "video_id": "video_6",
+          "frame_id": "video_6/30",
+          "timestamp": 14.4,
+          "score": 0.09200727194547653
+        },
+        {
+          "rank": 5,
+          "video_id": "video_25",
+          "frame_id": "video_25/353",
+          "timestamp": 282.4,
+          "score": 0.0906808078289032
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-081",
+      "query": "Người phụ nữ áo be viết lên tờ giấy cạnh máy tính xách tay",
+      "category": "action",
+      "source_video_id": "video_62",
+      "source_time_windows": [
+        [
+          4,
+          8
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "score": 0.14092181622982025
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/49",
+          "timestamp": 23.52,
+          "score": 0.1329003870487213
+        },
+        {
+          "rank": 3,
+          "video_id": "video_50",
+          "frame_id": "video_50/15",
+          "timestamp": 7.2,
+          "score": 0.13228276371955872
+        },
+        {
+          "rank": 4,
+          "video_id": "video_51",
+          "frame_id": "video_51/21",
+          "timestamp": 10.08,
+          "score": 0.13184002041816711
+        },
+        {
+          "rank": 5,
+          "video_id": "video_52",
+          "frame_id": "video_52/61",
+          "timestamp": 29.28,
+          "score": 0.13149602711200714
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-082",
+      "query": "Người phụ nữ áo be gõ bàn phím rồi nhìn về tờ giấy",
+      "category": "action",
+      "source_video_id": "video_62",
+      "source_time_windows": [
+        [
+          8,
+          10
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_52",
+          "frame_id": "video_52/18",
+          "timestamp": 8.64,
+          "score": 0.12119352072477341
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/49",
+          "timestamp": 23.52,
+          "score": 0.12059701979160309
+        },
+        {
+          "rank": 3,
+          "video_id": "video_51",
+          "frame_id": "video_51/20",
+          "timestamp": 9.6,
+          "score": 0.11806058883666992
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/11",
+          "timestamp": 5.28,
+          "score": 0.11770224571228027
+        },
+        {
+          "rank": 5,
+          "video_id": "video_60",
+          "frame_id": "video_60/16",
+          "timestamp": 7.68,
+          "score": 0.11734160780906677
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-083",
+      "query": "Người phụ nữ áo be cầm bút màu đỏ trên tờ giấy",
+      "category": "color",
+      "source_video_id": "video_62",
+      "source_time_windows": [
+        [
+          11,
+          14.4
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_48",
+          "frame_id": "video_48/4",
+          "timestamp": 1.92,
+          "score": 0.11644922196865082
+        },
+        {
+          "rank": 2,
+          "video_id": "video_52",
+          "frame_id": "video_52/16",
+          "timestamp": 7.68,
+          "score": 0.11578059941530228
+        },
+        {
+          "rank": 3,
+          "video_id": "video_54",
+          "frame_id": "video_54/72",
+          "timestamp": 34.56,
+          "score": 0.1157146543264389
+        },
+        {
+          "rank": 4,
+          "video_id": "video_50",
+          "frame_id": "video_50/56",
+          "timestamp": 26.88,
+          "score": 0.11124642193317413
+        },
+        {
+          "rank": 5,
+          "video_id": "video_51",
+          "frame_id": "video_51/2",
+          "timestamp": 0.96,
+          "score": 0.11116036772727966
+        }
+      ]
+    },
+    {
+      "query_id": "v2-vi-084",
+      "query": "Máy tính xách tay mở bên trái người phụ nữ áo be",
+      "category": "object",
+      "source_video_id": "video_62",
+      "source_time_windows": [
+        [
+          0,
+          13
+        ]
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "video_id": "video_23",
+          "frame_id": "video_23/69",
+          "timestamp": 52.44,
+          "score": 0.08864323794841766
+        },
+        {
+          "rank": 2,
+          "video_id": "video_36",
+          "frame_id": "video_36/146",
+          "timestamp": 70.08,
+          "score": 0.08335599303245544
+        },
+        {
+          "rank": 3,
+          "video_id": "video_35",
+          "frame_id": "video_35/13",
+          "timestamp": 6.24,
+          "score": 0.08334192633628845
+        },
+        {
+          "rank": 4,
+          "video_id": "video_22",
+          "frame_id": "video_22/5",
+          "timestamp": 4.0,
+          "score": 0.08289613574743271
+        },
+        {
+          "rank": 5,
+          "video_id": "video_24",
+          "frame_id": "video_24/455",
+          "timestamp": 364.0,
+          "score": 0.08152247220277786
+        }
+      ]
+    }
+  ],
+  "measured_at": "2026-11-20T04:16:50+00:00",
+  "input_sha256": {
+    "manifest": "4e872ae58a9df1ead886a8c772e1b3a0dc65de7cc7c7d1fbced4241c851b6fa6",
+    "labels": "1f4232496c7307f0090cd4ae30bdc90480937b3aad9c38320b44fe89ad2c802c"
+  },
+  "config": {
+    "model_id": "google/siglip2-base-patch16-256",
+    "model_revision": "6328738b83b563ff8396fdb87f8ce130a7b60d74",
+    "sample_every_s": 0.5,
+    "max_frames": 512,
+    "keyframe_min_gap_s": 5.0,
+    "device": "auto"
+  }
+}

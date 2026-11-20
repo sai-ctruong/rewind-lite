@@ -1,0 +1,21 @@
+{
+  "n_queries": 64,
+  "n_manual_judgments": 60,
+  "n_unjudged_hits": 253,
+  "hit@1": {
+    "lower": 0.375,
+    "upper": 0.421875,
+    "resolved": 61
+  },
+  "hit@5": {
+    "lower": 0.40625,
+    "upper": 1.0,
+    "resolved": 26
+  },
+  "status": "PARTIAL_JUDGMENTS",
+  "input_sha256": {
+    "manifest": "4e872ae58a9df1ead886a8c772e1b3a0dc65de7cc7c7d1fbced4241c851b6fa6",
+    "labels": "1f4232496c7307f0090cd4ae30bdc90480937b3aad9c38320b44fe89ad2c802c"
+  },
+  "measured_at": "2026-11-20T04:26:37+00:00"
+}

@@ -80,6 +80,8 @@ Bộ [corpus v2](docs/corpus-v2-evaluation.md) mở rộng nguồn lên 62 video
 
 [Phép đo temporal trên video test mới](docs/corpus-v3-temporal-evaluation.md) thử giới hạn kết quả quanh đỉnh điểm số tối đa 8 giây. R@5/tIoU≥0,5 tăng từ 6/15 lên 7/15, nhưng R@1 giảm từ 1/15 xuống 0/15 và mIoU top 1 giảm. Vì vậy web giữ cấu hình temporal cũ làm mặc định; báo cáo lưu cả hai lượt đo và giới hạn của nhãn nội bộ.
 
+[Phép đo tìm kiếm toàn kho](docs/corpus-global-benchmark.md) chạy 64 truy vấn `dev` trên 62 video, lưu từng kết quả và nhãn review. Sau khi xem khung hình, Hit@1 có cận 24–27/64; Hit@5 mới có cận 26–64/64 vì nhiều kết quả hạng 2–5 chưa được xem. Đây là chẩn đoán nội bộ có nhãn chưa hoàn chỉnh, chưa phải điểm test cuối cùng.
+
 ```powershell
 .venv\Scripts\python.exe -m evaluation.dataset --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root . --every 1
 .venv\Scripts\python.exe -m evaluation.lite_benchmark --check
