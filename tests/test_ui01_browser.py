@@ -23,13 +23,13 @@ def test_ui01_evidence_identity_and_layout():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page(viewport={"width": 1440, "height": 1000})
         posts = []
-        fid = "v/1"
-        base = dict(frame_id=fid, timestamp=10., bbox_norm_xyxy=[.1,.2,.5,.8], class_name="person", confidence=.9)
-        hit = dict(rank=1, score=1.1, score_type="temporal_object_reranked", video_id="v",
-                   primary_frame_id=fid, peak_timestamp=10., t_start=8., t_end=12.,
-                   image_url="/frame.jpg", detections=[base, {**base,"frame_id":"v/other"}, {**base,"timestamp":11.}])
-        _, jpeg = cv2.imencode('.jpg',np.full((100,200,3),128,dtype=np.uint8))
         vid = "a"*32
+        fid = f"{vid}/1"
+        base = dict(frame_id=fid, timestamp=10., bbox_norm_xyxy=[.1,.2,.5,.8], class_name="person", confidence=.9)
+        hit = dict(rank=1, score=1.1, score_type="temporal_object_reranked", video_id=vid,
+                   primary_frame_id=fid, peak_timestamp=10., t_start=8., t_end=12.,
+                   image_url="/frame.jpg", detections=[base, {**base,"frame_id":f"{vid}/other"}, {**base,"timestamp":11.}])
+        _, jpeg = cv2.imencode('.jpg',np.full((100,200,3),128,dtype=np.uint8))
         def route(r):
             path = r.request.url.split('http://ui.test')[-1]
             if path.startswith('/api/'):
