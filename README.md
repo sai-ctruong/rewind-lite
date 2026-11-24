@@ -125,7 +125,7 @@ flowchart TD
 # Chạy runner P07 temporal ablation (E0/E1/E2)
 .venv\Scripts\python.exe -m evaluation.temporal_benchmark --manifest data\annotations\manifest.json --labels data\annotations\labels.json --root .
 
-# Chạy toàn bộ test suite Phase 1 + Phase 2 (402 test cases)
+# Chạy toàn bộ test suite Phase 1 + Phase 2 (453 test cases)
 .venv\Scripts\python.exe -m pytest -v
 ```
 

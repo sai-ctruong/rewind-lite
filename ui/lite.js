@@ -7,7 +7,8 @@
     list: $("video-list"), listStatus: $("video-list-status"), videoCount: $("video-count"),
     upload: $("video-upload"), uploadStatus: $("upload-status"),
     player: $("video-player"), videoEmpty: $("video-empty"), videoTitle: $("video-title"),
-    indexButton: $("index-button"), indexPanel: $("index-panel"), indexStatus: $("index-status"),
+    indexButton: $("index-button"), indexAllButton: $("index-all-button"),
+    indexPanel: $("index-panel"), indexStatus: $("index-status"),
     searchForm: $("search-form"), query: $("search-query"), searchButton: $("search-button"),
     searchHelp: $("search-help"), globalCoverage: $("global-coverage"),
     results: $("results"), resultsStatus: $("results-status"),
@@ -91,6 +92,7 @@
 
   function controls() {
     el.indexButton.disabled = !state.selected || state.busy || state.searching;
+    el.indexAllButton.disabled = state.videos.length === 0 || state.busy || state.searching;
     const globalMode = searchMode() === "all";
     const canSearch = globalMode ? state.indexedVideos.length > 0 : state.ready;
     el.query.disabled = !canSearch || state.busy;
@@ -260,9 +262,13 @@
   async function pollProgress() {
     try {
       const data = await api("/progress");
-      if (data.status === "indexing" && data.video_id === state.selected) {
-        const elapsed = Number.isFinite(data.elapsed_s) ? `${data.elapsed_s.toFixed(1)} giây` : "đang xử lý";
-        setIndexStatus("indexing", `Đã xử lý ${data.count} khung hình · ${elapsed}.`);
+      if (data.status === "indexing") {
+        if (Number.isFinite(data.batch_total) && data.batch_total > 0) {
+          setIndexStatus("indexing", `Đang lập chỉ mục ${data.batch_current}/${data.batch_total} (${data.video_id}.mp4) · ${data.count} khung hình…`);
+        } else if (data.video_id === state.selected) {
+          const elapsed = Number.isFinite(data.elapsed_s) ? `${data.elapsed_s.toFixed(1)} giây` : "đang xử lý";
+          setIndexStatus("indexing", `Đã xử lý ${data.count} khung hình · ${elapsed}.`);
+        }
       }
     } catch { /* The indexing request reports its final error. */ }
   }
@@ -291,6 +297,44 @@
     } catch (error) {
       state.needsRebuild = error.code === "index_expired" || error.code === "index_incomplete";
       const detail = message(error, "Không thể lập chỉ mục video. Hãy thử lại.");
+      setIndexStatus("error", detail);
+      el.searchHelp.textContent = detail;
+    } finally {
+      window.clearInterval(timer);
+      state.busy = false;
+      controls();
+    }
+  }
+
+  async function indexAllVideos() {
+    if (state.videos.length === 0 || state.busy || state.searching) return;
+    state.busy = true;
+    controls();
+    el.searchHelp.textContent = "Đang lập chỉ mục toàn bộ thư viện video…";
+    setIndexStatus("indexing", "Đang chuẩn bị lập chỉ mục tất cả video…");
+    const timer = window.setInterval(pollProgress, 700);
+    try {
+      const result = await post("/index_all", { rebuild: false });
+      const readyIds = [...(result.indexed || []), ...(result.cached || [])];
+      for (const id of readyIds) {
+        if (!state.indexedVideos.includes(id)) state.indexedVideos.push(id);
+      }
+      if (state.selected && readyIds.includes(state.selected)) {
+        state.ready = true;
+        state.needsRebuild = false;
+      }
+      updateCoverage();
+      const failedCount = (result.failed || []).length;
+      if (failedCount > 0 && readyIds.length === 0) {
+        setIndexStatus("error", `Lập chỉ mục thất bại (${failedCount} video lỗi).`);
+      } else if (failedCount > 0) {
+        setIndexStatus("ready", `Đã lập chỉ mục ${result.indexed.length} video, dùng lại ${result.cached.length}, lỗi ${failedCount}.`);
+      } else {
+        setIndexStatus("ready", `Đã lập chỉ mục xong ${result.total_videos} video (mới: ${result.indexed.length}, dùng lại: ${result.cached.length}).`);
+      }
+      el.searchHelp.textContent = "Nhập mô tả rồi nhấn Enter hoặc Tìm kiếm.";
+    } catch (error) {
+      const detail = message(error, "Không thể lập chỉ mục toàn bộ video. Hãy thử lại.");
       setIndexStatus("error", detail);
       el.searchHelp.textContent = detail;
     } finally {
@@ -455,6 +499,7 @@
   el.sidebar.inert = phone.matches;
   el.upload.addEventListener("change", () => uploadVideo(el.upload.files[0]));
   el.indexButton.addEventListener("click", () => indexVideo(state.needsRebuild));
+  el.indexAllButton.addEventListener("click", indexAllVideos);
   el.searchForm.addEventListener("submit", search);
   el.player.addEventListener("loadedmetadata", renderTimeline);
   for (const control of document.querySelectorAll('input[name="search-mode"], #toggle-yolo')) {

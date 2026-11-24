@@ -20,12 +20,13 @@ class CorpusEncoder:
         return np.array([1, 0], dtype=np.float32)
 
 
-def _video(path):
+def _video(path, num_frames=4, vary=False):
     path.parent.mkdir(parents=True, exist_ok=True)
     writer = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*"mp4v"), 2, (32, 32))
     assert writer.isOpened()
-    for _ in range(4):
-        writer.write(np.full((32, 32, 3), 120, dtype=np.uint8))
+    for i in range(num_frames):
+        val = 50 + i * 30 if vary else 120
+        writer.write(np.full((32, 32, 3), val, dtype=np.uint8))
     writer.release()
 
 
@@ -94,3 +95,122 @@ def test_global_search_busy_is_reported(tmp_path):
         assert response.get_json()["error"]["code"] == "index_busy"
     finally:
         service.index_lock.release()
+
+
+def test_global_search_diversifies_and_backfills_across_videos(tmp_path):
+    videos, indexes = tmp_path / "videos", tmp_path / "indexes"
+    _video(videos / "alpha.mp4", num_frames=6, vary=True)
+    _video(videos / "beta.mp4", num_frames=6, vary=True)
+
+    scores = {
+        ("alpha", 0.0): 0.99,
+        ("alpha", 0.5): 0.98,
+        ("alpha", 1.0): 0.97,
+        ("alpha", 2.5): 0.80,
+        ("beta", 0.0): 0.95,
+        ("beta", 0.5): 0.94,
+        ("beta", 1.0): 0.10,
+        ("beta", 2.5): 0.70,
+    }
+
+    class ScoredEncoder:
+        def embed(self, raw):
+            s = scores.get((raw.video_id, round(raw.timestamp, 1)), 0.05)
+            return np.array([s, float(np.sqrt(max(0.0, 1.0 - s * s)))], dtype=np.float32)
+
+        def encode_text(self, query):
+            return np.array([1.0, 0.0], dtype=np.float32)
+
+    app = create_lite_app(video_dir=videos, index_root=indexes,
+                          encoder_factory=lambda *_: ScoredEncoder(),
+                          sample_every_s=0.5)
+    service = app.extensions["lite_service"]
+    service.keyframe_min_gap_s = 1.4
+    client = app.test_client()
+    for name in ("alpha", "beta"):
+        assert client.post("/api/lite/index", json={"video_id": name}).status_code == 200
+
+    res4 = client.post("/api/lite/search_all", json={"query": "test", "top_k": 4}).get_json()
+    assert [(h["video_id"], round(h["timestamp"], 1)) for h in res4["results"]] == [
+        ("alpha", 0.0), ("beta", 0.0), ("alpha", 2.5), ("beta", 2.5)
+    ]
+    assert [h["rank"] for h in res4["results"]] == [1, 2, 3, 4]
+
+    res5 = client.post("/api/lite/search_all", json={"query": "test", "top_k": 5}).get_json()
+    assert [(h["video_id"], round(h["timestamp"], 1)) for h in res5["results"]] == [
+        ("alpha", 0.0), ("beta", 0.0), ("alpha", 2.5), ("beta", 2.5), ("alpha", 0.5)
+    ]
+    assert [h["rank"] for h in res5["results"]] == [1, 2, 3, 4, 5]
+
+
+def test_index_all_builds_missing_reuses_cache_rebuilds_expired_and_enables_search(tmp_path):
+    videos, indexes = tmp_path / "videos", tmp_path / "indexes"
+    app = create_lite_app(video_dir=videos, index_root=indexes,
+                          encoder_factory=lambda *_: CorpusEncoder())
+    client = app.test_client()
+
+    empty_resp = client.post("/api/lite/index_all", json={})
+    assert empty_resp.status_code == 200
+    assert empty_resp.get_json() == {
+        "total_videos": 0, "indexed": [], "cached": [], "failed": []
+    }
+
+    for name in ("alpha", "beta", "gamma"):
+        _video(videos / f"{name}.mp4")
+
+    # Pre-index alpha (will be cached) and gamma (will be expired by rewriting video).
+    assert client.post("/api/lite/index", json={"video_id": "alpha"}).status_code == 200
+    assert client.post("/api/lite/index", json={"video_id": "gamma"}).status_code == 200
+    _video(videos / "gamma.mp4", num_frames=5, vary=True)
+
+    bad_rebuild = client.post("/api/lite/index_all", json={"rebuild": "yes"})
+    assert bad_rebuild.status_code == 400
+    assert bad_rebuild.get_json()["error"]["code"] == "invalid_rebuild"
+
+    service = app.extensions["lite_service"]
+    service.index_lock.acquire()
+    try:
+        busy = client.post("/api/lite/index_all", json={})
+        assert busy.status_code == 409
+        assert busy.get_json()["error"]["code"] == "index_busy"
+    finally:
+        service.index_lock.release()
+
+    resp = client.post("/api/lite/index_all", json={"rebuild": False})
+    assert resp.status_code == 200
+    data = resp.get_json()
+    assert data["total_videos"] == 3
+    assert data["cached"] == ["alpha"]
+    assert data["indexed"] == ["beta", "gamma"]
+    assert data["failed"] == []
+
+    progress = client.get("/api/lite/progress").get_json()
+    assert progress["status"] == "ready"
+    assert progress["batch_current"] is None
+    assert progress["batch_total"] is None
+
+    search = client.post("/api/lite/search_all", json={"query": "người đi bộ", "top_k": 3})
+    assert search.status_code == 200
+    search_data = search.get_json()
+    assert search_data["searched_videos"] == 3
+    assert search_data["skipped"] == []
+
+
+def test_index_all_records_per_video_failure_and_continues(tmp_path):
+    videos, indexes = tmp_path / "videos", tmp_path / "indexes"
+    _video(videos / "alpha.mp4")
+    (videos / "broken.mp4").parent.mkdir(parents=True, exist_ok=True)
+    (videos / "broken.mp4").write_bytes(b"not a valid mp4")
+    _video(videos / "beta.mp4")
+
+    app = create_lite_app(video_dir=videos, index_root=indexes,
+                          encoder_factory=lambda *_: CorpusEncoder())
+    resp = app.test_client().post("/api/lite/index_all", json={})
+    assert resp.status_code == 200
+    data = resp.get_json()
+    assert data["total_videos"] == 3
+    assert data["indexed"] == ["alpha", "beta"]
+    assert data["cached"] == []
+    assert len(data["failed"]) == 1
+    assert data["failed"][0]["video_id"] == "broken"
+    assert data["failed"][0]["code"] == "index_failed"

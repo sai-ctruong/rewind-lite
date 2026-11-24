@@ -209,11 +209,12 @@ class LiteService:
                 entry.raws[rid].video_id != video_id for rid in entry.index.ids):
             raise ApiError(409, "index_expired", "Saved index does not match video")
         sig = self._signature(path)
-        if self.source_signatures.get(video_id) != sig:
-            self.frame_lumas.pop(video_id, None)
-        self.entries[video_id] = entry
-        self.retrievers[video_id] = retriever
-        self.source_signatures[video_id] = sig
+        with self.state_lock:
+            if self.source_signatures.get(video_id) != sig:
+                self.frame_lumas.pop(video_id, None)
+            self.entries[video_id] = entry
+            self.retrievers[video_id] = retriever
+            self.source_signatures[video_id] = sig
 
     def _get_frame_lumas(self, video_id: str, path: Path, entry) -> dict[str, float]:
         cached = self.frame_lumas.get(video_id)
@@ -363,21 +364,28 @@ class LiteService:
             raise ApiError(409, "index_expired", "Video changed; rebuild its index")
         return entry
 
-    def index(self, video_id: str, *, rebuild: bool = False) -> dict:
-        path = self._video_path(video_id)
-        if not self.index_lock.acquire(blocking=False):
-            raise ApiError(409, "index_busy", "Indexing or search is already running")
-        self._set_progress(status="indexing", video_id=video_id,
-                           count=0, elapsed_s=0.0, error_code=None)
+    def _index_video_locked(self, video_id: str, path: Path, *,
+                            rebuild: bool = False,
+                            rebuild_if_stale: bool = False) -> dict:
         try:
             if not rebuild:
                 entry = self.entries.get(video_id)
                 if entry is not None:
-                    self._checked_entry(video_id, path)
-                    self._set_progress(status="ready", count=entry.num_indexed)
-                    return {"video_id": video_id, "cached": True,
-                            "frames": entry.num_indexed, "sampled": entry.num_sampled}
-                entry = self._load_saved(video_id, path)
+                    try:
+                        self._checked_entry(video_id, path)
+                    except ApiError as exc:
+                        if not (rebuild_if_stale and exc.code in {
+                                "index_missing", "index_incomplete", "index_expired"}):
+                            raise
+                        entry = None
+                if entry is None:
+                    try:
+                        entry = self._load_saved(video_id, path)
+                    except ApiError as exc:
+                        if not (rebuild_if_stale and exc.code in {
+                                "index_missing", "index_incomplete", "index_expired"}):
+                            raise
+                        entry = None
                 if entry is not None:
                     self._set_progress(status="ready", count=entry.num_indexed)
                     return {"video_id": video_id, "cached": True,
@@ -437,7 +445,52 @@ class LiteService:
             self._set_progress(status="error", error_code=code)
             raise ApiError(503 if oom else 500, code,
                            "Model ran out of memory" if oom else "Indexing failed") from exc
+
+    def index(self, video_id: str, *, rebuild: bool = False) -> dict:
+        path = self._video_path(video_id)
+        if not self.index_lock.acquire(blocking=False):
+            raise ApiError(409, "index_busy", "Indexing or search is already running")
+        self._set_progress(status="indexing", video_id=video_id,
+                           count=0, elapsed_s=0.0, error_code=None,
+                           batch_current=None, batch_total=None)
+        try:
+            return self._index_video_locked(
+                video_id, path, rebuild=rebuild, rebuild_if_stale=False)
         finally:
+            self.index_lock.release()
+
+    def index_all(self, *, rebuild: bool = False) -> dict:
+        if not self.index_lock.acquire(blocking=False):
+            raise ApiError(409, "index_busy", "Indexing or search is already running")
+        try:
+            video_ids = self.list_videos()
+            if not video_ids:
+                return {"total_videos": 0, "indexed": [], "cached": [], "failed": []}
+            indexed: list[str] = []
+            cached: list[str] = []
+            failed: list[dict] = []
+            total = len(video_ids)
+            for i, video_id in enumerate(video_ids, 1):
+                self._set_progress(
+                    batch_current=i, batch_total=total,
+                    status="indexing", video_id=video_id,
+                    count=0, elapsed_s=0.0, error_code=None)
+                try:
+                    path = self._video_path(video_id)
+                    result = self._index_video_locked(
+                        video_id, path, rebuild=rebuild, rebuild_if_stale=True)
+                    (cached if result["cached"] else indexed).append(video_id)
+                except ApiError as exc:
+                    if exc.code == "model_oom":
+                        raise
+                    failed.append({"video_id": video_id, "code": exc.code,
+                                   "message": exc.message})
+            final_status = "error" if (failed and not indexed and not cached) else "ready"
+            self._set_progress(status=final_status, batch_current=None, batch_total=None)
+            return {"total_videos": total, "indexed": indexed,
+                    "cached": cached, "failed": failed}
+        finally:
+            self._set_progress(batch_current=None, batch_total=None)
             self.index_lock.release()
 
     def search(self, video_id: str, query: str, top_k: int):
@@ -486,8 +539,10 @@ class LiteService:
             ranked = []
             for video_id, entry in available:
                 candidate_k = entry.num_indexed if self.keyframe_min_gap_s > 0 else top_k
-                ranked.extend(self.retrievers[video_id].search_vectors(
-                    {"clip": vector}, top_k=max(1, candidate_k)))
+                video_hits = self.retrievers[video_id].search_vectors(
+                    {"clip": vector}, top_k=max(1, candidate_k))
+                ranked.extend(diversify_keyframe_results(
+                    video_hits, top_k=top_k, min_gap_s=self.keyframe_min_gap_s))
             ranked.sort(key=lambda hit: (-hit.score, hit.video_id, hit.frame_id))
             hits = diversify_keyframe_results(
                 ranked, top_k=top_k, min_gap_s=self.keyframe_min_gap_s)
@@ -634,18 +689,25 @@ class LiteService:
         from ingestion.schemas import frame_jpeg_bytes
 
         path = self._video_path(video_id)
-        if not self.index_lock.acquire(blocking=False):
-            raise ApiError(409, "index_busy", "Indexing or search is already running")
-        try:
-            entry = self._checked_entry(video_id, path)
-            if frame_id not in entry.index.ids or frame_id not in entry.raws:
-                raise ApiError(404, "frame_not_found", "Frame not found")
-            raw = entry.raws[frame_id]
-            # Never follow image/source paths stored inside an index through HTTP.
-            safe_raw = replace(raw, image_path=None, source_video=str(path))
-        finally:
-            self.index_lock.release()
-        # Decode after releasing the lock so result thumbnails can load together.
+        with self.state_lock:
+            entry = self.entries.get(video_id)
+            cached_sig = self.source_signatures.get(video_id)
+        if entry is not None:
+            if cached_sig is None or self._signature(path) != cached_sig:
+                raise ApiError(409, "index_expired", "Video changed; rebuild its index")
+        else:
+            if not self.index_lock.acquire(blocking=False):
+                raise ApiError(409, "index_busy", "Indexing or search is already running")
+            try:
+                entry = self._checked_entry(video_id, path)
+            finally:
+                self.index_lock.release()
+        if frame_id not in entry.index.ids or frame_id not in entry.raws:
+            raise ApiError(404, "frame_not_found", "Frame not found")
+        raw = entry.raws[frame_id]
+        # Never follow image/source paths stored inside an index through HTTP.
+        safe_raw = replace(raw, image_path=None, source_video=str(path))
+        # Decode after releasing all locks so result thumbnails can load together.
         try:
             data = frame_jpeg_bytes(safe_raw)
         except (OSError, ValueError) as exc:
@@ -739,6 +801,14 @@ def create_lite_app(*, video_dir: str | Path | None = None,
         result["poster_url"] = (url_for("frame", video_id=video_id, frame_id=ids[0])
                                 if ids else None)
         return jsonify(result)
+
+    @app.post("/api/lite/index_all")
+    def index_all():
+        data = body()
+        rebuild = data.get("rebuild", False)
+        if not isinstance(rebuild, bool):
+            raise ApiError(400, "invalid_rebuild", "rebuild must be a boolean")
+        return jsonify(service.index_all(rebuild=rebuild))
 
     @app.get("/api/lite/progress")
     def progress():

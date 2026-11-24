@@ -287,6 +287,34 @@ def test_two_frame_requests_can_decode_concurrently(setup, monkeypatch):
     assert first_response["value"].status_code == 200
 
 
+def test_cached_frame_bypasses_index_lock_and_checks_signature(setup):
+    app, videos, _, _, _ = setup
+    client = app.test_client()
+    client.post("/api/lite/select", json={"video_id": "walk"})
+    assert client.post("/api/lite/index", json={}).status_code == 200
+    hit = client.post("/api/lite/search", json={"query": "đi bộ"}).get_json()["results"][0]
+
+    # Create a second uncached video to verify uncached frame() still reports index_busy.
+    (videos / "uncached.mp4").write_bytes((videos / "walk.mp4").read_bytes())
+
+    service = app.extensions["lite_service"]
+    service.index_lock.acquire()
+    try:
+        cached_resp = client.get(hit["image_url"])
+        assert cached_resp.status_code == 200
+
+        uncached_resp = client.get("/api/lite/frames/uncached/uncached/0")
+        assert uncached_resp.status_code == 409
+        assert uncached_resp.get_json()["error"]["code"] == "index_busy"
+
+        (videos / "walk.mp4").write_bytes(b"modified")
+        expired_resp = client.get(hit["image_url"])
+        assert expired_resp.status_code == 409
+        assert expired_resp.get_json()["error"]["code"] == "index_expired"
+    finally:
+        service.index_lock.release()
+
+
 def test_upload_size_limit_returns_json(tmp_path):
     from ui.lite_app import create_lite_app
 
